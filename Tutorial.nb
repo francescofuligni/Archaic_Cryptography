@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[    110987,       2212]
-NotebookOptionsPosition[    109926,       2189]
-NotebookOutlinePosition[    110317,       2205]
-CellTagsIndexPosition[    110274,       2202]
+NotebookDataLength[     89815,       2195]
+NotebookOptionsPosition[     89329,       2178]
+NotebookOutlinePosition[     89720,       2194]
+CellTagsIndexPosition[     89677,       2191]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -30,7 +30,7 @@ Cell[BoxData[
     "="}], "*)"}], 
   RowBox[{"(*", 
    RowBox[{
-    RowBox[{"CELLA", " ", "UNICA", " ", "DI", " ", "INIZIALIZZAZIONE"}], "\[LongDash]", 
+    RowBox[{"CELLA", " ", "DI", " ", "INIZIALIZZAZIONE"}], "\[LongDash]", 
     RowBox[{"Initialization", " ", "Cell"}]}], "*)"}], 
   RowBox[{"(*", 
    RowBox[{"Chiusa", " ", "e", " ", "non", " ", "visibile", " ", 
@@ -65,7 +65,7 @@ Cell[BoxData[
     RowBox[{"SetDirectory", "[", 
      RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], "\n", 
    RowBox[{
-    RowBox[{"Get", "[", "\"\<FunctionExplorer.m\>\"", "]"}], ";"}], "\n", 
+    RowBox[{"Get", "[", "\"\<MathInfo.m\>\"", "]"}], ";"}], "\n", 
    RowBox[{"esercizioUniversale", "[", "]"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
@@ -77,26 +77,33 @@ Cell[BoxData[
    RowBox[{"(*", 
     RowBox[{"DA", " ", "QUI", " ", "IN", " ", 
      RowBox[{"POI", ":", 
-      RowBox[{"celle", " ", "di", " ", "TESTO"}]}]}], "*)"}], 
-   "\[IndentingNewLine]", 
+      RowBox[{
+      "celle", " ", "di", " ", "TESTO", " ", "da", " ", "inserire", " ", 
+       "nel", " ", "notebook"}]}]}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
     "Inserisci", " ", "ciascun", " ", "blocco", " ", "come", " ", "cella", " ",
       "del", " ", "tipo", " ", 
      RowBox[{"indicato", "."}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Il", " ", "tipo", " ", "di", " ", "cella", " ", "si", " ", "imposta", " ", 
+     RowBox[{"da", ":", 
+      RowBox[{"Format", ">", "Style"}]}]}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
     RowBox[{
      RowBox[{
      "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
        "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
       "="}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
      RowBox[{
       RowBox[{"--", 
        RowBox[{"-", "CELLA"}]}], " ", 
       RowBox[{"TITLE", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", "FunctionExplorer", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", "MathInfo", "*)"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
@@ -106,32 +113,68 @@ Cell[BoxData[
       RowBox[{"SUBTITLE", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
-    "Simulatore", " ", "e", " ", "Quiz", " ", "su", " ", "Funzioni", " ", 
-     "Matematiche"}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    "Quiz", " ", "Interattivo", " ", "di", " ", "Matematica", " ", 
+     "Applicata", " ", 
+     RowBox[{"all", "'"}], "Informatica"}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
      RowBox[{
       RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"-", "CELLA"}]}], " ", "TEXT", " ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"pagina", " ", "di", " ", "copertina"}], ")"}], "--"}]}], 
+     "-"}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{"Gruppo", " ", 
      RowBox[{"Numero", ":", 
       RowBox[{
        RowBox[{"[", 
-        RowBox[{"da", " ", "assegnare"}], "]"}], "|", 
-       RowBox[{"Nome", " ", "Gruppo"}]}], ":", 
-      RowBox[{"FunctionExplorer", " ", "MC", " ", 
+        RowBox[{"da", " ", "assegnare", " ", "dalla", " ", "professoressa"}], 
+        "]"}], " ", "Nome", " ", "Gruppo"}], ":", 
+      RowBox[{"MathInfo", " ", "MC", " ", 
        RowBox[{"2025", "/", 
-        RowBox[{"2026", "[", 
-         RowBox[{"Nome", " ", "Cognome", " ", "1"}], "]"}]}], " ", 
-       RowBox[{
-        RowBox[{"(", 
-         RowBox[{"anno", ",", "curriculum"}], ")"}], "[", 
-        RowBox[{"Nome", " ", "Cognome", " ", "2"}], "]"}], " ", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"2026", "[", 
+           RowBox[{"FOTO", " ", "1"}], "]"}], "[", 
+          RowBox[{"FOTO", " ", "2"}], "]"}], "[", 
+         RowBox[{"FOTO", " ", "3"}], "]"}]}], " ", "Nome", " ", "Cognome", " ",
+        "1", " ", "Nome", " ", "Cognome", " ", "2", " ", "Nome", " ", 
+       "Cognome", " ", "3", " ", 
        RowBox[{"(", 
-        RowBox[{"anno", ",", "curriculum"}], ")"}]}]}]}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"anno", " ", 
+          RowBox[{"1", "/", "2"}]}], ",", 
+         RowBox[{
+          RowBox[{"curr", ".", "A"}], "/", "B"}]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"anno", " ", 
+          RowBox[{"1", "/", "2"}]}], ",", 
+         RowBox[{
+          RowBox[{"curr", ".", "A"}], "/", "B"}]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"anno", " ", 
+          RowBox[{"1", "/", "2"}]}], ",", 
+         RowBox[{
+          RowBox[{"curr", ".", "A"}], "/", "B"}]}], ")"}]}]}]}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
+      "="}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", "INDICE", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
+      "="}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
      RowBox[{
@@ -148,14 +191,46 @@ Cell[BoxData[
       RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
-     RowBox[{"I", ".", "Introduzione"}], " ", 
-     RowBox[{"II", ".", "Le"}], " ", "funzioni", " ", "matematiche", " ", 
-     RowBox[{"III", ".", "Come"}], " ", "usare", " ", "FunctionExplorer", " ", 
-     RowBox[{"IV", ".", "Esempi"}], " ", "guidati", " ", 
-     RowBox[{"V", ".", "Bibliografia"}], " ", "e", " ", "Sitografia", " ", 
-     RowBox[{"VI", ".", "Commenti"}], " ", "e", " ", "Lavoro", " ", 
-     "Futuro"}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"I", ".", "Introduzione"}], " ", 
+      RowBox[{"II", ".", "Livello"}], " ", "Base"}], "\[LongDash]", 
+     RowBox[{
+     "Conversioni", " ", "Numeriche", " ", "II", ".1", " ", "Conversione", " ",
+       "Binario", " ", "e", " ", "Decimale", " ", "II", ".2", " ", 
+      "Conversioni", " ", "di", " ", 
+      RowBox[{"Unita", "'"}], " ", "di", " ", "Memoria", " ", 
+      RowBox[{"III", ".", "Livello"}], " ", "Intermedio"}], "\[LongDash]", 
+     RowBox[{
+     "Colori", " ", "Esadecimali", " ", "III", ".1", " ", "Dal", " ", 
+      "colore", " ", "al", " ", "codice", " ", "HEX", " ", "III", ".2", " ", 
+      "Dal", " ", "codice", " ", "HEX", " ", "al", " ", "colore", " ", 
+      RowBox[{"IV", ".", "Livello"}], " ", "Avanzato"}], "\[LongDash]", 
+     RowBox[{
+     "Crittografia", " ", "IV", ".1", " ", "Cifrario", " ", "di", " ", 
+      "Cesare", " ", "IV", ".2", " ", "Cifrario", " ", "di", " ", "Vigenere", 
+      " ", 
+      RowBox[{"V", ".", "Come"}], " ", "usare", " ", 
+      RowBox[{"l", "'"}], "interfaccia", " ", 
+      RowBox[{"VI", ".", "Esempi"}], " ", "guidati", " ", 
+      RowBox[{"VII", ".", "Bibliografia"}], " ", "e", " ", "Sitografia", " ", 
+      
+      RowBox[{"VIII", ".", "Commenti"}], " ", "e", " ", "Lavoro", " ", 
+      "Futuro"}]}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
+      "="}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"I", ".", "INTRODUZIONE"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
+      "="}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
      RowBox[{
@@ -173,35 +248,78 @@ Cell[BoxData[
       RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
+     RowBox[{"MathInfo", " ", 
+      RowBox[{"e", "'"}], " ", "un", " ", "quiz", " ", "interattivo", " ", 
+      "che", " ", "ti", " ", "permette", " ", "di", " ", "allenarti", " ", 
+      "su", " ", "tre", " ", "argomenti", " ", "di", " ", "matematica", " ", 
+      "applicata", " ", 
+      RowBox[{"all", "'"}], "informatica"}], ",", 
      RowBox[{
-     "FunctionExplorer", " ", "ti", " ", "permette", " ", "di", " ", 
-      "allenarti", " ", "su", " ", "funzioni", " ", "matematiche", " ", "in", 
-      " ", "modo", " ", 
-      RowBox[{"interattivo", ".", "Premi"}], " ", "il", " ", "bottone", " ", 
-      "verde", " ", "qui", " ", "sopra", " ", "per", " ", 
-      RowBox[{"iniziare", ".", "A"}], " ", "chi", " ", 
-      RowBox[{"e", "'"}], " ", 
-      RowBox[{"rivolto", ":", 
-       RowBox[{
-       "studenti", " ", "di", " ", "scuola", " ", "superiore", " ", "o", " ", 
-        "primo", " ", "anno", " ", 
-        RowBox[{"universitario", ".", "Non"}], " ", "serve", " ", "alcuna", " ",
-         "conoscenza", " ", "di", " ", 
-        RowBox[{"Mathematica", ".", "Come"}], " ", "funziona"}], ":", 
-       RowBox[{
-       "il", " ", "programma", " ", "genera", " ", "una", " ", "funzione", " ",
-         "casuale"}]}]}], ",", 
+      RowBox[{"con", " ", "tre", " ", "livelli", " ", "di", " ", 
+       RowBox[{"difficolta", "'"}], " ", 
+       RowBox[{"crescente", ":", 
+        RowBox[{
+         RowBox[{"-", "Livello"}], " ", "Base"}], ":", 
+        RowBox[{
+         RowBox[{
+         "conversioni", " ", "tra", " ", "sistemi", " ", "numerici", " ", "e",
+           " ", 
+          RowBox[{"unita", "'"}], " ", "di", " ", 
+          RowBox[{"memoria", "[", "1", "]"}]}], "-", 
+         RowBox[{"Livello", " ", 
+          RowBox[{"Intermedio", ":", 
+           RowBox[{
+            RowBox[{"colori", " ", "e", " ", "codici", " ", 
+             RowBox[{"esadecimali", "[", "2", "]"}]}], "-", 
+            RowBox[{"Livello", " ", "Avanzato"}]}], ":", 
+           RowBox[{"decrittografia", " ", "con", " ", "cifrari", " ", 
+            RowBox[{"classici", "[", "3", "]"}], " ", "A", " ", "chi", " ", 
+            RowBox[{"e", "'"}], " ", "rivolto", " ", "MathInfo", " ", 
+            RowBox[{"e", "'"}], " ", "pensato", " ", "per", " ", "studenti", " ",
+             "di", " ", "informatica", " ", "o", " ", "ingegneria", " ", 
+            "del", " ", "primo", " ", "anno", " ", "universitario", " ", 
+            "che", " ", "vogliono", " ", "esercitarsi", " ", "in", " ", 
+            "modo", " ", "autonomo", " ", "sui", " ", "fondamenti", " ", 
+            RowBox[{"dell", "'"}], 
+            RowBox[{"informatica", ".", "Non"}], " ", 
+            RowBox[{"e", "'"}], " ", "richiesta", " ", "alcuna", " ", 
+            "conoscenza", " ", "di", " ", 
+            RowBox[{"Mathematica", ".", "Come"}], " ", "funziona", " ", "Il", 
+            " ", "programma", " ", "genera", " ", "automaticamente", " ", 
+            "un", " ", "esercizio", " ", "casuale", " ", "in", " ", "base", " ",
+             "al", " ", "livello", " ", "e", " ", "alla", " ", 
+            RowBox[{"modalita", "'"}], " ", "che", " ", "hai", " ", 
+            RowBox[{"scelto", ".", "Hai"}], " ", "a", " ", "disposizione", " ",
+             "3", " ", "tentativi", " ", "per", " ", "rispondere"}]}]}]}]}]}],
+       ";", 
+      RowBox[{
+      "ad", " ", "ogni", " ", "errore", " ", "ricevi", " ", "un", " ", 
+       "suggerimento", " ", "sempre", " ", 
+       RowBox[{"piu", "'"}], " ", 
+       RowBox[{"preciso", ".", "Se"}], " ", "non", " ", "riesci"}]}], ",", 
      RowBox[{
-     "la", " ", "mostra", " ", "in", " ", "un", " ", "grafico", " ", "e", " ",
-       "ti", " ", "chiede", " ", "di", " ", "rispondere", " ", "a", " ", 
-      "una", " ", "domanda", " ", "su", " ", "di", " ", 
-      RowBox[{"essa", ".", "Puoi"}], " ", "verificare", " ", "la", " ", 
-      "risposta"}], ",", 
-     RowBox[{
-     "vedere", " ", "la", " ", "soluzione", " ", "e", " ", "generare", " ", 
-      "nuovi", " ", 
-      RowBox[{"esercizi", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+     "puoi", " ", "visualizzare", " ", "la", " ", "soluzione", " ", 
+      "completa", " ", "con", " ", "una", " ", 
+      RowBox[{"spiegazione", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
+      "="}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"II", ".", "LIVELLO"}], " ", "BASE"}], "\[LongDash]", 
+     RowBox[{"CONVERSIONI", " ", "NUMERICHE"}]}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
+      "="}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
      RowBox[{
@@ -210,7 +328,468 @@ Cell[BoxData[
       RowBox[{"SECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
-     RowBox[{"II", ".", "Le"}], " ", "funzioni", " ", "matematiche"}], "*)"}],
+     RowBox[{
+      RowBox[{"II", ".", "Livello"}], " ", "Base"}], "\[LongDash]", 
+     RowBox[{"Conversioni", " ", "Numeriche"}]}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+     "Il", " ", "livello", " ", "base", " ", "propone", " ", "esercizi", " ", 
+      "su", " ", "due", " ", "tipi", " ", "di", " ", "conversione"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+       "selezionabili", " ", "tramite", " ", "i", " ", "pulsanti", " ", "di", 
+        " ", 
+        RowBox[{"modalita", "'"}]}], ":", 
+       RowBox[{"-", "Binario"}]}], "<->", 
+      RowBox[{"Decimale", "-", 
+       RowBox[{"Conversioni", " ", "di", " ", 
+        RowBox[{"unita", "'"}], " ", "di", " ", "memoria", " ", 
+        RowBox[{"(", 
+         RowBox[{"KB", ",", "MB", ",", "GB", ",", "TB"}], ")"}]}]}]}]}], 
+    "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "II", ".1", " ", "Conversione", " ", "Binario", " ", "e", " ", 
+     "Decimale"}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+     "I", " ", "computer", " ", "rappresentano", " ", "i", " ", "dati", " ", 
+      "internamente", " ", "usando", " ", "il", " ", "sistema", " ", 
+      "binario", " ", 
+      RowBox[{"(", 
+       RowBox[{"base", " ", "2"}], ")"}]}], ",", 
+     RowBox[{
+      RowBox[{
+      "che", " ", "usa", " ", "solo", " ", "le", " ", "cifre", " ", "0", " ", 
+       "e", " ", 
+       RowBox[{"1.", "[", "1", "]"}], " ", "Ogni", " ", "cifra", " ", 
+       "binaria", " ", "si", " ", "chiama", " ", 
+       RowBox[{"bit", ".", "Un"}], " ", "gruppo", " ", "di", " ", "8", " ", 
+       "bit", " ", "forma", " ", "un", " ", 
+       RowBox[{"byte", ".", "Conversione"}], " ", "da", " ", "decimale", " ", 
+       "a", " ", "binario", " ", "Si", " ", "divide", " ", "il", " ", 
+       "numero", " ", "ripetutamente", " ", "per", " ", "2", " ", "e", " ", 
+       "si", " ", "leggono", " ", "i", " ", "resti", " ", "dal", " ", "basso",
+        " ", "verso", " ", 
+       RowBox[{"l", "'"}], 
+       RowBox[{"alto", ".", 
+        RowBox[{"Esempio", ":", 
+         RowBox[{"converti", " ", "13", " ", "in", " ", 
+          RowBox[{
+           RowBox[{"binario", ".", "13"}], "/", "2"}]}]}]}]}], "=", 
+      RowBox[{
+       RowBox[{"6", " ", "resto", " ", "1", " ", 
+        RowBox[{"6", "/", "2"}]}], "=", 
+       RowBox[{
+        RowBox[{"3", " ", "resto", " ", "0", " ", 
+         RowBox[{"3", "/", "2"}]}], "=", 
+        RowBox[{
+         RowBox[{"1", " ", "resto", " ", "1", " ", 
+          RowBox[{"1", "/", "2"}]}], "=", 
+         RowBox[{
+          RowBox[{"0", " ", "resto", " ", "1", " ", 
+           RowBox[{"Risultato", ":", 
+            RowBox[{"1101", " ", 
+             RowBox[{"(", 
+              RowBox[{
+              "si", " ", "legge", " ", "dal", " ", "basso", " ", "verso", " ", 
+               RowBox[{"l", "'"}], "alto"}], ")"}], " ", "Verifica"}], ":", 
+            RowBox[{
+             RowBox[{"1", "*", "8"}], "+", 
+             RowBox[{"1", "*", "4"}], "+", 
+             RowBox[{"0", "*", "2"}], "+", 
+             RowBox[{"1", "*", "1"}]}]}]}], "=", 
+          RowBox[{
+           RowBox[{
+           "13", " ", "\[Checkmark]", " ", "Conversione", " ", "da", " ", 
+            "binario", " ", "a", " ", "decimale", " ", "Si", " ", 
+            "moltiplica", " ", "ogni", " ", "cifra", " ", "per", " ", "2", " ",
+             "elevato", " ", "alla", " ", "sua", " ", "posizione", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"contando", " ", "da", " ", "destra"}], ",", 
+              RowBox[{"partendo", " ", "da", " ", "0"}]}], ")"}], " ", "e", " ",
+             "si", " ", "sommano", " ", "i", " ", 
+            RowBox[{"risultati", ".", 
+             RowBox[{"Esempio", ":", 
+              RowBox[{
+               RowBox[{"converti", " ", "1010", " ", "in", " ", 
+                RowBox[{"decimale", ".", "1"}], "*", 
+                RowBox[{"2", "^", "3"}]}], "+", 
+               RowBox[{"0", "*", 
+                RowBox[{"2", "^", "2"}]}], "+", 
+               RowBox[{"1", "*", 
+                RowBox[{"2", "^", "1"}]}], "+", 
+               RowBox[{"0", "*", 
+                RowBox[{"2", "^", "0"}]}]}]}]}]}], "=", 
+           RowBox[{
+            RowBox[{"8", "+", "0", "+", "2", "+", "0"}], "=", 
+            "10"}]}]}]}]}]}]}]}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"II", ".2", " ", "Conversioni", " ", "di", " ", 
+     RowBox[{"Unita", "'"}], " ", "di", " ", "Memoria"}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Le", " ", 
+       RowBox[{"unita", "'"}], " ", "di", " ", "memoria", " ", "sono", " ", 
+       "multipli", " ", "del", " ", 
+       RowBox[{"byte", ".", 
+        RowBox[{"[", "1", "]"}]}], " ", "Ogni", " ", 
+       RowBox[{"unita", "'"}], " ", 
+       RowBox[{"e", "'"}], " ", "1024", " ", "volte", " ", "quella", " ", 
+       "precedente", " ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", "^", "10"}], "=", "1024"}], ")"}], ".", "1"}], " ", 
+       "KB", " ", 
+       RowBox[{"(", "Kilobyte", ")"}]}], "=", 
+      RowBox[{
+       RowBox[{"1024", " ", "Byte", " ", "1", " ", "MB", " ", 
+        RowBox[{"(", "Megabyte", ")"}]}], "=", 
+       RowBox[{
+        RowBox[{"1024", " ", "KB", " ", "1", " ", "GB", " ", 
+         RowBox[{"(", "Gigabyte", ")"}]}], "=", 
+        RowBox[{
+         RowBox[{"1024", " ", "MB", " ", "1", " ", "TB", " ", 
+          RowBox[{"(", "Terabyte", ")"}]}], "=", 
+         RowBox[{
+          RowBox[{"1024", " ", "GB", " ", 
+           RowBox[{"Esempio", ":", 
+            RowBox[{"converti", " ", "2048", " ", "MB", " ", "in", " ", 
+             RowBox[{
+              RowBox[{"GB", ".", "2048"}], "/", "1024"}]}]}]}], "=", 
+          RowBox[{"2", " ", "GB", " ", 
+           RowBox[{"Suggerimento", ":", 
+            RowBox[{"per", " ", "passare", " ", "a", " ", 
+             RowBox[{"un", "'"}], 
+             RowBox[{"unita", "'"}], " ", 
+             RowBox[{"piu", "'"}], " ", "grande"}]}]}]}]}]}]}]}], ",", 
+     RowBox[{"dividi", " ", "per", " ", "1024."}]}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
+      "="}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"III", ".", "LIVELLO"}], " ", "INTERMEDIO"}], "\[LongDash]", 
+     RowBox[{"COLORI", " ", "ESADECIMALI"}]}], "*)"}], "\[IndentingNewLine]", 
+   
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
+      "="}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"SECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"III", ".", "Livello"}], " ", "Intermedio"}], "\[LongDash]", 
+     RowBox[{"Colori", " ", "Esadecimali"}]}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+      "I", " ", "colori", " ", "nei", " ", "sistemi", " ", "digitali", " ", 
+       "vengono", " ", "rappresentati", " ", "con", " ", "il", " ", "modello",
+        " ", "RGB", " ", 
+       RowBox[{"(", 
+        RowBox[{"Red", ",", "Green", ",", "Blue"}], ")"}]}], ":", 
+      RowBox[{
+      "ogni", " ", "componente", " ", "ha", " ", "un", " ", "valore", " ", 
+       "intero", " ", "da", " ", "0", " ", "a", " ", 
+       RowBox[{"255.", "[", "2", "]"}], " ", "Il", " ", "codice", " ", 
+       "esadecimale", " ", 
+       RowBox[{"(", "HEX", ")"}], " ", "esprime", " ", "queste", " ", "tre", " ",
+        "componenti", " ", "in", " ", 
+       RowBox[{"un", "'"}], "unica", " ", "stringa", " ", "nel", " ", 
+       "formato", " ", "#RRGGBB"}]}], ",", 
+     RowBox[{"dove", " ", "RR"}], ",", "GG", ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+       "BB", " ", "sono", " ", "due", " ", "cifre", " ", "esadecimali", " ", 
+        "ciascuna", " ", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"da", " ", "00", " ", "a", " ", "FF"}], ")"}], ".", "Il"}], 
+        " ", "sistema", " ", "esadecimale", " ", 
+        RowBox[{"(", 
+         RowBox[{"base", " ", "16"}], ")"}], " ", "usa", " ", "le", " ", 
+        "cifre", " ", "0"}], "-", 
+       RowBox[{"9", " ", "e", " ", "le", " ", "lettere", " ", "A"}], "-", 
+       RowBox[{"F", ".", "A"}]}], "=", "10"}], ",", 
+     RowBox[{"B", "=", "11"}], ",", 
+     RowBox[{"C", "=", "12"}], ",", 
+     RowBox[{"D", "=", "13"}], ",", 
+     RowBox[{"E", "=", "14"}], ",", 
+     RowBox[{"F", "=", 
+      RowBox[{
+       RowBox[{"15", " ", 
+        RowBox[{"Esempio", ":", 
+         RowBox[{"il", " ", "colore", " ", "arancione", " ", 
+          RowBox[{"e", "'"}], " ", "circa", " ", "R"}]}]}], "=", "255"}]}], ",", 
+     RowBox[{"G", "=", "140"}], ",", 
+     RowBox[{"B", "=", 
+      RowBox[{
+       RowBox[{"0.", " ", "255", " ", "in", " ", "HEX"}], "=", 
+       RowBox[{
+        RowBox[{"FF", " ", "140", " ", "in", " ", "HEX"}], "=", 
+        RowBox[{
+         RowBox[{"8", "C", " ", "0", " ", "in", " ", "HEX"}], "=", 
+         RowBox[{"00", " ", "Codice", " ", 
+          RowBox[{"HEX", ":", "#FF8C00"}]}]}]}]}]}]}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"III", ".1", " ", 
+      RowBox[{"Modalita", "'"}]}], ":", 
+     RowBox[{"dal", " ", "colore", " ", "al", " ", "codice", " ", "HEX"}]}], 
+    "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Viene", " ", "mostrato", " ", "un", " ", "quadrato", " ", 
+      RowBox[{"colorato", ".", "Il"}], " ", "tuo", " ", "compito", " ", 
+      RowBox[{"e", "'"}], " ", "scrivere", " ", "il", " ", "corrispondente", " ",
+       "codice", " ", "esadecimale", " ", "nel", " ", "formato", " ", 
+      RowBox[{"#RRGGBB", ".", 
+       RowBox[{"Suggerimento", ":", 
+        RowBox[{
+        "osserva", " ", "la", " ", "dominanza", " ", "dei", " ", "colori", " ",
+          "primari", " ", "nel", " ", 
+         RowBox[{"quadrato", ".", "Un"}], " ", "colore", " ", "molto", " ", 
+         "rosso", " ", 
+         RowBox[{"avra", "'"}], " ", "RR", " ", "alto", " ", 
+         RowBox[{"(", 
+          RowBox[{"vicino", " ", "a", " ", "FF"}], ")"}]}]}]}]}], ",", 
+     RowBox[{"e", " ", 
+      RowBox[{"cosi", "'"}], " ", "via", " ", "per", " ", "il", " ", "verde", 
+      " ", 
+      RowBox[{"(", "GG", ")"}], " ", "e", " ", "il", " ", "blu", " ", 
+      RowBox[{
+       RowBox[{"(", "BB", ")"}], "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"III", ".2", " ", 
+      RowBox[{"Modalita", "'"}]}], ":", 
+     RowBox[{"dal", " ", "codice", " ", "HEX", " ", "al", " ", "colore"}]}], 
+    "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Viene", " ", "mostrato", " ", "un", " ", "codice", " ", 
+     RowBox[{"HEX", ".", "Quattro"}], " ", "quadrati", " ", "colorati", " ", 
+     "vengono", " ", 
+     RowBox[{"visualizzati", ":", 
+      RowBox[{"il", " ", "tuo", " ", "compito", " ", 
+       RowBox[{"e", "'"}], " ", "cliccare", " ", "su", " ", "quello", " ", 
+       RowBox[{"corretto", ".", "Non"}], " ", "occorre", " ", "scrivere", " ",
+        "nulla"}], ":", 
+      RowBox[{
+      "basta", " ", "fare", " ", "clic", " ", "sul", " ", "colore", " ", 
+       "che", " ", "pensi", " ", "corrisponda", " ", "al", " ", "codice", " ", 
+       RowBox[{"mostrato", ".", 
+        RowBox[{"Suggerimento", ":", 
+         RowBox[{
+         "converte", " ", "mentalmente", " ", "le", " ", "prime", " ", "due", 
+          " ", "cifre", " ", "HEX", " ", 
+          RowBox[{"(", "RR", ")"}], " ", "per", " ", "capire", " ", "quanto", 
+          " ", "rosso", " ", 
+          RowBox[{"c", "'"}], 
+          RowBox[{"e", "'"}], " ", "nel", " ", 
+          RowBox[{"colore", "."}]}]}]}]}]}]}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
+      "="}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"IV", ".", "LIVELLO"}], " ", "AVANZATO"}], "\[LongDash]", 
+     "CRITTOGRAFIA"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
+      "="}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"SECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"IV", ".", "Livello"}], " ", "Avanzato"}], "\[LongDash]", 
+     "Crittografia"}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"La", " ", "crittografia", " ", 
+     RowBox[{"e", "'"}], " ", "la", " ", "tecnica", " ", "di", " ", "cifrare",
+      " ", "un", " ", "messaggio", " ", "per", " ", "renderlo", " ", 
+     "incomprensibile", " ", "a", " ", "chi", " ", "non", " ", "conosce", " ",
+      "la", " ", 
+     RowBox[{"chiave", ".", 
+      RowBox[{"[", "3", "]"}]}], " ", "In", " ", "questo", " ", "livello", " ",
+      "ti", " ", "viene", " ", "mostrato", " ", "un", " ", "messaggio", " ", 
+     "cifrato", " ", "e", " ", "devi", " ", "trovare", " ", "la", " ", 
+     "chiave", " ", "usata", " ", "per", " ", 
+     RowBox[{"cifrarlo", "."}]}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"IV", ".1", " ", "Cifrario", " ", "di", " ", "Cesare"}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Il", " ", "Cifrario", " ", "di", " ", "Cesare", " ", 
+       RowBox[{"e", "'"}], " ", "uno", " ", "dei", " ", 
+       RowBox[{"piu", "'"}], " ", "antichi", " ", "metodi", " ", 
+       RowBox[{"crittografici", ".", 
+        RowBox[{"[", "3", "]"}]}], " ", "Ogni", " ", "lettera", " ", "del", " ",
+        "messaggio", " ", "viene", " ", "sostituita", " ", "con", " ", "la", " ",
+        "lettera", " ", "che", " ", "si", " ", "trova", " ", "K", " ", 
+       "posizioni", " ", 
+       RowBox[{"piu", "'"}], " ", "avanti", " ", 
+       RowBox[{"nell", "'"}], "alfabeto", " ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"con", " ", "k", " ", "la", " ", "chiave", " ", "intera"}], 
+         ")"}], ".", "Esempio"}], " ", "con", " ", "chiave", " ", "K"}], "=", 
+      
+      RowBox[{
+       RowBox[{"3", ":", "A"}], "->", "D"}]}], ",", 
+     RowBox[{"B", "->", "E"}], ",", 
+     RowBox[{"C", "->", "F"}], ",", 
+     RowBox[{
+      RowBox[{"...", " ", "Z"}], "->", 
+      RowBox[{
+       RowBox[{"C", " ", 
+        RowBox[{"Cifratura", ":", "INFORMATICA"}]}], "->", 
+       RowBox[{
+        RowBox[{"LQIRUPDWLFD", " ", 
+         RowBox[{"Decifratura", ":", "LQIRUPDWLFD"}]}], "->", 
+        RowBox[{"INFORMATICA", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"shift", " ", "di"}], "-", "3"}], ")"}], " ", "In", " ", 
+         "MathInfo", " ", "la", " ", "chiave", " ", 
+         RowBox[{"e", "'"}], " ", "un", " ", "numero", " ", "intero", " ", 
+         "da", " ", "1", " ", "a", " ", "25.", " ", "Prova", " ", "a", " ", 
+         "decifrare", " ", "mentalmente", " ", "la", " ", "prima", " ", 
+         "lettera", " ", "del", " ", "messaggio", " ", "con", " ", "diversi", 
+         " ", "valori", " ", "di", " ", "shift", " ", 
+         RowBox[{"finche", "'"}], " ", "ottieni", " ", "una", " ", "lettera", 
+         " ", 
+         RowBox[{"sensata", "."}]}]}]}]}]}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"IV", ".2", " ", "Cifrario", " ", "di", " ", "Vigenere"}], "*)"}],
     "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
@@ -221,89 +800,82 @@ Cell[BoxData[
    RowBox[{"(*", 
     RowBox[{
      RowBox[{
-      RowBox[{"Una", " ", "funzione", " ", "f", 
-       RowBox[{"(", "x", ")"}], " ", "associa", " ", "a", " ", "ogni", " ", 
-       "numero", " ", "x", " ", "un", " ", "valore", " ", "f", 
-       RowBox[{
-        RowBox[{"(", "x", ")"}], ".", "In"}], " ", "FunctionExplorer", " ", 
-       RowBox[{"trovi", ":", 
-        RowBox[{"-", "Polinomi"}], ":", 
-        RowBox[{"f", 
-         RowBox[{"(", "x", ")"}]}]}]}], "=", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"x", "^", "2"}], "-", 
-        RowBox[{"2", "x"}], "+", "1", "-", 
-        RowBox[{"Trigonometriche", ":", 
-         RowBox[{"f", 
-          RowBox[{"(", "x", ")"}]}]}]}], "=", 
-       RowBox[{"sin", 
-        RowBox[{"(", "x", ")"}]}]}]}], ",", 
-     RowBox[{
-      RowBox[{"f", 
-       RowBox[{"(", "x", ")"}]}], "=", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"cos", 
-         RowBox[{"(", "x", ")"}]}], "-", 
-        RowBox[{"Esponenziale", ":", 
-         RowBox[{"f", 
-          RowBox[{"(", "x", ")"}]}]}]}], "=", 
-       RowBox[{
+      RowBox[{"Il", " ", "Cifrario", " ", "di", " ", "Vigenere", " ", 
+       RowBox[{"e", "'"}], " ", "una", " ", "versione", " ", 
+       RowBox[{"piu", "'"}], " ", "sicura", " ", "del", " ", "Cifrario", " ", 
+       "di", " ", 
+       RowBox[{"Cesare", ".", 
+        RowBox[{"[", "3", "]"}]}], " ", "La", " ", "chiave", " ", 
+       RowBox[{"e", "'"}], " ", "una", " ", 
+       RowBox[{"parola", ":", 
         RowBox[{
-         RowBox[{"e", "^", "x"}], "-", 
-         RowBox[{"Logaritmo", ":", 
-          RowBox[{"f", 
-           RowBox[{"(", "x", ")"}]}]}]}], "=", 
-        RowBox[{
-         RowBox[{"log", 
-          RowBox[{"(", 
-           RowBox[{"|", "x", "|", 
-            RowBox[{"+", "1"}]}], ")"}], " ", "Concetti", " ", "usati", " ", 
-          "negli", " ", 
-          RowBox[{"esercizi", ":", 
-           RowBox[{"Zero", " ", "di", " ", "f", 
-            RowBox[{
-             RowBox[{"(", "x", ")"}], "[", "1", "]"}], " ", "Un", " ", 
-            "valore", " ", "x_", "0", " ", "tale", " ", "che", " ", "f", 
-            RowBox[{"(", 
-             RowBox[{"x_", "0"}], ")"}]}]}]}], "=", 
+        "ogni", " ", "lettera", " ", "del", " ", "testo", " ", "viene", " ", 
+         "spostata", " ", "del", " ", "valore", " ", "della", " ", "lettera", 
+         " ", "corrispondente", " ", "della", " ", "chiave", " ", 
          RowBox[{
-          RowBox[{"0.", " ", "Sul", " ", 
-           RowBox[{"grafico", ":", 
-            RowBox[{
-             RowBox[{"la", " ", "curva", " ", "attraversa", " ", 
-              RowBox[{"l", "'"}], "asse", " ", "delle", " ", 
-              RowBox[{
-               RowBox[{"x", ".", "Massimo"}], "/", "Minimo"}], " ", 
-              RowBox[{"locale", "[", "2", "]"}], " ", "Un", " ", "punto", " ",
-               "x_", "0", " ", "in", " ", "cui", " ", "la", " ", "curva", " ",
-               "raggiunge", " ", "il", " ", "valore", " ", 
-              RowBox[{"piu", "'"}], " ", "alto", " ", 
-              RowBox[{"(", "massimo", ")"}], " ", "o", " ", 
-              RowBox[{"piu", "'"}], " ", "basso", " ", 
-              RowBox[{"(", "minimo", ")"}], " ", "in", " ", "un", " ", "suo", 
-              " ", 
-              RowBox[{"intorno", ".", "Derivata"}], " ", 
-              RowBox[{"f", "'"}], 
-              RowBox[{
-               RowBox[{"(", 
-                RowBox[{"x_", "0"}], ")"}], "[", "3", "]"}], " ", "La", " ", 
-              "pendenza", " ", "della", " ", "curva", " ", "nel", " ", 
-              "punto", " ", "x_", "0.", " ", 
-              RowBox[{"f", "'"}], 
-              RowBox[{"(", 
-               RowBox[{"x_", "0"}], ")"}]}], ">", "0"}]}]}], "->", 
-          RowBox[{
-           RowBox[{
-            RowBox[{"funzione", " ", "crescente", " ", "in", " ", "x_", "0", " ", 
-             RowBox[{"f", "'"}], 
-             RowBox[{"(", 
-              RowBox[{"x_", "0"}], ")"}]}], "<", "0"}], "->", 
-           RowBox[{
-           "funzione", " ", "decrescente", " ", "in", " ", "x_", 
-            "0"}]}]}]}]}]}]}]}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"(", 
+           RowBox[{"in", " ", "modo", " ", "ciclico"}], ")"}], ".", 
+          "Esempio"}], " ", "con", " ", "chiave", " ", "\"\<BETA\>\""}], ":", 
+        "B"}]}], "=", "1"}], ",", 
+     RowBox[{"E", "=", "4"}], ",", 
+     RowBox[{"T", "=", "19"}], ",", 
+     RowBox[{"A", "=", 
+      RowBox[{"0", "->", 
+       RowBox[{"shift", " ", 
+        RowBox[{"ciclici", ":", "1"}]}]}]}], ",", "4", ",", "19", ",", "0", ",",
+      "1", ",", "4", ",", 
+     RowBox[{
+      RowBox[{"...", " ", 
+       RowBox[{"Cifratura", ":", 
+        RowBox[{
+         RowBox[{
+         "ALGORITMO", " ", "con", " ", "chiave", " ", "BETA", " ", "A"}], "+",
+          "B"}]}]}], "=", "B"}], ",", 
+     RowBox[{
+      RowBox[{"L", "+", "E"}], "=", "P"}], ",", 
+     RowBox[{
+      RowBox[{"G", "+", "T"}], "=", "Z"}], ",", 
+     RowBox[{
+      RowBox[{"O", "+", "A"}], "=", "O"}], ",", 
+     RowBox[{
+      RowBox[{"R", "+", "B"}], "=", "S"}], ",", 
+     RowBox[{
+      RowBox[{"I", "+", "E"}], "=", "M"}], ",", 
+     RowBox[{
+      RowBox[{"T", "+", "T"}], "=", "M"}], ",", 
+     RowBox[{
+      RowBox[{"M", "+", "A"}], "=", "M"}], ",", 
+     RowBox[{
+      RowBox[{"O", "+", "B"}], "=", 
+      RowBox[{"P", " ", 
+       RowBox[{"Cifrato", ":", 
+        RowBox[{
+        "BPZOSMMP", " ", "In", " ", "MathInfo", " ", "la", " ", "chiave", " ", 
+         RowBox[{"e", "'"}], " ", "una", " ", "delle", " ", "parole"}], ":", 
+        "ALPHA"}]}]}], ",", "BETA", ",", "GAMMA", ",", "DELTA", ",", "OMEGA", 
+     ",", 
+     RowBox[{
+      RowBox[{"SIGMA", ".", "Prova"}], " ", "ciascuna", " ", "parola", " ", 
+      "e", " ", "decifra", " ", "le", " ", "prime", " ", "lettere", " ", 
+      "per", " ", "trovare", " ", "quella", " ", 
+      RowBox[{"corretta", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
+      "="}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"V", ".", "COME"}], " ", "USARE", " ", 
+     RowBox[{"L", "'"}], "INTERFACCIA"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
+      "="}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
      RowBox[{
@@ -312,8 +884,9 @@ Cell[BoxData[
       RowBox[{"SECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
-     RowBox[{"III", ".", "Come"}], " ", "usare", " ", "FunctionExplorer"}], 
-    "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"V", ".", "Come"}], " ", "usare", " ", 
+     RowBox[{"l", "'"}], "interfaccia"}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
      RowBox[{
@@ -321,9 +894,43 @@ Cell[BoxData[
        RowBox[{"-", "CELLA"}]}], " ", 
       RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
+    RowBox[{"V", ".1", " ", "Scegliere", " ", "livello", " ", "e", " ", 
+     RowBox[{"modalita", "'"}]}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
     RowBox[{
-     RowBox[{"Passo", " ", "1"}], "\[LongDash]", 
-     RowBox[{"Scegli", " ", "un", " ", "Seed"}]}], "*)"}], 
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Usa", " ", "i", " ", "pulsanti", " ", "in", " ", "cima", " ", 
+      RowBox[{"all", "'"}], "interfaccia", " ", "per", " ", 
+      RowBox[{"selezionare", ":", 
+       RowBox[{"1.", " ", "il", " ", "Livello", " ", 
+        RowBox[{"(", 
+         RowBox[{"Base", ",", "Intermedio", ",", "Avanzato"}], ")"}], " ", 
+        "2.", " ", "la", " ", 
+        RowBox[{"Modalita", "'"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"specifica", " ", "per", " ", "ogni", " ", "livello"}], 
+         ")"}], " ", "Cambiando", " ", "livello"}]}]}], ",", 
+     RowBox[{"la", " ", 
+      RowBox[{"modalita", "'"}], " ", "viene", " ", "reimpostata", " ", 
+      "automaticamente", " ", "e", " ", 
+      RowBox[{"l", "'"}], "interfaccia", " ", "torna", " ", "allo", " ", 
+      "stato", " ", 
+      RowBox[{"iniziale", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"V", ".2", " ", "Il", " ", "Seed"}], "*)"}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
@@ -334,16 +941,18 @@ Cell[BoxData[
    RowBox[{"(*", 
     RowBox[{
     "Il", " ", "campo", " ", "Seed", " ", "accetta", " ", "un", " ", "numero",
-      " ", "intero", " ", 
+      " ", "intero", " ", "qualsiasi", " ", 
      RowBox[{
       RowBox[{"(", 
        RowBox[{
         RowBox[{"es", ".", "42"}], ",", "7", ",", "100"}], ")"}], ".", "Lo"}],
-      " ", "stesso", " ", "Seed", " ", "genera", " ", "sempre", " ", "lo", " ",
-      "stesso", " ", 
+      " ", "stesso", " ", "Seed", " ", "con", " ", "lo", " ", "stesso", " ", 
+     "livello", " ", "e", " ", 
+     RowBox[{"modalita", "'"}], " ", "genera", " ", "sempre", " ", "lo", " ", 
+     "stesso", " ", 
      RowBox[{"esercizio", ":", 
       RowBox[{
-      "utile", " ", "per", " ", "ripetere", " ", "un", " ", "esercizio", " ", 
+      "utile", " ", "per", " ", "rifare", " ", "un", " ", "esercizio", " ", 
        "o", " ", "confrontarsi", " ", "con", " ", "un", " ", 
        RowBox[{"compagno", "."}]}]}]}], "*)"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
@@ -354,10 +963,8 @@ Cell[BoxData[
        RowBox[{"-", "CELLA"}]}], " ", 
       RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"Passo", " ", "2"}], "\[LongDash]", 
-     RowBox[{"Genera", " ", "Esercizio"}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
+    RowBox[{"V", ".3", " ", "Genera", " ", "Esercizio"}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
      RowBox[{
@@ -369,14 +976,19 @@ Cell[BoxData[
      RowBox[{
      "Premi", " ", "il", " ", "bottone", " ", "verde", " ", "Genera", " ", 
       RowBox[{"Esercizio", ".", 
-       RowBox[{"Apparira", "'"}]}]}], ":", 
-     RowBox[{
+       RowBox[{"Apparira", "'"}]}], " ", "il", " ", "testo", " ", "della", " ",
+       "domanda", " ", "e"}], ",", 
+     RowBox[{"dove", " ", "necessario"}], ",", 
+     RowBox[{"un", " ", "elemento", " ", "visivo", " ", 
       RowBox[{
-       RowBox[{"-", "il"}], " ", "grafico", " ", "della", " ", "funzione", " ",
-        "in", " ", "blu"}], "-", 
-      RowBox[{
-      "la", " ", "domanda", " ", "su", " ", "sfondo", " ", "giallo"}]}]}], 
-    "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"(", 
+        RowBox[{
+        "quadrato", " ", "di", " ", "colore", " ", "per", " ", "il", " ", 
+         "livello", " ", "intermedio"}], ")"}], ".", "Puoi"}], " ", 
+      "generare", " ", "quanti", " ", "esercizi", " ", "vuoi", " ", 
+      "cambiando", " ", "il", " ", 
+      RowBox[{"Seed", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
      RowBox[{
@@ -384,43 +996,7 @@ Cell[BoxData[
        RowBox[{"-", "CELLA"}]}], " ", 
       RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"Passo", " ", "3"}], "\[LongDash]", 
-     RowBox[{"Rispondi", " ", "e", " ", "Verifica"}]}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-     "Inserisci", " ", "un", " ", "numero", " ", "nel", " ", "campo", 
-      " ", "\"\<La tua risposta\>\"", " ", 
-      RowBox[{"(", 
-       RowBox[{"es", ".", "1.57"}], ")"}], " ", "e", " ", "premi", " ", 
-      "Verifica", " ", 
-      RowBox[{"Risultato", ".", 
-       RowBox[{"Verde", ":", 
-        RowBox[{"risposta", " ", "corretta", " ", 
-         RowBox[{"(", 
-          RowBox[{"tolleranza", "+", 
-           RowBox[{"/", 
-            RowBox[{"-", "0.05"}]}]}], ")"}], " ", "Rosso"}], ":", 
-        RowBox[{"risposta", " ", "non", " ", "corretta"}]}]}]}], ",", 
-     "riprova"}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"Passo", " ", "4"}], "\[LongDash]", 
-     RowBox[{"Mostra", " ", "Soluzione"}]}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"V", ".4", " ", "Rispondere"}], "*)"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
@@ -431,11 +1007,202 @@ Cell[BoxData[
    RowBox[{"(*", 
     RowBox[{
      RowBox[{
-     "Premi", " ", "Mostra", " ", "Soluzione", " ", "per", " ", "vedere", " ",
-       "la", " ", "risposta", " ", "corretta", " ", "in", " ", "una", " ", 
+      RowBox[{
+      "In", " ", "base", " ", "al", " ", "livello", " ", "e", " ", "alla", " ", 
+       RowBox[{"modalita", "'"}]}], ":", 
+      RowBox[{
+       RowBox[{"-", "Base"}], " ", "e", " ", "Avanzato"}], ":", 
+      RowBox[{
+      "scrivi", " ", "la", " ", "risposta", " ", "nel", " ", "campo", " ", 
+       "di", " ", 
+       RowBox[{"testo", ".", 
+        RowBox[{"-", "Intermedio"}]}], " ", 
+       RowBox[{"(", 
+        RowBox[{"HEX", "->", "colore"}], ")"}]}], ":", 
+      RowBox[{"fai", " ", "clic", " ", "sul", " ", "quadrato", " ", 
+       RowBox[{"corretto", ".", 
+        RowBox[{"-", "Intermedio"}]}], " ", 
+       RowBox[{"(", 
+        RowBox[{"colore", "->", "HEX"}], ")"}]}], ":", 
+      RowBox[{
+      "scrivi", " ", "il", " ", "codice", " ", "nel", " ", "formato", " ", 
+       RowBox[{"#RRGGBB", ".", "Hai"}], " ", "a", " ", "disposizione", " ", 
+       "3", " ", "tentativi"}]}], ",", 
+     RowBox[{"indicati", " ", "dal", " ", "contatore", " ", "in", " ", 
+      RowBox[{"verde", "/", 
+       RowBox[{"rosso", "."}]}]}]}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"V", ".5", " ", "Verifica", " ", "Risultato"}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+     "Premi", " ", "il", " ", "bottone", " ", "blu", " ", "Verifica", " ", 
+      RowBox[{"Risultato", ".", "\[Checkmark]"}], " ", 
+      RowBox[{"Verde", ":", 
+       RowBox[{"risposta", " ", 
+        RowBox[{"corretta", ".", "\:2717"}], " ", "Rosso"}], ":", 
+       RowBox[{"risposta", " ", "non", " ", 
+        RowBox[{"corretta", ".", "Viene"}], " ", "mostrato", " ", 
+        "automaticamente", " ", "un", " ", "suggerimento"}]}]}], ",", 
+     RowBox[{"sempre", " ", 
+      RowBox[{"piu", "'"}], " ", "preciso", " ", "ad", " ", "ogni", " ", 
+      RowBox[{"tentativo", ".", "Dopo"}], " ", "3", " ", "tentativi", " ", 
+      "errati"}], ",", 
+     RowBox[{"il", " ", "bottone", " ", "Verifica", " ", 
+      RowBox[{"e", "'"}], " ", "disabilitato", " ", "e", " ", "puoi", " ", 
+      "solo", " ", "usare", " ", "Mostra", " ", 
+      RowBox[{"Soluzione", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"V", ".6", " ", "Mostra", " ", "Soluzione"}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+     "Premi", " ", "il", " ", "bottone", " ", "viola", " ", "Mostra", " ", 
+      RowBox[{"Soluzione", ".", "Si"}], " ", "apre", " ", "una", " ", 
       "finestra", " ", "pop"}], "-", 
-     RowBox[{"up", " ", "con", " ", "il", " ", "grafico", " ", 
-      RowBox[{"annotato", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+     "up", " ", "con", " ", "la", " ", "spiegazione", " ", "completa", " ", 
+      "della", " ", "risposta", " ", 
+      RowBox[{"corretta", ".", "Per"}], " ", "il", " ", "livello", " ", 
+      "intermedio", " ", "viene", " ", "mostrato", " ", "anche", " ", "il", " ",
+       "quadrato", " ", "del", " ", "colore", " ", 
+      RowBox[{"corretto", ".", "La"}], " ", "finestra", " ", "non", " ", 
+      "modifica", " ", "il", " ", 
+      RowBox[{"notebook", ":", 
+       RowBox[{"puoi", " ", "chiuderla", " ", "e", " ", 
+        RowBox[{"continuare", "."}]}]}]}]}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"V", ".7", " ", "Pulisci", " ", "Campi"}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+     "Premi", " ", "il", " ", "bottone", " ", "grigio", " ", "Pulisci", " ", 
+      "Campi", " ", "per", " ", "azzerare", " ", "la", " ", "domanda"}], ",", 
+     
+     RowBox[{"la", " ", "risposta"}], ",", 
+     RowBox[{"i", " ", "tentativi", " ", "e", " ", "il", " ", "feedback"}], ",", 
+     RowBox[{"e", " ", "tornare", " ", "allo", " ", "stato", " ", 
+      RowBox[{"iniziale", ".", "Il"}], " ", "livello", " ", "e", " ", "la", " ", 
+      RowBox[{"modalita", "'"}], " ", "scelti", " ", "vengono", " ", 
+      RowBox[{"mantenuti", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
+      "="}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"VI", ".", "ESEMPI"}], " ", "GUIDATI"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
+      "="}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"SECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"VI", ".", "Esempi"}], " ", "guidati"}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"VI", ".1", " ", "Esempio"}], "\[LongDash]", 
+     RowBox[{"Livello", " ", "Base"}], ",", 
+     RowBox[{
+      RowBox[{"modalita", "'"}], " ", "Binario"}]}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Seed", ":", 
+      RowBox[{"10", " ", "Domanda", " ", 
+       RowBox[{"(", "esempio", ")"}]}], ":", 
+      RowBox[{"\"\<Converti il numero decimale 42 in binario.\>\"", " ", 
+       "Soluzione", " ", "passo", " ", "per", " ", 
+       RowBox[{"passo", ":", 
+        RowBox[{"42", "/", "2"}]}]}]}], "=", 
+     RowBox[{
+      RowBox[{"21", " ", "resto", " ", "0", " ", 
+       RowBox[{"21", "/", "2"}]}], "=", 
+      RowBox[{
+       RowBox[{"10", " ", "resto", " ", "1", " ", 
+        RowBox[{"10", "/", "2"}]}], "=", 
+       RowBox[{
+        RowBox[{"5", " ", "resto", " ", "0", " ", 
+         RowBox[{"5", "/", "2"}]}], "=", 
+        RowBox[{
+         RowBox[{"2", " ", "resto", " ", "1", " ", 
+          RowBox[{"2", "/", "2"}]}], "=", 
+         RowBox[{
+          RowBox[{"1", " ", "resto", " ", "0", " ", 
+           RowBox[{"1", "/", "2"}]}], "=", 
+          RowBox[{
+          "0", " ", "resto", " ", "1", " ", "Leggo", " ", "i", " ", "resti", " ",
+            "dal", " ", 
+           RowBox[{"basso", ":", 
+            RowBox[{"101010", " ", "Risposta", " ", "da", " ", "inserire"}], ":",
+             "101010"}]}]}]}]}]}]}]}], "*)"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
@@ -445,31 +1212,44 @@ Cell[BoxData[
       RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
-     RowBox[{"Passo", " ", "5"}], "\[LongDash]", 
-     RowBox[{"Pulisci", " ", "Campi"}]}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"VI", ".2", " ", "Esempio"}], "\[LongDash]", 
+     RowBox[{"Livello", " ", "Base"}], ",", 
+     RowBox[{
+      RowBox[{"modalita", "'"}], " ", "Memoria"}]}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Seed", ":", 
+      RowBox[{"25", " ", "Domanda", " ", 
+       RowBox[{"(", "esempio", ")"}]}], ":", 
+      RowBox[{"\"\<Converti 2048 MB in GB.\>\"", " ", 
+       RowBox[{"Soluzione", ":", 
+        RowBox[{"1", " ", "GB"}]}]}]}], "=", 
+     RowBox[{
+      RowBox[{"1024", " ", "MB", " ", 
+       RowBox[{"2048", "/", "1024"}]}], "=", 
+      RowBox[{"2", " ", "Risposta", " ", "da", " ", 
+       RowBox[{"inserire", ":", "2.0"}]}]}]}], "*)"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
      RowBox[{
       RowBox[{"--", 
        RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
-    "Premi", " ", "Pulisci", " ", "Campi", " ", "per", " ", "azzerare", " ", 
-     "tutto", " ", "e", " ", "ricominciare", " ", "con", " ", "un", " ", 
-     "nuovo", " ", 
-     RowBox[{"esercizio", "."}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
+     RowBox[{"VI", ".3", " ", "Esempio"}], "\[LongDash]", 
+     RowBox[{"Livello", " ", "Intermedio"}], ",", 
      RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"IV", ".", "Esempi"}], " ", "guidati"}], "*)"}], 
+      RowBox[{
+       RowBox[{"modalita", "'"}], " ", "colore"}], "->", "HEX"}]}], "*)"}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
@@ -479,169 +1259,336 @@ Cell[BoxData[
       RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
-     RowBox[{"Esempio", " ", "1"}], "\[LongDash]", 
-     RowBox[{"Zero", " ", "di", " ", "un", " ", "polinomio", " ", 
+     RowBox[{
       RowBox[{"Seed", ":", 
-       RowBox[{"10", " ", "Domanda"}], ":", 
-       RowBox[{"trova", " ", "uno", " ", "zero", " ", 
-        RowBox[{"nell", "'"}], 
-        RowBox[{"intervallo", "[", 
-         RowBox[{
-          RowBox[{"-", "3"}], ",", "3"}], "]"}], " ", 
-        RowBox[{"Suggerimento", ":", 
-         RowBox[{
-         "cerca", " ", "dove", " ", "la", " ", "curva", " ", "attraversa", " ", 
-          RowBox[{"l", "'"}], "asse", " ", "x", " ", "nel", " ", 
-          RowBox[{"grafico", ".", "Esempio"}], " ", "2"}]}]}]}]}], "\[LongDash]", 
-     RowBox[{
-      RowBox[{"Derivata", " ", "in", " ", "un", " ", "punto", " ", 
-       RowBox[{"Seed", ":", 
-        RowBox[{"25", " ", "Domanda"}], ":", 
-        RowBox[{"calcola", " ", 
-         RowBox[{"f", "'"}], 
-         RowBox[{"(", "x", ")"}], " ", "in", " ", "x_", "0"}]}]}], "=", 
-      RowBox[{"0", " ", 
-       RowBox[{"Suggerimento", ":", 
-        RowBox[{"la", " ", "derivata", " ", 
-         RowBox[{"e", "'"}], " ", "la", " ", "pendenza", " ", "della", " ", 
-         "retta", " ", "tangente", " ", "alla", " ", "curva", " ", "in", " ", 
-         "quel", " ", 
-         RowBox[{"punto", ".", "Esempio"}], " ", "3"}]}]}]}], "\[LongDash]", 
-     RowBox[{
-      RowBox[{"Minimo", " ", "locale", " ", 
-       RowBox[{"Seed", ":", 
-        RowBox[{"7", " ", "Domanda"}], ":", 
-        RowBox[{"trova", " ", "il", " ", "minimo", " ", "locale", " ", 
-         RowBox[{"in", "[", 
-          RowBox[{
-           RowBox[{"-", "3"}], ",", "3"}], "]"}], " ", 
-         RowBox[{"Suggerimento", ":", 
-          RowBox[{"il", " ", "minimo", " ", 
-           RowBox[{"e", "'"}], " ", "il", " ", "punto", " ", 
-           RowBox[{"piu", "'"}], " ", "basso", " ", "della", " ", "curva", " ", 
-           RowBox[{"nell", "'"}], "intervallo"}]}]}]}]}], ";", 
+       RowBox[{
+       "7", " ", "Viene", " ", "mostrato", " ", "un", " ", "quadrato", " ", 
+        "arancione", " ", 
+        RowBox[{"scuro", ".", "Componenti"}], " ", "RGB", " ", 
+        RowBox[{"(", "esempio", ")"}]}], ":", "R"}], "=", "200"}], ",", 
+     RowBox[{"G", "=", "100"}], ",", 
+     RowBox[{"B", "=", 
       RowBox[{
-      "sul", " ", "grafico", " ", "si", " ", "vede", " ", "come", " ", "una", 
-       " ", 
-       RowBox[{"\"\<valle\>\"", "."}]}]}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"V", ".", "Bibliografia"}], " ", "e", " ", "Sitografia"}], 
-    "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{
+       RowBox[{"50", " ", "200", " ", "in", " ", 
+        RowBox[{"HEX", ":", "200"}]}], "=", 
        RowBox[{
         RowBox[{
          RowBox[{
-          RowBox[{"[", "1", "]"}], " ", "Wolfram", " ", "Documentation"}], "-", 
-         RowBox[{"NSolve", " ", 
-          RowBox[{"(", 
-           RowBox[{"zeri", " ", "di", " ", "funzione"}], ")"}], " ", 
-          RowBox[{"https", ":"}]}]}], "//", 
+          RowBox[{"12", "*", "16"}], "+", "8"}], "->", 
+         RowBox[{"C8", " ", "100", " ", "in", " ", 
+          RowBox[{"HEX", ":", "100"}]}]}], "=", 
         RowBox[{
          RowBox[{
           RowBox[{
+           RowBox[{"6", "*", "16"}], "+", "4"}], "->", 
+          RowBox[{"64", " ", "50", " ", "in", " ", 
+           RowBox[{"HEX", ":", "50"}]}]}], "=", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"3", "*", "16"}], "+", "2"}], "->", 
+          RowBox[{"32", " ", "Risposta", " ", "da", " ", 
+           RowBox[{"inserire", ":", "#C86432"}]}]}]}]}]}]}]}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"VI", ".4", " ", "Esempio"}], "\[LongDash]", 
+     RowBox[{"Livello", " ", "Avanzato"}], ",", 
+     RowBox[{"Cifrario", " ", "di", " ", "Cesare"}]}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Seed", ":", 
+       RowBox[{"15", " ", "Messaggio", " ", "cifrato", " ", 
+        RowBox[{"(", "esempio", ")"}]}], ":", 
+       RowBox[{"ELQDUAB", " ", "Chiave", " ", "da", " ", 
+        RowBox[{"trovare", ":", 
+         RowBox[{
+         "un", " ", "numero", " ", "da", " ", "1", " ", "a", " ", "25.", " ", 
+          "Strategia"}], ":", 
+         RowBox[{"prova", " ", "shift"}]}]}]}], "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"3.", " ", "E"}], "-", "3"}], "=", "B"}]}], ",", 
+     RowBox[{
+      RowBox[{"L", "-", "3"}], "=", "I"}], ",", 
+     RowBox[{
+      RowBox[{"Q", "-", "3"}], "=", "N"}], ",", 
+     RowBox[{
+      RowBox[{"D", "-", "3"}], "=", "A"}], ",", 
+     RowBox[{
+      RowBox[{"U", "-", "3"}], "=", "R"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"A", "-", "3"}], "=."}], ".."}], " ", "continua", " ", "fino",
+       " ", "a", " ", "ottenere", " ", "una", " ", "parola", " ", "di", " ", 
+      "senso", " ", 
+      RowBox[{"compiuto", ".", "Risposta"}], " ", "da", " ", 
+      RowBox[{"inserire", ":", 
+       RowBox[{
+       "il", " ", "numero", " ", "dello", " ", "shift", " ", "trovato", " ", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"es", ".", "3"}], ")"}], "."}]}]}]}]}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"VI", ".5", " ", "Esempio"}], "\[LongDash]", 
+     RowBox[{"Livello", " ", "Avanzato"}], ",", 
+     RowBox[{"Cifrario", " ", "di", " ", "Vigenere"}]}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Seed", ":", 
+      RowBox[{"33", " ", "Messaggio", " ", "cifrato", " ", 
+       RowBox[{"(", "esempio", ")"}]}], ":", 
+      RowBox[{"BPZOSMMP", " ", "Chiave", " ", "da", " ", "trovare", " ", 
+       RowBox[{"tra", ":", "ALPHA"}]}]}], ",", "BETA", ",", "GAMMA", ",", 
+     "DELTA", ",", "OMEGA", ",", 
+     RowBox[{
+      RowBox[{"SIGMA", ".", 
+       RowBox[{"Strategia", ":", 
+        RowBox[{
+         RowBox[{"prova", " ", "BETA", " ", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"B", "=", "1"}], ",", 
+             RowBox[{"E", "=", "4"}], ",", 
+             RowBox[{"T", "=", "19"}], ",", 
+             RowBox[{"A", "=", "0"}]}], ")"}], ".", "B"}]}], "-", "B"}]}]}], "=", 
+      RowBox[{
+       RowBox[{"B", "-", "1"}], "=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"A", " ", "P"}], "-", "E"}], "=", 
+        RowBox[{
+         RowBox[{"P", "-", "4"}], "=", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"L", " ", "Z"}], "-", "T"}], "=", 
+          RowBox[{
+           RowBox[{"Z", "-", "19"}], "=", 
            RowBox[{
             RowBox[{
-             RowBox[{"reference", ".", "wolfram", ".", "com"}], "/", 
-             "language"}], "/", "ref"}], "/", 
-           RowBox[{"NSolve", ".", 
-            RowBox[{"html", "[", "2", "]"}]}]}], " ", "Wolfram", " ", 
-          "Documentation"}], "-", 
+             RowBox[{"G", " ", "O"}], "-", "A"}], "=", 
+            RowBox[{
+             RowBox[{"O", "-", "0"}], "=", 
+             RowBox[{
+              RowBox[{"O", "..."}], " ", "Se", " ", "le", " ", "prime", " ", 
+              "lettere", " ", "formano", " ", 
+              RowBox[{"l", "'"}], "inizio", " ", "di", " ", "una", " ", 
+              "parola", " ", "sensata"}]}]}]}]}]}]}]}]}], ",", 
+     RowBox[{
+     "probabilmente", " ", "hai", " ", "trovato", " ", "la", " ", "chiave", " ", 
+      RowBox[{"giusta", ".", "Risposta"}], " ", "da", " ", 
+      RowBox[{"inserire", ":", "BETA"}]}]}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
+      "="}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"VII", ".", "BIBLIOGRAFIA"}], " ", "E", " ", "SITOGRAFIA"}], 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
+      "="}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"SECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"VII", ".", "Bibliografia"}], " ", "e", " ", "Sitografia"}], 
+    "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "CELLA"}]}], " ", 
+      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"[", "1", "]"}], " ", "Tanenbaum"}], ",", 
+     RowBox[{"A", ".", "S", "."}], " ", "\[LongDash]", 
+     RowBox[{"Structured", " ", "Computer", " ", "Organization"}], ",", 
+     RowBox[{"6", "th", " ", 
+      RowBox[{"ed", ".", "Pearson"}]}], ",", 
+     RowBox[{"2012.", " ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Sistemi", " ", "binari"}], ",", 
+         RowBox[{"rappresentazione", " ", "dei", " ", "dati"}], ",", 
          RowBox[{
-          RowBox[{"NMaximize", "/", "NMinimize"}], " ", 
-          RowBox[{"https", ":"}]}]}]}], "//", 
+          RowBox[{"unita", "'"}], " ", "di", " ", "memoria"}]}], ")"}], "[", 
+       "2", "]"}], " ", "W3Schools"}], "\[LongDash]", 
+     RowBox[{
+      RowBox[{"HTML", " ", 
+       RowBox[{"Colors", ":", 
+        RowBox[{"Hex", " ", "Colors", " ", "https"}], ":"}]}], "//", 
+      RowBox[{
        RowBox[{
         RowBox[{
-         RowBox[{
-          RowBox[{
-           RowBox[{
-            RowBox[{"reference", ".", "wolfram", ".", "com"}], "/", 
-            "language"}], "/", "ref"}], "/", 
-          RowBox[{"NMaximize", ".", 
-           RowBox[{"html", "[", "3", "]"}]}]}], " ", "Wolfram", " ", 
-         "Documentation"}], "-", 
-        RowBox[{"D", " ", 
-         RowBox[{"(", 
-          RowBox[{"derivata", " ", "simbolica"}], ")"}], " ", 
-         RowBox[{"https", ":"}]}]}]}], "//", 
+         RowBox[{"www", ".", "w3schools", ".", "com"}], "/", "html"}], "/", 
+        "html_colors"}], 
+       RowBox[{"_hex", ".", 
+        RowBox[{"asp", "[", "3", "]"}]}], " ", "Singh"}]}], ",", 
+     RowBox[{"S", "."}], " ", "\[LongDash]", 
+     RowBox[{"The", " ", "Code", " ", 
+      RowBox[{"Book", ":", 
+       RowBox[{
+       "The", " ", "Science", " ", "of", " ", "Secrecy", " ", "from", " ", 
+        "Ancient", " ", "Egypt", " ", "to", " ", "Quantum", " ", 
+        RowBox[{"Cryptography", ".", "Anchor"}], " ", "Books"}]}]}], ",", 
+     RowBox[{"2000.", " ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Cifrario", " ", "di", " ", "Cesare"}], ",", 
+         RowBox[{"Cifrario", " ", "di", " ", "Vigenere"}]}], ")"}], "[", "4", 
+       "]"}], " ", "Wolfram"}], ",", 
+     RowBox[{"S", "."}], " ", "\[LongDash]", 
+     RowBox[{
+     "An", " ", "Elementary", " ", "Introduction", " ", "to", " ", "the", " ",
+       "Wolfram", " ", "Language"}], ",", 
+     RowBox[{"3", "rd", " ", 
+      RowBox[{"ed", ".", "Wolfram"}], " ", "Media"}], ",", 
+     RowBox[{
+      RowBox[{"2023.", " ", 
+       RowBox[{"https", ":"}]}], "//", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"www", ".", "wolfram", ".", "com"}], "/", "language"}], "/", 
+        "elementary"}], "-", 
+       RowBox[{
+        RowBox[{"introduction", "/", 
+         RowBox[{"[", "5", "]"}]}], " ", "Wolfram", " ", 
+        "Documentation"}]}]}], "\[LongDash]", 
+     RowBox[{
+      RowBox[{"IntegerString", " ", 
+       RowBox[{"(", 
+        RowBox[{"conversione", " ", "in", " ", "base", " ", "n"}], ")"}], " ", 
+       RowBox[{"https", ":"}]}], "//", 
       RowBox[{
        RowBox[{
         RowBox[{
          RowBox[{
           RowBox[{"reference", ".", "wolfram", ".", "com"}], "/", 
           "language"}], "/", "ref"}], "/", 
-        RowBox[{"D", ".", 
-         RowBox[{"html", "[", "4", "]"}]}]}], " ", "Wolfram"}]}], ",", 
+        RowBox[{"IntegerString", ".", 
+         RowBox[{"html", "[", "6", "]"}]}]}], " ", "Wolfram", " ", 
+       "Documentation"}]}], "\[LongDash]", 
      RowBox[{
+      RowBox[{"RGBColor", " ", 
+       RowBox[{"https", ":"}]}], "//", 
       RowBox[{
        RowBox[{
         RowBox[{
          RowBox[{
-          RowBox[{"S", ".", 
-           RowBox[{"-", "An"}]}], " ", "Elementary", " ", "Introduction", " ",
-           "to", " ", "the", " ", "Wolfram", " ", "Language", " ", 
-          RowBox[{"https", ":"}]}], "//", 
-         RowBox[{
-          RowBox[{
-           RowBox[{
-            RowBox[{"www", ".", "wolfram", ".", "com"}], "/", "language"}], "/",
-            "elementary"}], "-", 
-          RowBox[{
-           RowBox[{"introduction", "/", 
-            RowBox[{"[", "5", "]"}]}], " ", "Wolfram", " ", "Documentation"}],
-           "-", 
-          RowBox[{"Package", " ", "Development", " ", "Guide", " ", 
-           RowBox[{"https", ":"}]}]}]}], "//", 
-        RowBox[{
-         RowBox[{
-          RowBox[{
-           RowBox[{
-            RowBox[{
-             RowBox[{"reference", ".", "wolfram", ".", "com"}], "/", 
-             "language"}], "/", "guide"}], "/", 
-           RowBox[{"PackageDevelopment", ".", 
-            RowBox[{"html", "[", "6", "]"}]}]}], " ", "Wolfram", " ", 
-          "Documentation"}], "-", 
-         RowBox[{
-         "Modularity", " ", "and", " ", "the", " ", "Naming", " ", "of", " ", 
-          "Things", " ", 
-          RowBox[{"https", ":"}]}]}]}], "//", 
+          RowBox[{"reference", ".", "wolfram", ".", "com"}], "/", 
+          "language"}], "/", "ref"}], "/", 
+        RowBox[{"RGBColor", ".", 
+         RowBox[{"html", "[", "7", "]"}]}]}], " ", "Wolfram", " ", 
+       "Documentation"}]}], "\[LongDash]", 
+     RowBox[{
+      RowBox[{"Package", " ", "Development", " ", "Guide", " ", 
+       RowBox[{"https", ":"}]}], "//", 
+      RowBox[{
        RowBox[{
         RowBox[{
          RowBox[{
-          RowBox[{
-           RowBox[{
-            RowBox[{"reference", ".", "wolfram", ".", "com"}], "/", 
-            "language"}], "/", "tutorial"}], "/", 
-          RowBox[{"ModularityAndTheNamingOfThings", ".", 
-           RowBox[{"html", "[", "7", "]"}]}]}], " ", "Wolfram", " ", 
-         "Documentation"}], "-", 
+          RowBox[{"reference", ".", "wolfram", ".", "com"}], "/", 
+          "language"}], "/", "guide"}], "/", 
+        RowBox[{"PackageDevelopment", ".", 
+         RowBox[{"html", "[", "8", "]"}]}]}], " ", "Wolfram", " ", 
+       "Documentation"}]}], "\[LongDash]", 
+     RowBox[{
+      RowBox[{
+      "Modularity", " ", "and", " ", "the", " ", "Naming", " ", "of", " ", 
+       "Things", " ", 
+       RowBox[{"https", ":"}]}], "//", 
+      RowBox[{
+       RowBox[{
         RowBox[{
-        "Creating", " ", "Documents", " ", "and", " ", "Presentations", " ", 
-         RowBox[{"https", ":"}]}]}]}], "//", 
+         RowBox[{
+          RowBox[{"reference", ".", "wolfram", ".", "com"}], "/", 
+          "language"}], "/", "tutorial"}], "/", 
+        RowBox[{"ModularityAndTheNamingOfThings", ".", 
+         RowBox[{"html", "[", "9", "]"}]}]}], " ", "Wolfram", " ", 
+       "Documentation"}]}], "\[LongDash]", 
+     RowBox[{
+      RowBox[{
+      "Creating", " ", "Documents", " ", "and", " ", "Presentations", " ", 
+       RowBox[{"https", ":"}]}], "//", 
       RowBox[{
        RowBox[{
         RowBox[{
          RowBox[{"reference", ".", "wolfram", ".", "com"}], "/", "language"}],
          "/", "workflowguide"}], "/", 
        RowBox[{"CreatingDocumentsAndPresentations", ".", "html"}]}]}]}], 
-    "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", "\n", 
+    "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
+      "="}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"VIII", ".", "COMMENTI"}], " ", "E", " ", "LAVORO", " ", 
+     "FUTURO"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"[", 
+     RowBox[{
+      RowBox[{"Sezione", " ", "rivolta", " ", "alla", " ", "professoressa"}], 
+      "\[LongDash]", 
+      RowBox[{"non", " ", 
+       RowBox[{"all", "'"}], "utente"}]}], "]"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
+      "="}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
      RowBox[{
@@ -650,10 +1597,8 @@ Cell[BoxData[
       RowBox[{"SECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
-     RowBox[{"VI", ".", "Commenti"}], " ", "e", " ", "Lavoro", " ", 
-     RowBox[{"Futuro", "[", 
-      RowBox[{"rivolta", " ", "alla", " ", "professoressa"}], "]"}]}], "*)"}],
-    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"VIII", ".", "Commenti"}], " ", "e", " ", "Lavoro", " ", 
+     "Futuro"}], "*)"}], "\[IndentingNewLine]", "\n", 
    RowBox[{"(*", 
     RowBox[{
      RowBox[{
@@ -663,1288 +1608,191 @@ Cell[BoxData[
    RowBox[{"(*", 
     RowBox[{
      RowBox[{
-      RowBox[{
-      "SCELTE", " ", "IMPLEMENTATIVE", " ", "Architettura", " ", "Tutto", " ",
-        "il", " ", "codice", " ", 
-       RowBox[{"e", "'"}], " ", "in", " ", 
-       RowBox[{"FunctionExplorer", ".", "m"}], " ", "con", " ", 
-       RowBox[{"BeginPackage", "/", 
-        RowBox[{"EndPackage", ".", "Il"}]}], " ", 
-       RowBox[{"Tutorial", ".", "nb"}], " ", "contiene", " ", "solo", " ", 
-       "2", " ", "celle", " ", "di", " ", "codice", " ", 
-       RowBox[{"(", "chiuse", ")"}]}], ":", 
-      RowBox[{
-       RowBox[{"-", "Initialization"}], " ", "Cell"}], ":", 
-      RowBox[{"SetDirectory", "+", "Get", "-", 
-       RowBox[{"Button", " ", "di", " ", 
-        RowBox[{"avvio", ":", 
-         RowBox[{
-          RowBox[{"esercizioUniversale", "[", "]"}], " ", "Il", " ", 
-          "caricamento", " ", 
-          RowBox[{"e", "'"}], " ", "trasparente", " ", 
-          RowBox[{"all", "'"}], "utente", " ", "tramite", " ", 
-          "Button"}]}]}]}]}], ",", 
+     "SCELTE", " ", "IMPLEMENTATIVE", " ", "Architettura", " ", "Tutto", " ", 
+      "il", " ", "codice", " ", 
+      RowBox[{"e", "'"}], " ", "contenuto", " ", "in", " ", 
+      RowBox[{"MathInfo", ".", "m"}]}], ",", 
      RowBox[{
       RowBox[{
-      "come", " ", "indicato", " ", "nel", " ", "materiale", " ", "del", " ", 
-       
-       RowBox[{"corso", ".", "Font"}], " ", "Arial", " ", "Tutto", " ", "il", 
-       " ", "testo", " ", 
+       RowBox[{"strutturato", " ", "con", " ", 
+        RowBox[{
+         RowBox[{"BeginPackage", "[", "\"\<MathInfo`\>\"", "]"}], "/", 
+         RowBox[{
+          RowBox[{"EndPackage", "[", "]"}], ".", "Il"}]}], " ", 
+        RowBox[{"Tutorial", ".", "nb"}], " ", "contiene", " ", "solo", " ", 
+        "3", " ", "statement", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"Initialization", " ", "Cell"}], ",", 
+          RowBox[{"chiusa", " ", 
+           RowBox[{"all", "'"}], "utente"}]}], ")"}]}], ":", 
+       RowBox[{"SetDirectory", "[", 
+        RowBox[{"NotebookDirectory", "[", "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Get", "[", "\"\<MathInfo.m\>\"", "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"esercizioUniversale", "[", "]"}], " ", "Contesti", " ", "e", " ", 
+       RowBox[{"visibilita", "'"}], " ", "Le", " ", "funzioni", " ", 
+       "ausiliarie", " ", 
+       RowBox[{"(", 
+        RowBox[{
+        "miGeneraEsercizioBase", ",", "miGeneraDomanda", ",", "miCifraCesare",
+          ",", "miCifraVigenere", ",", "miGeneraEsercizioColore", ",", 
+         "miGeneraEsercizioAvanzato", ",", "miSuggerimentoBase", ",", 
+         "miSuggerimentoColore", ",", "miSuggerimentoAvanzato", ",", 
+         "miVerificaRisposta"}], ")"}], " ", "sono", " ", "nel", " ", 
+       "contesto", " ", "MathInfo`Private`", " ", "e", " ", "non", " ", 
+       "sono", " ", "accessibili", " ", 
+       RowBox[{"dall", "'"}], "esterno", " ", "del", " ", 
+       RowBox[{"pacchetto", ".", "I"}], " ", "messaggi", " ", "di", " ", 
+       "errore", " ", 
+       RowBox[{"(", 
+        RowBox[{"MathInfo", "::", "badinput"}], ")"}], " ", "sono", " ", 
+       "definiti", " ", "nella", " ", "sezione", " ", "pubblica"}]}], ",", 
+     RowBox[{"prima", " ", "di", " ", 
+      RowBox[{"Begin", "[", "\"\<`Private`\>\"", "]"}]}], ",", 
+     RowBox[{
+     "in", " ", "modo", " ", "da", " ", "restare", " ", "raggiungibili", " ", 
+      "dai", " ", "Button", " ", "del", " ", "DynamicModule", " ", "anche", " ",
+       "dopo", " ", "la", " ", "chiusura", " ", "del", " ", "contesto", " ", 
+      RowBox[{"Private", ".", "Variabili"}], " ", "locali", " ", "Tutte", " ",
+       "le", " ", "variabili", " ", "di", " ", "lavoro", " ", "sono", " ", 
+      "dichiarate", " ", "locali", " ", "con", " ", "Module"}], ",", 
+     RowBox[{
+     "evitando", " ", "cattura", " ", "accidentale", " ", "di", " ", 
+      "variabili", " ", "e", " ", "inquinamento", " ", "del", " ", "contesto",
+       " ", "Global`", " ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"si", " ", "veda", " ", 
+         RowBox[{"BadExample", ".", "m"}], " ", "del", " ", "corso"}], ")"}], 
+       ".", "Separazione"}], " ", "delle", " ", "funzioni", " ", "Ogni", " ", 
+      
+      RowBox[{"funzionalita", "'"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+       "genera", ",", "verifica", ",", "suggerimento", ",", "soluzione"}], 
+       ")"}], " ", 
+      RowBox[{"e", "'"}], " ", "implementata", " ", "in", " ", "una", " ", 
+      "funzione", " ", "ausiliaria", " ", "separata"}], ",", 
+     RowBox[{"richiamata", " ", "dal", " ", "Button", " ", 
+      RowBox[{"corrispondente", ".", "Non"}], " ", "viene", " ", "creato", " ",
+       "un", " ", "metodo", " ", "dentro", " ", "un", " ", "altro", " ", 
+      "metodo"}], ",", 
+     RowBox[{
+      RowBox[{
+      "come", " ", "indicato", " ", "nelle", " ", "linee", " ", "guida", " ", 
+       "del", " ", 
+       RowBox[{"corso", ".", "Trap"}], " ", "di", " ", "errore", " ", 
+       RowBox[{"Quiet", "[", 
+        RowBox[{"Check", "[", 
+         RowBox[{"...", ",", "$Failed"}], "]"}], "]"}], " ", "protegge", " ", 
+       "le", " ", "operazioni", " ", 
+       RowBox[{"critiche", ".", "miVerificaRisposta"}], " ", "gestisce", " ", 
+       "input", " ", "non", " ", "numerici", " ", "o", " ", "vuoti", " ", 
+       "con", " ", "un", " ", "secondo", " ", "pattern", " ", "che", " ", 
+       "restituisce", " ", "sempre", " ", "False", " ", 
+       RowBox[{"silenziosamente", ".", "Font"}], " ", "Arial", " ", "Tutto", " ",
+        "il", " ", "testo", " ", 
        RowBox[{"dell", "'"}], "interfaccia", " ", "usa", " ", "FontFamily"}], 
       "->", 
       RowBox[{"\"\<Arial\>\"", " ", "per", " ", 
        RowBox[{"leggibilita", "'"}], " ", "e", " ", 
        RowBox[{"accessibilita", "'"}]}]}], ",", 
+     RowBox[{"inclusi", " ", "gli", " ", "utenti", " ", "con", " ", 
+      RowBox[{"difficolta", "'"}], " ", "di", " ", "lettura"}], ",", 
      RowBox[{
-     "anche", " ", "per", " ", "utenti", " ", "con", " ", "dislessia"}], ",", 
-     
-     RowBox[{"come", " ", "richiesto", " ", "dalla", " ", 
-      RowBox[{"professoressa", ".", "Struttura"}], " ", "del", " ", "codice", 
-      " ", "Le", " ", "funzioni", " ", "ausiliarie", " ", 
-      RowBox[{"(", 
-       RowBox[{
-       "feGeneraFunzione", ",", "feGeneraDomanda", ",", "feCalcolaRisposta", ",",
-         "feVerificaRisposta", ",", "feGraficoAnnotato", ",", 
-        "feValidaSeed"}], ")"}], " ", "sono", " ", "nel", " ", "contesto", " ",
-       "Private", " ", "e", " ", "non", " ", "accessibili", " ", 
-      RowBox[{"dall", "'"}], 
-      RowBox[{"esterno", ".", "Ogni"}], " ", "funzione", " ", 
-      RowBox[{"e", "'"}], " ", "richiamata", " ", "dal", " ", "Button", " ", 
-      "corrispondente"}], ",", 
-     RowBox[{"non", " ", "annidiata", " ", "dentro", " ", 
-      RowBox[{"un", "'"}], "altra", " ", "funzione", " ", 
-      RowBox[{
+     "come", " ", "indicato", " ", "nel", " ", "materiale", " ", "del", " ", 
+      RowBox[{"corso", ".", "3"}], " ", "tentativi", " ", "con", " ", 
+      "suggerimento", " ", "progressivo", " ", "Ad", " ", "ogni", " ", 
+      "tentativo", " ", "errato", " ", "viene", " ", "mostrato", " ", 
+      "automaticamente", " ", "un", " ", "suggerimento", " ", "diverso"}], ",", 
+     RowBox[{
+      RowBox[{"sempre", " ", 
+       RowBox[{"piu", "'"}], " ", 
+       RowBox[{"preciso", ".", "Dopo"}], " ", "3", " ", "tentativi", " ", 
+       "il", " ", "sistema", " ", "indica", " ", "di", " ", "usare", " ", 
+       "Mostra", " ", 
+       RowBox[{"Soluzione", ".", "Seed"}], " ", "riproducibile", " ", 
+       RowBox[{"SeedRandom", "[", "seed", "]"}], " ", "garantisce", " ", 
+       "che", " ", "lo", " ", "stesso", " ", "intero", " ", "produca", " ", 
+       "sempre", " ", "lo", " ", "stesso", " ", 
+       RowBox[{"esercizio", ".", 
+        RowBox[{"Cio", "'"}]}], " ", "permette", " ", "di", " ", "ripetere", " ",
+        "un", " ", "esercizio", " ", "o", " ", "confrontare", " ", "risposte",
+        " ", "tra", " ", 
+       RowBox[{"piu", "'"}], " ", 
+       RowBox[{"utenti", ".", "POSSIBILI"}], " ", "ESTENSIONI", " ", 
+       "FUTURE"}], "-", 
+      RowBox[{"Aggiungere", " ", "conversioni", " ", "ottale", " ", 
        RowBox[{"(", 
-        RowBox[{"come", " ", 
-         RowBox[{
-         "indicato", 
-          ":", "\"\<non creare\n  un metodo dentro un metodo ma chiamarlo da \
-fuori\>\""}]}], ")"}], ".", "Variabili"}], " ", "locali", " ", "Tutte", " ", 
-      "le", " ", "variabili", " ", "di", " ", "lavoro", " ", "sono", " ", 
-      "dichiarate", " ", "locali", " ", "con", " ", "Module"}], ",", 
+        RowBox[{"base", " ", "8"}], ")"}], " ", "e", " ", "esadecimale", " ", 
+       
+       RowBox[{"(", 
+        RowBox[{"base", " ", "16"}], ")"}], " ", "nel", " ", "livello", " ", 
+       RowBox[{"base", ".", 
+        RowBox[{"-", "Includere"}]}], " ", "un", " ", "contatore", " ", "di", 
+       " ", "punteggio", " ", "per", " ", "sessioni", " ", "multi"}], "-", 
+      "esercizio"}], ",", 
+     RowBox[{"con", " ", "storico", " ", "dei", " ", 
+      RowBox[{"risultati", ".", 
+       RowBox[{"-", "Aggiungere"}]}], " ", "una", " ", 
+      RowBox[{"modalita", "'"}], " ", "\"\<allenamento libero\>\"", " ", 
+      "senza", " ", "limite", " ", "di", " ", "tentativi"}], ",", 
+     RowBox[{"per", " ", "studio", " ", 
+      RowBox[{"autonomo", ".", 
+       RowBox[{"-", "Per"}]}], " ", "il", " ", "livello", " ", "avanzato"}], ",", 
+     RowBox[{"implementare", " ", "cifrari", " ", 
+      RowBox[{"piu", "'"}], " ", "complessi", " ", "come", " ", "RSA", " ", 
+      "elementare", " ", "o", " ", "cifratura", " ", "a", " ", "blocchi", " ", 
+      RowBox[{"semplificata", ".", 
+       RowBox[{"-", "Permettere"}]}], " ", 
+      RowBox[{"all", "'"}], "utente", " ", "di", " ", "inserire", " ", "un", " ",
+       "proprio", " ", "messaggio", " ", "da", " ", "cifrare", " ", "e", " ", 
+      "scegliere", " ", "la", " ", "chiave"}], ",", 
      RowBox[{
       RowBox[{
-      "evitando", " ", "inquinamento", " ", "del", " ", "contesto", " ", 
-       "Global", " ", 
-       RowBox[{
-        RowBox[{"(", 
-         RowBox[{"si", " ", "veda", " ", 
-          RowBox[{"BadExample", ".", "m"}]}], ")"}], ".", "Trap"}], " ", "di",
-        " ", "errore", " ", 
-       RowBox[{"Quiet", "[", 
-        RowBox[{"Check", "[", 
-         RowBox[{"...", ",", "$Failed"}], "]"}], "]"}], " ", "protegge", " ", 
-       "ogni", " ", "calcolo", " ", "da", " ", "eccezioni", " ", "del", " ", 
-       RowBox[{"Kernel", ".", "I"}], " ", 
-       RowBox[{"messaggi", "::", "badseed"}], " ", 
-       RowBox[{"e", "::", "badinput"}], " ", "sostituiscono", " ", "i", " ", 
-       "messaggi", " ", "raw", " ", "del", " ", 
-       RowBox[{"Kernel", ".", "Options"}], " ", "con", " ", "stringhe", " ", 
-       "feVerificaRisposta", " ", "usa", " ", "\"\<Tolleranza\>\"", " ", 
-       "come", " ", "stringa", " ", "per", " ", 
-       RowBox[{"stabilita", "'"}], " ", "rispetto", " ", "ad", " ", 
-       "assegnamenti", " ", "globali", " ", 
-       RowBox[{
-        RowBox[{"(", 
-         RowBox[{
-          RowBox[{"materiale", " ", "del", " ", "corso"}], ",", 
-          RowBox[{"pacchetto", " ", "1.5"}]}], ")"}], ".", "POSSIBILI"}], " ",
-        "ESTENSIONI", " ", "FUTURE"}], "-", 
-      RowBox[{"Livelli", " ", "di", " ", 
-       RowBox[{"difficolta", "'"}], " ", 
-       RowBox[{"(", 
-        RowBox[{
-         RowBox[{"facile", "/", "medio"}], "/", "difficile"}], ")"}]}], "-", 
+      "visualizzando", " ", "il", " ", "risultato", " ", "in", " ", "tempo", " ", 
+       RowBox[{"reale", ".", 
+        RowBox[{"-", "Aggiungere"}]}], " ", "animazioni", " ", "passo"}], "-", 
       RowBox[{
-      "Contatore", " ", "di", " ", "punteggio", " ", "per", " ", "sessioni", " ",
-        "multi"}], "-", "esercizio", "-", 
-      RowBox[{
-      "Suggerimento", " ", "progressivo", " ", "prima", " ", "di", " ", 
-       "rivelare", " ", "la", " ", "soluzione"}], "-", 
-      RowBox[{
-       RowBox[{"Possibilita", "'"}], " ", "per", " ", 
-       RowBox[{"l", "'"}], "utente", " ", "di", " ", "inserire", " ", "una", " ",
-        "propria", " ", "funzione"}], "-", 
-      RowBox[{"Catalogo", " ", "esteso", " ", "con", " ", 
-       RowBox[{"Tan", "[", "x", "]"}], " ", "e", " ", "funzioni", " ", "a", " ",
-        "tratti"}]}]}], "*)"}]}]}]], "Input",
- CellChangeTimes->{{3.983603080244636*^9, 3.983603080246167*^9}, {
-  3.984716945618041*^9, 3.984716963782804*^9}, {3.984717082292861*^9, 
-  3.984717082711144*^9}},
- CellLabel->"In[55]:=",ExpressionUUID->"58a35cd7-b6a2-4387-aeba-2c50883a2f03"],
+      "passo", " ", "per", " ", "spiegare", " ", "visivamente", " ", "la", " ",
+        "conversione", " ", "binaria", " ", "o", " ", "il", " ", "processo", " ",
+        "di", " ", 
+       RowBox[{"cifratura", "."}]}]}]}], "*)"}]}]}]], "Input",
+ CellChangeTimes->{{3.985077268649905*^9, 3.985077268650984*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"56f7de27-3daa-4c28-a722-ca974eefc6e6"],
 
 Cell[BoxData[
- DynamicModuleBox[{FunctionExplorer`Private`feStatoSeed$$ = 163, 
-  FunctionExplorer`Private`feStatoFunzione$$ = Function[
-  FunctionExplorer`Private`x, RandomInteger[{1, 2}] 
-   Sin[RandomInteger[{1, 2}] FunctionExplorer`Private`x]], 
-  FunctionExplorer`Private`feStatoDomanda$$ = <|
-  "Tipo" -> "derivata", "Parametri" -> -2, "Testo" -> 
-   "Calcola f'(x) nel punto x\\[Sub]0 = -2.\nInserisci il valore numerico di \
-f'(-2)."|>, FunctionExplorer`Private`feStatoSoluzione$$ = -0.8322936730942848,
-   FunctionExplorer`Private`feStatoRisposta$$ = "", 
-  FunctionExplorer`Private`feStatoFeedback$$ = "", 
-  FunctionExplorer`Private`feStatoGrafico$$ = Graphics[{
-    Annotation[{{{{}, {}, 
-        Annotation[{
-          Directive[
-           Opacity[1.], 
-           AbsoluteThickness[2], 
-           RGBColor[0, 0, 1], 
-           Thickness[0.003]], 
-          Line[CompressedData["
-1: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
-GL1Ii0/w38mP1V+mOK43q4I1l/RqpLax7U2M6VzZjlHIhsXVbAl+POf+j1so
-rhKtr3i3w0CMHx+3jiFoLlSgCG9d46F1/Dj6ZFe1g24+Ejs45+lB48dBwh2+
-L661Q/RoTLIwPz+Wi+Hd/3SmDEnGnmz6QuLH5Td22nlr5aL3RtOcmiw+TC5X
-+HDzzU+0jS9qb9sSH7Z3+3fCkF6KEvM0zW/P8uH7S59ebz9einY603356XzY
-4d6TgcnwbPRF5r9v74b58MG3G71TRrKQfOuxDuU+Prz+6t7sC2p/0LegMb6q
-Dj6cKvishSckE+3XCN9v38yHe/dErW6raICsRWTDrOXD5oSTIgcOlSCVL8MB
-ryr4cGXr+NYd9+ohzyY0S+4vHw4dXUlR7cpA6sJH+oqK+PCThxs50pQyUGHp
-AM08nw+3d6taP3crAk2PYNXpLD68OtE2YVNeCH+UVOyfpfPh5lntfw27C5HO
-UG+IZAofHntjzSXr9RWVR73Iz0zkwzJGWXsl/lXBGYODI3pxfHjfq7+/vrHx
-r+HqXj8QzYcT6g/Xmg5WgHHO86OPIvjwotHfWRSVh5qc9l1fF8qHt+T7+Ucc
-y0VmWzsikl7wYbeHDmDVmQPtjU+Lj/nx4ehvEjLLvtlwIUBhstmbDx/6Pap+
-bn8iup8R4lv+iA/3PI+2+DL2A161zYgXuPHhn4dfNv9J/Y7SSMbpGbf5sOr1
-7ZWlDsVQKvdDO9GJDwvGew+I7ExHfUYiXW+u8OFn/Bw5SoNfEfOhm2uQHR+e
-cDh97WR8GhL90Ez2sebDR6aXl5MLY5BSuUqcqxkfVh6flVk9lAx6c28OORrz
-4W3fvTalZGSDw6bVSssz7PN5qdGf8q+Rt6bVZQNdPoxuFx3471MGRF2HFY0T
-fNjdiMkVLh2CfrySDFU+yod35//nRj/8FlXnee2QO8yHLYKjxcTkP8NYfw9I
-HOTDxXhiN5/0K+CmapgIKfJhoU+yYQ0isSB54MMY924+rLXrUuo6EV9QteL2
-YWznw0+7Uv9mrdgjE1/7DRNSfJgoOm8ab6qGbqb8Se3exIffv/9JDbrsiZ43
-7DhRL8qup38N6uRT3iie+bztjxAf9t3YUZduF4DyZcacc6l8uE8o93eFmg80
-653mS+Pjw/TG6bfbdCNg1jXlbRyJDz8Yd/3nfC4aqG9pB16zeHFhQt4xVYV3
-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
-VJPzdHjynG8m4OwKyF1zPGdmSYcTg92hD7TZ+lrs9hvasIBXI2efI1qBJumJ
-+ge6Tag0NqTedP8KLFV7CfUTmlDAqqOr1q4VuOaWeJh+jQ56ZsdFDmxZAZGG
-K1bfb9KBlrkxS1pkBabey71Qk2xEVUKzpkKUFYjhsfYSrG9AITfLloicbPxm
-Csl57DlrVB4fObm4DE3qBy/pqQ0g4Z2PVDsnlgGi449nTvejJl/jtvK+ZYg6
-avncyJcO//XufpTbsgwDu6auFD1jgZk69+akqmWQe1lYtu0FHcSjO/L/K1kG
-qv39rw+CWdCx9MPaL3cZJI3GQ4tc+1CsSRDh7rdl4Fo4v0x8zYKta9SPGcUs
-Q6CHyhGTaBYEynffdwxdBmL5PrfUWDosnvFO9/RbhofOl1aW4lhw8dbWsfBH
-y/Ds5laFo69rUNnLYukvzsuw/feZlouf6XDg2yXLIvtl+CS8RsHrCx1ia7jD
-my2WoXzyCfBGVSP+mY8VdINleDXflfAynQ4uQto83FrL4Kd8YWxopgp1KI0g
-8cPL8FbSabN9NgtOGvm7KSqw5afOmaq5dPjmIvf1pMwymNi2BRCBBZtelQ9b
-bVwGl09XlO01KpHfdyepO2uWISJhL89iZAWarqeZ+3MtQ272D0dGCR0s5tNC
-3zEYcLds3bYnf1lQImxYlklngHz/p/XEMhbIH5whVfQx4FvygzXUmVYUeS7s
-SF8zA/bHdIWVVdGB5LbflVHBgJCdlWvbolvQjYiGlDXFDJiLd+q0qGdBS9bd
-QZlsBti+bZzp1fqLNJpFJY+kMCBM0zIjNqoJpSxlm56NY8Dgz7UqJa0sEBUz
-f3klggG7EscoIZqNyFtl5a/HCwb0vimyKOykw5hZNEe4NwMOGXPtaRj/hUwe
-qKkm32WA7/TcHp9eFhS86bxdeI0B1SrJ5073s0Au1zO5yYYBFQXJn3jZvCK8
-bUv/hAkDkrMXsPvhWkRYLdzEdYoBKqwTmmVBhchxk53JxqMM0CMtqC30VKO6
-I1xBCgcY8I6zy91mnAVqVgm/tXYxoFL5T2jNBB0S3bUIVpIM6Ll2Z9kxE5DQ
-2yFll/UMiF322+U3RQd3eHbrOT8bn+9GHEPEPDTUufNzLGsJ1rhlGnDM0sGQ
-UNbzY3YJvj8S3/xCNwflSl7fWD68BBc2F3Ksn8xCMkepRr0dS5CbL0TWWWBB
-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
-IiCfR5mEoXJSiiWqdHwl5/P0dw0ZhczD/sQq0NEuck7gtTgJ3QIlTr6RpKOL
-psH9bH4SsipCu+xE6bixYZVw/8Ic3l6xwd6Il457Ls1Hla+hYNYDlfmrHC7m
-pxp4hCtQMJKgLKvEyfHnTiZoivdwOP+C0hFyNQ17xfvLRBrn0LFs243UPzSs
-OZ5zZP48Bc32b339KJqGV+8klhByiKj7UyHhYAANT2WWqi48WEQlqc21XJyc
-57f5jWiW1yKKvZWjl96i4Tpzu50XPxFxZk5mre85Gk6v7lCN+L6IA3bSmia6
-NFT6tz682HMOK3o2WqxXoeGEWPDEncdETDGUcu1aT8O+E9y17+sXMSxfIipq
-BQ33/zmitKtvET12bSi6QaHiQsquBzIXiGjzdd3I9k4qthjbenfNUdBkzVoB
-WgkVb/u4XR4XoKKW55odGSlUlCqI0HdSJ6I8a7XR0wgqCvFcJNYpElHwhuh9
-XR8qrv7iuGnzJiIyW4SDeZypqPDdJlsXqNilv+pPxX9UnI64uS+WZw6LsgS7
-/E5T8cnpB9InLKiYoCSweG4/FaPYQn9XkGcxKIxPXnILFcfkWXcDnJbQRXCl
-Xq8oFY+OVckT3ZbwmgvPre//36ffnYs6FbN4irTize1RCjbYEXeKfKSiuhXX
-b9UmCtZtjbje+n0JN9Yu1THyKPg30zPKPomK3LqLjKx4js5+3lDf9JeKpKT5
-da4hFFzMlR3gL13CFrm5/UdeUFDAOHMg0n0CcwNnLPkcKPjL978U6wezGLNi
-+nm1OQV9ZGRMJW/P4junya+BxygomNLWUGo5wdFlVvGF3RQU3lXOrTZHRStT
-5uhGaQqqfxWlafPS8FgpXXCAn4IeVF3/9/smUFWTpvqDRcYrQf9xIHQZb6m5
-u//tJeP+TsUTXAo0jFJc3VTL0dljBFu9cZEJ7JCN2jqUSsYNW3feBa4JFJfY
-9XjqMxlzlZ6cvQbLeHo1Vgp5k/HwxlPO2Sc4vM5vLC13j4zd9H99zWdpmL/c
-56hhScaiT5nuGZbLOD3tWHj8GBlXXfIzsLzOye/0pbVWamR8XVU5a5o4jrbj
-/rfuSZIx8oyEv2XUOEYPyP59yU3G9VGb+yaeLWNPR9KqT2QSxr9/EBntRcMN
-jbpXEttIGJS9T1zx4QwaV9alFBaQsCREPuJmEIc/Cq/wtCWQ8JlVRZ7Dp2Us
-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
-KjkR4WGhmXj+T2C95ZJ3t44TWav4u3pYpMPuS5nOf5s5Ucur5VEnth/4+Mk5
-xTN/OREVs+35LzEczOSkFrJ7ONHOXUXDFudS4cme298PDDHvV/uipTz8GYI3
-Rt0PHudEVqXPZ79KJ0ImoVuSe4YT/Z64JX3IPg63TG8bc1pk1muXdpwTR+P5
-bv3Y0VVO9Pjq3XAfzkjYVPvuuhGBC5moXexW003FsvmV/1VwcCHZYf8t9EMh
-oPuNvVuJlwsdPiI6yVUYja1DUWjcBi5Uc7X1p7feV/zm9WOjrVu40J74obap
-kheQ4Jwh+GoHF0pk3fRyvvoGVNyeaVz6jwvtDLcX+si6lj9iKPn+1j4udOCo
-zdJM6g3MoXXrbKskF0omeQW1/woAUcUIHk1ZLuQ5+9+2pDO+WG3vv/IMRS7k
-rHStyyjnBb4qsNVz7zEupOX4iXr1QAi4ES+of1TjQvfmVliKtL/Cl7m3LBxa
-XOiomYK1IjEScvvK8x7pcCHJHeH5FbnRuKOe7fGgHheyffmyL+1hJiz/Pq50
-0ZALtT8InN4tmYgFU50Wis240Jp8y3eHnm8gH5b+Xe4aF3psH7AcofMV6/tQ
-70dZcqHqqOlj5vHh+KHLgYObrbmQ5Rfj9WxCEfha3Rh7bsuFDNZcXSJMiyHZ
-5GvsnCMXGqW2hljm/sRyrXtoHK5cSL9n5cEqrRRy9GK1hZ5zofgD0/j2yUys
-9udA2MFXXCirTulN5rMKKD+VPIPecqFtAhp16n+y8bmSQyf0/bhQxuUIi3pS
-NbSgnx9vBXKhB4azwiGna8A0V2nUOZQLXSMHZiiFJON+xdyjPuFcaMb23Naw
-Wgx3foBPeAwX4tvR8bn2/W88LVXUk57IhQKPZVzuPpyGHRI0DpenciE2hVXZ
-keY0TBerfPH3Jxeipti0jzoUYo9wnbapbC60gSgdrcbbCDw76w+w/uZCrFeF
-glpyfmC/IH0XgRIudKds4mCBWTreurmtVrySC7mpYGnPyWL48s5ERKWWC12q
-UF9PeVsCYjzddueauNC4h17OWfUMnORpUWbRzoXeF5Q/Dq5pAVnWoW32Xcz8
-4+7ztXiW4SyX21Ze/Vyo8uVv4VneNkArE/mhI8z+WQpzVazMxKV2NhtSJ7mQ
-6N6AnuQzFaAzPXetaJYLVWHZhLqxCmi665DRssSFUkU+ZpV7dYDxMI1zbI3Z
-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
-UIZPQlZDHBX+By8DXyk=
-           "]]}, "Charting`Private`Tag#1"]}}, {}}, <|
-     "HighlightElements" -> <|
-       "Label" -> {"XYLabel"}, "Ball" -> {"InterpolatedBall"}|>, 
-      "LayoutOptions" -> <|
-       "PanelPlotLayout" -> <||>, 
-        "PlotRange" -> {{-4, 4}, {-1.999948628419053, 1.9999999486063353`}}, 
-        "Frame" -> {{False, False}, {False, False}}, "AxesOrigin" -> {0, 0}, 
-        "ImageSize" -> {420, 420/GoldenRatio}, "Axes" -> {True, True}, 
-        "LabelStyle" -> {}, "AspectRatio" -> GoldenRatio^(-1), "DefaultStyle" -> {
-          Directive[
-           Opacity[1.], 
-           AbsoluteThickness[2], 
-           RGBColor[0, 0, 1], 
-           Thickness[0.003]]}, 
-        "HighlightLabelingFunctions" -> <|"CoordinatesToolOptions" -> ({
-            (Identity[#]& )[
-             Part[#, 1]], 
-            (Identity[#]& )[
-             Part[#, 2]]}& ), 
-          "ScalingFunctions" -> {{Identity, Identity}, {
-            Identity, Identity}}|>, "Primitives" -> {}, "GCFlag" -> False|>, 
-      "Meta" -> <|
-       "DefaultHighlight" -> {"Dynamic", None}, "Index" -> {}, "Function" -> 
-        Plot, "GroupHighlight" -> False|>|>, "DynamicHighlight"]}, {
-   DisplayFunction -> Identity, PlotInteractivity :> $PlotInteractivity, 
-    DisplayFunction -> Identity, PlotInteractivity :> $PlotInteractivity, 
-    DefaultBaseStyle -> {"PlotGraphics", "Graphics"}, DisplayFunction -> 
-    Identity, Ticks -> {Automatic, Automatic}, AxesOrigin -> {0, 0}, 
-    FrameTicks -> {{Automatic, Automatic}, {Automatic, Automatic}}, 
-    GridLines -> {Automatic, Automatic}, 
-    PlotInteractivity :> $PlotInteractivity, 
-    DefaultBaseStyle -> {"PlotGraphics", "Graphics"}, DisplayFunction -> 
-    Identity, PlotRangePadding -> {{
-       Scaled[0.02], 
-       Scaled[0.02]}, {
-       Scaled[0.05], 
-       Scaled[0.05]}}, PlotRangeClipping -> True, ImagePadding -> All, 
-    PlotInteractivity :> $PlotInteractivity, DisplayFunction -> Identity, 
-    PlotInteractivity :> $PlotInteractivity, 
-    DefaultBaseStyle -> {"PlotGraphics", "Graphics"}, AspectRatio -> 
-    GoldenRatio^(-1), Axes -> {True, True}, AxesLabel -> {
-      HoldForm[
-       Style["x", FontFamily -> "Arial"]], 
-      HoldForm[
-       Style["f(x)", FontFamily -> "Arial"]]}, AxesOrigin -> {0, 0}, 
-    DisplayFunction :> Identity, Frame -> {{False, False}, {False, False}}, 
-    FrameLabel -> {{None, None}, {None, None}}, 
-    FrameTicks -> {{Automatic, Automatic}, {Automatic, Automatic}}, 
-    GridLines -> {Automatic, Automatic}, GridLinesStyle -> GrayLevel[0.85], 
-    ImageSize -> 420, 
-    Method -> {
-     "DefaultBoundaryStyle" -> Automatic, 
-      "DefaultGraphicsInteraction" -> {
-       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
-        "Effects" -> {
-         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
-          "Droplines" -> {
-           "freeformCursorMode" -> True, 
-            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
-      "DefaultMeshStyle" -> AbsolutePointSize[6], "ScalingFunctions" -> None, 
-      "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
-          (Identity[#]& )[
-           Part[#, 1]], 
-          (Identity[#]& )[
-           Part[#, 2]]}& ), "CopiedValueFunction" -> ({
-          (Identity[#]& )[
-           Part[#, 1]], 
-          (Identity[#]& )[
-           Part[#, 2]]}& )}}, PlotLabel -> 
-    Style["Grafico di f(x)", Bold, 12, FontFamily -> "Arial"], 
-    PlotRange -> {{-4, 4}, {-1.999948628419053, 1.9999999486063353`}}, 
-    PlotRangeClipping -> True, PlotRangePadding -> {{
-       Scaled[0.02], 
-       Scaled[0.02]}, {
-       Scaled[0.02], 
-       Scaled[0.02]}}, Ticks -> {Automatic, Automatic}}], 
-  FunctionExplorer`Private`feStatoOn$$ = True}, 
+ DynamicModuleBox[{MathInfo`Private`stSeed$$ = 72, 
+  MathInfo`Private`stLivello$$ = "Intermedio", MathInfo`Private`stModalita$$ =
+   "hex2col", MathInfo`Private`stEsercizio$$ = <|
+  "Modalita'" -> "hex2col", 
+   "Colore" -> <|
+    "R" -> 151, "G" -> 214, "B" -> 79, "HEX" -> "#97D64F", "Colore" -> 
+     RGBColor[0.592156862745098, 0.8392156862745098, 0.30980392156862746`]|>, 
+   "Opzioni" -> {}, "Risposta" -> "#97D64F", "Testo" -> 
+   "Osserva il colore qui sotto e scrivi il suo codice esadecimale nel \
+formato #RRGGBB.", "Soluzione" -> 
+   "Il codice HEX del colore e' #97D64F  (R=151, G=214, B=79)"|>, 
+  MathInfo`Private`stRisposta$$ = "", MathInfo`Private`stFeedback$$ = "", 
+  MathInfo`Private`stTentativi$$ = 0, MathInfo`Private`stOn$$ = True, 
+  MathInfo`Private`stColoreScelta$$ = None}, 
   TagBox[GridBox[{
      {
-      StyleBox["\<\"FunctionExplorer\"\>",
+      StyleBox["\<\"MathInfo\"\>",
        StripOnInput->False,
-       LineColor->RGBColor[0.1, 0.3, 0.7],
-       FrontFaceColor->RGBColor[0.1, 0.3, 0.7],
-       BackFaceColor->RGBColor[0.1, 0.3, 0.7],
-       GraphicsColor->RGBColor[0.1, 0.3, 0.7],
+       LineColor->RGBColor[0.1, 0.2, 0.6],
+       FrontFaceColor->RGBColor[0.1, 0.2, 0.6],
+       BackFaceColor->RGBColor[0.1, 0.2, 0.6],
+       GraphicsColor->RGBColor[0.1, 0.2, 0.6],
        FontFamily->"Arial",
-       FontSize->20,
+       FontSize->22,
        FontWeight->Bold,
-       FontColor->RGBColor[0.1, 0.3, 0.7]]},
+       FontColor->RGBColor[0.1, 0.2, 0.6]]},
      {
-      StyleBox["\<\"Simulatore e Quiz su Funzioni Matematiche\"\>",
+      StyleBox["\<\"Quiz di Matematica Applicata all'Informatica\"\>",
        StripOnInput->False,
        LineColor->GrayLevel[0.5],
        FrontFaceColor->GrayLevel[0.5],
@@ -1955,7 +1803,128 @@ UIZPQlZDHBX+By8DXyk=
        FontSlant->Italic,
        FontColor->GrayLevel[0.5]]},
      {
-      TemplateBox[{12},
+      TemplateBox[{14},
+       "Spacer1"]},
+     {
+      TemplateBox[{
+        StyleBox[
+        "\"Livello:  \"", Bold, 12, FontFamily -> "Arial", StripOnInput -> 
+         False], 
+        InterpretationBox[
+         StyleBox[
+          RowBox[{
+            GridBox[{{
+               RadioButtonBox[
+                Dynamic[
+                MathInfo`Private`stLivello$$, (
+                 MathInfo`Private`stLivello$$ = #; 
+                 MathInfo`Private`stModalita$$ = 
+                  Switch[#, "Base", "binario", "Intermedio", "hex2col", 
+                    "Avanzato", "cesare"]; MathInfo`Private`stOn$$ = False; 
+                 MathInfo`Private`stFeedback$$ = ""; 
+                 MathInfo`Private`stRisposta$$ = ""; 
+                 MathInfo`Private`stTentativi$$ = 0; 
+                 MathInfo`Private`stEsercizio$$ = None)& ], {"Base"}, 
+                DefaultBaseStyle -> "RadioButtonBar"], 
+               StyleBox[
+                StyleBox[
+                "\"Base\"", FontFamily -> "Arial", 11, StripOnInput -> False],
+                 "RadioButtonBarLabel", StripOnInput -> False]}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             ColumnAlignments -> Left, ColumnSpacings -> 0.3, 
+             BaselinePosition -> {1, 2}], "  ", 
+            GridBox[{{
+               RadioButtonBox[
+                Dynamic[
+                MathInfo`Private`stLivello$$, (
+                 MathInfo`Private`stLivello$$ = #; 
+                 MathInfo`Private`stModalita$$ = 
+                  Switch[#, "Base", "binario", "Intermedio", "hex2col", 
+                    "Avanzato", "cesare"]; MathInfo`Private`stOn$$ = False; 
+                 MathInfo`Private`stFeedback$$ = ""; 
+                 MathInfo`Private`stRisposta$$ = ""; 
+                 MathInfo`Private`stTentativi$$ = 0; 
+                 MathInfo`Private`stEsercizio$$ = None)& ], {"Intermedio"}, 
+                DefaultBaseStyle -> "RadioButtonBar"], 
+               StyleBox[
+                StyleBox[
+                "\"Intermedio\"", FontFamily -> "Arial", 11, StripOnInput -> 
+                 False], "RadioButtonBarLabel", StripOnInput -> False]}}, 
+             AutoDelete -> False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             ColumnAlignments -> Left, ColumnSpacings -> 0.3, 
+             BaselinePosition -> {1, 2}], "  ", 
+            GridBox[{{
+               RadioButtonBox[
+                Dynamic[
+                MathInfo`Private`stLivello$$, (
+                 MathInfo`Private`stLivello$$ = #; 
+                 MathInfo`Private`stModalita$$ = 
+                  Switch[#, "Base", "binario", "Intermedio", "hex2col", 
+                    "Avanzato", "cesare"]; MathInfo`Private`stOn$$ = False; 
+                 MathInfo`Private`stFeedback$$ = ""; 
+                 MathInfo`Private`stRisposta$$ = ""; 
+                 MathInfo`Private`stTentativi$$ = 0; 
+                 MathInfo`Private`stEsercizio$$ = None)& ], {"Avanzato"}, 
+                DefaultBaseStyle -> "RadioButtonBar"], 
+               StyleBox[
+                StyleBox[
+                "\"Avanzato\"", FontFamily -> "Arial", 11, StripOnInput -> 
+                 False], "RadioButtonBarLabel", StripOnInput -> False]}}, 
+             AutoDelete -> False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             ColumnAlignments -> Left, ColumnSpacings -> 0.3, 
+             BaselinePosition -> {1, 2}]}], "Deploy"], 
+         RadioButtonBar[
+          Dynamic[
+          MathInfo`Private`stLivello$$, (MathInfo`Private`stLivello$$ = #; 
+           MathInfo`Private`stModalita$$ = 
+            Switch[#, "Base", "binario", "Intermedio", "hex2col", "Avanzato", 
+              "cesare"]; MathInfo`Private`stOn$$ = False; 
+           MathInfo`Private`stFeedback$$ = ""; 
+           MathInfo`Private`stRisposta$$ = ""; 
+           MathInfo`Private`stTentativi$$ = 0; 
+           MathInfo`Private`stEsercizio$$ = None)& ], {
+          "Base" -> Style["Base", FontFamily -> "Arial", 11], "Intermedio" -> 
+           Style["Intermedio", FontFamily -> "Arial", 11], "Avanzato" -> 
+           Style["Avanzato", FontFamily -> "Arial", 11]}]]},
+       "RowDefault"]},
+     {
+      TemplateBox[{6},
+       "Spacer1"]},
+     {
+      DynamicBox[ToBoxes[
+        Row[{
+          Style["Modalita':  ", Bold, 12, FontFamily -> "Arial"], 
+          Which[MathInfo`Private`stLivello$$ === "Base", 
+           RadioButtonBar[
+            Dynamic[MathInfo`Private`stModalita$$], {
+            "binario" -> 
+             Style["Binario \[LeftRightArrow] Decimale", FontFamily -> 
+               "Arial", 11], "memoria" -> 
+             Style["Conversioni di memoria", FontFamily -> "Arial", 11]}], 
+           MathInfo`Private`stLivello$$ === "Intermedio", 
+           RadioButtonBar[
+            Dynamic[MathInfo`Private`stModalita$$], {
+            "hex2col" -> 
+             Style["Colore \[RightArrow] Codice HEX", FontFamily -> "Arial", 
+               11], "col2hex" -> 
+             Style["Codice HEX \[RightArrow] Colore", FontFamily -> "Arial", 
+               11]}], MathInfo`Private`stLivello$$ === "Avanzato", 
+           RadioButtonBar[
+            Dynamic[MathInfo`Private`stModalita$$], {
+            "cesare" -> 
+             Style["Cifrario di Cesare", FontFamily -> "Arial", 11], 
+             "vigenere" -> 
+             Style["Cifrario di Vigenere", FontFamily -> "Arial", 11]}]]}], 
+        StandardForm],
+       ImageSizeCache->{
+        330.97699375, {3.378509521484375, 12.621490478515625`}}]},
+     {
+      TemplateBox[{8},
        "Spacer1"]},
      {
       TemplateBox[{
@@ -1963,8 +1932,8 @@ UIZPQlZDHBX+By8DXyk=
         "\"Seed:  \"", Bold, 12, FontFamily -> "Arial", StripOnInput -> 
          False], 
         InputFieldBox[
-         Dynamic[FunctionExplorer`Private`feStatoSeed$$], Number, FieldHint -> 
-         "es. 42", FieldSize -> 6]},
+         Dynamic[MathInfo`Private`stSeed$$], Number, FieldHint -> "es. 42", 
+         FieldSize -> 6]},
        "RowDefault"]},
      {
       TemplateBox[{8},
@@ -1984,144 +1953,196 @@ UIZPQlZDHBX+By8DXyk=
        Appearance->Automatic,
        Background->RGBColor[0.1, 0.5, 0.1],
        ButtonFunction:>
-        Module[{FunctionExplorer`Private`sv$, FunctionExplorer`Private`f$, 
-          FunctionExplorer`Private`dom$, FunctionExplorer`Private`sol$}, 
-         FunctionExplorer`Private`sv$ = 
-          FunctionExplorer`Private`feValidaSeed[
-           FunctionExplorer`Private`feStatoSeed$$]; 
-         FunctionExplorer`Private`f$ = 
-          FunctionExplorer`Private`feGeneraFunzione[
-           FunctionExplorer`Private`sv$]; 
-         FunctionExplorer`Private`dom$ = 
-          FunctionExplorer`Private`feGeneraDomanda[
-           FunctionExplorer`Private`sv$]; 
-         FunctionExplorer`Private`sol$ = 
-          FunctionExplorer`Private`feCalcolaRisposta[
-           FunctionExplorer`Private`f$, FunctionExplorer`Private`dom$]; 
-         FunctionExplorer`Private`feStatoFunzione$$ = 
-          FunctionExplorer`Private`f$; 
-         FunctionExplorer`Private`feStatoDomanda$$ = 
-          FunctionExplorer`Private`dom$; 
-         FunctionExplorer`Private`feStatoSoluzione$$ = 
-          FunctionExplorer`Private`sol$; 
-         FunctionExplorer`Private`feStatoRisposta$$ = ""; 
-         FunctionExplorer`Private`feStatoFeedback$$ = ""; 
-         FunctionExplorer`Private`feStatoGrafico$$ = Plot[
-            FunctionExplorer`Private`f$[FunctionExplorer`Private`x], {
-            FunctionExplorer`Private`x, -4, 4}, PlotStyle -> {Blue, 
-              Thickness[0.003]}, AxesLabel -> {
-              Style["x", FontFamily -> "Arial"], 
-              Style["f(x)", FontFamily -> "Arial"]}, PlotLabel -> 
-            Style["Grafico di f(x)", Bold, 12, FontFamily -> "Arial"], 
-            GridLines -> Automatic, GridLinesStyle -> LightGray, ImageSize -> 
-            420]; FunctionExplorer`Private`feStatoOn$$ = True],
+        Module[{MathInfo`Private`sv$}, MathInfo`Private`sv$ = Quiet[
+            Check[
+             Round[MathInfo`Private`stSeed$$], 42]]; 
+         MathInfo`Private`stEsercizio$$ = 
+          Which[MathInfo`Private`stLivello$$ === "Base", 
+            MathInfo`Private`miGeneraEsercizioBase[
+            MathInfo`Private`sv$, MathInfo`Private`stModalita$$], 
+            MathInfo`Private`stLivello$$ === "Intermedio", 
+            MathInfo`Private`miGeneraEsercizioColore[
+            MathInfo`Private`sv$, MathInfo`Private`stModalita$$], 
+            MathInfo`Private`stLivello$$ === "Avanzato", 
+            MathInfo`Private`miGeneraEsercizioAvanzato[
+            MathInfo`Private`sv$, MathInfo`Private`stModalita$$]]; 
+         MathInfo`Private`stRisposta$$ = ""; 
+         MathInfo`Private`stFeedback$$ = ""; 
+         MathInfo`Private`stTentativi$$ = 0; 
+         MathInfo`Private`stColoreScelta$$ = None; 
+         MathInfo`Private`stOn$$ = True],
        Evaluator->Automatic,
-       FrameMargins->7,
+       FrameMargins->8,
        Method->"Preemptive"]},
      {
-      TemplateBox[{10},
+      TemplateBox[{12},
        "Spacer1"]},
      {
       DynamicBox[ToBoxes[
         If[
-        FunctionExplorer`Private`feStatoOn$$, 
-         FunctionExplorer`Private`feStatoGrafico$$, 
+         And[
+         MathInfo`Private`stOn$$, MathInfo`Private`stEsercizio$$ =!= None], 
+         Column[{
+           Framed[
+            Style[
+             MathInfo`Private`stEsercizio$$["Testo"], 12, FontFamily -> 
+             "Arial"], Background -> LightYellow, FrameStyle -> Orange, 
+            RoundingRadius -> 5, FrameMargins -> 12, 
+            ImageSize -> {500, Automatic}], 
+           Spacer[10], 
+           Which[MathInfo`Private`stLivello$$ === "Base", 
+            Spacer[0], 
+            And[
+            MathInfo`Private`stLivello$$ === "Intermedio", 
+             MathInfo`Private`stEsercizio$$["Modalita'"] === "hex2col"], 
+            Graphics[{
+              MathInfo`Private`stEsercizio$$["Colore"]["Colore"], 
+              Rectangle[{0, 0}, {4, 4}]}, ImageSize -> 120, Frame -> True, 
+             FrameStyle -> Gray], 
+            And[
+            MathInfo`Private`stLivello$$ === "Intermedio", 
+             MathInfo`Private`stEsercizio$$["Modalita'"] === "col2hex"], 
+            Row[
+             Table[
+              Module[{MathInfo`Private`opt$ = Part[
+                  MathInfo`Private`stEsercizio$$["Opzioni"], 
+                  MathInfo`Private`k]}, 
+               EventHandler[
+                Framed[
+                 Graphics[{
+                   MathInfo`Private`opt$["Colore"], 
+                   Rectangle[{0, 0}, {3, 3}]}, ImageSize -> 90, Frame -> True,
+                   FrameStyle -> Dynamic[
+                    If[
+                    MathInfo`Private`stColoreScelta$$ === 
+                    MathInfo`Private`opt$["HEX"], Orange, Gray]]], FrameStyle -> 
+                 Dynamic[
+                   If[
+                   MathInfo`Private`stColoreScelta$$ === 
+                    MathInfo`Private`opt$["HEX"], {Thick, Orange}, 
+                    LightGray]], RoundingRadius -> 4], {
+                "MouseClicked" :> (
+                  MathInfo`Private`stColoreScelta$$ = 
+                   MathInfo`Private`opt$["HEX"]; 
+                  MathInfo`Private`stRisposta$$ = 
+                   MathInfo`Private`opt$["HEX"])}]], {
+              MathInfo`Private`k, 1, 4}], 
+             Spacer[8]], True, 
+            Spacer[0]]}], 
          Framed[
           Style[
-          "Premi Genera Esercizio per iniziare.", Gray, Italic, 11, 
-           FontFamily -> "Arial"], FrameStyle -> LightGray, RoundingRadius -> 
-          4, FrameMargins -> 12, ImageSize -> {420, 50}, Alignment -> 
-          Center]], StandardForm],
-       ImageSizeCache->{420., {138.47948692216613`, 144.21142051591613`}}]},
-     {
-      TemplateBox[{6},
-       "Spacer1"]},
-     {
-      DynamicBox[ToBoxes[
-        If[FunctionExplorer`Private`feStatoOn$$, 
-         Framed[
-          Style[
-           FunctionExplorer`Private`feStatoDomanda$$["Testo"], 12, FontFamily -> 
-           "Arial"], Background -> LightYellow, FrameStyle -> Orange, 
-          RoundingRadius -> 4, FrameMargins -> 10], ""], StandardForm],
-       ImageSizeCache->{216.150390625, {23.216064453125, 28.947998046875}}]},
+          "Scegli livello, modalita' e premi Genera Esercizio.", Gray, Italic,
+            11, FontFamily -> "Arial"], FrameStyle -> LightGray, 
+          RoundingRadius -> 4, FrameMargins -> 12, ImageSize -> {500, 50}, 
+          Alignment -> Center]], StandardForm],
+       ImageSizeCache->{500., {92.187479950574, 97.919413544324}}]},
      {
       TemplateBox[{8},
        "Spacer1"]},
      {
       DynamicBox[ToBoxes[
-        If[FunctionExplorer`Private`feStatoOn$$, 
+        If[
+         And[MathInfo`Private`stOn$$, MathInfo`Private`stEsercizio$$ =!= None, 
+          Not[
+           And[
+           MathInfo`Private`stLivello$$ === "Intermedio", 
+            MathInfo`Private`stEsercizio$$["Modalita'"] === "col2hex"]]], 
          Row[{
            Style["La tua risposta:  ", Bold, 12, FontFamily -> "Arial"], 
            InputField[
-            Dynamic[FunctionExplorer`Private`feStatoRisposta$$], String, 
-            FieldSize -> 10, FieldHint -> "es. 1.57"]}], ""], StandardForm],
+            Dynamic[MathInfo`Private`stRisposta$$], String, FieldSize -> 14, 
+            FieldHint -> 
+            Switch[MathInfo`Private`stLivello$$, "Base", 
+              "es. 42  oppure  101010", "Intermedio", "es. #FF8C00", 
+              "Avanzato", "es. 13  oppure  ALPHA"]]}], ""], StandardForm],
        ImageSizeCache->{
-        254.41757812499998`, {12.548934936523438`, 21.791915893554688`}}]},
+        310.577578125, {12.548934936523438`, 21.791915893554688`}}]},
+     {
+      TemplateBox[{6},
+       "Spacer1"]},
+     {
+      DynamicBox[ToBoxes[
+        If[MathInfo`Private`stOn$$, 
+         Style[
+         "Tentativi rimasti: " <> 
+          ToString[3 - MathInfo`Private`stTentativi$$] <> " / 3", Bold, 11, 
+          FontFamily -> "Arial", 
+          If[MathInfo`Private`stTentativi$$ < 2, 
+           Darker[Green], 
+           Darker[Red]]], ""], StandardForm],
+       ImageSizeCache->{112.22314453125, {0.13427734375, 7.90625}}]},
      {
       TemplateBox[{10},
        "Spacer1"]},
      {
       DynamicBox[ToBoxes[
-        If[FunctionExplorer`Private`feStatoOn$$, 
+        If[MathInfo`Private`stOn$$, 
          Row[{
            Button[
             Style[
             " \[Checkmark]  Verifica Risultato ", White, Bold, 12, FontFamily -> 
              "Arial"], 
-            
-            Module[{FunctionExplorer`Private`valIn$, 
-              FunctionExplorer`Private`esito$}, 
-             FunctionExplorer`Private`valIn$ = Quiet[
-                Check[
-                 ToExpression[
-                 FunctionExplorer`Private`feStatoRisposta$$], $Failed]]; If[
-               Not[
-                NumericQ[FunctionExplorer`Private`valIn$]], Message[
-                 MessageName[FunctionExplorer`FunctionExplorer, "badinput"]]; 
-               FunctionExplorer`Private`feStatoFeedback$$ = 
-                "\[WarningSign]  Inserisci un numero valido (es. 3.14).", 
-               FunctionExplorer`Private`esito$ = 
-                FunctionExplorer`Private`feVerificaRisposta[
-                 FunctionExplorer`Private`valIn$, 
-                  FunctionExplorer`Private`feStatoSoluzione$$]; 
-               FunctionExplorer`Private`feStatoFeedback$$ = 
-                If[FunctionExplorer`Private`esito$, 
-                  "\[Checkmark]  Corretto! Ottimo lavoro.", 
-                  "\[Cross]  Non corretto. Riprova o usa Mostra \
-Soluzione."]]], Background -> RGBColor[0.1, 0.35, 0.7], FrameMargins -> 6], 
+            Module[{MathInfo`Private`esito$}, 
+             If[
+             MathInfo`Private`stTentativi$$ >= 3, 
+              MathInfo`Private`stFeedback$$ = 
+              "\[WarningSign]  Tentativi esauriti. Usa Mostra Soluzione.", 
+              If[
+              StringTrim[MathInfo`Private`stRisposta$$] === "", 
+               MathInfo`Private`stFeedback$$ = 
+               "\[WarningSign]  Inserisci una risposta.", 
+               MathInfo`Private`esito$ = 
+                MathInfo`Private`miVerificaRisposta[
+                 MathInfo`Private`stRisposta$$, 
+                  MathInfo`Private`stEsercizio$$["Risposta"]]; 
+               Increment[MathInfo`Private`stTentativi$$]; 
+               If[MathInfo`Private`esito$, MathInfo`Private`stFeedback$$ = 
+                 "\[Checkmark]  Corretto! Ottimo lavoro.", 
+                 MathInfo`Private`stFeedback$$ = 
+                 "\[Cross]  Non corretto.  " <> 
+                  Which[MathInfo`Private`stLivello$$ === "Base", 
+                    MathInfo`Private`miSuggerimentoBase[
+                    MathInfo`Private`stEsercizio$$, 
+                    MathInfo`Private`stTentativi$$], 
+                    MathInfo`Private`stLivello$$ === "Intermedio", 
+                    MathInfo`Private`miSuggerimentoColore[
+                    MathInfo`Private`stEsercizio$$, 
+                    MathInfo`Private`stTentativi$$], True, 
+                    MathInfo`Private`miSuggerimentoAvanzato[
+                    MathInfo`Private`stEsercizio$$, 
+                    MathInfo`Private`stTentativi$$]]]]]], Background -> 
+            RGBColor[0.1, 0.35, 0.7], FrameMargins -> 6], 
            Spacer[10], 
            Button[
             Style[
             " \[FilledSmallSquare]  Mostra Soluzione ", White, Bold, 12, 
              FontFamily -> "Arial"], 
-            
-            Module[{FunctionExplorer`Private`gSol$}, 
-             FunctionExplorer`Private`gSol$ = 
-              FunctionExplorer`Private`feGraficoAnnotato[
-               FunctionExplorer`Private`feStatoFunzione$$, 
-                FunctionExplorer`Private`feStatoSoluzione$$, 
-                FunctionExplorer`Private`feStatoDomanda$$]; MessageDialog[
-               Column[{
-                 Style["Soluzione", Bold, 15, Blue, FontFamily -> "Arial"], 
-                 Spacer[4], 
-                 Style["Risposta corretta:  x \[TildeEqual] " <> ToString[
-                    NumberForm[
-                    N[FunctionExplorer`Private`feStatoSoluzione$$], {5, 3}]], 
-                  12, FontFamily -> "Arial"], 
-                 Spacer[6], FunctionExplorer`Private`gSol$}]]], Background -> 
-            RGBColor[0.5, 0.1, 0.6], FrameMargins -> 6], 
+            MessageDialog[
+             Column[{
+               Style["Soluzione", Bold, 15, Blue, FontFamily -> "Arial"], 
+               Spacer[6], 
+               Style[
+                MathInfo`Private`stEsercizio$$["Soluzione"], 12, FontFamily -> 
+                "Arial"], 
+               If[MathInfo`Private`stLivello$$ === "Intermedio", 
+                Column[{
+                  Spacer[8], 
+                  Graphics[{
+                    MathInfo`Private`stEsercizio$$["Colore"]["Colore"], 
+                    Rectangle[{0, 0}, {3, 3}]}, ImageSize -> 80, Frame -> 
+                   True]}], 
+                Spacer[0]]}]], Background -> RGBColor[0.5, 0.1, 0.6], 
+            FrameMargins -> 6], 
            Spacer[10], 
            Button[
             Style[
             " \[FilledSquare]  Pulisci Campi ", White, Bold, 12, FontFamily -> 
-             "Arial"], FunctionExplorer`Private`feStatoFunzione$$ = None; 
-            FunctionExplorer`Private`feStatoDomanda$$ = None; 
-            FunctionExplorer`Private`feStatoSoluzione$$ = None; 
-            FunctionExplorer`Private`feStatoRisposta$$ = ""; 
-            FunctionExplorer`Private`feStatoFeedback$$ = ""; 
-            FunctionExplorer`Private`feStatoGrafico$$ = None; 
-            FunctionExplorer`Private`feStatoOn$$ = False, Background -> 
+             "Arial"], MathInfo`Private`stEsercizio$$ = None; 
+            MathInfo`Private`stRisposta$$ = ""; 
+            MathInfo`Private`stFeedback$$ = ""; 
+            MathInfo`Private`stTentativi$$ = 0; 
+            MathInfo`Private`stOn$$ = False; 
+            MathInfo`Private`stColoreScelta$$ = None, Background -> 
             RGBColor[0.45, 0.45, 0.45], FrameMargins -> 6]}], ""], 
         StandardForm],
        ImageSizeCache->{404.6865234375, {10.54296875, 20.86328125}}]},
@@ -2130,23 +2151,19 @@ Soluzione."]]], Background -> RGBColor[0.1, 0.35, 0.7], FrameMargins -> 6],
        "Spacer1"]},
      {
       DynamicBox[ToBoxes[
-        If[FunctionExplorer`Private`feStatoFeedback$$ =!= "", 
+        If[MathInfo`Private`stFeedback$$ =!= "", 
          Framed[
           Style[
-          FunctionExplorer`Private`feStatoFeedback$$, Bold, 12, FontFamily -> 
-           "Arial", 
+          MathInfo`Private`stFeedback$$, Bold, 12, FontFamily -> "Arial", 
            If[
-            StringContainsQ[
-            FunctionExplorer`Private`feStatoFeedback$$, "\[Checkmark]"], 
+            StringContainsQ[MathInfo`Private`stFeedback$$, "\[Checkmark]"], 
             Darker[Green], 
             Darker[Red]]], Background -> If[
-            StringContainsQ[
-            FunctionExplorer`Private`feStatoFeedback$$, "\[Checkmark]"], 
+            StringContainsQ[MathInfo`Private`stFeedback$$, "\[Checkmark]"], 
             LightGreen, LightRed], FrameStyle -> If[
-            StringContainsQ[
-            FunctionExplorer`Private`feStatoFeedback$$, "\[Checkmark]"], 
-            Green, Red], RoundingRadius -> 4, FrameMargins -> 10], ""], 
-        StandardForm],
+            StringContainsQ[MathInfo`Private`stFeedback$$, "\[Checkmark]"], 
+            Green, Red], RoundingRadius -> 4, FrameMargins -> 10, 
+          ImageSize -> {500, Automatic}], ""], StandardForm],
        ImageSizeCache->{0., {0., 6.318}}]}
     },
     DefaultBaseStyle->"Column",
@@ -2155,37 +2172,9 @@ Soluzione."]]], Background -> RGBColor[0.1, 0.35, 0.7], FrameMargins -> 6],
     GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{0}}}],
    "Column"],
   DynamicModuleValues:>{}]], "Output",
- CellChangeTimes->{3.985067788777615*^9},
- CellLabel->"Out[57]=",ExpressionUUID->"78fae4f1-4713-4df3-b3a5-d1b6553582db"]
-}, Open  ]],
-
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.985067742995265*^9, 3.985067778630044*^9}},
- CellLabel->"In[37]:=",ExpressionUUID->"8ff47a29-be9b-44ed-acf3-3eccaf07d128"],
-
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.9850677560638647`*^9, 
-  3.9850677560674067`*^9}},ExpressionUUID->"35644b11-5f72-403f-a9e4-\
-234f4923abd3"],
-
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.984717165194358*^9, 3.984717177885415*^9}},
- CellLabel->"In[36]:=",ExpressionUUID->"c149cd6f-e811-4851-a4e9-26efb920a100"],
-
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.9847171729299393`*^9, 
-  3.9847171729345512`*^9}},ExpressionUUID->"c4b9d925-d83b-48b6-8236-\
-3dbc6134f440"],
-
-Cell[BoxData[""], "Input",
- CellChangeTimes->{3.9847167208766613`*^9, 
-  3.9847169478694363`*^9},ExpressionUUID->"81ce9776-a522-415d-9003-\
-18267322916f"],
-
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.984716950095317*^9, 
-  3.9847169500977383`*^9}},ExpressionUUID->"ccc9076e-8531-4a37-b78d-\
-929cb27699de"]
+ CellChangeTimes->{3.98507727247539*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"70e5bc70-f01a-4ca4-9890-855382ace065"]
+}, Open  ]]
 },
 WindowSize->{808, 708},
 WindowMargins->{{3, Automatic}, {47, Automatic}},
@@ -2205,15 +2194,9 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[576, 22, 29565, 751, 3542, "Input",ExpressionUUID->"58a35cd7-b6a2-4387-aeba-2c50883a2f03"],
-Cell[30144, 775, 78786, 1383, 611, "Output",ExpressionUUID->"78fae4f1-4713-4df3-b3a5-d1b6553582db"]
-}, Open  ]],
-Cell[108945, 2161, 171, 2, 29, "Input",ExpressionUUID->"8ff47a29-be9b-44ed-acf3-3eccaf07d128"],
-Cell[109119, 2165, 156, 3, 29, "Input",ExpressionUUID->"35644b11-5f72-403f-a9e4-234f4923abd3"],
-Cell[109278, 2170, 171, 2, 29, "Input",ExpressionUUID->"c149cd6f-e811-4851-a4e9-26efb920a100"],
-Cell[109452, 2174, 156, 3, 29, "Input",ExpressionUUID->"c4b9d925-d83b-48b6-8236-3dbc6134f440"],
-Cell[109611, 2179, 154, 3, 29, "Input",ExpressionUUID->"81ce9776-a522-415d-9003-18267322916f"],
-Cell[109768, 2184, 154, 3, 29, "Input",ExpressionUUID->"ccc9076e-8531-4a37-b78d-929cb27699de"]
+Cell[576, 22, 70940, 1742, 8179, "Input",ExpressionUUID->"56f7de27-3daa-4c28-a722-ca974eefc6e6"],
+Cell[71519, 1766, 17794, 409, 537, "Output",ExpressionUUID->"70e5bc70-f01a-4ca4-9890-855382ace065"]
+}, Open  ]]
 }
 ]
 *)
