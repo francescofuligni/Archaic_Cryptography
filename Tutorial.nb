@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     89815,       2195]
-NotebookOptionsPosition[     89329,       2178]
-NotebookOutlinePosition[     89720,       2194]
-CellTagsIndexPosition[     89677,       2191]
+NotebookDataLength[     93842,       2282]
+NotebookOptionsPosition[     93160,       2263]
+NotebookOutlinePosition[     93553,       2279]
+CellTagsIndexPosition[     93510,       2276]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1598,7 +1598,7 @@ Cell[BoxData[
    RowBox[{"(*", 
     RowBox[{
      RowBox[{"VIII", ".", "Commenti"}], " ", "e", " ", "Lavoro", " ", 
-     "Futuro"}], "*)"}], "\[IndentingNewLine]", "\n", 
+     "Futuro"}], "*)"}], "\n", "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
      RowBox[{
@@ -1762,23 +1762,17 @@ Cell[BoxData[
         "di", " ", 
        RowBox[{"cifratura", "."}]}]}]}], "*)"}]}]}]], "Input",
  CellChangeTimes->{{3.985077268649905*^9, 3.985077268650984*^9}},
- CellLabel->"In[1]:=",ExpressionUUID->"56f7de27-3daa-4c28-a722-ca974eefc6e6"],
+ CellLabel->"In[97]:=",ExpressionUUID->"56f7de27-3daa-4c28-a722-ca974eefc6e6"],
 
 Cell[BoxData[
- DynamicModuleBox[{MathInfo`Private`stSeed$$ = 72, 
-  MathInfo`Private`stLivello$$ = "Intermedio", MathInfo`Private`stModalita$$ =
-   "hex2col", MathInfo`Private`stEsercizio$$ = <|
-  "Modalita'" -> "hex2col", 
-   "Colore" -> <|
-    "R" -> 151, "G" -> 214, "B" -> 79, "HEX" -> "#97D64F", "Colore" -> 
-     RGBColor[0.592156862745098, 0.8392156862745098, 0.30980392156862746`]|>, 
-   "Opzioni" -> {}, "Risposta" -> "#97D64F", "Testo" -> 
-   "Osserva il colore qui sotto e scrivi il suo codice esadecimale nel \
-formato #RRGGBB.", "Soluzione" -> 
-   "Il codice HEX del colore e' #97D64F  (R=151, G=214, B=79)"|>, 
-  MathInfo`Private`stRisposta$$ = "", MathInfo`Private`stFeedback$$ = "", 
-  MathInfo`Private`stTentativi$$ = 0, MathInfo`Private`stOn$$ = True, 
-  MathInfo`Private`stColoreScelta$$ = None}, 
+ DynamicModuleBox[{MathInfo`Private`stSeed$$ = 41, 
+  MathInfo`Private`stLivello$$ = "Base", MathInfo`Private`stModalita$$ = 
+  "memoria", MathInfo`Private`stEsercizio$$ = <|
+  "Testo" -> "Converti  1024 KB  in MB.", "Risposta" -> "1.", "Soluzione" -> 
+   "1024 KB = 1. MB", "Tipo" -> "memoria", "Valore" -> 1024, "Da" -> "KB", 
+   "A" -> "MB"|>, MathInfo`Private`stRisposta$$ = "", 
+  MathInfo`Private`stFeedback$$ = "", MathInfo`Private`stTentativi$$ = 0, 
+  MathInfo`Private`stOn$$ = True, MathInfo`Private`stColoreScelta$$ = None}, 
   TagBox[GridBox[{
      {
       StyleBox["\<\"MathInfo\"\>",
@@ -1922,7 +1916,7 @@ formato #RRGGBB.", "Soluzione" ->
              Style["Cifrario di Vigenere", FontFamily -> "Arial", 11]}]]}], 
         StandardForm],
        ImageSizeCache->{
-        330.97699375, {3.378509521484375, 12.621490478515625`}}]},
+        328.33978671875, {3.378509521484375, 12.621490478515625`}}]},
      {
       TemplateBox[{8},
        "Spacer1"]},
@@ -2035,7 +2029,7 @@ formato #RRGGBB.", "Soluzione" ->
             11, FontFamily -> "Arial"], FrameStyle -> LightGray, 
           RoundingRadius -> 4, FrameMargins -> 12, ImageSize -> {500, 50}, 
           Alignment -> Center]], StandardForm],
-       ImageSizeCache->{500., {92.187479950574, 97.919413544324}}]},
+       ImageSizeCache->{500., {34.010158203125, 39.742091796875}}]},
      {
       TemplateBox[{8},
        "Spacer1"]},
@@ -2172,12 +2166,103 @@ formato #RRGGBB.", "Soluzione" ->
     GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{0}}}],
    "Column"],
   DynamicModuleValues:>{}]], "Output",
- CellChangeTimes->{3.98507727247539*^9},
- CellLabel->"Out[3]=",ExpressionUUID->"70e5bc70-f01a-4ca4-9890-855382ace065"]
-}, Open  ]]
+ CellChangeTimes->{3.9851677511048517`*^9},
+ CellLabel->"Out[99]=",ExpressionUUID->"3498a427-cc84-486f-b2b1-cbfc78116c2b"]
+}, Open  ]],
+
+Cell[BoxData[
+ DynamicModuleBox[{MathInfo`Private`stSeed$$ = "71", 
+  MathInfo`Private`stLivello$$ = "Intermedio", MathInfo`Private`stModalita$$ =
+   "hex2col", MathInfo`Private`stEsercizio$$ = <|
+  "Modalita'" -> "hex2col", 
+   "Colore" -> <|
+    "R" -> 151, "G" -> 214, "B" -> 79, "HEX" -> "#97D64F", "Colore" -> 
+     RGBColor[0.592156862745098, 0.8392156862745098, 0.30980392156862746`]|>, 
+   "Opzioni" -> {}, "Risposta" -> "#97D64F", "Testo" -> 
+   "Osserva il colore qui sotto e scrivi il suo codice esadecimale nel \
+formato #RRGGBB.", "Soluzione" -> 
+   "Il codice HEX del colore e' #97D64F  (R=151, G=214, B=79)"|>, 
+  MathInfo`Private`stRisposta$$ = "", MathInfo`Private`stFeedback$$ = "", 
+  MathInfo`Private`stTentativi$$ = 0, MathInfo`Private`stOn$$ = True, 
+  MathInfo`Private`stColoreScelta$$ = None}, 
+  TagBox[GridBox[{
+     {
+      TemplateBox[{8},
+       "Spacer1"]},
+     {
+      DynamicBox[ToBoxes[
+        If[MathInfo`Private`stFeedback$$ =!= "", 
+         Framed[
+          Style[
+          MathInfo`Private`stFeedback$$, Bold, 12, FontFamily -> "Arial", 
+           If[
+            StringContainsQ[MathInfo`Private`stFeedback$$, "\[Checkmark]"], 
+            Darker[Green], 
+            Darker[Red]]], Background -> If[
+            StringContainsQ[MathInfo`Private`stFeedback$$, "\[Checkmark]"], 
+            LightGreen, LightRed], FrameStyle -> If[
+            StringContainsQ[MathInfo`Private`stFeedback$$, "\[Checkmark]"], 
+            Green, Red], RoundingRadius -> 4, FrameMargins -> 10, 
+          ImageSize -> {500, Automatic}], ""], StandardForm],
+       ImageSizeCache->{15.6, {0., 8.918}}]}
+    },
+    DefaultBaseStyle->"Column",
+    GridBoxAlignment->{"Columns" -> {{Left}}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+    GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{0}}}],
+   "Column"],
+  DynamicModuleValues:>{}]], "Input",
+ CellChangeTimes->{{3.9851677134711533`*^9, 
+  3.9851677237794533`*^9}},ExpressionUUID->"70e5bc70-f01a-4ca4-9890-\
+855382ace065"],
+
+Cell[BoxData[
+ DynamicModuleBox[{MathInfo`Private`stSeed$$ = "71", 
+  MathInfo`Private`stLivello$$ = "Intermedio", MathInfo`Private`stModalita$$ =
+   "hex2col", MathInfo`Private`stEsercizio$$ = <|
+  "Modalita'" -> "hex2col", 
+   "Colore" -> <|
+    "R" -> 151, "G" -> 214, "B" -> 79, "HEX" -> "#97D64F", "Colore" -> 
+     RGBColor[0.592156862745098, 0.8392156862745098, 0.30980392156862746`]|>, 
+   "Opzioni" -> {}, "Risposta" -> "#97D64F", "Testo" -> 
+   "Osserva il colore qui sotto e scrivi il suo codice esadecimale nel \
+formato #RRGGBB.", "Soluzione" -> 
+   "Il codice HEX del colore e' #97D64F  (R=151, G=214, B=79)"|>, 
+  MathInfo`Private`stRisposta$$ = "", MathInfo`Private`stFeedback$$ = "", 
+  MathInfo`Private`stTentativi$$ = 0, MathInfo`Private`stOn$$ = True, 
+  MathInfo`Private`stColoreScelta$$ = None}, 
+  TagBox[GridBox[{
+     {
+      TemplateBox[{8},
+       "Spacer1"]},
+     {
+      DynamicBox[ToBoxes[
+        If[MathInfo`Private`stFeedback$$ =!= "", 
+         Framed[
+          Style[
+          MathInfo`Private`stFeedback$$, Bold, 12, FontFamily -> "Arial", 
+           If[
+            StringContainsQ[MathInfo`Private`stFeedback$$, "\[Checkmark]"], 
+            Darker[Green], 
+            Darker[Red]]], Background -> If[
+            StringContainsQ[MathInfo`Private`stFeedback$$, "\[Checkmark]"], 
+            LightGreen, LightRed], FrameStyle -> If[
+            StringContainsQ[MathInfo`Private`stFeedback$$, "\[Checkmark]"], 
+            Green, Red], RoundingRadius -> 4, FrameMargins -> 10, 
+          ImageSize -> {500, Automatic}], ""], StandardForm],
+       ImageSizeCache->{15.6, {0., 8.918}}]}
+    },
+    DefaultBaseStyle->"Column",
+    GridBoxAlignment->{"Columns" -> {{Left}}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+    GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{0}}}],
+   "Column"],
+  DynamicModuleValues:>{}]], "Input",
+ CellChangeTimes->{{3.985167720028557*^9, 3.985167724991712*^9}},
+ CellLabel->"",ExpressionUUID->"6a3859a0-1168-4ffd-8732-332044c47c4d"]
 },
 WindowSize->{808, 708},
-WindowMargins->{{3, Automatic}, {47, Automatic}},
+WindowMargins->{{Automatic, -10}, {28, Automatic}},
 FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"077ac20c-2e05-439c-9441-94e70fd44ed5"
@@ -2194,9 +2279,11 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[576, 22, 70940, 1742, 8179, "Input",ExpressionUUID->"56f7de27-3daa-4c28-a722-ca974eefc6e6"],
-Cell[71519, 1766, 17794, 409, 537, "Output",ExpressionUUID->"70e5bc70-f01a-4ca4-9890-855382ace065"]
-}, Open  ]]
+Cell[576, 22, 70941, 1742, 8179, "Input",ExpressionUUID->"56f7de27-3daa-4c28-a722-ca974eefc6e6"],
+Cell[71520, 1766, 17535, 403, 420, "Output",ExpressionUUID->"3498a427-cc84-486f-b2b1-cbfc78116c2b"]
+}, Open  ]],
+Cell[89070, 2172, 2038, 44, 36, "Input",ExpressionUUID->"70e5bc70-f01a-4ca4-9890-855382ace065"],
+Cell[91111, 2218, 2045, 43, 36, "Input",ExpressionUUID->"6a3859a0-1168-4ffd-8732-332044c47c4d"]
 }
 ]
 *)
