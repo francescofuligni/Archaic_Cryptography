@@ -10,16 +10,14 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     93842,       2282]
-NotebookOptionsPosition[     93160,       2263]
-NotebookOutlinePosition[     93553,       2279]
-CellTagsIndexPosition[     93510,       2276]
+NotebookDataLength[     93735,       2276]
+NotebookOptionsPosition[     93087,       2259]
+NotebookOutlinePosition[     93480,       2275]
+CellTagsIndexPosition[     93437,       2272]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-
-Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{
   RowBox[{"(*", " ", 
@@ -65,7 +63,7 @@ Cell[BoxData[
     RowBox[{"SetDirectory", "[", 
      RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], "\n", 
    RowBox[{
-    RowBox[{"Get", "[", "\"\<MathInfo.m\>\"", "]"}], ";"}], "\n", 
+    RowBox[{"Get", "[", "\"\<Package.m\>\"", "]"}], ";"}], "\n", 
    RowBox[{"esercizioUniversale", "[", "]"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
@@ -103,7 +101,7 @@ Cell[BoxData[
       RowBox[{"--", 
        RowBox[{"-", "CELLA"}]}], " ", 
       RowBox[{"TITLE", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", "MathInfo", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", "Package", "*)"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
@@ -133,7 +131,7 @@ Cell[BoxData[
        RowBox[{"[", 
         RowBox[{"da", " ", "assegnare", " ", "dalla", " ", "professoressa"}], 
         "]"}], " ", "Nome", " ", "Gruppo"}], ":", 
-      RowBox[{"MathInfo", " ", "MC", " ", 
+      RowBox[{"Package", " ", "MC", " ", 
        RowBox[{"2025", "/", 
         RowBox[{
          RowBox[{
@@ -248,7 +246,7 @@ Cell[BoxData[
       RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
-     RowBox[{"MathInfo", " ", 
+     RowBox[{"Package", " ", 
       RowBox[{"e", "'"}], " ", "un", " ", "quiz", " ", "interattivo", " ", 
       "che", " ", "ti", " ", "permette", " ", "di", " ", "allenarti", " ", 
       "su", " ", "tre", " ", "argomenti", " ", "di", " ", "matematica", " ", 
@@ -274,7 +272,7 @@ Cell[BoxData[
             RowBox[{"Livello", " ", "Avanzato"}]}], ":", 
            RowBox[{"decrittografia", " ", "con", " ", "cifrari", " ", 
             RowBox[{"classici", "[", "3", "]"}], " ", "A", " ", "chi", " ", 
-            RowBox[{"e", "'"}], " ", "rivolto", " ", "MathInfo", " ", 
+            RowBox[{"e", "'"}], " ", "rivolto", " ", "Package", " ", 
             RowBox[{"e", "'"}], " ", "pensato", " ", "per", " ", "studenti", " ",
              "di", " ", "informatica", " ", "o", " ", "ingegneria", " ", 
             "del", " ", "primo", " ", "anno", " ", "universitario", " ", 
@@ -772,7 +770,7 @@ Cell[BoxData[
          RowBox[{"(", 
           RowBox[{
            RowBox[{"shift", " ", "di"}], "-", "3"}], ")"}], " ", "In", " ", 
-         "MathInfo", " ", "la", " ", "chiave", " ", 
+         "Package", " ", "la", " ", "chiave", " ", 
          RowBox[{"e", "'"}], " ", "un", " ", "numero", " ", "intero", " ", 
          "da", " ", "1", " ", "a", " ", "25.", " ", "Prova", " ", "a", " ", 
          "decifrare", " ", "mentalmente", " ", "la", " ", "prima", " ", 
@@ -850,7 +848,8 @@ Cell[BoxData[
       RowBox[{"P", " ", 
        RowBox[{"Cifrato", ":", 
         RowBox[{
-        "BPZOSMMP", " ", "In", " ", "MathInfo", " ", "la", " ", "chiave", " ", 
+        "BPZOSMMP", " ", "In", " ", "Package", " ", "la", " ", "chiave", " ", 
+         
          RowBox[{"e", "'"}], " ", "una", " ", "delle", " ", "parole"}], ":", 
         "ALPHA"}]}]}], ",", "BETA", ",", "GAMMA", ",", "DELTA", ",", "OMEGA", 
      ",", 
@@ -1563,8 +1562,7 @@ Cell[BoxData[
          RowBox[{"reference", ".", "wolfram", ".", "com"}], "/", "language"}],
          "/", "workflowguide"}], "/", 
        RowBox[{"CreatingDocumentsAndPresentations", ".", "html"}]}]}]}], 
-    "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
+    "*)"}], "\[IndentingNewLine]", "\n", "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
     RowBox[{
      RowBox[{
@@ -1598,7 +1596,7 @@ Cell[BoxData[
    RowBox[{"(*", 
     RowBox[{
      RowBox[{"VIII", ".", "Commenti"}], " ", "e", " ", "Lavoro", " ", 
-     "Futuro"}], "*)"}], "\n", "\[IndentingNewLine]", 
+     "Futuro"}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
      RowBox[{
@@ -1611,12 +1609,12 @@ Cell[BoxData[
      "SCELTE", " ", "IMPLEMENTATIVE", " ", "Architettura", " ", "Tutto", " ", 
       "il", " ", "codice", " ", 
       RowBox[{"e", "'"}], " ", "contenuto", " ", "in", " ", 
-      RowBox[{"MathInfo", ".", "m"}]}], ",", 
+      RowBox[{"Package", ".", "m"}]}], ",", 
      RowBox[{
       RowBox[{
        RowBox[{"strutturato", " ", "con", " ", 
         RowBox[{
-         RowBox[{"BeginPackage", "[", "\"\<MathInfo`\>\"", "]"}], "/", 
+         RowBox[{"BeginPackage", "[", "\"\<Package`\>\"", "]"}], "/", 
          RowBox[{
           RowBox[{"EndPackage", "[", "]"}], ".", "Il"}]}], " ", 
         RowBox[{"Tutorial", ".", "nb"}], " ", "contiene", " ", "solo", " ", 
@@ -1629,7 +1627,7 @@ Cell[BoxData[
        RowBox[{"SetDirectory", "[", 
         RowBox[{"NotebookDirectory", "[", "]"}], "]"}]}], ";", 
       "\[IndentingNewLine]", 
-      RowBox[{"Get", "[", "\"\<MathInfo.m\>\"", "]"}], ";", 
+      RowBox[{"Get", "[", "\"\<Package.m\>\"", "]"}], ";", 
       "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{"esercizioUniversale", "[", "]"}], " ", "Contesti", " ", "e", " ", 
@@ -1642,13 +1640,13 @@ Cell[BoxData[
          "miGeneraEsercizioAvanzato", ",", "miSuggerimentoBase", ",", 
          "miSuggerimentoColore", ",", "miSuggerimentoAvanzato", ",", 
          "miVerificaRisposta"}], ")"}], " ", "sono", " ", "nel", " ", 
-       "contesto", " ", "MathInfo`Private`", " ", "e", " ", "non", " ", 
-       "sono", " ", "accessibili", " ", 
+       "contesto", " ", "Package`Private`", " ", "e", " ", "non", " ", "sono",
+        " ", "accessibili", " ", 
        RowBox[{"dall", "'"}], "esterno", " ", "del", " ", 
        RowBox[{"pacchetto", ".", "I"}], " ", "messaggi", " ", "di", " ", 
        "errore", " ", 
        RowBox[{"(", 
-        RowBox[{"MathInfo", "::", "badinput"}], ")"}], " ", "sono", " ", 
+        RowBox[{"Package", "::", "badinput"}], ")"}], " ", "sono", " ", 
        "definiti", " ", "nella", " ", "sezione", " ", "pubblica"}]}], ",", 
      RowBox[{"prima", " ", "di", " ", 
       RowBox[{"Begin", "[", "\"\<`Private`\>\"", "]"}]}], ",", 
@@ -1775,7 +1773,7 @@ Cell[BoxData[
   MathInfo`Private`stOn$$ = True, MathInfo`Private`stColoreScelta$$ = None}, 
   TagBox[GridBox[{
      {
-      StyleBox["\<\"MathInfo\"\>",
+      StyleBox["\"\<Package\>\"",
        StripOnInput->False,
        LineColor->RGBColor[0.1, 0.2, 0.6],
        FrontFaceColor->RGBColor[0.1, 0.2, 0.6],
@@ -1786,7 +1784,7 @@ Cell[BoxData[
        FontWeight->Bold,
        FontColor->RGBColor[0.1, 0.2, 0.6]]},
      {
-      StyleBox["\<\"Quiz di Matematica Applicata all'Informatica\"\>",
+      StyleBox["\"\<Quiz di Matematica Applicata all'Informatica\>\"",
        StripOnInput->False,
        LineColor->GrayLevel[0.5],
        FrontFaceColor->GrayLevel[0.5],
@@ -2057,9 +2055,8 @@ Cell[BoxData[
      {
       DynamicBox[ToBoxes[
         If[MathInfo`Private`stOn$$, 
-         Style[
-         "Tentativi rimasti: " <> 
-          ToString[3 - MathInfo`Private`stTentativi$$] <> " / 3", Bold, 11, 
+         Style[("Tentativi rimasti: " <> 
+           ToString[3 - MathInfo`Private`stTentativi$$]) <> " / 3", Bold, 11, 
           FontFamily -> "Arial", 
           If[MathInfo`Private`stTentativi$$ < 2, 
            Darker[Green], 
@@ -2165,10 +2162,9 @@ Cell[BoxData[
     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
     GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{0}}}],
    "Column"],
-  DynamicModuleValues:>{}]], "Output",
- CellChangeTimes->{3.9851677511048517`*^9},
- CellLabel->"Out[99]=",ExpressionUUID->"3498a427-cc84-486f-b2b1-cbfc78116c2b"]
-}, Open  ]],
+  DynamicModuleValues:>{}]], "Input",
+ CellChangeTimes->{
+  3.98542150267096*^9},ExpressionUUID->"3498a427-cc84-486f-b2b1-cbfc78116c2b"],
 
 Cell[BoxData[
  DynamicModuleBox[{MathInfo`Private`stSeed$$ = "71", 
@@ -2278,12 +2274,10 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[CellGroupData[{
-Cell[576, 22, 70941, 1742, 8179, "Input",ExpressionUUID->"56f7de27-3daa-4c28-a722-ca974eefc6e6"],
-Cell[71520, 1766, 17535, 403, 420, "Output",ExpressionUUID->"3498a427-cc84-486f-b2b1-cbfc78116c2b"]
-}, Open  ]],
-Cell[89070, 2172, 2038, 44, 36, "Input",ExpressionUUID->"70e5bc70-f01a-4ca4-9890-855382ace065"],
-Cell[91111, 2218, 2045, 43, 36, "Input",ExpressionUUID->"6a3859a0-1168-4ffd-8732-332044c47c4d"]
+Cell[554, 20, 70935, 1742, 8118, "Input",ExpressionUUID->"56f7de27-3daa-4c28-a722-ca974eefc6e6"],
+Cell[71492, 1764, 17502, 402, 416, "Input",ExpressionUUID->"3498a427-cc84-486f-b2b1-cbfc78116c2b"],
+Cell[88997, 2168, 2038, 44, 36, "Input",ExpressionUUID->"70e5bc70-f01a-4ca4-9890-855382ace065"],
+Cell[91038, 2214, 2045, 43, 36, "Input",ExpressionUUID->"6a3859a0-1168-4ffd-8732-332044c47c4d"]
 }
 ]
 *)

@@ -1,13 +1,14 @@
 (* ::Package:: *)
-(* :Title:            CryptoLab (MathInfo)                                   *)
-(* :Context:          MathInfo`                                              *)
+
+(* :Title:            CryptoLab (Package)                                   *)
+(* :Context:          Package`                                              *)
 (* :Author:           [Nome Gruppo]                                          *)
 (* :Summary:          Laboratorio Storico di Crittografia e Quiz Sfida.      *)
 (* :Copyright:        [Nome Gruppo] 2026                                     *)
 (* :Package Version:  5.0                                                    *)
 (* :Mathematica Version: 14                                                  *)
 
-BeginPackage["MathInfo`"]
+BeginPackage["Package`"]
 esercizioUniversale::usage = "Lancia il laboratorio interattivo CryptoLab."
 Begin["`Private`"]
 
@@ -138,11 +139,11 @@ esercizioUniversale[] := DynamicModule[
           ];
           If[quizTentativi == 2,
              hintChar = If[Length[quizTop3] >= 2, quizTop3[[2, 1]], quizTop3[[1, 1]]];
-             quizStato = "HINT 2: Una lettera molto presente è la '" <> hintChar <> "'\n(Ti resta " <> ToString[4 - quizTentativi] <> " vita)";
+             quizStato = "HINT 2: Una lettera molto presente \[EGrave] la '" <> hintChar <> "'\n(Ti resta " <> ToString[4 - quizTentativi] <> " vita)";
           ];
           If[quizTentativi == 3,
              hintChar = quizTop3[[1, 1]];
-             quizStato = "HINT SUPREMO! La lettera più frequente in assoluto è la '" <> hintChar <> "'\n(Ultimo appello!)";
+             quizStato = "HINT SUPREMO! La lettera pi\[UGrave] frequente in assoluto \[EGrave] la '" <> hintChar <> "'\n(Ultimo appello!)";
           ]
         ]
       ]
@@ -224,7 +225,7 @@ esercizioUniversale[] := DynamicModule[
             Spacer[15],
             
             Row[{
-               Style["Qual è la parola nascosta? "],
+               Style["Qual \[EGrave] la parola nascosta? "],
                InputField[Dynamic[quizRispostaUtente], String, FieldSize -> {20, 1}],
                Spacer[10],
                Button["Verifica", verificaQuiz[], Background -> RGBColor[0.2, 0.8, 0.4]],
