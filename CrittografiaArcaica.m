@@ -222,15 +222,18 @@ decifraVigenere[testo_String, chiave_String] :=
   ]
 
 (*
-  tabellaShiftVigenere[testo, chiave]
+  tabellaShiftVigenere[testo, chiave, cifra]
   Input:  testo  -- stringa di sole lettere
           chiave -- stringa chiave (sole lettere)
-  Output: lista di quadruple {lettera_chiaro, lettera_chiave, shift, lettera_cifrata},
+          cifra  -- True se si sta cifrando, False se si sta decifrando
+  Output: lista di quadruple {lettera_input, lettera_chiave, shift, lettera_output}
           limitata alle prime 24 lettere per leggibilita'.
+  Nota:   se cifra=True, la lettera_output e' quella cifrata (+shift).
+          se cifra=False, la lettera_output e' quella decifrata (-shift).
 *)
-tabellaShiftVigenere[testo_String, chiave_String] :=
+tabellaShiftVigenere[testo_String, chiave_String, cifra_] :=
   Module[
-    {testUp, chiaveChars, chiaveLen, soleLettere, risultato, kIndex, sh, lCifr},
+    {testUp, chiaveChars, chiaveLen, soleLettere, risultato, kIndex, sh, lOut, segno},
     testUp      = ToUpperCase[testo];
     chiaveChars = Select[Characters[ToUpperCase[chiave]], MemberQ[alfabeto, #] &];
     If[chiaveChars === {}, Return[{}]];
@@ -238,11 +241,13 @@ tabellaShiftVigenere[testo_String, chiave_String] :=
     soleLettere = Select[Characters[testUp], MemberQ[alfabeto, #] &];
     risultato   = {};
     kIndex      = 0;
+    (* segno: +1 per cifrare, -1 per decifrare *)
+    segno = If[cifra, 1, -1];
     Do[
-      sh    = Position[alfabeto, chiaveChars[[Mod[kIndex, chiaveLen] + 1]]][[1,1]] - 1;
-      lCifr = alfabeto[[Mod[Position[alfabeto, soleLettere[[i]]][[1,1]] - 1 + sh, 26] + 1]];
+      sh   = Position[alfabeto, chiaveChars[[Mod[kIndex, chiaveLen] + 1]]][[1,1]] - 1;
+      lOut = alfabeto[[Mod[Position[alfabeto, soleLettere[[i]]][[1,1]] - 1 + segno * sh, 26] + 1]];
       AppendTo[risultato,
-        {soleLettere[[i]], chiaveChars[[Mod[kIndex, chiaveLen] + 1]], sh, lCifr}];
+        {soleLettere[[i]], chiaveChars[[Mod[kIndex, chiaveLen] + 1]], sh, lOut}];
       kIndex++,
       {i, 1, Min[Length[soleLettere], 24]}];
     risultato
@@ -294,15 +299,14 @@ generaEsercizioConSeedVigenere[seed_Integer] :=
   graficaFrequenze[testo]
   Input:  testo -- stringa da analizzare (tipicamente il testo cifrato)
   Output: Column con due BarChart separati:
-          1. Standard Italiano (%): barre azzurre uniformi
-          2. Frequenze Testo Cifrato (Assolute): barre colorate arcobaleno
-  Le etichette A-Z sono aggiunte tramite Ticks sull'asse x,
-  che e' il metodo nativo e affidabile di Mathematica per BarChart.
+          1. Standard Italiano (%): barre azzurre con etichette A-Z
+          2. Frequenze Testo Cifrato (Assolute): barre colorate con etichette A-Z
+  Nota: ChartLabels -> CharacterRange["A","Z"] e' il metodo che funziona
+        in Mathematica per mostrare le etichette sotto ogni barra.
 *)
 graficaFrequenze[testo_String] :=
   Module[
-    {conteggi, totale, coloriArcobaleno, ticksAZ,
-     graficoItaliano, graficoCifrato},
+    {conteggi, totale, coloriArcobaleno, graficoItaliano, graficoCifrato},
     conteggi = frequenzeLettere[testo];
     totale   = Total[conteggi];
     If[totale == 0,
@@ -310,32 +314,27 @@ graficaFrequenze[testo_String] :=
         "(Nessuna lettera nel testo: impossibile calcolare le frequenze.)",
         11, Italic, Gray]]];
     coloriArcobaleno = Table[Hue[k/26, 0.6, 0.85], {k, 0, 25}];
-    (* Ticks: ogni elemento e' {posizione, etichetta, lunghezza_tick=0}
-       In BarChart la k-esima barra (1-indicizzata) ha centro a x=k *)
-    ticksAZ = Table[
-      {k, Style[alfabeto[[k]], 8, Bold, GrayLevel[0.25]], 0},
-      {k, 1, 26}];
     graficoItaliano = BarChart[
       freqItaliano,
-      ChartStyle -> RGBColor[0.65, 0.80, 0.92],
-      PlotRange  -> {0, Max[freqItaliano] * 1.20},
-      ImageSize  -> {500, 230},
-      PlotLabel  -> Style["Standard Italiano (%)", 12, Bold, GrayLevel[0.3]],
-      BarSpacing -> 0.3,
-      Frame      -> False,
-      Axes       -> True,
-      Ticks      -> {ticksAZ, Automatic}
+      ChartLabels -> CharacterRange["A", "Z"],
+      ChartStyle  -> RGBColor[0.65, 0.80, 0.92],
+      PlotRange   -> {0, Max[freqItaliano] * 1.20},
+      ImageSize   -> {500, 280},
+      PlotLabel   -> Style["Standard Italiano (%)", 12, Bold, GrayLevel[0.3]],
+      BarSpacing  -> 0.3,
+      Frame       -> False,
+      ImagePadding -> {{30, 10}, {35, 20}}
     ];
     graficoCifrato = BarChart[
       conteggi,
-      ChartStyle -> coloriArcobaleno,
-      PlotRange  -> {0, Max[conteggi, 1] * 1.20},
-      ImageSize  -> {500, 230},
-      PlotLabel  -> Style["Frequenze Testo Cifrato (Assolute)", 12, Bold, GrayLevel[0.3]],
-      BarSpacing -> 0.3,
-      Frame      -> False,
-      Axes       -> True,
-      Ticks      -> {ticksAZ, Automatic}
+      ChartLabels -> CharacterRange["A", "Z"],
+      ChartStyle  -> coloriArcobaleno,
+      PlotRange   -> {0, Max[conteggi, 1] * 1.20},
+      ImageSize   -> {500, 280},
+      PlotLabel   -> Style["Frequenze Testo Cifrato (Assolute)", 12, Bold, GrayLevel[0.3]],
+      BarSpacing  -> 0.3,
+      Frame       -> False,
+      ImagePadding -> {{30, 10}, {35, 20}}
     ];
     Column[{graficoItaliano, graficoCifrato}, Spacings -> 1, Alignment -> Center]
   ]
@@ -708,7 +707,7 @@ Prova: cifra qualcosa con chiave 'D' e confrontalo col Laboratorio Cesare con sh
                 avvisoTesto = ""; avvisoChiave = "";
                 risultatoCifra = cifraVigenere[testoInput, chiaveInput];
                 risultatoDecifra = "";
-                tabellaVis = tabellaShiftVigenere[testoInput, chiaveInput]];,
+                tabellaVis = tabellaShiftVigenere[testoInput, chiaveInput, True]];,
             Background -> RGBColor[0.5, 0.2, 0.7], ImageSize -> {120, 35}],
           Spacer[10],
           Button[
@@ -722,7 +721,7 @@ Prova: cifra qualcosa con chiave 'D' e confrontalo col Laboratorio Cesare con sh
                 avvisoTesto = ""; avvisoChiave = "";
                 risultatoDecifra = decifraVigenere[testoInput, chiaveInput];
                 risultatoCifra = "";
-                tabellaVis = tabellaShiftVigenere[testoInput, chiaveInput]];,
+                tabellaVis = tabellaShiftVigenere[testoInput, chiaveInput, False]];,
             Background -> RGBColor[0.2, 0.5, 0.7], ImageSize -> {120, 35}],
           Spacer[10],
           Button[
