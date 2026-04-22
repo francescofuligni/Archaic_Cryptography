@@ -10,2258 +10,956 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     93735,       2276]
-NotebookOptionsPosition[     93087,       2259]
-NotebookOutlinePosition[     93480,       2275]
-CellTagsIndexPosition[     93437,       2272]
+NotebookDataLength[     41843,        990]
+NotebookOptionsPosition[     40471,        957]
+NotebookOutlinePosition[     40863,        973]
+CellTagsIndexPosition[     40820,        970]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-Cell[BoxData[
- RowBox[{
-  RowBox[{"(*", " ", 
-   RowBox[{
-    RowBox[{
-    "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-      "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}], 
-    "="}], "*)"}], 
-  RowBox[{"(*", 
-   RowBox[{
-    RowBox[{"CELLA", " ", "DI", " ", "INIZIALIZZAZIONE"}], "\[LongDash]", 
-    RowBox[{"Initialization", " ", "Cell"}]}], "*)"}], 
-  RowBox[{"(*", 
-   RowBox[{"Chiusa", " ", "e", " ", "non", " ", "visibile", " ", 
-    RowBox[{"all", "'"}], 
-    RowBox[{"utente", "."}]}], "*)"}], 
-  RowBox[{"(*", 
-   RowBox[{"Come", " ", 
-    RowBox[{"impostarla", ":"}]}], "*)"}], 
-  RowBox[{"(*", 
-   RowBox[{
-   "1.", " ", "Valuta", " ", "questa", " ", "cella", " ", "UNA", " ", "VOLTA",
-     " ", 
-    RowBox[{"(", 
-     RowBox[{"Shift", "+", "Invio"}], ")"}]}], "*)"}], 
-  RowBox[{"(*", 
-   RowBox[{
-    RowBox[{"2.", " ", "Cell"}], ">", 
-    RowBox[{"Cell", " ", "Properties"}], ">", 
-    RowBox[{"spunta", " ", "\"\<Initialization Cell\>\""}]}], "*)"}], 
-  RowBox[{"(*", 
-   RowBox[{
-   "3.", " ", "Chiudi", " ", "la", " ", "cella", " ", "cliccando", " ", 
-    "sulla", " ", "parentesi", " ", "destra"}], "*)"}], 
-  RowBox[{"(*", " ", 
-   RowBox[{
-    RowBox[{
-    "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-      "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}], 
-    "="}], "*)"}], 
-  RowBox[{
-   RowBox[{
-    RowBox[{"SetDirectory", "[", 
-     RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], "\n", 
-   RowBox[{
-    RowBox[{"Get", "[", "\"\<Package.m\>\"", "]"}], ";"}], "\n", 
-   RowBox[{"esercizioUniversale", "[", "]"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
-      "="}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{"DA", " ", "QUI", " ", "IN", " ", 
-     RowBox[{"POI", ":", 
-      RowBox[{
-      "celle", " ", "di", " ", "TESTO", " ", "da", " ", "inserire", " ", 
-       "nel", " ", "notebook"}]}]}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-    "Inserisci", " ", "ciascun", " ", "blocco", " ", "come", " ", "cella", " ",
-      "del", " ", "tipo", " ", 
-     RowBox[{"indicato", "."}]}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-    "Il", " ", "tipo", " ", "di", " ", "cella", " ", "si", " ", "imposta", " ", 
-     RowBox[{"da", ":", 
-      RowBox[{"Format", ">", "Style"}]}]}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
-      "="}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TITLE", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", "Package", "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SUBTITLE", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-    "Quiz", " ", "Interattivo", " ", "di", " ", "Matematica", " ", 
-     "Applicata", " ", 
-     RowBox[{"all", "'"}], "Informatica"}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", "TEXT", " ", 
-      RowBox[{
-       RowBox[{"(", 
-        RowBox[{"pagina", " ", "di", " ", "copertina"}], ")"}], "--"}]}], 
-     "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{"Gruppo", " ", 
-     RowBox[{"Numero", ":", 
-      RowBox[{
-       RowBox[{"[", 
-        RowBox[{"da", " ", "assegnare", " ", "dalla", " ", "professoressa"}], 
-        "]"}], " ", "Nome", " ", "Gruppo"}], ":", 
-      RowBox[{"Package", " ", "MC", " ", 
-       RowBox[{"2025", "/", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"2026", "[", 
-           RowBox[{"FOTO", " ", "1"}], "]"}], "[", 
-          RowBox[{"FOTO", " ", "2"}], "]"}], "[", 
-         RowBox[{"FOTO", " ", "3"}], "]"}]}], " ", "Nome", " ", "Cognome", " ",
-        "1", " ", "Nome", " ", "Cognome", " ", "2", " ", "Nome", " ", 
-       "Cognome", " ", "3", " ", 
-       RowBox[{"(", 
-        RowBox[{
-         RowBox[{"anno", " ", 
-          RowBox[{"1", "/", "2"}]}], ",", 
-         RowBox[{
-          RowBox[{"curr", ".", "A"}], "/", "B"}]}], ")"}], " ", 
-       RowBox[{"(", 
-        RowBox[{
-         RowBox[{"anno", " ", 
-          RowBox[{"1", "/", "2"}]}], ",", 
-         RowBox[{
-          RowBox[{"curr", ".", "A"}], "/", "B"}]}], ")"}], " ", 
-       RowBox[{"(", 
-        RowBox[{
-         RowBox[{"anno", " ", 
-          RowBox[{"1", "/", "2"}]}], ",", 
-         RowBox[{
-          RowBox[{"curr", ".", "A"}], "/", "B"}]}], ")"}]}]}]}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
-      "="}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", "INDICE", "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
-      "="}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", "Indice", "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"I", ".", "Introduzione"}], " ", 
-      RowBox[{"II", ".", "Livello"}], " ", "Base"}], "\[LongDash]", 
-     RowBox[{
-     "Conversioni", " ", "Numeriche", " ", "II", ".1", " ", "Conversione", " ",
-       "Binario", " ", "e", " ", "Decimale", " ", "II", ".2", " ", 
-      "Conversioni", " ", "di", " ", 
-      RowBox[{"Unita", "'"}], " ", "di", " ", "Memoria", " ", 
-      RowBox[{"III", ".", "Livello"}], " ", "Intermedio"}], "\[LongDash]", 
-     RowBox[{
-     "Colori", " ", "Esadecimali", " ", "III", ".1", " ", "Dal", " ", 
-      "colore", " ", "al", " ", "codice", " ", "HEX", " ", "III", ".2", " ", 
-      "Dal", " ", "codice", " ", "HEX", " ", "al", " ", "colore", " ", 
-      RowBox[{"IV", ".", "Livello"}], " ", "Avanzato"}], "\[LongDash]", 
-     RowBox[{
-     "Crittografia", " ", "IV", ".1", " ", "Cifrario", " ", "di", " ", 
-      "Cesare", " ", "IV", ".2", " ", "Cifrario", " ", "di", " ", "Vigenere", 
-      " ", 
-      RowBox[{"V", ".", "Come"}], " ", "usare", " ", 
-      RowBox[{"l", "'"}], "interfaccia", " ", 
-      RowBox[{"VI", ".", "Esempi"}], " ", "guidati", " ", 
-      RowBox[{"VII", ".", "Bibliografia"}], " ", "e", " ", "Sitografia", " ", 
-      
-      RowBox[{"VIII", ".", "Commenti"}], " ", "e", " ", "Lavoro", " ", 
-      "Futuro"}]}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
-      "="}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{"I", ".", "INTRODUZIONE"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
-      "="}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{"I", ".", "Introduzione"}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"Package", " ", 
-      RowBox[{"e", "'"}], " ", "un", " ", "quiz", " ", "interattivo", " ", 
-      "che", " ", "ti", " ", "permette", " ", "di", " ", "allenarti", " ", 
-      "su", " ", "tre", " ", "argomenti", " ", "di", " ", "matematica", " ", 
-      "applicata", " ", 
-      RowBox[{"all", "'"}], "informatica"}], ",", 
-     RowBox[{
-      RowBox[{"con", " ", "tre", " ", "livelli", " ", "di", " ", 
-       RowBox[{"difficolta", "'"}], " ", 
-       RowBox[{"crescente", ":", 
-        RowBox[{
-         RowBox[{"-", "Livello"}], " ", "Base"}], ":", 
-        RowBox[{
-         RowBox[{
-         "conversioni", " ", "tra", " ", "sistemi", " ", "numerici", " ", "e",
-           " ", 
-          RowBox[{"unita", "'"}], " ", "di", " ", 
-          RowBox[{"memoria", "[", "1", "]"}]}], "-", 
-         RowBox[{"Livello", " ", 
-          RowBox[{"Intermedio", ":", 
-           RowBox[{
-            RowBox[{"colori", " ", "e", " ", "codici", " ", 
-             RowBox[{"esadecimali", "[", "2", "]"}]}], "-", 
-            RowBox[{"Livello", " ", "Avanzato"}]}], ":", 
-           RowBox[{"decrittografia", " ", "con", " ", "cifrari", " ", 
-            RowBox[{"classici", "[", "3", "]"}], " ", "A", " ", "chi", " ", 
-            RowBox[{"e", "'"}], " ", "rivolto", " ", "Package", " ", 
-            RowBox[{"e", "'"}], " ", "pensato", " ", "per", " ", "studenti", " ",
-             "di", " ", "informatica", " ", "o", " ", "ingegneria", " ", 
-            "del", " ", "primo", " ", "anno", " ", "universitario", " ", 
-            "che", " ", "vogliono", " ", "esercitarsi", " ", "in", " ", 
-            "modo", " ", "autonomo", " ", "sui", " ", "fondamenti", " ", 
-            RowBox[{"dell", "'"}], 
-            RowBox[{"informatica", ".", "Non"}], " ", 
-            RowBox[{"e", "'"}], " ", "richiesta", " ", "alcuna", " ", 
-            "conoscenza", " ", "di", " ", 
-            RowBox[{"Mathematica", ".", "Come"}], " ", "funziona", " ", "Il", 
-            " ", "programma", " ", "genera", " ", "automaticamente", " ", 
-            "un", " ", "esercizio", " ", "casuale", " ", "in", " ", "base", " ",
-             "al", " ", "livello", " ", "e", " ", "alla", " ", 
-            RowBox[{"modalita", "'"}], " ", "che", " ", "hai", " ", 
-            RowBox[{"scelto", ".", "Hai"}], " ", "a", " ", "disposizione", " ",
-             "3", " ", "tentativi", " ", "per", " ", "rispondere"}]}]}]}]}]}],
-       ";", 
-      RowBox[{
-      "ad", " ", "ogni", " ", "errore", " ", "ricevi", " ", "un", " ", 
-       "suggerimento", " ", "sempre", " ", 
-       RowBox[{"piu", "'"}], " ", 
-       RowBox[{"preciso", ".", "Se"}], " ", "non", " ", "riesci"}]}], ",", 
-     RowBox[{
-     "puoi", " ", "visualizzare", " ", "la", " ", "soluzione", " ", 
-      "completa", " ", "con", " ", "una", " ", 
-      RowBox[{"spiegazione", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
-      "="}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"II", ".", "LIVELLO"}], " ", "BASE"}], "\[LongDash]", 
-     RowBox[{"CONVERSIONI", " ", "NUMERICHE"}]}], "*)"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
-      "="}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"II", ".", "Livello"}], " ", "Base"}], "\[LongDash]", 
-     RowBox[{"Conversioni", " ", "Numeriche"}]}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-     "Il", " ", "livello", " ", "base", " ", "propone", " ", "esercizi", " ", 
-      "su", " ", "due", " ", "tipi", " ", "di", " ", "conversione"}], ",", 
-     RowBox[{
-      RowBox[{
-       RowBox[{
-       "selezionabili", " ", "tramite", " ", "i", " ", "pulsanti", " ", "di", 
-        " ", 
-        RowBox[{"modalita", "'"}]}], ":", 
-       RowBox[{"-", "Binario"}]}], "<->", 
-      RowBox[{"Decimale", "-", 
-       RowBox[{"Conversioni", " ", "di", " ", 
-        RowBox[{"unita", "'"}], " ", "di", " ", "memoria", " ", 
-        RowBox[{"(", 
-         RowBox[{"KB", ",", "MB", ",", "GB", ",", "TB"}], ")"}]}]}]}]}], 
-    "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-    "II", ".1", " ", "Conversione", " ", "Binario", " ", "e", " ", 
-     "Decimale"}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-     "I", " ", "computer", " ", "rappresentano", " ", "i", " ", "dati", " ", 
-      "internamente", " ", "usando", " ", "il", " ", "sistema", " ", 
-      "binario", " ", 
-      RowBox[{"(", 
-       RowBox[{"base", " ", "2"}], ")"}]}], ",", 
-     RowBox[{
-      RowBox[{
-      "che", " ", "usa", " ", "solo", " ", "le", " ", "cifre", " ", "0", " ", 
-       "e", " ", 
-       RowBox[{"1.", "[", "1", "]"}], " ", "Ogni", " ", "cifra", " ", 
-       "binaria", " ", "si", " ", "chiama", " ", 
-       RowBox[{"bit", ".", "Un"}], " ", "gruppo", " ", "di", " ", "8", " ", 
-       "bit", " ", "forma", " ", "un", " ", 
-       RowBox[{"byte", ".", "Conversione"}], " ", "da", " ", "decimale", " ", 
-       "a", " ", "binario", " ", "Si", " ", "divide", " ", "il", " ", 
-       "numero", " ", "ripetutamente", " ", "per", " ", "2", " ", "e", " ", 
-       "si", " ", "leggono", " ", "i", " ", "resti", " ", "dal", " ", "basso",
-        " ", "verso", " ", 
-       RowBox[{"l", "'"}], 
-       RowBox[{"alto", ".", 
-        RowBox[{"Esempio", ":", 
-         RowBox[{"converti", " ", "13", " ", "in", " ", 
-          RowBox[{
-           RowBox[{"binario", ".", "13"}], "/", "2"}]}]}]}]}], "=", 
-      RowBox[{
-       RowBox[{"6", " ", "resto", " ", "1", " ", 
-        RowBox[{"6", "/", "2"}]}], "=", 
-       RowBox[{
-        RowBox[{"3", " ", "resto", " ", "0", " ", 
-         RowBox[{"3", "/", "2"}]}], "=", 
-        RowBox[{
-         RowBox[{"1", " ", "resto", " ", "1", " ", 
-          RowBox[{"1", "/", "2"}]}], "=", 
-         RowBox[{
-          RowBox[{"0", " ", "resto", " ", "1", " ", 
-           RowBox[{"Risultato", ":", 
-            RowBox[{"1101", " ", 
-             RowBox[{"(", 
-              RowBox[{
-              "si", " ", "legge", " ", "dal", " ", "basso", " ", "verso", " ", 
-               RowBox[{"l", "'"}], "alto"}], ")"}], " ", "Verifica"}], ":", 
-            RowBox[{
-             RowBox[{"1", "*", "8"}], "+", 
-             RowBox[{"1", "*", "4"}], "+", 
-             RowBox[{"0", "*", "2"}], "+", 
-             RowBox[{"1", "*", "1"}]}]}]}], "=", 
-          RowBox[{
-           RowBox[{
-           "13", " ", "\[Checkmark]", " ", "Conversione", " ", "da", " ", 
-            "binario", " ", "a", " ", "decimale", " ", "Si", " ", 
-            "moltiplica", " ", "ogni", " ", "cifra", " ", "per", " ", "2", " ",
-             "elevato", " ", "alla", " ", "sua", " ", "posizione", " ", 
-            RowBox[{"(", 
-             RowBox[{
-              RowBox[{"contando", " ", "da", " ", "destra"}], ",", 
-              RowBox[{"partendo", " ", "da", " ", "0"}]}], ")"}], " ", "e", " ",
-             "si", " ", "sommano", " ", "i", " ", 
-            RowBox[{"risultati", ".", 
-             RowBox[{"Esempio", ":", 
-              RowBox[{
-               RowBox[{"converti", " ", "1010", " ", "in", " ", 
-                RowBox[{"decimale", ".", "1"}], "*", 
-                RowBox[{"2", "^", "3"}]}], "+", 
-               RowBox[{"0", "*", 
-                RowBox[{"2", "^", "2"}]}], "+", 
-               RowBox[{"1", "*", 
-                RowBox[{"2", "^", "1"}]}], "+", 
-               RowBox[{"0", "*", 
-                RowBox[{"2", "^", "0"}]}]}]}]}]}], "=", 
-           RowBox[{
-            RowBox[{"8", "+", "0", "+", "2", "+", "0"}], "=", 
-            "10"}]}]}]}]}]}]}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{"II", ".2", " ", "Conversioni", " ", "di", " ", 
-     RowBox[{"Unita", "'"}], " ", "di", " ", "Memoria"}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"Le", " ", 
-       RowBox[{"unita", "'"}], " ", "di", " ", "memoria", " ", "sono", " ", 
-       "multipli", " ", "del", " ", 
-       RowBox[{"byte", ".", 
-        RowBox[{"[", "1", "]"}]}], " ", "Ogni", " ", 
-       RowBox[{"unita", "'"}], " ", 
-       RowBox[{"e", "'"}], " ", "1024", " ", "volte", " ", "quella", " ", 
-       "precedente", " ", 
-       RowBox[{
-        RowBox[{"(", 
-         RowBox[{
-          RowBox[{"2", "^", "10"}], "=", "1024"}], ")"}], ".", "1"}], " ", 
-       "KB", " ", 
-       RowBox[{"(", "Kilobyte", ")"}]}], "=", 
-      RowBox[{
-       RowBox[{"1024", " ", "Byte", " ", "1", " ", "MB", " ", 
-        RowBox[{"(", "Megabyte", ")"}]}], "=", 
-       RowBox[{
-        RowBox[{"1024", " ", "KB", " ", "1", " ", "GB", " ", 
-         RowBox[{"(", "Gigabyte", ")"}]}], "=", 
-        RowBox[{
-         RowBox[{"1024", " ", "MB", " ", "1", " ", "TB", " ", 
-          RowBox[{"(", "Terabyte", ")"}]}], "=", 
-         RowBox[{
-          RowBox[{"1024", " ", "GB", " ", 
-           RowBox[{"Esempio", ":", 
-            RowBox[{"converti", " ", "2048", " ", "MB", " ", "in", " ", 
-             RowBox[{
-              RowBox[{"GB", ".", "2048"}], "/", "1024"}]}]}]}], "=", 
-          RowBox[{"2", " ", "GB", " ", 
-           RowBox[{"Suggerimento", ":", 
-            RowBox[{"per", " ", "passare", " ", "a", " ", 
-             RowBox[{"un", "'"}], 
-             RowBox[{"unita", "'"}], " ", 
-             RowBox[{"piu", "'"}], " ", "grande"}]}]}]}]}]}]}]}], ",", 
-     RowBox[{"dividi", " ", "per", " ", "1024."}]}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
-      "="}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"III", ".", "LIVELLO"}], " ", "INTERMEDIO"}], "\[LongDash]", 
-     RowBox[{"COLORI", " ", "ESADECIMALI"}]}], "*)"}], "\[IndentingNewLine]", 
-   
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
-      "="}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"III", ".", "Livello"}], " ", "Intermedio"}], "\[LongDash]", 
-     RowBox[{"Colori", " ", "Esadecimali"}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{
-      "I", " ", "colori", " ", "nei", " ", "sistemi", " ", "digitali", " ", 
-       "vengono", " ", "rappresentati", " ", "con", " ", "il", " ", "modello",
-        " ", "RGB", " ", 
-       RowBox[{"(", 
-        RowBox[{"Red", ",", "Green", ",", "Blue"}], ")"}]}], ":", 
-      RowBox[{
-      "ogni", " ", "componente", " ", "ha", " ", "un", " ", "valore", " ", 
-       "intero", " ", "da", " ", "0", " ", "a", " ", 
-       RowBox[{"255.", "[", "2", "]"}], " ", "Il", " ", "codice", " ", 
-       "esadecimale", " ", 
-       RowBox[{"(", "HEX", ")"}], " ", "esprime", " ", "queste", " ", "tre", " ",
-        "componenti", " ", "in", " ", 
-       RowBox[{"un", "'"}], "unica", " ", "stringa", " ", "nel", " ", 
-       "formato", " ", "#RRGGBB"}]}], ",", 
-     RowBox[{"dove", " ", "RR"}], ",", "GG", ",", 
-     RowBox[{
-      RowBox[{
-       RowBox[{
-       "BB", " ", "sono", " ", "due", " ", "cifre", " ", "esadecimali", " ", 
-        "ciascuna", " ", 
-        RowBox[{
-         RowBox[{"(", 
-          RowBox[{"da", " ", "00", " ", "a", " ", "FF"}], ")"}], ".", "Il"}], 
-        " ", "sistema", " ", "esadecimale", " ", 
-        RowBox[{"(", 
-         RowBox[{"base", " ", "16"}], ")"}], " ", "usa", " ", "le", " ", 
-        "cifre", " ", "0"}], "-", 
-       RowBox[{"9", " ", "e", " ", "le", " ", "lettere", " ", "A"}], "-", 
-       RowBox[{"F", ".", "A"}]}], "=", "10"}], ",", 
-     RowBox[{"B", "=", "11"}], ",", 
-     RowBox[{"C", "=", "12"}], ",", 
-     RowBox[{"D", "=", "13"}], ",", 
-     RowBox[{"E", "=", "14"}], ",", 
-     RowBox[{"F", "=", 
-      RowBox[{
-       RowBox[{"15", " ", 
-        RowBox[{"Esempio", ":", 
-         RowBox[{"il", " ", "colore", " ", "arancione", " ", 
-          RowBox[{"e", "'"}], " ", "circa", " ", "R"}]}]}], "=", "255"}]}], ",", 
-     RowBox[{"G", "=", "140"}], ",", 
-     RowBox[{"B", "=", 
-      RowBox[{
-       RowBox[{"0.", " ", "255", " ", "in", " ", "HEX"}], "=", 
-       RowBox[{
-        RowBox[{"FF", " ", "140", " ", "in", " ", "HEX"}], "=", 
-        RowBox[{
-         RowBox[{"8", "C", " ", "0", " ", "in", " ", "HEX"}], "=", 
-         RowBox[{"00", " ", "Codice", " ", 
-          RowBox[{"HEX", ":", "#FF8C00"}]}]}]}]}]}]}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"III", ".1", " ", 
-      RowBox[{"Modalita", "'"}]}], ":", 
-     RowBox[{"dal", " ", "colore", " ", "al", " ", "codice", " ", "HEX"}]}], 
-    "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"Viene", " ", "mostrato", " ", "un", " ", "quadrato", " ", 
-      RowBox[{"colorato", ".", "Il"}], " ", "tuo", " ", "compito", " ", 
-      RowBox[{"e", "'"}], " ", "scrivere", " ", "il", " ", "corrispondente", " ",
-       "codice", " ", "esadecimale", " ", "nel", " ", "formato", " ", 
-      RowBox[{"#RRGGBB", ".", 
-       RowBox[{"Suggerimento", ":", 
-        RowBox[{
-        "osserva", " ", "la", " ", "dominanza", " ", "dei", " ", "colori", " ",
-          "primari", " ", "nel", " ", 
-         RowBox[{"quadrato", ".", "Un"}], " ", "colore", " ", "molto", " ", 
-         "rosso", " ", 
-         RowBox[{"avra", "'"}], " ", "RR", " ", "alto", " ", 
-         RowBox[{"(", 
-          RowBox[{"vicino", " ", "a", " ", "FF"}], ")"}]}]}]}]}], ",", 
-     RowBox[{"e", " ", 
-      RowBox[{"cosi", "'"}], " ", "via", " ", "per", " ", "il", " ", "verde", 
-      " ", 
-      RowBox[{"(", "GG", ")"}], " ", "e", " ", "il", " ", "blu", " ", 
-      RowBox[{
-       RowBox[{"(", "BB", ")"}], "."}]}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"III", ".2", " ", 
-      RowBox[{"Modalita", "'"}]}], ":", 
-     RowBox[{"dal", " ", "codice", " ", "HEX", " ", "al", " ", "colore"}]}], 
-    "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{"Viene", " ", "mostrato", " ", "un", " ", "codice", " ", 
-     RowBox[{"HEX", ".", "Quattro"}], " ", "quadrati", " ", "colorati", " ", 
-     "vengono", " ", 
-     RowBox[{"visualizzati", ":", 
-      RowBox[{"il", " ", "tuo", " ", "compito", " ", 
-       RowBox[{"e", "'"}], " ", "cliccare", " ", "su", " ", "quello", " ", 
-       RowBox[{"corretto", ".", "Non"}], " ", "occorre", " ", "scrivere", " ",
-        "nulla"}], ":", 
-      RowBox[{
-      "basta", " ", "fare", " ", "clic", " ", "sul", " ", "colore", " ", 
-       "che", " ", "pensi", " ", "corrisponda", " ", "al", " ", "codice", " ", 
-       RowBox[{"mostrato", ".", 
-        RowBox[{"Suggerimento", ":", 
-         RowBox[{
-         "converte", " ", "mentalmente", " ", "le", " ", "prime", " ", "due", 
-          " ", "cifre", " ", "HEX", " ", 
-          RowBox[{"(", "RR", ")"}], " ", "per", " ", "capire", " ", "quanto", 
-          " ", "rosso", " ", 
-          RowBox[{"c", "'"}], 
-          RowBox[{"e", "'"}], " ", "nel", " ", 
-          RowBox[{"colore", "."}]}]}]}]}]}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
-      "="}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"IV", ".", "LIVELLO"}], " ", "AVANZATO"}], "\[LongDash]", 
-     "CRITTOGRAFIA"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
-      "="}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"IV", ".", "Livello"}], " ", "Avanzato"}], "\[LongDash]", 
-     "Crittografia"}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{"La", " ", "crittografia", " ", 
-     RowBox[{"e", "'"}], " ", "la", " ", "tecnica", " ", "di", " ", "cifrare",
-      " ", "un", " ", "messaggio", " ", "per", " ", "renderlo", " ", 
-     "incomprensibile", " ", "a", " ", "chi", " ", "non", " ", "conosce", " ",
-      "la", " ", 
-     RowBox[{"chiave", ".", 
-      RowBox[{"[", "3", "]"}]}], " ", "In", " ", "questo", " ", "livello", " ",
-      "ti", " ", "viene", " ", "mostrato", " ", "un", " ", "messaggio", " ", 
-     "cifrato", " ", "e", " ", "devi", " ", "trovare", " ", "la", " ", 
-     "chiave", " ", "usata", " ", "per", " ", 
-     RowBox[{"cifrarlo", "."}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{"IV", ".1", " ", "Cifrario", " ", "di", " ", "Cesare"}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"Il", " ", "Cifrario", " ", "di", " ", "Cesare", " ", 
-       RowBox[{"e", "'"}], " ", "uno", " ", "dei", " ", 
-       RowBox[{"piu", "'"}], " ", "antichi", " ", "metodi", " ", 
-       RowBox[{"crittografici", ".", 
-        RowBox[{"[", "3", "]"}]}], " ", "Ogni", " ", "lettera", " ", "del", " ",
-        "messaggio", " ", "viene", " ", "sostituita", " ", "con", " ", "la", " ",
-        "lettera", " ", "che", " ", "si", " ", "trova", " ", "K", " ", 
-       "posizioni", " ", 
-       RowBox[{"piu", "'"}], " ", "avanti", " ", 
-       RowBox[{"nell", "'"}], "alfabeto", " ", 
-       RowBox[{
-        RowBox[{"(", 
-         RowBox[{"con", " ", "k", " ", "la", " ", "chiave", " ", "intera"}], 
-         ")"}], ".", "Esempio"}], " ", "con", " ", "chiave", " ", "K"}], "=", 
-      
-      RowBox[{
-       RowBox[{"3", ":", "A"}], "->", "D"}]}], ",", 
-     RowBox[{"B", "->", "E"}], ",", 
-     RowBox[{"C", "->", "F"}], ",", 
-     RowBox[{
-      RowBox[{"...", " ", "Z"}], "->", 
-      RowBox[{
-       RowBox[{"C", " ", 
-        RowBox[{"Cifratura", ":", "INFORMATICA"}]}], "->", 
-       RowBox[{
-        RowBox[{"LQIRUPDWLFD", " ", 
-         RowBox[{"Decifratura", ":", "LQIRUPDWLFD"}]}], "->", 
-        RowBox[{"INFORMATICA", " ", 
-         RowBox[{"(", 
-          RowBox[{
-           RowBox[{"shift", " ", "di"}], "-", "3"}], ")"}], " ", "In", " ", 
-         "Package", " ", "la", " ", "chiave", " ", 
-         RowBox[{"e", "'"}], " ", "un", " ", "numero", " ", "intero", " ", 
-         "da", " ", "1", " ", "a", " ", "25.", " ", "Prova", " ", "a", " ", 
-         "decifrare", " ", "mentalmente", " ", "la", " ", "prima", " ", 
-         "lettera", " ", "del", " ", "messaggio", " ", "con", " ", "diversi", 
-         " ", "valori", " ", "di", " ", "shift", " ", 
-         RowBox[{"finche", "'"}], " ", "ottieni", " ", "una", " ", "lettera", 
-         " ", 
-         RowBox[{"sensata", "."}]}]}]}]}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{"IV", ".2", " ", "Cifrario", " ", "di", " ", "Vigenere"}], "*)"}],
-    "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"Il", " ", "Cifrario", " ", "di", " ", "Vigenere", " ", 
-       RowBox[{"e", "'"}], " ", "una", " ", "versione", " ", 
-       RowBox[{"piu", "'"}], " ", "sicura", " ", "del", " ", "Cifrario", " ", 
-       "di", " ", 
-       RowBox[{"Cesare", ".", 
-        RowBox[{"[", "3", "]"}]}], " ", "La", " ", "chiave", " ", 
-       RowBox[{"e", "'"}], " ", "una", " ", 
-       RowBox[{"parola", ":", 
-        RowBox[{
-        "ogni", " ", "lettera", " ", "del", " ", "testo", " ", "viene", " ", 
-         "spostata", " ", "del", " ", "valore", " ", "della", " ", "lettera", 
-         " ", "corrispondente", " ", "della", " ", "chiave", " ", 
-         RowBox[{
-          RowBox[{"(", 
-           RowBox[{"in", " ", "modo", " ", "ciclico"}], ")"}], ".", 
-          "Esempio"}], " ", "con", " ", "chiave", " ", "\"\<BETA\>\""}], ":", 
-        "B"}]}], "=", "1"}], ",", 
-     RowBox[{"E", "=", "4"}], ",", 
-     RowBox[{"T", "=", "19"}], ",", 
-     RowBox[{"A", "=", 
-      RowBox[{"0", "->", 
-       RowBox[{"shift", " ", 
-        RowBox[{"ciclici", ":", "1"}]}]}]}], ",", "4", ",", "19", ",", "0", ",",
-      "1", ",", "4", ",", 
-     RowBox[{
-      RowBox[{"...", " ", 
-       RowBox[{"Cifratura", ":", 
-        RowBox[{
-         RowBox[{
-         "ALGORITMO", " ", "con", " ", "chiave", " ", "BETA", " ", "A"}], "+",
-          "B"}]}]}], "=", "B"}], ",", 
-     RowBox[{
-      RowBox[{"L", "+", "E"}], "=", "P"}], ",", 
-     RowBox[{
-      RowBox[{"G", "+", "T"}], "=", "Z"}], ",", 
-     RowBox[{
-      RowBox[{"O", "+", "A"}], "=", "O"}], ",", 
-     RowBox[{
-      RowBox[{"R", "+", "B"}], "=", "S"}], ",", 
-     RowBox[{
-      RowBox[{"I", "+", "E"}], "=", "M"}], ",", 
-     RowBox[{
-      RowBox[{"T", "+", "T"}], "=", "M"}], ",", 
-     RowBox[{
-      RowBox[{"M", "+", "A"}], "=", "M"}], ",", 
-     RowBox[{
-      RowBox[{"O", "+", "B"}], "=", 
-      RowBox[{"P", " ", 
-       RowBox[{"Cifrato", ":", 
-        RowBox[{
-        "BPZOSMMP", " ", "In", " ", "Package", " ", "la", " ", "chiave", " ", 
-         
-         RowBox[{"e", "'"}], " ", "una", " ", "delle", " ", "parole"}], ":", 
-        "ALPHA"}]}]}], ",", "BETA", ",", "GAMMA", ",", "DELTA", ",", "OMEGA", 
-     ",", 
-     RowBox[{
-      RowBox[{"SIGMA", ".", "Prova"}], " ", "ciascuna", " ", "parola", " ", 
-      "e", " ", "decifra", " ", "le", " ", "prime", " ", "lettere", " ", 
-      "per", " ", "trovare", " ", "quella", " ", 
-      RowBox[{"corretta", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
-      "="}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"V", ".", "COME"}], " ", "USARE", " ", 
-     RowBox[{"L", "'"}], "INTERFACCIA"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
-      "="}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"V", ".", "Come"}], " ", "usare", " ", 
-     RowBox[{"l", "'"}], "interfaccia"}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{"V", ".1", " ", "Scegliere", " ", "livello", " ", "e", " ", 
-     RowBox[{"modalita", "'"}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"Usa", " ", "i", " ", "pulsanti", " ", "in", " ", "cima", " ", 
-      RowBox[{"all", "'"}], "interfaccia", " ", "per", " ", 
-      RowBox[{"selezionare", ":", 
-       RowBox[{"1.", " ", "il", " ", "Livello", " ", 
-        RowBox[{"(", 
-         RowBox[{"Base", ",", "Intermedio", ",", "Avanzato"}], ")"}], " ", 
-        "2.", " ", "la", " ", 
-        RowBox[{"Modalita", "'"}], " ", 
-        RowBox[{"(", 
-         RowBox[{"specifica", " ", "per", " ", "ogni", " ", "livello"}], 
-         ")"}], " ", "Cambiando", " ", "livello"}]}]}], ",", 
-     RowBox[{"la", " ", 
-      RowBox[{"modalita", "'"}], " ", "viene", " ", "reimpostata", " ", 
-      "automaticamente", " ", "e", " ", 
-      RowBox[{"l", "'"}], "interfaccia", " ", "torna", " ", "allo", " ", 
-      "stato", " ", 
-      RowBox[{"iniziale", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{"V", ".2", " ", "Il", " ", "Seed"}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-    "Il", " ", "campo", " ", "Seed", " ", "accetta", " ", "un", " ", "numero",
-      " ", "intero", " ", "qualsiasi", " ", 
-     RowBox[{
-      RowBox[{"(", 
-       RowBox[{
-        RowBox[{"es", ".", "42"}], ",", "7", ",", "100"}], ")"}], ".", "Lo"}],
-      " ", "stesso", " ", "Seed", " ", "con", " ", "lo", " ", "stesso", " ", 
-     "livello", " ", "e", " ", 
-     RowBox[{"modalita", "'"}], " ", "genera", " ", "sempre", " ", "lo", " ", 
-     "stesso", " ", 
-     RowBox[{"esercizio", ":", 
-      RowBox[{
-      "utile", " ", "per", " ", "rifare", " ", "un", " ", "esercizio", " ", 
-       "o", " ", "confrontarsi", " ", "con", " ", "un", " ", 
-       RowBox[{"compagno", "."}]}]}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{"V", ".3", " ", "Genera", " ", "Esercizio"}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-     "Premi", " ", "il", " ", "bottone", " ", "verde", " ", "Genera", " ", 
-      RowBox[{"Esercizio", ".", 
-       RowBox[{"Apparira", "'"}]}], " ", "il", " ", "testo", " ", "della", " ",
-       "domanda", " ", "e"}], ",", 
-     RowBox[{"dove", " ", "necessario"}], ",", 
-     RowBox[{"un", " ", "elemento", " ", "visivo", " ", 
-      RowBox[{
-       RowBox[{"(", 
-        RowBox[{
-        "quadrato", " ", "di", " ", "colore", " ", "per", " ", "il", " ", 
-         "livello", " ", "intermedio"}], ")"}], ".", "Puoi"}], " ", 
-      "generare", " ", "quanti", " ", "esercizi", " ", "vuoi", " ", 
-      "cambiando", " ", "il", " ", 
-      RowBox[{"Seed", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{"V", ".4", " ", "Rispondere"}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{
-      "In", " ", "base", " ", "al", " ", "livello", " ", "e", " ", "alla", " ", 
-       RowBox[{"modalita", "'"}]}], ":", 
-      RowBox[{
-       RowBox[{"-", "Base"}], " ", "e", " ", "Avanzato"}], ":", 
-      RowBox[{
-      "scrivi", " ", "la", " ", "risposta", " ", "nel", " ", "campo", " ", 
-       "di", " ", 
-       RowBox[{"testo", ".", 
-        RowBox[{"-", "Intermedio"}]}], " ", 
-       RowBox[{"(", 
-        RowBox[{"HEX", "->", "colore"}], ")"}]}], ":", 
-      RowBox[{"fai", " ", "clic", " ", "sul", " ", "quadrato", " ", 
-       RowBox[{"corretto", ".", 
-        RowBox[{"-", "Intermedio"}]}], " ", 
-       RowBox[{"(", 
-        RowBox[{"colore", "->", "HEX"}], ")"}]}], ":", 
-      RowBox[{
-      "scrivi", " ", "il", " ", "codice", " ", "nel", " ", "formato", " ", 
-       RowBox[{"#RRGGBB", ".", "Hai"}], " ", "a", " ", "disposizione", " ", 
-       "3", " ", "tentativi"}]}], ",", 
-     RowBox[{"indicati", " ", "dal", " ", "contatore", " ", "in", " ", 
-      RowBox[{"verde", "/", 
-       RowBox[{"rosso", "."}]}]}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{"V", ".5", " ", "Verifica", " ", "Risultato"}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-     "Premi", " ", "il", " ", "bottone", " ", "blu", " ", "Verifica", " ", 
-      RowBox[{"Risultato", ".", "\[Checkmark]"}], " ", 
-      RowBox[{"Verde", ":", 
-       RowBox[{"risposta", " ", 
-        RowBox[{"corretta", ".", "\:2717"}], " ", "Rosso"}], ":", 
-       RowBox[{"risposta", " ", "non", " ", 
-        RowBox[{"corretta", ".", "Viene"}], " ", "mostrato", " ", 
-        "automaticamente", " ", "un", " ", "suggerimento"}]}]}], ",", 
-     RowBox[{"sempre", " ", 
-      RowBox[{"piu", "'"}], " ", "preciso", " ", "ad", " ", "ogni", " ", 
-      RowBox[{"tentativo", ".", "Dopo"}], " ", "3", " ", "tentativi", " ", 
-      "errati"}], ",", 
-     RowBox[{"il", " ", "bottone", " ", "Verifica", " ", 
-      RowBox[{"e", "'"}], " ", "disabilitato", " ", "e", " ", "puoi", " ", 
-      "solo", " ", "usare", " ", "Mostra", " ", 
-      RowBox[{"Soluzione", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{"V", ".6", " ", "Mostra", " ", "Soluzione"}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-     "Premi", " ", "il", " ", "bottone", " ", "viola", " ", "Mostra", " ", 
-      RowBox[{"Soluzione", ".", "Si"}], " ", "apre", " ", "una", " ", 
-      "finestra", " ", "pop"}], "-", 
-     RowBox[{
-     "up", " ", "con", " ", "la", " ", "spiegazione", " ", "completa", " ", 
-      "della", " ", "risposta", " ", 
-      RowBox[{"corretta", ".", "Per"}], " ", "il", " ", "livello", " ", 
-      "intermedio", " ", "viene", " ", "mostrato", " ", "anche", " ", "il", " ",
-       "quadrato", " ", "del", " ", "colore", " ", 
-      RowBox[{"corretto", ".", "La"}], " ", "finestra", " ", "non", " ", 
-      "modifica", " ", "il", " ", 
-      RowBox[{"notebook", ":", 
-       RowBox[{"puoi", " ", "chiuderla", " ", "e", " ", 
-        RowBox[{"continuare", "."}]}]}]}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{"V", ".7", " ", "Pulisci", " ", "Campi"}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-     "Premi", " ", "il", " ", "bottone", " ", "grigio", " ", "Pulisci", " ", 
-      "Campi", " ", "per", " ", "azzerare", " ", "la", " ", "domanda"}], ",", 
-     
-     RowBox[{"la", " ", "risposta"}], ",", 
-     RowBox[{"i", " ", "tentativi", " ", "e", " ", "il", " ", "feedback"}], ",", 
-     RowBox[{"e", " ", "tornare", " ", "allo", " ", "stato", " ", 
-      RowBox[{"iniziale", ".", "Il"}], " ", "livello", " ", "e", " ", "la", " ", 
-      RowBox[{"modalita", "'"}], " ", "scelti", " ", "vengono", " ", 
-      RowBox[{"mantenuti", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
-      "="}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"VI", ".", "ESEMPI"}], " ", "GUIDATI"}], "*)"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
-      "="}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"VI", ".", "Esempi"}], " ", "guidati"}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"VI", ".1", " ", "Esempio"}], "\[LongDash]", 
-     RowBox[{"Livello", " ", "Base"}], ",", 
-     RowBox[{
-      RowBox[{"modalita", "'"}], " ", "Binario"}]}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"Seed", ":", 
-      RowBox[{"10", " ", "Domanda", " ", 
-       RowBox[{"(", "esempio", ")"}]}], ":", 
-      RowBox[{"\"\<Converti il numero decimale 42 in binario.\>\"", " ", 
-       "Soluzione", " ", "passo", " ", "per", " ", 
-       RowBox[{"passo", ":", 
-        RowBox[{"42", "/", "2"}]}]}]}], "=", 
-     RowBox[{
-      RowBox[{"21", " ", "resto", " ", "0", " ", 
-       RowBox[{"21", "/", "2"}]}], "=", 
-      RowBox[{
-       RowBox[{"10", " ", "resto", " ", "1", " ", 
-        RowBox[{"10", "/", "2"}]}], "=", 
-       RowBox[{
-        RowBox[{"5", " ", "resto", " ", "0", " ", 
-         RowBox[{"5", "/", "2"}]}], "=", 
-        RowBox[{
-         RowBox[{"2", " ", "resto", " ", "1", " ", 
-          RowBox[{"2", "/", "2"}]}], "=", 
-         RowBox[{
-          RowBox[{"1", " ", "resto", " ", "0", " ", 
-           RowBox[{"1", "/", "2"}]}], "=", 
-          RowBox[{
-          "0", " ", "resto", " ", "1", " ", "Leggo", " ", "i", " ", "resti", " ",
-            "dal", " ", 
-           RowBox[{"basso", ":", 
-            RowBox[{"101010", " ", "Risposta", " ", "da", " ", "inserire"}], ":",
-             "101010"}]}]}]}]}]}]}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"VI", ".2", " ", "Esempio"}], "\[LongDash]", 
-     RowBox[{"Livello", " ", "Base"}], ",", 
-     RowBox[{
-      RowBox[{"modalita", "'"}], " ", "Memoria"}]}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"Seed", ":", 
-      RowBox[{"25", " ", "Domanda", " ", 
-       RowBox[{"(", "esempio", ")"}]}], ":", 
-      RowBox[{"\"\<Converti 2048 MB in GB.\>\"", " ", 
-       RowBox[{"Soluzione", ":", 
-        RowBox[{"1", " ", "GB"}]}]}]}], "=", 
-     RowBox[{
-      RowBox[{"1024", " ", "MB", " ", 
-       RowBox[{"2048", "/", "1024"}]}], "=", 
-      RowBox[{"2", " ", "Risposta", " ", "da", " ", 
-       RowBox[{"inserire", ":", "2.0"}]}]}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"VI", ".3", " ", "Esempio"}], "\[LongDash]", 
-     RowBox[{"Livello", " ", "Intermedio"}], ",", 
-     RowBox[{
-      RowBox[{
-       RowBox[{"modalita", "'"}], " ", "colore"}], "->", "HEX"}]}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"Seed", ":", 
-       RowBox[{
-       "7", " ", "Viene", " ", "mostrato", " ", "un", " ", "quadrato", " ", 
-        "arancione", " ", 
-        RowBox[{"scuro", ".", "Componenti"}], " ", "RGB", " ", 
-        RowBox[{"(", "esempio", ")"}]}], ":", "R"}], "=", "200"}], ",", 
-     RowBox[{"G", "=", "100"}], ",", 
-     RowBox[{"B", "=", 
-      RowBox[{
-       RowBox[{"50", " ", "200", " ", "in", " ", 
-        RowBox[{"HEX", ":", "200"}]}], "=", 
-       RowBox[{
-        RowBox[{
-         RowBox[{
-          RowBox[{"12", "*", "16"}], "+", "8"}], "->", 
-         RowBox[{"C8", " ", "100", " ", "in", " ", 
-          RowBox[{"HEX", ":", "100"}]}]}], "=", 
-        RowBox[{
-         RowBox[{
-          RowBox[{
-           RowBox[{"6", "*", "16"}], "+", "4"}], "->", 
-          RowBox[{"64", " ", "50", " ", "in", " ", 
-           RowBox[{"HEX", ":", "50"}]}]}], "=", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"3", "*", "16"}], "+", "2"}], "->", 
-          RowBox[{"32", " ", "Risposta", " ", "da", " ", 
-           RowBox[{"inserire", ":", "#C86432"}]}]}]}]}]}]}]}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"VI", ".4", " ", "Esempio"}], "\[LongDash]", 
-     RowBox[{"Livello", " ", "Avanzato"}], ",", 
-     RowBox[{"Cifrario", " ", "di", " ", "Cesare"}]}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"Seed", ":", 
-       RowBox[{"15", " ", "Messaggio", " ", "cifrato", " ", 
-        RowBox[{"(", "esempio", ")"}]}], ":", 
-       RowBox[{"ELQDUAB", " ", "Chiave", " ", "da", " ", 
-        RowBox[{"trovare", ":", 
-         RowBox[{
-         "un", " ", "numero", " ", "da", " ", "1", " ", "a", " ", "25.", " ", 
-          "Strategia"}], ":", 
-         RowBox[{"prova", " ", "shift"}]}]}]}], "=", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"3.", " ", "E"}], "-", "3"}], "=", "B"}]}], ",", 
-     RowBox[{
-      RowBox[{"L", "-", "3"}], "=", "I"}], ",", 
-     RowBox[{
-      RowBox[{"Q", "-", "3"}], "=", "N"}], ",", 
-     RowBox[{
-      RowBox[{"D", "-", "3"}], "=", "A"}], ",", 
-     RowBox[{
-      RowBox[{"U", "-", "3"}], "=", "R"}], ",", 
-     RowBox[{
-      RowBox[{
-       RowBox[{
-        RowBox[{"A", "-", "3"}], "=."}], ".."}], " ", "continua", " ", "fino",
-       " ", "a", " ", "ottenere", " ", "una", " ", "parola", " ", "di", " ", 
-      "senso", " ", 
-      RowBox[{"compiuto", ".", "Risposta"}], " ", "da", " ", 
-      RowBox[{"inserire", ":", 
-       RowBox[{
-       "il", " ", "numero", " ", "dello", " ", "shift", " ", "trovato", " ", 
-        RowBox[{
-         RowBox[{"(", 
-          RowBox[{"es", ".", "3"}], ")"}], "."}]}]}]}]}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SUBSECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"VI", ".5", " ", "Esempio"}], "\[LongDash]", 
-     RowBox[{"Livello", " ", "Avanzato"}], ",", 
-     RowBox[{"Cifrario", " ", "di", " ", "Vigenere"}]}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"Seed", ":", 
-      RowBox[{"33", " ", "Messaggio", " ", "cifrato", " ", 
-       RowBox[{"(", "esempio", ")"}]}], ":", 
-      RowBox[{"BPZOSMMP", " ", "Chiave", " ", "da", " ", "trovare", " ", 
-       RowBox[{"tra", ":", "ALPHA"}]}]}], ",", "BETA", ",", "GAMMA", ",", 
-     "DELTA", ",", "OMEGA", ",", 
-     RowBox[{
-      RowBox[{"SIGMA", ".", 
-       RowBox[{"Strategia", ":", 
-        RowBox[{
-         RowBox[{"prova", " ", "BETA", " ", 
-          RowBox[{
-           RowBox[{"(", 
-            RowBox[{
-             RowBox[{"B", "=", "1"}], ",", 
-             RowBox[{"E", "=", "4"}], ",", 
-             RowBox[{"T", "=", "19"}], ",", 
-             RowBox[{"A", "=", "0"}]}], ")"}], ".", "B"}]}], "-", "B"}]}]}], "=", 
-      RowBox[{
-       RowBox[{"B", "-", "1"}], "=", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"A", " ", "P"}], "-", "E"}], "=", 
-        RowBox[{
-         RowBox[{"P", "-", "4"}], "=", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"L", " ", "Z"}], "-", "T"}], "=", 
-          RowBox[{
-           RowBox[{"Z", "-", "19"}], "=", 
-           RowBox[{
-            RowBox[{
-             RowBox[{"G", " ", "O"}], "-", "A"}], "=", 
-            RowBox[{
-             RowBox[{"O", "-", "0"}], "=", 
-             RowBox[{
-              RowBox[{"O", "..."}], " ", "Se", " ", "le", " ", "prime", " ", 
-              "lettere", " ", "formano", " ", 
-              RowBox[{"l", "'"}], "inizio", " ", "di", " ", "una", " ", 
-              "parola", " ", "sensata"}]}]}]}]}]}]}]}]}], ",", 
-     RowBox[{
-     "probabilmente", " ", "hai", " ", "trovato", " ", "la", " ", "chiave", " ", 
-      RowBox[{"giusta", ".", "Risposta"}], " ", "da", " ", 
-      RowBox[{"inserire", ":", "BETA"}]}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
-      "="}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"VII", ".", "BIBLIOGRAFIA"}], " ", "E", " ", "SITOGRAFIA"}], 
-    "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
-      "="}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"VII", ".", "Bibliografia"}], " ", "e", " ", "Sitografia"}], 
-    "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"[", "1", "]"}], " ", "Tanenbaum"}], ",", 
-     RowBox[{"A", ".", "S", "."}], " ", "\[LongDash]", 
-     RowBox[{"Structured", " ", "Computer", " ", "Organization"}], ",", 
-     RowBox[{"6", "th", " ", 
-      RowBox[{"ed", ".", "Pearson"}]}], ",", 
-     RowBox[{"2012.", " ", 
-      RowBox[{
-       RowBox[{"(", 
-        RowBox[{
-         RowBox[{"Sistemi", " ", "binari"}], ",", 
-         RowBox[{"rappresentazione", " ", "dei", " ", "dati"}], ",", 
-         RowBox[{
-          RowBox[{"unita", "'"}], " ", "di", " ", "memoria"}]}], ")"}], "[", 
-       "2", "]"}], " ", "W3Schools"}], "\[LongDash]", 
-     RowBox[{
-      RowBox[{"HTML", " ", 
-       RowBox[{"Colors", ":", 
-        RowBox[{"Hex", " ", "Colors", " ", "https"}], ":"}]}], "//", 
-      RowBox[{
-       RowBox[{
-        RowBox[{
-         RowBox[{"www", ".", "w3schools", ".", "com"}], "/", "html"}], "/", 
-        "html_colors"}], 
-       RowBox[{"_hex", ".", 
-        RowBox[{"asp", "[", "3", "]"}]}], " ", "Singh"}]}], ",", 
-     RowBox[{"S", "."}], " ", "\[LongDash]", 
-     RowBox[{"The", " ", "Code", " ", 
-      RowBox[{"Book", ":", 
-       RowBox[{
-       "The", " ", "Science", " ", "of", " ", "Secrecy", " ", "from", " ", 
-        "Ancient", " ", "Egypt", " ", "to", " ", "Quantum", " ", 
-        RowBox[{"Cryptography", ".", "Anchor"}], " ", "Books"}]}]}], ",", 
-     RowBox[{"2000.", " ", 
-      RowBox[{
-       RowBox[{"(", 
-        RowBox[{
-         RowBox[{"Cifrario", " ", "di", " ", "Cesare"}], ",", 
-         RowBox[{"Cifrario", " ", "di", " ", "Vigenere"}]}], ")"}], "[", "4", 
-       "]"}], " ", "Wolfram"}], ",", 
-     RowBox[{"S", "."}], " ", "\[LongDash]", 
-     RowBox[{
-     "An", " ", "Elementary", " ", "Introduction", " ", "to", " ", "the", " ",
-       "Wolfram", " ", "Language"}], ",", 
-     RowBox[{"3", "rd", " ", 
-      RowBox[{"ed", ".", "Wolfram"}], " ", "Media"}], ",", 
-     RowBox[{
-      RowBox[{"2023.", " ", 
-       RowBox[{"https", ":"}]}], "//", 
-      RowBox[{
-       RowBox[{
-        RowBox[{
-         RowBox[{"www", ".", "wolfram", ".", "com"}], "/", "language"}], "/", 
-        "elementary"}], "-", 
-       RowBox[{
-        RowBox[{"introduction", "/", 
-         RowBox[{"[", "5", "]"}]}], " ", "Wolfram", " ", 
-        "Documentation"}]}]}], "\[LongDash]", 
-     RowBox[{
-      RowBox[{"IntegerString", " ", 
-       RowBox[{"(", 
-        RowBox[{"conversione", " ", "in", " ", "base", " ", "n"}], ")"}], " ", 
-       RowBox[{"https", ":"}]}], "//", 
-      RowBox[{
-       RowBox[{
-        RowBox[{
-         RowBox[{
-          RowBox[{"reference", ".", "wolfram", ".", "com"}], "/", 
-          "language"}], "/", "ref"}], "/", 
-        RowBox[{"IntegerString", ".", 
-         RowBox[{"html", "[", "6", "]"}]}]}], " ", "Wolfram", " ", 
-       "Documentation"}]}], "\[LongDash]", 
-     RowBox[{
-      RowBox[{"RGBColor", " ", 
-       RowBox[{"https", ":"}]}], "//", 
-      RowBox[{
-       RowBox[{
-        RowBox[{
-         RowBox[{
-          RowBox[{"reference", ".", "wolfram", ".", "com"}], "/", 
-          "language"}], "/", "ref"}], "/", 
-        RowBox[{"RGBColor", ".", 
-         RowBox[{"html", "[", "7", "]"}]}]}], " ", "Wolfram", " ", 
-       "Documentation"}]}], "\[LongDash]", 
-     RowBox[{
-      RowBox[{"Package", " ", "Development", " ", "Guide", " ", 
-       RowBox[{"https", ":"}]}], "//", 
-      RowBox[{
-       RowBox[{
-        RowBox[{
-         RowBox[{
-          RowBox[{"reference", ".", "wolfram", ".", "com"}], "/", 
-          "language"}], "/", "guide"}], "/", 
-        RowBox[{"PackageDevelopment", ".", 
-         RowBox[{"html", "[", "8", "]"}]}]}], " ", "Wolfram", " ", 
-       "Documentation"}]}], "\[LongDash]", 
-     RowBox[{
-      RowBox[{
-      "Modularity", " ", "and", " ", "the", " ", "Naming", " ", "of", " ", 
-       "Things", " ", 
-       RowBox[{"https", ":"}]}], "//", 
-      RowBox[{
-       RowBox[{
-        RowBox[{
-         RowBox[{
-          RowBox[{"reference", ".", "wolfram", ".", "com"}], "/", 
-          "language"}], "/", "tutorial"}], "/", 
-        RowBox[{"ModularityAndTheNamingOfThings", ".", 
-         RowBox[{"html", "[", "9", "]"}]}]}], " ", "Wolfram", " ", 
-       "Documentation"}]}], "\[LongDash]", 
-     RowBox[{
-      RowBox[{
-      "Creating", " ", "Documents", " ", "and", " ", "Presentations", " ", 
-       RowBox[{"https", ":"}]}], "//", 
-      RowBox[{
-       RowBox[{
-        RowBox[{
-         RowBox[{"reference", ".", "wolfram", ".", "com"}], "/", "language"}],
-         "/", "workflowguide"}], "/", 
-       RowBox[{"CreatingDocumentsAndPresentations", ".", "html"}]}]}]}], 
-    "*)"}], "\[IndentingNewLine]", "\n", "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
-      "="}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"VIII", ".", "COMMENTI"}], " ", "E", " ", "LAVORO", " ", 
-     "FUTURO"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{"[", 
-     RowBox[{
-      RowBox[{"Sezione", " ", "rivolta", " ", "alla", " ", "professoressa"}], 
-      "\[LongDash]", 
-      RowBox[{"non", " ", 
-       RowBox[{"all", "'"}], "utente"}]}], "]"}], "*)"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-     "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
-       "===", "===", "===", "===", "===", "===", "===", "===", "===", "==="}],
-      "="}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"SECTION", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"VIII", ".", "Commenti"}], " ", "e", " ", "Lavoro", " ", 
-     "Futuro"}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"-", "CELLA"}]}], " ", 
-      RowBox[{"TEXT", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-     "SCELTE", " ", "IMPLEMENTATIVE", " ", "Architettura", " ", "Tutto", " ", 
-      "il", " ", "codice", " ", 
-      RowBox[{"e", "'"}], " ", "contenuto", " ", "in", " ", 
-      RowBox[{"Package", ".", "m"}]}], ",", 
-     RowBox[{
-      RowBox[{
-       RowBox[{"strutturato", " ", "con", " ", 
-        RowBox[{
-         RowBox[{"BeginPackage", "[", "\"\<Package`\>\"", "]"}], "/", 
-         RowBox[{
-          RowBox[{"EndPackage", "[", "]"}], ".", "Il"}]}], " ", 
-        RowBox[{"Tutorial", ".", "nb"}], " ", "contiene", " ", "solo", " ", 
-        "3", " ", "statement", " ", 
-        RowBox[{"(", 
-         RowBox[{
-          RowBox[{"Initialization", " ", "Cell"}], ",", 
-          RowBox[{"chiusa", " ", 
-           RowBox[{"all", "'"}], "utente"}]}], ")"}]}], ":", 
-       RowBox[{"SetDirectory", "[", 
-        RowBox[{"NotebookDirectory", "[", "]"}], "]"}]}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"Get", "[", "\"\<Package.m\>\"", "]"}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"esercizioUniversale", "[", "]"}], " ", "Contesti", " ", "e", " ", 
-       RowBox[{"visibilita", "'"}], " ", "Le", " ", "funzioni", " ", 
-       "ausiliarie", " ", 
-       RowBox[{"(", 
-        RowBox[{
-        "miGeneraEsercizioBase", ",", "miGeneraDomanda", ",", "miCifraCesare",
-          ",", "miCifraVigenere", ",", "miGeneraEsercizioColore", ",", 
-         "miGeneraEsercizioAvanzato", ",", "miSuggerimentoBase", ",", 
-         "miSuggerimentoColore", ",", "miSuggerimentoAvanzato", ",", 
-         "miVerificaRisposta"}], ")"}], " ", "sono", " ", "nel", " ", 
-       "contesto", " ", "Package`Private`", " ", "e", " ", "non", " ", "sono",
-        " ", "accessibili", " ", 
-       RowBox[{"dall", "'"}], "esterno", " ", "del", " ", 
-       RowBox[{"pacchetto", ".", "I"}], " ", "messaggi", " ", "di", " ", 
-       "errore", " ", 
-       RowBox[{"(", 
-        RowBox[{"Package", "::", "badinput"}], ")"}], " ", "sono", " ", 
-       "definiti", " ", "nella", " ", "sezione", " ", "pubblica"}]}], ",", 
-     RowBox[{"prima", " ", "di", " ", 
-      RowBox[{"Begin", "[", "\"\<`Private`\>\"", "]"}]}], ",", 
-     RowBox[{
-     "in", " ", "modo", " ", "da", " ", "restare", " ", "raggiungibili", " ", 
-      "dai", " ", "Button", " ", "del", " ", "DynamicModule", " ", "anche", " ",
-       "dopo", " ", "la", " ", "chiusura", " ", "del", " ", "contesto", " ", 
-      RowBox[{"Private", ".", "Variabili"}], " ", "locali", " ", "Tutte", " ",
-       "le", " ", "variabili", " ", "di", " ", "lavoro", " ", "sono", " ", 
-      "dichiarate", " ", "locali", " ", "con", " ", "Module"}], ",", 
-     RowBox[{
-     "evitando", " ", "cattura", " ", "accidentale", " ", "di", " ", 
-      "variabili", " ", "e", " ", "inquinamento", " ", "del", " ", "contesto",
-       " ", "Global`", " ", 
-      RowBox[{
-       RowBox[{"(", 
-        RowBox[{"si", " ", "veda", " ", 
-         RowBox[{"BadExample", ".", "m"}], " ", "del", " ", "corso"}], ")"}], 
-       ".", "Separazione"}], " ", "delle", " ", "funzioni", " ", "Ogni", " ", 
-      
-      RowBox[{"funzionalita", "'"}], " ", 
-      RowBox[{"(", 
-       RowBox[{
-       "genera", ",", "verifica", ",", "suggerimento", ",", "soluzione"}], 
-       ")"}], " ", 
-      RowBox[{"e", "'"}], " ", "implementata", " ", "in", " ", "una", " ", 
-      "funzione", " ", "ausiliaria", " ", "separata"}], ",", 
-     RowBox[{"richiamata", " ", "dal", " ", "Button", " ", 
-      RowBox[{"corrispondente", ".", "Non"}], " ", "viene", " ", "creato", " ",
-       "un", " ", "metodo", " ", "dentro", " ", "un", " ", "altro", " ", 
-      "metodo"}], ",", 
-     RowBox[{
-      RowBox[{
-      "come", " ", "indicato", " ", "nelle", " ", "linee", " ", "guida", " ", 
-       "del", " ", 
-       RowBox[{"corso", ".", "Trap"}], " ", "di", " ", "errore", " ", 
-       RowBox[{"Quiet", "[", 
-        RowBox[{"Check", "[", 
-         RowBox[{"...", ",", "$Failed"}], "]"}], "]"}], " ", "protegge", " ", 
-       "le", " ", "operazioni", " ", 
-       RowBox[{"critiche", ".", "miVerificaRisposta"}], " ", "gestisce", " ", 
-       "input", " ", "non", " ", "numerici", " ", "o", " ", "vuoti", " ", 
-       "con", " ", "un", " ", "secondo", " ", "pattern", " ", "che", " ", 
-       "restituisce", " ", "sempre", " ", "False", " ", 
-       RowBox[{"silenziosamente", ".", "Font"}], " ", "Arial", " ", "Tutto", " ",
-        "il", " ", "testo", " ", 
-       RowBox[{"dell", "'"}], "interfaccia", " ", "usa", " ", "FontFamily"}], 
-      "->", 
-      RowBox[{"\"\<Arial\>\"", " ", "per", " ", 
-       RowBox[{"leggibilita", "'"}], " ", "e", " ", 
-       RowBox[{"accessibilita", "'"}]}]}], ",", 
-     RowBox[{"inclusi", " ", "gli", " ", "utenti", " ", "con", " ", 
-      RowBox[{"difficolta", "'"}], " ", "di", " ", "lettura"}], ",", 
-     RowBox[{
-     "come", " ", "indicato", " ", "nel", " ", "materiale", " ", "del", " ", 
-      RowBox[{"corso", ".", "3"}], " ", "tentativi", " ", "con", " ", 
-      "suggerimento", " ", "progressivo", " ", "Ad", " ", "ogni", " ", 
-      "tentativo", " ", "errato", " ", "viene", " ", "mostrato", " ", 
-      "automaticamente", " ", "un", " ", "suggerimento", " ", "diverso"}], ",", 
-     RowBox[{
-      RowBox[{"sempre", " ", 
-       RowBox[{"piu", "'"}], " ", 
-       RowBox[{"preciso", ".", "Dopo"}], " ", "3", " ", "tentativi", " ", 
-       "il", " ", "sistema", " ", "indica", " ", "di", " ", "usare", " ", 
-       "Mostra", " ", 
-       RowBox[{"Soluzione", ".", "Seed"}], " ", "riproducibile", " ", 
-       RowBox[{"SeedRandom", "[", "seed", "]"}], " ", "garantisce", " ", 
-       "che", " ", "lo", " ", "stesso", " ", "intero", " ", "produca", " ", 
-       "sempre", " ", "lo", " ", "stesso", " ", 
-       RowBox[{"esercizio", ".", 
-        RowBox[{"Cio", "'"}]}], " ", "permette", " ", "di", " ", "ripetere", " ",
-        "un", " ", "esercizio", " ", "o", " ", "confrontare", " ", "risposte",
-        " ", "tra", " ", 
-       RowBox[{"piu", "'"}], " ", 
-       RowBox[{"utenti", ".", "POSSIBILI"}], " ", "ESTENSIONI", " ", 
-       "FUTURE"}], "-", 
-      RowBox[{"Aggiungere", " ", "conversioni", " ", "ottale", " ", 
-       RowBox[{"(", 
-        RowBox[{"base", " ", "8"}], ")"}], " ", "e", " ", "esadecimale", " ", 
-       
-       RowBox[{"(", 
-        RowBox[{"base", " ", "16"}], ")"}], " ", "nel", " ", "livello", " ", 
-       RowBox[{"base", ".", 
-        RowBox[{"-", "Includere"}]}], " ", "un", " ", "contatore", " ", "di", 
-       " ", "punteggio", " ", "per", " ", "sessioni", " ", "multi"}], "-", 
-      "esercizio"}], ",", 
-     RowBox[{"con", " ", "storico", " ", "dei", " ", 
-      RowBox[{"risultati", ".", 
-       RowBox[{"-", "Aggiungere"}]}], " ", "una", " ", 
-      RowBox[{"modalita", "'"}], " ", "\"\<allenamento libero\>\"", " ", 
-      "senza", " ", "limite", " ", "di", " ", "tentativi"}], ",", 
-     RowBox[{"per", " ", "studio", " ", 
-      RowBox[{"autonomo", ".", 
-       RowBox[{"-", "Per"}]}], " ", "il", " ", "livello", " ", "avanzato"}], ",", 
-     RowBox[{"implementare", " ", "cifrari", " ", 
-      RowBox[{"piu", "'"}], " ", "complessi", " ", "come", " ", "RSA", " ", 
-      "elementare", " ", "o", " ", "cifratura", " ", "a", " ", "blocchi", " ", 
-      RowBox[{"semplificata", ".", 
-       RowBox[{"-", "Permettere"}]}], " ", 
-      RowBox[{"all", "'"}], "utente", " ", "di", " ", "inserire", " ", "un", " ",
-       "proprio", " ", "messaggio", " ", "da", " ", "cifrare", " ", "e", " ", 
-      "scegliere", " ", "la", " ", "chiave"}], ",", 
-     RowBox[{
-      RowBox[{
-      "visualizzando", " ", "il", " ", "risultato", " ", "in", " ", "tempo", " ", 
-       RowBox[{"reale", ".", 
-        RowBox[{"-", "Aggiungere"}]}], " ", "animazioni", " ", "passo"}], "-", 
-      RowBox[{
-      "passo", " ", "per", " ", "spiegare", " ", "visivamente", " ", "la", " ",
-        "conversione", " ", "binaria", " ", "o", " ", "il", " ", "processo", " ",
-        "di", " ", 
-       RowBox[{"cifratura", "."}]}]}]}], "*)"}]}]}]], "Input",
- CellChangeTimes->{{3.985077268649905*^9, 3.985077268650984*^9}},
- CellLabel->"In[97]:=",ExpressionUUID->"56f7de27-3daa-4c28-a722-ca974eefc6e6"],
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"SetDirectory", "[", 
+  RowBox[{"NotebookDirectory", "[", "]"}], "]"}], "\n", 
+ RowBox[{"<<", "CrittografiaArcaica.m"}]}], "Input",
+ CellChangeTimes->{{3.985842896918127*^9, 3.985842896920233*^9}},
+ CellLabel->
+  "In[108]:=",ExpressionUUID->"2091b4c8-52ec-4d22-baee-db8dc72c2995"],
+
+Cell[BoxData["\<\"/Users/matteo.boscherini/Desktop/UNIVERSITA \
+MAGISTRALE/MATEMATICA COMPUTAZIONALE/PROGETTO/Crittografia\"\>"], "Output",
+ CellChangeTimes->{3.9858428986255493`*^9},
+ CellLabel->
+  "Out[108]=",ExpressionUUID->"dac558b8-ab28-43db-9822-2ecdabd8c6dd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
- DynamicModuleBox[{MathInfo`Private`stSeed$$ = 41, 
-  MathInfo`Private`stLivello$$ = "Base", MathInfo`Private`stModalita$$ = 
-  "memoria", MathInfo`Private`stEsercizio$$ = <|
-  "Testo" -> "Converti  1024 KB  in MB.", "Risposta" -> "1.", "Soluzione" -> 
-   "1024 KB = 1. MB", "Tipo" -> "memoria", "Valore" -> 1024, "Da" -> "KB", 
-   "A" -> "MB"|>, MathInfo`Private`stRisposta$$ = "", 
-  MathInfo`Private`stFeedback$$ = "", MathInfo`Private`stTentativi$$ = 0, 
-  MathInfo`Private`stOn$$ = True, MathInfo`Private`stColoreScelta$$ = None}, 
-  TagBox[GridBox[{
-     {
-      StyleBox["\"\<Package\>\"",
-       StripOnInput->False,
-       LineColor->RGBColor[0.1, 0.2, 0.6],
-       FrontFaceColor->RGBColor[0.1, 0.2, 0.6],
-       BackFaceColor->RGBColor[0.1, 0.2, 0.6],
-       GraphicsColor->RGBColor[0.1, 0.2, 0.6],
-       FontFamily->"Arial",
-       FontSize->22,
-       FontWeight->Bold,
-       FontColor->RGBColor[0.1, 0.2, 0.6]]},
-     {
-      StyleBox["\"\<Quiz di Matematica Applicata all'Informatica\>\"",
-       StripOnInput->False,
-       LineColor->GrayLevel[0.5],
-       FrontFaceColor->GrayLevel[0.5],
-       BackFaceColor->GrayLevel[0.5],
-       GraphicsColor->GrayLevel[0.5],
-       FontFamily->"Arial",
-       FontSize->12,
-       FontSlant->Italic,
-       FontColor->GrayLevel[0.5]]},
-     {
-      TemplateBox[{14},
-       "Spacer1"]},
-     {
-      TemplateBox[{
-        StyleBox[
-        "\"Livello:  \"", Bold, 12, FontFamily -> "Arial", StripOnInput -> 
-         False], 
-        InterpretationBox[
-         StyleBox[
-          RowBox[{
-            GridBox[{{
-               RadioButtonBox[
-                Dynamic[
-                MathInfo`Private`stLivello$$, (
-                 MathInfo`Private`stLivello$$ = #; 
-                 MathInfo`Private`stModalita$$ = 
-                  Switch[#, "Base", "binario", "Intermedio", "hex2col", 
-                    "Avanzato", "cesare"]; MathInfo`Private`stOn$$ = False; 
-                 MathInfo`Private`stFeedback$$ = ""; 
-                 MathInfo`Private`stRisposta$$ = ""; 
-                 MathInfo`Private`stTentativi$$ = 0; 
-                 MathInfo`Private`stEsercizio$$ = None)& ], {"Base"}, 
-                DefaultBaseStyle -> "RadioButtonBar"], 
-               StyleBox[
-                StyleBox[
-                "\"Base\"", FontFamily -> "Arial", 11, StripOnInput -> False],
-                 "RadioButtonBarLabel", StripOnInput -> False]}}, AutoDelete -> 
-             False, GridBoxItemSize -> {
-              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-             ColumnAlignments -> Left, ColumnSpacings -> 0.3, 
-             BaselinePosition -> {1, 2}], "  ", 
-            GridBox[{{
-               RadioButtonBox[
-                Dynamic[
-                MathInfo`Private`stLivello$$, (
-                 MathInfo`Private`stLivello$$ = #; 
-                 MathInfo`Private`stModalita$$ = 
-                  Switch[#, "Base", "binario", "Intermedio", "hex2col", 
-                    "Avanzato", "cesare"]; MathInfo`Private`stOn$$ = False; 
-                 MathInfo`Private`stFeedback$$ = ""; 
-                 MathInfo`Private`stRisposta$$ = ""; 
-                 MathInfo`Private`stTentativi$$ = 0; 
-                 MathInfo`Private`stEsercizio$$ = None)& ], {"Intermedio"}, 
-                DefaultBaseStyle -> "RadioButtonBar"], 
-               StyleBox[
-                StyleBox[
-                "\"Intermedio\"", FontFamily -> "Arial", 11, StripOnInput -> 
-                 False], "RadioButtonBarLabel", StripOnInput -> False]}}, 
-             AutoDelete -> False, 
-             GridBoxItemSize -> {
-              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-             ColumnAlignments -> Left, ColumnSpacings -> 0.3, 
-             BaselinePosition -> {1, 2}], "  ", 
-            GridBox[{{
-               RadioButtonBox[
-                Dynamic[
-                MathInfo`Private`stLivello$$, (
-                 MathInfo`Private`stLivello$$ = #; 
-                 MathInfo`Private`stModalita$$ = 
-                  Switch[#, "Base", "binario", "Intermedio", "hex2col", 
-                    "Avanzato", "cesare"]; MathInfo`Private`stOn$$ = False; 
-                 MathInfo`Private`stFeedback$$ = ""; 
-                 MathInfo`Private`stRisposta$$ = ""; 
-                 MathInfo`Private`stTentativi$$ = 0; 
-                 MathInfo`Private`stEsercizio$$ = None)& ], {"Avanzato"}, 
-                DefaultBaseStyle -> "RadioButtonBar"], 
-               StyleBox[
-                StyleBox[
-                "\"Avanzato\"", FontFamily -> "Arial", 11, StripOnInput -> 
-                 False], "RadioButtonBarLabel", StripOnInput -> False]}}, 
-             AutoDelete -> False, 
-             GridBoxItemSize -> {
-              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-             ColumnAlignments -> Left, ColumnSpacings -> 0.3, 
-             BaselinePosition -> {1, 2}]}], "Deploy"], 
-         RadioButtonBar[
-          Dynamic[
-          MathInfo`Private`stLivello$$, (MathInfo`Private`stLivello$$ = #; 
-           MathInfo`Private`stModalita$$ = 
-            Switch[#, "Base", "binario", "Intermedio", "hex2col", "Avanzato", 
-              "cesare"]; MathInfo`Private`stOn$$ = False; 
-           MathInfo`Private`stFeedback$$ = ""; 
-           MathInfo`Private`stRisposta$$ = ""; 
-           MathInfo`Private`stTentativi$$ = 0; 
-           MathInfo`Private`stEsercizio$$ = None)& ], {
-          "Base" -> Style["Base", FontFamily -> "Arial", 11], "Intermedio" -> 
-           Style["Intermedio", FontFamily -> "Arial", 11], "Avanzato" -> 
-           Style["Avanzato", FontFamily -> "Arial", 11]}]]},
-       "RowDefault"]},
-     {
-      TemplateBox[{6},
-       "Spacer1"]},
-     {
-      DynamicBox[ToBoxes[
-        Row[{
-          Style["Modalita':  ", Bold, 12, FontFamily -> "Arial"], 
-          Which[MathInfo`Private`stLivello$$ === "Base", 
-           RadioButtonBar[
-            Dynamic[MathInfo`Private`stModalita$$], {
-            "binario" -> 
-             Style["Binario \[LeftRightArrow] Decimale", FontFamily -> 
-               "Arial", 11], "memoria" -> 
-             Style["Conversioni di memoria", FontFamily -> "Arial", 11]}], 
-           MathInfo`Private`stLivello$$ === "Intermedio", 
-           RadioButtonBar[
-            Dynamic[MathInfo`Private`stModalita$$], {
-            "hex2col" -> 
-             Style["Colore \[RightArrow] Codice HEX", FontFamily -> "Arial", 
-               11], "col2hex" -> 
-             Style["Codice HEX \[RightArrow] Colore", FontFamily -> "Arial", 
-               11]}], MathInfo`Private`stLivello$$ === "Avanzato", 
-           RadioButtonBar[
-            Dynamic[MathInfo`Private`stModalita$$], {
-            "cesare" -> 
-             Style["Cifrario di Cesare", FontFamily -> "Arial", 11], 
-             "vigenere" -> 
-             Style["Cifrario di Vigenere", FontFamily -> "Arial", 11]}]]}], 
-        StandardForm],
-       ImageSizeCache->{
-        328.33978671875, {3.378509521484375, 12.621490478515625`}}]},
-     {
-      TemplateBox[{8},
-       "Spacer1"]},
-     {
-      TemplateBox[{
-        StyleBox[
-        "\"Seed:  \"", Bold, 12, FontFamily -> "Arial", StripOnInput -> 
-         False], 
-        InputFieldBox[
-         Dynamic[MathInfo`Private`stSeed$$], Number, FieldHint -> "es. 42", 
-         FieldSize -> 6]},
-       "RowDefault"]},
-     {
-      TemplateBox[{8},
-       "Spacer1"]},
-     {
-      ButtonBox[
-       StyleBox["\<\" \[FilledRightTriangle]  Genera Esercizio \"\>",
+ RowBox[{"laboratorioCesare", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.985842901459243*^9, 3.985842901462364*^9}},
+ CellLabel->
+  "In[110]:=",ExpressionUUID->"cfa166f1-84e4-482d-9daf-10f893691298"],
+
+Cell[BoxData[
+ DynamicModuleBox[{CrittografiaArcaica`Private`testoInput$$ = "CIAO CAMPE", 
+  CrittografiaArcaica`Private`shift$$ = 1, 
+  CrittografiaArcaica`Private`risultatoCifra$$ = "DJBP DBNQF", 
+  CrittografiaArcaica`Private`risultatoDecifra$$ = ""}, 
+  PanelBox[
+   TagBox[GridBox[{
+      {
+       StyleBox["\<\"Laboratorio Libero \[LongDash] Cifrario di Cesare\"\>",
         StripOnInput->False,
-        LineColor->GrayLevel[1],
-        FrontFaceColor->GrayLevel[1],
-        BackFaceColor->GrayLevel[1],
-        GraphicsColor->GrayLevel[1],
-        FontFamily->"Arial",
-        FontSize->12,
+        LineColor->RGBColor[0.2, 0.4, 0.7],
+        FrontFaceColor->RGBColor[0.2, 0.4, 0.7],
+        BackFaceColor->RGBColor[0.2, 0.4, 0.7],
+        GraphicsColor->RGBColor[0.2, 0.4, 0.7],
+        FontSize->18,
         FontWeight->Bold,
-        FontColor->GrayLevel[1]],
-       Appearance->Automatic,
-       Background->RGBColor[0.1, 0.5, 0.1],
-       ButtonFunction:>
-        Module[{MathInfo`Private`sv$}, MathInfo`Private`sv$ = Quiet[
-            Check[
-             Round[MathInfo`Private`stSeed$$], 42]]; 
-         MathInfo`Private`stEsercizio$$ = 
-          Which[MathInfo`Private`stLivello$$ === "Base", 
-            MathInfo`Private`miGeneraEsercizioBase[
-            MathInfo`Private`sv$, MathInfo`Private`stModalita$$], 
-            MathInfo`Private`stLivello$$ === "Intermedio", 
-            MathInfo`Private`miGeneraEsercizioColore[
-            MathInfo`Private`sv$, MathInfo`Private`stModalita$$], 
-            MathInfo`Private`stLivello$$ === "Avanzato", 
-            MathInfo`Private`miGeneraEsercizioAvanzato[
-            MathInfo`Private`sv$, MathInfo`Private`stModalita$$]]; 
-         MathInfo`Private`stRisposta$$ = ""; 
-         MathInfo`Private`stFeedback$$ = ""; 
-         MathInfo`Private`stTentativi$$ = 0; 
-         MathInfo`Private`stColoreScelta$$ = None; 
-         MathInfo`Private`stOn$$ = True],
-       Evaluator->Automatic,
-       FrameMargins->8,
-       Method->"Preemptive"]},
-     {
-      TemplateBox[{12},
-       "Spacer1"]},
-     {
-      DynamicBox[ToBoxes[
-        If[
-         And[
-         MathInfo`Private`stOn$$, MathInfo`Private`stEsercizio$$ =!= None], 
-         Column[{
-           Framed[
-            Style[
-             MathInfo`Private`stEsercizio$$["Testo"], 12, FontFamily -> 
-             "Arial"], Background -> LightYellow, FrameStyle -> Orange, 
-            RoundingRadius -> 5, FrameMargins -> 12, 
-            ImageSize -> {500, Automatic}], 
-           Spacer[10], 
-           Which[MathInfo`Private`stLivello$$ === "Base", 
-            Spacer[0], 
-            And[
-            MathInfo`Private`stLivello$$ === "Intermedio", 
-             MathInfo`Private`stEsercizio$$["Modalita'"] === "hex2col"], 
-            Graphics[{
-              MathInfo`Private`stEsercizio$$["Colore"]["Colore"], 
-              Rectangle[{0, 0}, {4, 4}]}, ImageSize -> 120, Frame -> True, 
-             FrameStyle -> Gray], 
-            And[
-            MathInfo`Private`stLivello$$ === "Intermedio", 
-             MathInfo`Private`stEsercizio$$["Modalita'"] === "col2hex"], 
-            Row[
-             Table[
-              Module[{MathInfo`Private`opt$ = Part[
-                  MathInfo`Private`stEsercizio$$["Opzioni"], 
-                  MathInfo`Private`k]}, 
-               EventHandler[
-                Framed[
-                 Graphics[{
-                   MathInfo`Private`opt$["Colore"], 
-                   Rectangle[{0, 0}, {3, 3}]}, ImageSize -> 90, Frame -> True,
-                   FrameStyle -> Dynamic[
-                    If[
-                    MathInfo`Private`stColoreScelta$$ === 
-                    MathInfo`Private`opt$["HEX"], Orange, Gray]]], FrameStyle -> 
-                 Dynamic[
-                   If[
-                   MathInfo`Private`stColoreScelta$$ === 
-                    MathInfo`Private`opt$["HEX"], {Thick, Orange}, 
-                    LightGray]], RoundingRadius -> 4], {
-                "MouseClicked" :> (
-                  MathInfo`Private`stColoreScelta$$ = 
-                   MathInfo`Private`opt$["HEX"]; 
-                  MathInfo`Private`stRisposta$$ = 
-                   MathInfo`Private`opt$["HEX"])}]], {
-              MathInfo`Private`k, 1, 4}], 
-             Spacer[8]], True, 
-            Spacer[0]]}], 
-         Framed[
-          Style[
-          "Scegli livello, modalita' e premi Genera Esercizio.", Gray, Italic,
-            11, FontFamily -> "Arial"], FrameStyle -> LightGray, 
-          RoundingRadius -> 4, FrameMargins -> 12, ImageSize -> {500, 50}, 
-          Alignment -> Center]], StandardForm],
-       ImageSizeCache->{500., {34.010158203125, 39.742091796875}}]},
-     {
-      TemplateBox[{8},
-       "Spacer1"]},
-     {
-      DynamicBox[ToBoxes[
-        If[
-         And[MathInfo`Private`stOn$$, MathInfo`Private`stEsercizio$$ =!= None, 
-          Not[
-           And[
-           MathInfo`Private`stLivello$$ === "Intermedio", 
-            MathInfo`Private`stEsercizio$$["Modalita'"] === "col2hex"]]], 
-         Row[{
-           Style["La tua risposta:  ", Bold, 12, FontFamily -> "Arial"], 
-           InputField[
-            Dynamic[MathInfo`Private`stRisposta$$], String, FieldSize -> 14, 
-            FieldHint -> 
-            Switch[MathInfo`Private`stLivello$$, "Base", 
-              "es. 42  oppure  101010", "Intermedio", "es. #FF8C00", 
-              "Avanzato", "es. 13  oppure  ALPHA"]]}], ""], StandardForm],
-       ImageSizeCache->{
-        310.577578125, {12.548934936523438`, 21.791915893554688`}}]},
-     {
-      TemplateBox[{6},
-       "Spacer1"]},
-     {
-      DynamicBox[ToBoxes[
-        If[MathInfo`Private`stOn$$, 
-         Style[("Tentativi rimasti: " <> 
-           ToString[3 - MathInfo`Private`stTentativi$$]) <> " / 3", Bold, 11, 
-          FontFamily -> "Arial", 
-          If[MathInfo`Private`stTentativi$$ < 2, 
-           Darker[Green], 
-           Darker[Red]]], ""], StandardForm],
-       ImageSizeCache->{112.22314453125, {0.13427734375, 7.90625}}]},
-     {
-      TemplateBox[{10},
-       "Spacer1"]},
-     {
-      DynamicBox[ToBoxes[
-        If[MathInfo`Private`stOn$$, 
-         Row[{
-           Button[
-            Style[
-            " \[Checkmark]  Verifica Risultato ", White, Bold, 12, FontFamily -> 
-             "Arial"], 
-            Module[{MathInfo`Private`esito$}, 
-             If[
-             MathInfo`Private`stTentativi$$ >= 3, 
-              MathInfo`Private`stFeedback$$ = 
-              "\[WarningSign]  Tentativi esauriti. Usa Mostra Soluzione.", 
+        FontColor->RGBColor[0.2, 0.4, 0.7]]},
+      {
+       StyleBox["\<\"Inserisci un testo, scegli lo shift e cifra o decifra.\"\
+\>",
+        StripOnInput->False,
+        LineColor->GrayLevel[0.5],
+        FrontFaceColor->GrayLevel[0.5],
+        BackFaceColor->GrayLevel[0.5],
+        GraphicsColor->GrayLevel[0.5],
+        FontSize->12,
+        FontSlant->Italic,
+        FontColor->GrayLevel[0.5]]},
+      {
+       TemplateBox[{8},
+        "Spacer1"]},
+      {
+       TemplateBox[{
+         StyleBox["\"Testo: \"", 13, Bold, StripOnInput -> False], 
+         InputFieldBox[
+          Dynamic[CrittografiaArcaica`Private`testoInput$$], String, 
+          FieldHint -> "Scrivi qui il tuo messaggio...", 
+          FieldSize -> {30, 2}]},
+        "RowDefault"]},
+      {
+       TemplateBox[{4},
+        "Spacer1"]},
+      {
+       TemplateBox[{
+         StyleBox["\"Shift: \"", 13, Bold, StripOnInput -> False], 
+         SliderBox[
+          Dynamic[CrittografiaArcaica`Private`shift$$], {0, 25, 1}, ImageSize -> 
+          200], 
+         TemplateBox[{6}, "Spacer1"], 
+         DynamicBox[
+          ToBoxes[
+           Style[
+            ToString[CrittografiaArcaica`Private`shift$$], 14, Bold, 
+            RGBColor[0.7, 0.2, 0.2]], StandardForm], 
+          ImageSizeCache -> {7.013671875, {0., 9.8642578125}}]},
+        "RowDefault"]},
+      {
+       TemplateBox[{6},
+        "Spacer1"]},
+      {
+       TemplateBox[{
+         ButtonBox[
+          StyleBox["\"Cifra \[RightArrow]\"", 13, Bold, 
+           GrayLevel[1], StripOnInput -> False], 
+          ButtonFunction :> (
+           CrittografiaArcaica`Private`risultatoCifra$$ = 
+            CrittografiaArcaica`Private`cifraCesare[
+             CrittografiaArcaica`Private`testoInput$$, 
+              CrittografiaArcaica`Private`shift$$]; 
+           CrittografiaArcaica`Private`risultatoDecifra$$ = ""; Null), 
+          Background -> RGBColor[0.2, 0.6, 0.3], ImageSize -> {120, 35}, 
+          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+          "Preemptive"], 
+         TemplateBox[{10}, "Spacer1"], 
+         ButtonBox[
+          StyleBox["\"\[LeftArrow] Decifra\"", 13, Bold, 
+           GrayLevel[1], StripOnInput -> False], 
+          ButtonFunction :> (
+           CrittografiaArcaica`Private`risultatoDecifra$$ = 
+            CrittografiaArcaica`Private`decifraCesare[
+             CrittografiaArcaica`Private`testoInput$$, 
+              CrittografiaArcaica`Private`shift$$]; 
+           CrittografiaArcaica`Private`risultatoCifra$$ = ""; Null), 
+          Background -> RGBColor[0.5, 0.2, 0.7], ImageSize -> {120, 35}, 
+          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+          "Preemptive"], 
+         TemplateBox[{10}, "Spacer1"], 
+         ButtonBox[
+          StyleBox["\"Pulisci Campi\"", 13, Bold, 
+           GrayLevel[1], StripOnInput -> False], 
+          ButtonFunction :> (CrittografiaArcaica`Private`testoInput$$ = ""; 
+           CrittografiaArcaica`Private`shift$$ = 3; 
+           CrittografiaArcaica`Private`risultatoCifra$$ = ""; 
+           CrittografiaArcaica`Private`risultatoDecifra$$ = ""; Null), 
+          Background -> RGBColor[0.65, 0.65, 0.65], ImageSize -> {130, 35}, 
+          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+          "Preemptive"]},
+        "RowDefault"]},
+      {
+       TemplateBox[{8},
+        "Spacer1"]},
+      {
+       DynamicBox[ToBoxes[
+         If[CrittografiaArcaica`Private`risultatoCifra$$ =!= "", 
+          Framed[
+           Column[{
+             Style["Testo cifrato:", 12, Bold, 
+              RGBColor[0.2, 0.6, 0.3]], 
+             Style[CrittografiaArcaica`Private`risultatoCifra$$, 14, Bold]}], 
+           Background -> RGBColor[0.92, 1., 0.93], RoundingRadius -> 5, 
+           FrameStyle -> RGBColor[0.2, 0.6, 0.3]], ""], StandardForm],
+        ImageSizeCache->{
+         100.41552734375, {15.749267578125, 21.405029296875}}]},
+      {
+       DynamicBox[ToBoxes[
+         If[CrittografiaArcaica`Private`risultatoDecifra$$ =!= "", 
+          Framed[
+           Column[{
+             Style["Testo decifrato:", 12, Bold, 
+              RGBColor[0.5, 0.2, 0.7]], 
+             Style[
+             CrittografiaArcaica`Private`risultatoDecifra$$, 14, Bold]}], 
+           Background -> RGBColor[0.97, 0.93, 1.], RoundingRadius -> 5, 
+           FrameStyle -> RGBColor[0.5, 0.2, 0.7]], ""], StandardForm],
+        ImageSizeCache->{0., {0., 5.263671875}}]},
+      {
+       TemplateBox[{10},
+        "Spacer1"]},
+      {
+       StyleBox["\<\"Ruota di Cesare:\"\>",
+        StripOnInput->False,
+        FontSize->14,
+        FontWeight->Bold]},
+      {
+       StyleBox["\<\"L'anello esterno mostra le lettere chiare, l'interno le \
+lettere cifrate.\"\>",
+        StripOnInput->False,
+        LineColor->GrayLevel[0.5],
+        FrontFaceColor->GrayLevel[0.5],
+        BackFaceColor->GrayLevel[0.5],
+        GraphicsColor->GrayLevel[0.5],
+        FontSize->11,
+        FontSlant->Italic,
+        FontColor->GrayLevel[0.5]]},
+      {
+       DynamicBox[ToBoxes[
+         CrittografiaArcaica`Private`ruotaCesare[
+         CrittografiaArcaica`Private`shift$$], StandardForm],
+        ImageSizeCache->{300., {173.89080967395526`, 179.54657139270526`}}]},
+      {
+       TemplateBox[{8},
+        "Spacer1"]},
+      {
+       StyleBox["\<\"Analisi delle frequenze del testo cifrato:\"\>",
+        StripOnInput->False,
+        FontSize->14,
+        FontWeight->Bold]},
+      {
+       DynamicBox[ToBoxes[
+         If[CrittografiaArcaica`Private`risultatoCifra$$ =!= "", 
+          
+          Module[{CrittografiaArcaica`Private`freq$}, 
+           CrittografiaArcaica`Private`freq$ = 
+            CrittografiaArcaica`Private`frequenzeLettere[
+             CrittografiaArcaica`Private`risultatoCifra$$]; BarChart[
+             Part[CrittografiaArcaica`Private`freq$, All, 2], ChartLabels -> 
+             Placed[CrittografiaArcaica`Private`alfabeto, Below], ChartStyle -> 
+             "SandyTerrain", AxesLabel -> {"Lettera", "Frequenza"}, PlotLabel -> 
+             Style["Frequenze nel testo cifrato", 12, Bold], ImageSize -> 
+             450]], 
+          Style["(Il grafico appare dopo la cifratura)", 11, Italic, Gray]], 
+         StandardForm],
+        ImageSizeCache->{450., {144.0926908238944, 149.7484525426444}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{"Columns" -> {{Left}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+     GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{1}}}],
+    "Column"],
+   Background->GrayLevel[0.97],
+   ImageSize->520],
+  DynamicModuleValues:>{}]], "Output",
+ CellChangeTimes->{3.985842902387724*^9},
+ CellLabel->
+  "Out[110]=",ExpressionUUID->"e4671284-39d4-49a0-9037-117ac7b953f1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"esercizioUniversaleCesare", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.9858429060914516`*^9, 3.9858429060944157`*^9}},
+ CellLabel->
+  "In[111]:=",ExpressionUUID->"18a3ebb8-61c0-4350-b51f-fe7a8d3c1f97"],
+
+Cell[BoxData[
+ DynamicModuleBox[{CrittografiaArcaica`Private`seed$$ = 43, 
+  CrittografiaArcaica`Private`messaggioCifrato$$ = 
+  "ET VKBMMHZKTYBT IKHMXZZX B GHLMKB LXZKXMB", 
+  CrittografiaArcaica`Private`shiftSegreto$$ = 19, 
+  CrittografiaArcaica`Private`messaggioChiaro$$ = 
+  "LA CRITTOGRAFIA PROTEGGE I NOSTRI SEGRETI", 
+  CrittografiaArcaica`Private`rispostaUtente$$ = "", 
+  CrittografiaArcaica`Private`tentativi$$ = 0, 
+  CrittografiaArcaica`Private`feedbackMsg$$ = "", 
+  CrittografiaArcaica`Private`soluzioneVisibile$$ = True, 
+  CrittografiaArcaica`Private`suggerimentoStep$$ = 0, 
+  CrittografiaArcaica`Private`esercizioGenerato$$ = True}, 
+  PanelBox[
+   TagBox[GridBox[{
+      {
+       StyleBox["\<\"Esercizi \[LongDash] Cifrario di Cesare\"\>",
+        StripOnInput->False,
+        LineColor->RGBColor[0.2, 0.4, 0.7],
+        FrontFaceColor->RGBColor[0.2, 0.4, 0.7],
+        BackFaceColor->RGBColor[0.2, 0.4, 0.7],
+        GraphicsColor->RGBColor[0.2, 0.4, 0.7],
+        FontSize->18,
+        FontWeight->Bold,
+        FontColor->RGBColor[0.2, 0.4, 0.7]]},
+      {
+       StyleBox["\<\"Decifra il messaggio! Inserisci un Seed e genera il tuo \
+esercizio.\"\>",
+        StripOnInput->False,
+        LineColor->GrayLevel[0.5],
+        FrontFaceColor->GrayLevel[0.5],
+        BackFaceColor->GrayLevel[0.5],
+        GraphicsColor->GrayLevel[0.5],
+        FontSize->12,
+        FontSlant->Italic,
+        FontColor->GrayLevel[0.5]]},
+      {
+       TemplateBox[{8},
+        "Spacer1"]},
+      {
+       TemplateBox[{
+         StyleBox["\"Seed: \"", 13, Bold, StripOnInput -> False], 
+         InputFieldBox[
+          Dynamic[CrittografiaArcaica`Private`seed$$], Number, FieldHint -> 
+          "es. 42", FieldSize -> {8, 1}], 
+         TemplateBox[{8}, "Spacer1"], 
+         ButtonBox[
+          StyleBox["\"Genera Esercizio\"", 13, Bold, 
+           GrayLevel[1], StripOnInput -> False], ButtonFunction :> 
+          Module[{CrittografiaArcaica`Private`ris$}, 
+            CrittografiaArcaica`Private`ris$ = 
+             CrittografiaArcaica`Private`generaEsercizioConSeedCesare[
+              CrittografiaArcaica`Private`seed$$]; 
+            CrittografiaArcaica`Private`messaggioCifrato$$ = 
+             Part[CrittografiaArcaica`Private`ris$, 1]; 
+            CrittografiaArcaica`Private`shiftSegreto$$ = 
+             Part[CrittografiaArcaica`Private`ris$, 2]; 
+            CrittografiaArcaica`Private`messaggioChiaro$$ = 
+             Part[CrittografiaArcaica`Private`ris$, 3]; 
+            CrittografiaArcaica`Private`rispostaUtente$$ = ""; 
+            CrittografiaArcaica`Private`tentativi$$ = 0; 
+            CrittografiaArcaica`Private`feedbackMsg$$ = ""; 
+            CrittografiaArcaica`Private`soluzioneVisibile$$ = False; 
+            CrittografiaArcaica`Private`suggerimentoStep$$ = 0; 
+            CrittografiaArcaica`Private`esercizioGenerato$$ = True; Null], 
+          Background -> RGBColor[0.15, 0.5, 0.8], ImageSize -> {160, 35}, 
+          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+          "Preemptive"]},
+        "RowDefault"]},
+      {
+       TemplateBox[{8},
+        "Spacer1"]},
+      {
+       DynamicBox[ToBoxes[
+         If[CrittografiaArcaica`Private`esercizioGenerato$$, 
+          Framed[
+           Column[{
+             Style["Messaggio cifrato:", 12, Bold, 
+              RGBColor[0.7, 0.3, 0.1]], 
+             Style[
+             CrittografiaArcaica`Private`messaggioCifrato$$, 15, Bold, 
+              Black]}], Background -> RGBColor[1., 0.95, 0.88], 
+           RoundingRadius -> 5, FrameStyle -> RGBColor[0.7, 0.3, 0.1], 
+           FrameMargins -> 8], 
+          Style["(Genera un esercizio per iniziare)", 11, Italic, Gray]], 
+         StandardForm],
+        ImageSizeCache->{
+         414.947021484375, {20.321533203125, 25.977294921875}}]},
+      {
+       TemplateBox[{6},
+        "Spacer1"]},
+      {
+       DynamicBox[ToBoxes[
+         If[CrittografiaArcaica`Private`esercizioGenerato$$, 
+          Column[{
+            Style["Inserisci il testo decifrato:", 12, Bold], 
+            InputField[
+             Dynamic[CrittografiaArcaica`Private`rispostaUtente$$], String, 
+             FieldSize -> {30, 2}, FieldHint -> 
+             "Scrivi qui la tua risposta in chiaro..."]}], ""], StandardForm],
+        
+        ImageSizeCache->{283.72265625, {27.017333984375, 32.673095703125}}]},
+      {
+       TemplateBox[{6},
+        "Spacer1"]},
+      {
+       TemplateBox[{
+         ButtonBox[
+          StyleBox["\"Verifica Risultato\"", 13, Bold, 
+           GrayLevel[1], StripOnInput -> False], ButtonFunction :> 
+          If[CrittografiaArcaica`Private`esercizioGenerato$$, 
+            Increment[CrittografiaArcaica`Private`tentativi$$]; 
+            If[ToUpperCase[CrittografiaArcaica`Private`rispostaUtente$$] === 
+              CrittografiaArcaica`Private`messaggioChiaro$$, 
+              CrittografiaArcaica`Private`feedbackMsg$$ = 
+              "\[Checkmark] Corretto! Bravo! Hai impiegato " <> 
+               ToString[CrittografiaArcaica`Private`tentativi$$] <> 
+               " tentativo/i.", 
               If[
-              StringTrim[MathInfo`Private`stRisposta$$] === "", 
-               MathInfo`Private`stFeedback$$ = 
-               "\[WarningSign]  Inserisci una risposta.", 
-               MathInfo`Private`esito$ = 
-                MathInfo`Private`miVerificaRisposta[
-                 MathInfo`Private`stRisposta$$, 
-                  MathInfo`Private`stEsercizio$$["Risposta"]]; 
-               Increment[MathInfo`Private`stTentativi$$]; 
-               If[MathInfo`Private`esito$, MathInfo`Private`stFeedback$$ = 
-                 "\[Checkmark]  Corretto! Ottimo lavoro.", 
-                 MathInfo`Private`stFeedback$$ = 
-                 "\[Cross]  Non corretto.  " <> 
-                  Which[MathInfo`Private`stLivello$$ === "Base", 
-                    MathInfo`Private`miSuggerimentoBase[
-                    MathInfo`Private`stEsercizio$$, 
-                    MathInfo`Private`stTentativi$$], 
-                    MathInfo`Private`stLivello$$ === "Intermedio", 
-                    MathInfo`Private`miSuggerimentoColore[
-                    MathInfo`Private`stEsercizio$$, 
-                    MathInfo`Private`stTentativi$$], True, 
-                    MathInfo`Private`miSuggerimentoAvanzato[
-                    MathInfo`Private`stEsercizio$$, 
-                    MathInfo`Private`stTentativi$$]]]]]], Background -> 
-            RGBColor[0.1, 0.35, 0.7], FrameMargins -> 6], 
-           Spacer[10], 
-           Button[
-            Style[
-            " \[FilledSmallSquare]  Mostra Soluzione ", White, Bold, 12, 
-             FontFamily -> "Arial"], 
-            MessageDialog[
-             Column[{
-               Style["Soluzione", Bold, 15, Blue, FontFamily -> "Arial"], 
-               Spacer[6], 
+              CrittografiaArcaica`Private`tentativi$$ >= 3, 
+               CrittografiaArcaica`Private`feedbackMsg$$ = 
+                "\[Cross] Risposta errata. Hai esaurito i tentativi. Premi \
+'Mostra Soluzione'."; CrittografiaArcaica`Private`soluzioneVisibile$$ = True, 
+               CrittografiaArcaica`Private`feedbackMsg$$ = 
+               "\[Cross] Non corretto. Tentativo " <> 
+                ToString[CrittografiaArcaica`Private`tentativi$$] <> 
+                "/3. Prova ancora o chiedi un Suggerimento."]]], Background -> 
+          RGBColor[0.2, 0.6, 0.3], ImageSize -> {170, 35}, Appearance -> 
+          Automatic, Evaluator -> Automatic, Method -> "Preemptive"], 
+         TemplateBox[{8}, "Spacer1"], 
+         ButtonBox[
+          StyleBox["\"Pulisci Campi\"", 13, Bold, 
+           GrayLevel[1], StripOnInput -> False], 
+          ButtonFunction :> (CrittografiaArcaica`Private`seed$$ = 1; 
+           CrittografiaArcaica`Private`messaggioCifrato$$ = ""; 
+           CrittografiaArcaica`Private`shiftSegreto$$ = 0; 
+           CrittografiaArcaica`Private`messaggioChiaro$$ = ""; 
+           CrittografiaArcaica`Private`rispostaUtente$$ = ""; 
+           CrittografiaArcaica`Private`tentativi$$ = 0; 
+           CrittografiaArcaica`Private`feedbackMsg$$ = ""; 
+           CrittografiaArcaica`Private`soluzioneVisibile$$ = False; 
+           CrittografiaArcaica`Private`suggerimentoStep$$ = 0; 
+           CrittografiaArcaica`Private`esercizioGenerato$$ = False; Null), 
+          Background -> RGBColor[0.65, 0.65, 0.65], ImageSize -> {140, 35}, 
+          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+          "Preemptive"]},
+        "RowDefault"]},
+      {
+       TemplateBox[{4},
+        "Spacer1"]},
+      {
+       TemplateBox[{
+         ButtonBox[
+          StyleBox["\"Suggerimento\"", 13, Bold, 
+           GrayLevel[1], StripOnInput -> False], ButtonFunction :> 
+          If[CrittografiaArcaica`Private`esercizioGenerato$$, 
+            Increment[CrittografiaArcaica`Private`suggerimentoStep$$]], 
+          Background -> RGBColor[0.8, 0.6, 0.1], ImageSize -> {140, 35}, 
+          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+          "Preemptive"], 
+         TemplateBox[{8}, "Spacer1"], 
+         ButtonBox[
+          StyleBox["\"Mostra Soluzione\"", 13, Bold, 
+           GrayLevel[1], StripOnInput -> False], ButtonFunction :> 
+          If[CrittografiaArcaica`Private`esercizioGenerato$$, 
+            CrittografiaArcaica`Private`soluzioneVisibile$$ = True], 
+          Background -> RGBColor[0.7, 0.2, 0.2], ImageSize -> {160, 35}, 
+          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+          "Preemptive"]},
+        "RowDefault"]},
+      {
+       TemplateBox[{8},
+        "Spacer1"]},
+      {
+       DynamicBox[ToBoxes[
+         If[CrittografiaArcaica`Private`feedbackMsg$$ =!= "", 
+          Framed[
+           Style[CrittografiaArcaica`Private`feedbackMsg$$, 13, Bold, 
+            If[
+             StringStartsQ[
+             CrittografiaArcaica`Private`feedbackMsg$$, "\[Checkmark]"], 
+             RGBColor[0.1, 0.5, 0.1], 
+             RGBColor[0.6, 0.1, 0.1]]], Background -> If[
+             StringStartsQ[
+             CrittografiaArcaica`Private`feedbackMsg$$, "\[Checkmark]"], 
+             RGBColor[0.9, 1., 0.9], 
+             RGBColor[1., 0.9, 0.9]], RoundingRadius -> 5, FrameMargins -> 8],
+           ""], StandardForm],
+        ImageSizeCache->{0., {0., 5.263671875}}]},
+      {
+       DynamicBox[ToBoxes[
+         Which[
+          Or[
+           Not[CrittografiaArcaica`Private`esercizioGenerato$$], 
+           CrittografiaArcaica`Private`suggerimentoStep$$ == 0], "", 
+          CrittografiaArcaica`Private`suggerimentoStep$$ == 1, 
+          Framed[
+           Style[
+           "\[LightBulb] Suggerimento 1: prova ad analizzare le frequenze \
+delle lettere. La lettera piu' frequente in italiano e' spesso la 'E'.", 12, 
+            Italic, 
+            RGBColor[0.5, 0.4, 0.]], Background -> RGBColor[1., 0.97, 0.85], 
+           RoundingRadius -> 5, FrameMargins -> 8], 
+          CrittografiaArcaica`Private`suggerimentoStep$$ == 2, 
+          Framed[
+           Style[
+           "\[LightBulb] Suggerimento 2: lo shift e' un numero tra 1 e 25. \
+Prova shift diversi fino a trovare parole di senso compiuto.", 12, Italic, 
+            RGBColor[0.5, 0.4, 0.]], Background -> RGBColor[1., 0.97, 0.85], 
+           RoundingRadius -> 5, FrameMargins -> 8], 
+          CrittografiaArcaica`Private`suggerimentoStep$$ >= 3, 
+          Framed[
+           Style[
+           "\[LightBulb] Suggerimento 3: lo shift usato e' compreso tra " <> 
+            ToString[
+              Max[1, CrittografiaArcaica`Private`shiftSegreto$$ - 5]] <> 
+            " e " <> ToString[
+              Min[25, CrittografiaArcaica`Private`shiftSegreto$$ + 5]] <> ".",
+             12, Italic, 
+            RGBColor[0.5, 0.4, 0.]], Background -> RGBColor[1., 0.97, 0.85], 
+           RoundingRadius -> 5, FrameMargins -> 8]], StandardForm],
+        ImageSizeCache->{0., {0., 5.263671875}}]},
+      {
+       DynamicBox[ToBoxes[
+         If[
+          And[
+          CrittografiaArcaica`Private`soluzioneVisibile$$, 
+           CrittografiaArcaica`Private`esercizioGenerato$$], 
+          Framed[
+           Column[{
+             Style["Soluzione:", 13, Bold, 
+              RGBColor[0.6, 0.1, 0.1]], 
+             Row[{
+               Style["Shift: ", 12, Bold], 
                Style[
-                MathInfo`Private`stEsercizio$$["Soluzione"], 12, FontFamily -> 
-                "Arial"], 
-               If[MathInfo`Private`stLivello$$ === "Intermedio", 
-                Column[{
-                  Spacer[8], 
-                  Graphics[{
-                    MathInfo`Private`stEsercizio$$["Colore"]["Colore"], 
-                    Rectangle[{0, 0}, {3, 3}]}, ImageSize -> 80, Frame -> 
-                   True]}], 
-                Spacer[0]]}]], Background -> RGBColor[0.5, 0.1, 0.6], 
-            FrameMargins -> 6], 
-           Spacer[10], 
-           Button[
-            Style[
-            " \[FilledSquare]  Pulisci Campi ", White, Bold, 12, FontFamily -> 
-             "Arial"], MathInfo`Private`stEsercizio$$ = None; 
-            MathInfo`Private`stRisposta$$ = ""; 
-            MathInfo`Private`stFeedback$$ = ""; 
-            MathInfo`Private`stTentativi$$ = 0; 
-            MathInfo`Private`stOn$$ = False; 
-            MathInfo`Private`stColoreScelta$$ = None, Background -> 
-            RGBColor[0.45, 0.45, 0.45], FrameMargins -> 6]}], ""], 
-        StandardForm],
-       ImageSizeCache->{404.6865234375, {10.54296875, 20.86328125}}]},
-     {
-      TemplateBox[{8},
-       "Spacer1"]},
-     {
-      DynamicBox[ToBoxes[
-        If[MathInfo`Private`stFeedback$$ =!= "", 
-         Framed[
-          Style[
-          MathInfo`Private`stFeedback$$, Bold, 12, FontFamily -> "Arial", 
-           If[
-            StringContainsQ[MathInfo`Private`stFeedback$$, "\[Checkmark]"], 
-            Darker[Green], 
-            Darker[Red]]], Background -> If[
-            StringContainsQ[MathInfo`Private`stFeedback$$, "\[Checkmark]"], 
-            LightGreen, LightRed], FrameStyle -> If[
-            StringContainsQ[MathInfo`Private`stFeedback$$, "\[Checkmark]"], 
-            Green, Red], RoundingRadius -> 4, FrameMargins -> 10, 
-          ImageSize -> {500, Automatic}], ""], StandardForm],
-       ImageSizeCache->{0., {0., 6.318}}]}
-    },
-    DefaultBaseStyle->"Column",
-    GridBoxAlignment->{"Columns" -> {{Left}}},
-    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-    GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{0}}}],
-   "Column"],
-  DynamicModuleValues:>{}]], "Input",
- CellChangeTimes->{
-  3.98542150267096*^9},ExpressionUUID->"3498a427-cc84-486f-b2b1-cbfc78116c2b"],
+                ToString[CrittografiaArcaica`Private`shiftSegreto$$], 13, 
+                Bold]}], 
+             Row[{
+               Style["Testo in chiaro: ", 12, Bold], 
+               Style[
+               CrittografiaArcaica`Private`messaggioChiaro$$, 13, Bold]}]}], 
+           Background -> RGBColor[1., 0.93, 0.93], RoundingRadius -> 5, 
+           FrameStyle -> RGBColor[0.6, 0.1, 0.1], FrameMargins -> 10], ""], 
+         StandardForm],
+        ImageSizeCache->{
+         433.448486328125, {29.400634765625, 35.056396484375}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{"Columns" -> {{Left}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+     GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{1}}}],
+    "Column"],
+   Background->GrayLevel[0.97],
+   ImageSize->540],
+  DynamicModuleValues:>{}]], "Output",
+ CellChangeTimes->{3.985842907168779*^9},
+ CellLabel->
+  "Out[111]=",ExpressionUUID->"53233862-ef77-4c90-b179-373c5bdbfb72"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
- DynamicModuleBox[{MathInfo`Private`stSeed$$ = "71", 
-  MathInfo`Private`stLivello$$ = "Intermedio", MathInfo`Private`stModalita$$ =
-   "hex2col", MathInfo`Private`stEsercizio$$ = <|
-  "Modalita'" -> "hex2col", 
-   "Colore" -> <|
-    "R" -> 151, "G" -> 214, "B" -> 79, "HEX" -> "#97D64F", "Colore" -> 
-     RGBColor[0.592156862745098, 0.8392156862745098, 0.30980392156862746`]|>, 
-   "Opzioni" -> {}, "Risposta" -> "#97D64F", "Testo" -> 
-   "Osserva il colore qui sotto e scrivi il suo codice esadecimale nel \
-formato #RRGGBB.", "Soluzione" -> 
-   "Il codice HEX del colore e' #97D64F  (R=151, G=214, B=79)"|>, 
-  MathInfo`Private`stRisposta$$ = "", MathInfo`Private`stFeedback$$ = "", 
-  MathInfo`Private`stTentativi$$ = 0, MathInfo`Private`stOn$$ = True, 
-  MathInfo`Private`stColoreScelta$$ = None}, 
-  TagBox[GridBox[{
-     {
-      TemplateBox[{8},
-       "Spacer1"]},
-     {
-      DynamicBox[ToBoxes[
-        If[MathInfo`Private`stFeedback$$ =!= "", 
-         Framed[
-          Style[
-          MathInfo`Private`stFeedback$$, Bold, 12, FontFamily -> "Arial", 
-           If[
-            StringContainsQ[MathInfo`Private`stFeedback$$, "\[Checkmark]"], 
-            Darker[Green], 
-            Darker[Red]]], Background -> If[
-            StringContainsQ[MathInfo`Private`stFeedback$$, "\[Checkmark]"], 
-            LightGreen, LightRed], FrameStyle -> If[
-            StringContainsQ[MathInfo`Private`stFeedback$$, "\[Checkmark]"], 
-            Green, Red], RoundingRadius -> 4, FrameMargins -> 10, 
-          ImageSize -> {500, Automatic}], ""], StandardForm],
-       ImageSizeCache->{15.6, {0., 8.918}}]}
-    },
-    DefaultBaseStyle->"Column",
-    GridBoxAlignment->{"Columns" -> {{Left}}},
-    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-    GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{0}}}],
-   "Column"],
-  DynamicModuleValues:>{}]], "Input",
- CellChangeTimes->{{3.9851677134711533`*^9, 
-  3.9851677237794533`*^9}},ExpressionUUID->"70e5bc70-f01a-4ca4-9890-\
-855382ace065"],
+ RowBox[{"laboratorioVigenere", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.985842910114655*^9, 3.985842910117071*^9}},
+ CellLabel->
+  "In[112]:=",ExpressionUUID->"89e8229c-9f00-434a-8f46-6cf7495fad14"],
 
 Cell[BoxData[
- DynamicModuleBox[{MathInfo`Private`stSeed$$ = "71", 
-  MathInfo`Private`stLivello$$ = "Intermedio", MathInfo`Private`stModalita$$ =
-   "hex2col", MathInfo`Private`stEsercizio$$ = <|
-  "Modalita'" -> "hex2col", 
-   "Colore" -> <|
-    "R" -> 151, "G" -> 214, "B" -> 79, "HEX" -> "#97D64F", "Colore" -> 
-     RGBColor[0.592156862745098, 0.8392156862745098, 0.30980392156862746`]|>, 
-   "Opzioni" -> {}, "Risposta" -> "#97D64F", "Testo" -> 
-   "Osserva il colore qui sotto e scrivi il suo codice esadecimale nel \
-formato #RRGGBB.", "Soluzione" -> 
-   "Il codice HEX del colore e' #97D64F  (R=151, G=214, B=79)"|>, 
-  MathInfo`Private`stRisposta$$ = "", MathInfo`Private`stFeedback$$ = "", 
-  MathInfo`Private`stTentativi$$ = 0, MathInfo`Private`stOn$$ = True, 
-  MathInfo`Private`stColoreScelta$$ = None}, 
-  TagBox[GridBox[{
-     {
-      TemplateBox[{8},
-       "Spacer1"]},
-     {
-      DynamicBox[ToBoxes[
-        If[MathInfo`Private`stFeedback$$ =!= "", 
-         Framed[
+ DynamicModuleBox[{CrittografiaArcaica`Private`testoInput$$ = "DSGSDDSG", 
+  CrittografiaArcaica`Private`chiaveInput$$ = "", 
+  CrittografiaArcaica`Private`risultatoCifra$$ = "FUIUFFUI", 
+  CrittografiaArcaica`Private`risultatoDecifra$$ = "", 
+  CrittografiaArcaica`Private`tabellaVis$$ = {{"D", "C", 2}, {"S", "C", 2}, {
+   "G", "C", 2}, {"S", "C", 2}, {"D", "C", 2}, {"D", "C", 2}, {"S", "C", 2}, {
+   "G", "C", 2}}}, 
+  PanelBox[
+   TagBox[GridBox[{
+      {
+       StyleBox["\<\"Laboratorio Libero \[LongDash] Cifrario di Vigenere\"\>",
+        
+        StripOnInput->False,
+        LineColor->RGBColor[0.5, 0.2, 0.7],
+        FrontFaceColor->RGBColor[0.5, 0.2, 0.7],
+        BackFaceColor->RGBColor[0.5, 0.2, 0.7],
+        GraphicsColor->RGBColor[0.5, 0.2, 0.7],
+        FontSize->18,
+        FontWeight->Bold,
+        FontColor->RGBColor[0.5, 0.2, 0.7]]},
+      {
+       StyleBox["\<\"Inserisci un testo e una parola chiave per cifrare o \
+decifrare.\"\>",
+        StripOnInput->False,
+        LineColor->GrayLevel[0.5],
+        FrontFaceColor->GrayLevel[0.5],
+        BackFaceColor->GrayLevel[0.5],
+        GraphicsColor->GrayLevel[0.5],
+        FontSize->12,
+        FontSlant->Italic,
+        FontColor->GrayLevel[0.5]]},
+      {
+       TemplateBox[{8},
+        "Spacer1"]},
+      {
+       TemplateBox[{
+         StyleBox["\"Testo:  \"", 13, Bold, StripOnInput -> False], 
+         InputFieldBox[
+          Dynamic[CrittografiaArcaica`Private`testoInput$$], String, 
+          FieldHint -> "Messaggio da cifrare...", FieldSize -> {28, 2}]},
+        "RowDefault"]},
+      {
+       TemplateBox[{4},
+        "Spacer1"]},
+      {
+       TemplateBox[{
+         StyleBox["\"Chiave: \"", 13, Bold, StripOnInput -> False], 
+         InputFieldBox[
+          Dynamic[CrittografiaArcaica`Private`chiaveInput$$], String, 
+          FieldHint -> "Parola chiave (solo lettere)...", 
+          FieldSize -> {15, 1}]},
+        "RowDefault"]},
+      {
+       TemplateBox[{6},
+        "Spacer1"]},
+      {
+       TemplateBox[{
+         ButtonBox[
+          StyleBox["\"Cifra \[RightArrow]\"", 13, Bold, 
+           GrayLevel[1], StripOnInput -> False], 
+          ButtonFunction :> (
+           CrittografiaArcaica`Private`risultatoCifra$$ = 
+            CrittografiaArcaica`Private`cifraVigenere[
+             CrittografiaArcaica`Private`testoInput$$, 
+              CrittografiaArcaica`Private`chiaveInput$$]; 
+           CrittografiaArcaica`Private`risultatoDecifra$$ = ""; 
+           CrittografiaArcaica`Private`tabellaVis$$ = 
+            CrittografiaArcaica`Private`tabellaShiftVigenere[
+             CrittografiaArcaica`Private`testoInput$$, 
+              CrittografiaArcaica`Private`chiaveInput$$]; Null), Background -> 
+          RGBColor[0.5, 0.2, 0.7], ImageSize -> {120, 35}, Appearance -> 
+          Automatic, Evaluator -> Automatic, Method -> "Preemptive"], 
+         TemplateBox[{10}, "Spacer1"], 
+         ButtonBox[
+          StyleBox["\"\[LeftArrow] Decifra\"", 13, Bold, 
+           GrayLevel[1], StripOnInput -> False], 
+          ButtonFunction :> (
+           CrittografiaArcaica`Private`risultatoDecifra$$ = 
+            CrittografiaArcaica`Private`decifraVigenere[
+             CrittografiaArcaica`Private`testoInput$$, 
+              CrittografiaArcaica`Private`chiaveInput$$]; 
+           CrittografiaArcaica`Private`risultatoCifra$$ = ""; 
+           CrittografiaArcaica`Private`tabellaVis$$ = 
+            CrittografiaArcaica`Private`tabellaShiftVigenere[
+             CrittografiaArcaica`Private`testoInput$$, 
+              CrittografiaArcaica`Private`chiaveInput$$]; Null), Background -> 
+          RGBColor[0.2, 0.5, 0.7], ImageSize -> {120, 35}, Appearance -> 
+          Automatic, Evaluator -> Automatic, Method -> "Preemptive"], 
+         TemplateBox[{10}, "Spacer1"], 
+         ButtonBox[
+          StyleBox["\"Pulisci Campi\"", 13, Bold, 
+           GrayLevel[1], StripOnInput -> False], 
+          ButtonFunction :> (CrittografiaArcaica`Private`testoInput$$ = ""; 
+           CrittografiaArcaica`Private`chiaveInput$$ = ""; 
+           CrittografiaArcaica`Private`risultatoCifra$$ = ""; 
+           CrittografiaArcaica`Private`risultatoDecifra$$ = ""; 
+           CrittografiaArcaica`Private`tabellaVis$$ = {}; Null), Background -> 
+          RGBColor[0.65, 0.65, 0.65], ImageSize -> {130, 35}, Appearance -> 
+          Automatic, Evaluator -> Automatic, Method -> "Preemptive"]},
+        "RowDefault"]},
+      {
+       TemplateBox[{8},
+        "Spacer1"]},
+      {
+       DynamicBox[ToBoxes[
+         If[CrittografiaArcaica`Private`risultatoCifra$$ =!= "", 
+          Framed[
+           Column[{
+             Style["Testo cifrato:", 12, Bold, 
+              RGBColor[0.5, 0.2, 0.7]], 
+             Style[CrittografiaArcaica`Private`risultatoCifra$$, 14, Bold]}], 
+           Background -> RGBColor[0.96, 0.92, 1.], RoundingRadius -> 5, 
+           FrameStyle -> RGBColor[0.5, 0.2, 0.7], FrameMargins -> 8], 
+          If[CrittografiaArcaica`Private`risultatoDecifra$$ =!= "", 
+           Framed[
+            Column[{
+              Style["Testo decifrato:", 12, Bold, 
+               RGBColor[0.2, 0.5, 0.7]], 
+              Style[
+              CrittografiaArcaica`Private`risultatoDecifra$$, 14, Bold]}], 
+            Background -> RGBColor[0.92, 0.97, 1.], RoundingRadius -> 5, 
+            FrameStyle -> RGBColor[0.2, 0.5, 0.7], FrameMargins -> 8], ""]], 
+         StandardForm],
+        ImageSizeCache->{
+         99.6533203125, {19.622802734375, 25.278564453125}}]},
+      {
+       TemplateBox[{10},
+        "Spacer1"]},
+      {
+       StyleBox["\<\"Tabella degli shift lettera per lettera:\"\>",
+        StripOnInput->False,
+        FontSize->14,
+        FontWeight->Bold]},
+      {
+       StyleBox["\<\"Mostra come ogni lettera del testo viene spostata dalla \
+lettera della chiave.\"\>",
+        StripOnInput->False,
+        LineColor->GrayLevel[0.5],
+        FrontFaceColor->GrayLevel[0.5],
+        BackFaceColor->GrayLevel[0.5],
+        GraphicsColor->GrayLevel[0.5],
+        FontSize->11,
+        FontSlant->Italic,
+        FontColor->GrayLevel[0.5]]},
+      {
+       DynamicBox[ToBoxes[
+         If[CrittografiaArcaica`Private`tabellaVis$$ =!= {}, 
+          
+          Module[{CrittografiaArcaica`Private`righe$}, 
+           CrittografiaArcaica`Private`righe$ = Map[{
+               Style[
+                Part[#, 1], 13, Bold, Black], 
+               Style[
+                Part[#, 2], 13, Bold, 
+                RGBColor[0.5, 0.2, 0.7]], 
+               Style["+" <> ToString[
+                  Part[#, 3]], 12, 
+                RGBColor[0.2, 0.6, 0.3]]}& , 
+              Take[CrittografiaArcaica`Private`tabellaVis$$, 
+               Min[20, 
+                Length[CrittografiaArcaica`Private`tabellaVis$$]]]]; Grid[
+             Prepend[CrittografiaArcaica`Private`righe$, {
+               Style["Lettera testo", 11, Bold, Gray], 
+               Style["Lettera chiave", 11, Bold, Gray], 
+               Style["Shift", 11, Bold, Gray]}], Frame -> All, 
+             Background -> {None, {
+                RGBColor[0.9, 0.85, 1.], {White}}}, FrameStyle -> LightGray, 
+             Spacings -> {1.5, 0.8}]], 
           Style[
-          MathInfo`Private`stFeedback$$, Bold, 12, FontFamily -> "Arial", 
-           If[
-            StringContainsQ[MathInfo`Private`stFeedback$$, "\[Checkmark]"], 
-            Darker[Green], 
-            Darker[Red]]], Background -> If[
-            StringContainsQ[MathInfo`Private`stFeedback$$, "\[Checkmark]"], 
-            LightGreen, LightRed], FrameStyle -> If[
-            StringContainsQ[MathInfo`Private`stFeedback$$, "\[Checkmark]"], 
-            Green, Red], RoundingRadius -> 4, FrameMargins -> 10, 
-          ImageSize -> {500, Automatic}], ""], StandardForm],
-       ImageSizeCache->{15.6, {0., 8.918}}]}
-    },
-    DefaultBaseStyle->"Column",
-    GridBoxAlignment->{"Columns" -> {{Left}}},
-    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-    GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{0}}}],
-   "Column"],
-  DynamicModuleValues:>{}]], "Input",
- CellChangeTimes->{{3.985167720028557*^9, 3.985167724991712*^9}},
- CellLabel->"",ExpressionUUID->"6a3859a0-1168-4ffd-8732-332044c47c4d"]
+          "(La tabella appare dopo la cifratura o decifratura)", 11, Italic, 
+           Gray]], StandardForm],
+        ImageSizeCache->{225.32470703125, {83.83935546875, 89.4951171875}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{"Columns" -> {{Left}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+     GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{1}}}],
+    "Column"],
+   Background->GrayLevel[0.97],
+   ImageSize->540],
+  DynamicModuleValues:>{}]], "Output",
+ CellChangeTimes->{3.985842911085794*^9},
+ CellLabel->
+  "Out[112]=",ExpressionUUID->"c9cca5dd-b836-42a3-bb34-1eb4d751cd67"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"esercizioUniversaleVigenere", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.985842914440374*^9, 3.9858429144418077`*^9}},
+ CellLabel->
+  "In[113]:=",ExpressionUUID->"0232db6c-5cf2-42bf-8c16-c80446182c19"],
+
+Cell[BoxData[
+ DynamicModuleBox[{CrittografiaArcaica`Private`seed$$ = 54, 
+  CrittografiaArcaica`Private`messaggioCifrato$$ = 
+  "KQZTJW TP ESDWSURMG BLWUCDXG BPPDO DIIIPRRO", 
+  CrittografiaArcaica`Private`chiaveSegreto$$ = "SOLE", 
+  CrittografiaArcaica`Private`messaggioChiaro$$ = 
+  "SCOPRI IL MESSAGGIO NASCOSTO NELLA SEQUENZA", 
+  CrittografiaArcaica`Private`rispostaUtente$$ = "", 
+  CrittografiaArcaica`Private`tentativi$$ = 0, 
+  CrittografiaArcaica`Private`feedbackMsg$$ = "", 
+  CrittografiaArcaica`Private`soluzioneVisibile$$ = True, 
+  CrittografiaArcaica`Private`suggerimentoStep$$ = 0, 
+  CrittografiaArcaica`Private`esercizioGenerato$$ = True}, 
+  PanelBox[
+   TagBox[GridBox[{
+      {
+       StyleBox["\<\"Esercizi \[LongDash] Cifrario di Vigenere\"\>",
+        StripOnInput->False,
+        LineColor->RGBColor[0.5, 0.2, 0.7],
+        FrontFaceColor->RGBColor[0.5, 0.2, 0.7],
+        BackFaceColor->RGBColor[0.5, 0.2, 0.7],
+        GraphicsColor->RGBColor[0.5, 0.2, 0.7],
+        FontSize->18,
+        FontWeight->Bold,
+        FontColor->RGBColor[0.5, 0.2, 0.7]]},
+      {
+       StyleBox["\<\"Decifra il messaggio! Inserisci un Seed e genera il tuo \
+esercizio.\"\>",
+        StripOnInput->False,
+        LineColor->GrayLevel[0.5],
+        FrontFaceColor->GrayLevel[0.5],
+        BackFaceColor->GrayLevel[0.5],
+        GraphicsColor->GrayLevel[0.5],
+        FontSize->12,
+        FontSlant->Italic,
+        FontColor->GrayLevel[0.5]]},
+      {
+       TemplateBox[{8},
+        "Spacer1"]},
+      {
+       TemplateBox[{
+         StyleBox["\"Seed: \"", 13, Bold, StripOnInput -> False], 
+         InputFieldBox[
+          Dynamic[CrittografiaArcaica`Private`seed$$], Number, FieldHint -> 
+          "es. 42", FieldSize -> {8, 1}], 
+         TemplateBox[{8}, "Spacer1"], 
+         ButtonBox[
+          StyleBox["\"Genera Esercizio\"", 13, Bold, 
+           GrayLevel[1], StripOnInput -> False], ButtonFunction :> 
+          Module[{CrittografiaArcaica`Private`ris$}, 
+            CrittografiaArcaica`Private`ris$ = 
+             CrittografiaArcaica`Private`generaEsercizioConSeedVigenere[
+              CrittografiaArcaica`Private`seed$$]; 
+            CrittografiaArcaica`Private`messaggioCifrato$$ = 
+             Part[CrittografiaArcaica`Private`ris$, 1]; 
+            CrittografiaArcaica`Private`chiaveSegreto$$ = 
+             Part[CrittografiaArcaica`Private`ris$, 2]; 
+            CrittografiaArcaica`Private`messaggioChiaro$$ = 
+             Part[CrittografiaArcaica`Private`ris$, 3]; 
+            CrittografiaArcaica`Private`rispostaUtente$$ = ""; 
+            CrittografiaArcaica`Private`tentativi$$ = 0; 
+            CrittografiaArcaica`Private`feedbackMsg$$ = ""; 
+            CrittografiaArcaica`Private`soluzioneVisibile$$ = False; 
+            CrittografiaArcaica`Private`suggerimentoStep$$ = 0; 
+            CrittografiaArcaica`Private`esercizioGenerato$$ = True; Null], 
+          Background -> RGBColor[0.4, 0.1, 0.7], ImageSize -> {160, 35}, 
+          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+          "Preemptive"]},
+        "RowDefault"]},
+      {
+       TemplateBox[{8},
+        "Spacer1"]},
+      {
+       DynamicBox[ToBoxes[
+         If[CrittografiaArcaica`Private`esercizioGenerato$$, 
+          Framed[
+           Column[{
+             Style["Messaggio cifrato (Vigenere):", 12, Bold, 
+              RGBColor[0.5, 0.2, 0.7]], 
+             Style[
+             CrittografiaArcaica`Private`messaggioCifrato$$, 15, Bold, 
+              Black]}], Background -> RGBColor[0.97, 0.93, 1.], 
+           RoundingRadius -> 5, FrameStyle -> RGBColor[0.5, 0.2, 0.7], 
+           FrameMargins -> 8], 
+          Style["(Genera un esercizio per iniziare)", 11, Italic, Gray]], 
+         StandardForm],
+        ImageSizeCache->{
+         429.053466796875, {20.403076171875, 26.058837890625}}]},
+      {
+       TemplateBox[{6},
+        "Spacer1"]},
+      {
+       DynamicBox[ToBoxes[
+         If[CrittografiaArcaica`Private`esercizioGenerato$$, 
+          Column[{
+            Style["Inserisci il testo decifrato:", 12, Bold], 
+            InputField[
+             Dynamic[CrittografiaArcaica`Private`rispostaUtente$$], String, 
+             FieldSize -> {30, 2}, FieldHint -> 
+             "Scrivi il messaggio in chiaro..."]}], ""], StandardForm],
+        ImageSizeCache->{283.72265625, {27.017333984375, 32.673095703125}}]},
+      {
+       TemplateBox[{6},
+        "Spacer1"]},
+      {
+       TemplateBox[{
+         ButtonBox[
+          StyleBox["\"Verifica Risultato\"", 13, Bold, 
+           GrayLevel[1], StripOnInput -> False], ButtonFunction :> 
+          If[CrittografiaArcaica`Private`esercizioGenerato$$, 
+            Increment[CrittografiaArcaica`Private`tentativi$$]; 
+            If[ToUpperCase[CrittografiaArcaica`Private`rispostaUtente$$] === 
+              CrittografiaArcaica`Private`messaggioChiaro$$, 
+              CrittografiaArcaica`Private`feedbackMsg$$ = 
+              "\[Checkmark] Corretto! Ottimo lavoro! Tentativi usati: " <> 
+               ToString[CrittografiaArcaica`Private`tentativi$$] <> ".", 
+              If[
+              CrittografiaArcaica`Private`tentativi$$ >= 3, 
+               CrittografiaArcaica`Private`feedbackMsg$$ = 
+                "\[Cross] Risposta errata. Tentativi esauriti. Premi 'Mostra \
+Soluzione'."; CrittografiaArcaica`Private`soluzioneVisibile$$ = True, 
+               CrittografiaArcaica`Private`feedbackMsg$$ = 
+               "\[Cross] Non corretto. Tentativo " <> 
+                ToString[CrittografiaArcaica`Private`tentativi$$] <> "/3."]]],
+           Background -> RGBColor[0.2, 0.6, 0.3], ImageSize -> {170, 35}, 
+          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+          "Preemptive"], 
+         TemplateBox[{8}, "Spacer1"], 
+         ButtonBox[
+          StyleBox["\"Pulisci Campi\"", 13, Bold, 
+           GrayLevel[1], StripOnInput -> False], 
+          ButtonFunction :> (CrittografiaArcaica`Private`seed$$ = 1; 
+           CrittografiaArcaica`Private`messaggioCifrato$$ = ""; 
+           CrittografiaArcaica`Private`chiaveSegreto$$ = ""; 
+           CrittografiaArcaica`Private`messaggioChiaro$$ = ""; 
+           CrittografiaArcaica`Private`rispostaUtente$$ = ""; 
+           CrittografiaArcaica`Private`tentativi$$ = 0; 
+           CrittografiaArcaica`Private`feedbackMsg$$ = ""; 
+           CrittografiaArcaica`Private`soluzioneVisibile$$ = False; 
+           CrittografiaArcaica`Private`suggerimentoStep$$ = 0; 
+           CrittografiaArcaica`Private`esercizioGenerato$$ = False; Null), 
+          Background -> RGBColor[0.65, 0.65, 0.65], ImageSize -> {140, 35}, 
+          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+          "Preemptive"]},
+        "RowDefault"]},
+      {
+       TemplateBox[{4},
+        "Spacer1"]},
+      {
+       TemplateBox[{
+         ButtonBox[
+          StyleBox["\"Suggerimento\"", 13, Bold, 
+           GrayLevel[1], StripOnInput -> False], ButtonFunction :> 
+          If[CrittografiaArcaica`Private`esercizioGenerato$$, 
+            Increment[CrittografiaArcaica`Private`suggerimentoStep$$]], 
+          Background -> RGBColor[0.8, 0.6, 0.1], ImageSize -> {140, 35}, 
+          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+          "Preemptive"], 
+         TemplateBox[{8}, "Spacer1"], 
+         ButtonBox[
+          StyleBox["\"Mostra Soluzione\"", 13, Bold, 
+           GrayLevel[1], StripOnInput -> False], ButtonFunction :> 
+          If[CrittografiaArcaica`Private`esercizioGenerato$$, 
+            CrittografiaArcaica`Private`soluzioneVisibile$$ = True], 
+          Background -> RGBColor[0.7, 0.2, 0.2], ImageSize -> {160, 35}, 
+          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+          "Preemptive"]},
+        "RowDefault"]},
+      {
+       TemplateBox[{8},
+        "Spacer1"]},
+      {
+       DynamicBox[ToBoxes[
+         If[CrittografiaArcaica`Private`feedbackMsg$$ =!= "", 
+          Framed[
+           Style[CrittografiaArcaica`Private`feedbackMsg$$, 13, Bold, 
+            If[
+             StringStartsQ[
+             CrittografiaArcaica`Private`feedbackMsg$$, "\[Checkmark]"], 
+             RGBColor[0.1, 0.5, 0.1], 
+             RGBColor[0.6, 0.1, 0.1]]], Background -> If[
+             StringStartsQ[
+             CrittografiaArcaica`Private`feedbackMsg$$, "\[Checkmark]"], 
+             RGBColor[0.9, 1., 0.9], 
+             RGBColor[1., 0.9, 0.9]], RoundingRadius -> 5, FrameMargins -> 8],
+           ""], StandardForm],
+        ImageSizeCache->{0., {0., 5.263671875}}]},
+      {
+       DynamicBox[ToBoxes[
+         Which[
+          Or[
+           Not[CrittografiaArcaica`Private`esercizioGenerato$$], 
+           CrittografiaArcaica`Private`suggerimentoStep$$ == 0], "", 
+          CrittografiaArcaica`Private`suggerimentoStep$$ == 1, 
+          Framed[
+           Style[
+           "\[LightBulb] Suggerimento 1: il Cifrario di Vigenere usa una \
+parola chiave che viene ripetuta ciclicamente. Prova a identificare pattern \
+ripetuti nel testo cifrato.", 12, Italic, 
+            RGBColor[0.5, 0.4, 0.]], Background -> RGBColor[1., 0.97, 0.85], 
+           RoundingRadius -> 5, FrameMargins -> 8], 
+          CrittografiaArcaica`Private`suggerimentoStep$$ == 2, 
+          Framed[
+           Style[
+           "\[LightBulb] Suggerimento 2: la lunghezza della chiave e' di " <> 
+            ToString[
+              StringLength[CrittografiaArcaica`Private`chiaveSegreto$$]] <> 
+            " lettere.", 12, Italic, 
+            RGBColor[0.5, 0.4, 0.]], Background -> RGBColor[1., 0.97, 0.85], 
+           RoundingRadius -> 5, FrameMargins -> 8], 
+          CrittografiaArcaica`Private`suggerimentoStep$$ >= 3, 
+          Framed[
+           Style[
+           "\[LightBulb] Suggerimento 3: la prima lettera della chiave e' '" <> 
+            StringTake[CrittografiaArcaica`Private`chiaveSegreto$$, 1] <> 
+            "'.", 12, Italic, 
+            RGBColor[0.5, 0.4, 0.]], Background -> RGBColor[1., 0.97, 0.85], 
+           RoundingRadius -> 5, FrameMargins -> 8]], StandardForm],
+        ImageSizeCache->{0., {0., 5.263671875}}]},
+      {
+       DynamicBox[ToBoxes[
+         If[
+          And[
+          CrittografiaArcaica`Private`soluzioneVisibile$$, 
+           CrittografiaArcaica`Private`esercizioGenerato$$], 
+          Framed[
+           Column[{
+             Style["Soluzione:", 13, Bold, 
+              RGBColor[0.6, 0.1, 0.1]], 
+             Row[{
+               Style["Chiave: ", 12, Bold], 
+               Style[CrittografiaArcaica`Private`chiaveSegreto$$, 13, Bold]}], 
+             Row[{
+               Style["Testo in chiaro: ", 12, Bold], 
+               Style[
+               CrittografiaArcaica`Private`messaggioChiaro$$, 13, Bold]}]}], 
+           Background -> RGBColor[1., 0.93, 0.93], RoundingRadius -> 5, 
+           FrameStyle -> RGBColor[0.6, 0.1, 0.1], FrameMargins -> 10], ""], 
+         StandardForm],
+        ImageSizeCache->{467.64013671875, {29.3974609375, 35.05322265625}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{"Columns" -> {{Left}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+     GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{1}}}],
+    "Column"],
+   Background->GrayLevel[0.97],
+   ImageSize->540],
+  DynamicModuleValues:>{}]], "Output",
+ CellChangeTimes->{3.9858429154702272`*^9},
+ CellLabel->
+  "Out[113]=",ExpressionUUID->"5ec99255-09ef-43e5-b904-dddead0c9035"]
+}, Open  ]]
 },
 WindowSize->{808, 708},
-WindowMargins->{{Automatic, -10}, {28, Automatic}},
+WindowMargins->{{Automatic, 24}, {19, Automatic}},
 FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
 StyleDefinitions->"Default.nb",
-ExpressionUUID->"077ac20c-2e05-439c-9441-94e70fd44ed5"
+ExpressionUUID->"966644ca-8e0a-4b9c-89c6-d8dab25bf065"
 ]
 (* End of Notebook Content *)
 
@@ -2274,10 +972,26 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[554, 20, 70935, 1742, 8118, "Input",ExpressionUUID->"56f7de27-3daa-4c28-a722-ca974eefc6e6"],
-Cell[71492, 1764, 17502, 402, 416, "Input",ExpressionUUID->"3498a427-cc84-486f-b2b1-cbfc78116c2b"],
-Cell[88997, 2168, 2038, 44, 36, "Input",ExpressionUUID->"70e5bc70-f01a-4ca4-9890-855382ace065"],
-Cell[91038, 2214, 2045, 43, 36, "Input",ExpressionUUID->"6a3859a0-1168-4ffd-8732-332044c47c4d"]
+Cell[CellGroupData[{
+Cell[576, 22, 304, 6, 49, "Input",ExpressionUUID->"2091b4c8-52ec-4d22-baee-db8dc72c2995"],
+Cell[883, 30, 266, 4, 53, "Output",ExpressionUUID->"dac558b8-ab28-43db-9822-2ecdabd8c6dd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1186, 39, 214, 4, 29, "Input",ExpressionUUID->"cfa166f1-84e4-482d-9daf-10f893691298"],
+Cell[1403, 45, 7408, 184, 1120, "Output",ExpressionUUID->"e4671284-39d4-49a0-9037-117ac7b953f1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8848, 234, 226, 4, 29, "Input",ExpressionUUID->"18a3ebb8-61c0-4350-b51f-fe7a8d3c1f97"],
+Cell[9077, 240, 11581, 257, 559, "Output",ExpressionUUID->"53233862-ef77-4c90-b179-373c5bdbfb72"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20695, 502, 216, 4, 29, "Input",ExpressionUUID->"89e8229c-9f00-434a-8f46-6cf7495fad14"],
+Cell[20914, 508, 7845, 184, 603, "Output",ExpressionUUID->"c9cca5dd-b836-42a3-bb34-1eb4d751cd67"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28796, 697, 226, 4, 29, "Input",ExpressionUUID->"0232db6c-5cf2-42bf-8c16-c80446182c19"],
+Cell[29025, 703, 11430, 251, 560, "Output",ExpressionUUID->"5ec99255-09ef-43e5-b904-dddead0c9035"]
+}, Open  ]]
 }
 ]
 *)
