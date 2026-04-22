@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[   2307598,      38409]
-NotebookOptionsPosition[   2300512,      38280]
-NotebookOutlinePosition[   2300906,      38296]
-CellTagsIndexPosition[   2300863,      38293]
+NotebookDataLength[   2263446,      37456]
+NotebookOptionsPosition[   2256010,      37315]
+NotebookOutlinePosition[   2256404,      37331]
+CellTagsIndexPosition[   2256361,      37328]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -36630,27 +36630,15 @@ Fuligni (1,C)\n\nMattia Furini(1,?)\n\nMohamed Samir Haffoudhi(1,?)"
 f4c77e19bb88"],
 
 Cell[BoxData[{
- RowBox[{"SetDirectory", "[", 
-  RowBox[{"NotebookDirectory", "[", "]"}], "]"}], "\n", 
- RowBox[{"<<", "CrittografiaArcaica.m"}]}], "Input",
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"<<", "CrittografiaArcaica.m"}], ";"}]}], "Input",
  CellOpen->False,
- CellChangeTimes->{3.985855607156415*^9, 3.985855661189492*^9},
- CellLabel->"In[73]:=",ExpressionUUID->"afb41630-5f2e-472e-9e41-fdb6bdfdcacd"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData["\"\</Users/matteo.boscherini/Documents/GitHub/MC-Project\>\""], \
-"Input",
- CellChangeTimes->{3.9858752916227493`*^9},
+ CellChangeTimes->{3.985877664579048*^9},
  CellLabel->
-  "In[284]:=",ExpressionUUID->"3f58e06f-b841-4c01-828d-91a068c86238"],
-
-Cell[BoxData["\<\"/Users/matteo.boscherini/Documents/GitHub/MC-Project\"\>"], \
-"Output",
- CellChangeTimes->{3.985875291724622*^9},
- CellLabel->
-  "Out[284]=",ExpressionUUID->"bbab9496-cc47-44e9-9c48-c461066382ed"]
-}, Open  ]],
+  "In[397]:=",ExpressionUUID->"e2e30282-1437-45e3-85e0-549d957199fa"],
 
 Cell[CellGroupData[{
 
@@ -36849,230 +36837,40 @@ Cifra o Decifra. Il bottone Pulisci Campi riporta tutto allo stato iniziale.\
   3.985876387489925*^9}},ExpressionUUID->"639a43dc-03a1-427d-8193-\
 569105789b66"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
- DynamicModuleBox[{CrittografiaArcaica`Private`testoInput$$ = "CIAO", 
-  CrittografiaArcaica`Private`shiftLab$$ = 3, 
-  CrittografiaArcaica`Private`risultatoCifra$$ = "FLDR", 
-  CrittografiaArcaica`Private`risultatoDecifra$$ = "", 
-  CrittografiaArcaica`Private`avvisoTesto$$ = ""}, 
-  PanelBox[
-   TagBox[GridBox[{
-      {
-       StyleBox["\<\"Laboratorio Libero \[LongDash] Cifrario di Cesare\"\>",
-        StripOnInput->False,
-        LineColor->RGBColor[0.2, 0.4, 0.7],
-        FrontFaceColor->RGBColor[0.2, 0.4, 0.7],
-        BackFaceColor->RGBColor[0.2, 0.4, 0.7],
-        GraphicsColor->RGBColor[0.2, 0.4, 0.7],
-        FontSize->18,
-        FontWeight->Bold,
-        FontColor->RGBColor[0.2, 0.4, 0.7]]},
-      {
-       StyleBox["\<\"Inserisci un testo (solo lettere, senza spazi), scegli \
-lo shift e cifra o decifra.\"\>",
-        StripOnInput->False,
-        LineColor->GrayLevel[0.5],
-        FrontFaceColor->GrayLevel[0.5],
-        BackFaceColor->GrayLevel[0.5],
-        GraphicsColor->GrayLevel[0.5],
-        FontSize->12,
-        FontSlant->Italic,
-        FontColor->GrayLevel[0.5]]},
-      {
-       TemplateBox[{8},
-        "Spacer1"]},
-      {
-       TemplateBox[{
-         StyleBox["\"Testo: \"", 13, Bold, StripOnInput -> False], 
-         InputFieldBox[
-          Dynamic[CrittografiaArcaica`Private`testoInput$$], String, 
-          FieldHint -> "Solo lettere (es. CIAO)", FieldSize -> {30, 2}], 
-         TemplateBox[{8}, "Spacer1"], 
-         DynamicBox[
-          ToBoxes[
-           If[
-            And[CrittografiaArcaica`Private`testoInput$$ =!= "", 
-             Not[
-              CrittografiaArcaica`Private`soloLettere[
-              CrittografiaArcaica`Private`testoInput$$]]], 
-            Style["! Solo lettere, senza spazi", 11, Bold, 
-             RGBColor[0.8, 0.2, 0.]], ""], StandardForm], 
-          ImageSizeCache -> {0., {0., 5.263671875}}]},
-        "RowDefault"]},
-      {
-       TemplateBox[{4},
-        "Spacer1"]},
-      {
-       TemplateBox[{
-         StyleBox["\"Shift (k): \"", 13, Bold, StripOnInput -> False], 
-         SliderBox[
-          Dynamic[CrittografiaArcaica`Private`shiftLab$$], {0, 25, 1}, 
-          ImageSize -> 200], 
-         TemplateBox[{8}, "Spacer1"], 
-         DynamicBox[
-          ToBoxes[
-           Style[
-            ToString[CrittografiaArcaica`Private`shiftLab$$], 15, Bold, 
-            RGBColor[0.7, 0.2, 0.2]], StandardForm], 
-          ImageSizeCache -> {9.7998046875, {0.234375, 10.80322265625}}]},
-        "RowDefault"]},
-      {
-       TemplateBox[{6},
-        "Spacer1"]},
-      {
-       TemplateBox[{
-         ButtonBox[
-          StyleBox["\"Cifra \[RightArrow]\"", 13, Bold, 
-           GrayLevel[1], StripOnInput -> False], ButtonFunction :> If[
-            Or[CrittografiaArcaica`Private`testoInput$$ === "", 
-             Not[
-              CrittografiaArcaica`Private`soloLettere[
-              CrittografiaArcaica`Private`testoInput$$]]], 
-            CrittografiaArcaica`Private`avvisoTesto$$ = 
-            "Inserisci un testo valido (solo lettere, senza spazi).", 
-            CrittografiaArcaica`Private`avvisoTesto$$ = ""; 
-            CrittografiaArcaica`Private`risultatoCifra$$ = 
-             CrittografiaArcaica`Private`cifraCesare[
-              CrittografiaArcaica`Private`testoInput$$, 
-               CrittografiaArcaica`Private`shiftLab$$]; 
-            CrittografiaArcaica`Private`risultatoDecifra$$ = ""; Null], 
-          Background -> RGBColor[0.2, 0.6, 0.3], ImageSize -> {120, 35}, 
-          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
-          "Preemptive"], 
-         TemplateBox[{10}, "Spacer1"], 
-         ButtonBox[
-          StyleBox["\"\[LeftArrow] Decifra\"", 13, Bold, 
-           GrayLevel[1], StripOnInput -> False], ButtonFunction :> If[
-            Or[CrittografiaArcaica`Private`testoInput$$ === "", 
-             Not[
-              CrittografiaArcaica`Private`soloLettere[
-              CrittografiaArcaica`Private`testoInput$$]]], 
-            CrittografiaArcaica`Private`avvisoTesto$$ = 
-            "Inserisci un testo valido (solo lettere, senza spazi).", 
-            CrittografiaArcaica`Private`avvisoTesto$$ = ""; 
-            CrittografiaArcaica`Private`risultatoDecifra$$ = 
-             CrittografiaArcaica`Private`decifraCesare[
-              CrittografiaArcaica`Private`testoInput$$, 
-               CrittografiaArcaica`Private`shiftLab$$]; 
-            CrittografiaArcaica`Private`risultatoCifra$$ = ""; Null], 
-          Background -> RGBColor[0.5, 0.2, 0.7], ImageSize -> {120, 35}, 
-          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
-          "Preemptive"], 
-         TemplateBox[{10}, "Spacer1"], 
-         ButtonBox[
-          StyleBox["\"Pulisci Campi\"", 13, Bold, 
-           GrayLevel[1], StripOnInput -> False], 
-          ButtonFunction :> (CrittografiaArcaica`Private`testoInput$$ = ""; 
-           CrittografiaArcaica`Private`shiftLab$$ = 3; 
-           CrittografiaArcaica`Private`risultatoCifra$$ = ""; 
-           CrittografiaArcaica`Private`risultatoDecifra$$ = ""; 
-           CrittografiaArcaica`Private`avvisoTesto$$ = ""; Null), Background -> 
-          RGBColor[0.5, 0.5, 0.5], ImageSize -> {130, 35}, Appearance -> 
-          Automatic, Evaluator -> Automatic, Method -> "Preemptive"]},
-        "RowDefault"]},
-      {
-       TemplateBox[{4},
-        "Spacer1"]},
-      {
-       DynamicBox[ToBoxes[
-         If[CrittografiaArcaica`Private`avvisoTesto$$ =!= "", 
-          Style[CrittografiaArcaica`Private`avvisoTesto$$, 12, Bold, 
-           RGBColor[0.75, 0.1, 0.]], ""], StandardForm],
-        ImageSizeCache->{0., {0., 5.263671875}}]},
-      {
-       TemplateBox[{4},
-        "Spacer1"]},
-      {
-       DynamicBox[ToBoxes[
-         If[CrittografiaArcaica`Private`risultatoCifra$$ =!= "", 
-          Framed[
-           Column[{
-             Style["Testo cifrato:", 12, Bold, 
-              RGBColor[0.2, 0.6, 0.3]], 
-             Style[CrittografiaArcaica`Private`risultatoCifra$$, 14, Bold]}], 
-           Background -> RGBColor[0.92, 1., 0.93], RoundingRadius -> 5, 
-           FrameStyle -> RGBColor[0.2, 0.6, 0.3], FrameMargins -> 8], ""], 
-         StandardForm],
-        ImageSizeCache->{
-         99.6533203125, {19.622802734375, 25.278564453125}}]},
-      {
-       DynamicBox[ToBoxes[
-         If[CrittografiaArcaica`Private`risultatoDecifra$$ =!= "", 
-          Framed[
-           Column[{
-             Style["Testo decifrato:", 12, Bold, 
-              RGBColor[0.5, 0.2, 0.7]], 
-             Style[
-             CrittografiaArcaica`Private`risultatoDecifra$$, 14, Bold]}], 
-           Background -> RGBColor[0.97, 0.93, 1.], RoundingRadius -> 5, 
-           FrameStyle -> RGBColor[0.5, 0.2, 0.7], FrameMargins -> 8], ""], 
-         StandardForm],
-        ImageSizeCache->{0., {0., 5.263671875}}]},
-      {
-       TemplateBox[{10},
-        "Spacer1"]},
-      {
-       StyleBox["\<\"Ruota di Cesare \[LongDash] usa lo slider per puntare \
-una lettera dell'anello esterno:\"\>",
-        StripOnInput->False,
-        FontSize->13,
-        FontWeight->Bold]},
-      {
-       StyleBox["\<\"La lettera a destra della freccia mostra la \
-corrispondente lettera cifrata.\"\>",
-        StripOnInput->False,
-        LineColor->GrayLevel[0.5],
-        FrontFaceColor->GrayLevel[0.5],
-        BackFaceColor->GrayLevel[0.5],
-        GraphicsColor->GrayLevel[0.5],
-        FontSize->11,
-        FontSlant->Italic,
-        FontColor->GrayLevel[0.5]]},
-      {
-       DynamicBox[ToBoxes[
-         CrittografiaArcaica`Private`ruotaInterattiva[
-         CrittografiaArcaica`Private`shiftLab$$], StandardForm],
-        ImageSizeCache->{
-         353.40771484375, {172.172119140625, 177.827880859375}}]},
-      {
-       TemplateBox[{10},
-        "Spacer1"]},
-      {
-       StyleBox["\<\"Analisi delle frequenze:\"\>",
-        StripOnInput->False,
-        FontSize->13,
-        FontWeight->Bold]},
-      {
-       StyleBox["\<\"Barre blu = frequenze nel testo; curva arancione = \
-italiano standard (De Mauro).\"\>",
-        StripOnInput->False,
-        LineColor->GrayLevel[0.5],
-        FrontFaceColor->GrayLevel[0.5],
-        BackFaceColor->GrayLevel[0.5],
-        GraphicsColor->GrayLevel[0.5],
-        FontSize->11,
-        FontSlant->Italic,
-        FontColor->GrayLevel[0.5]]},
-      {
-       DynamicBox[ToBoxes[
-         If[CrittografiaArcaica`Private`risultatoCifra$$ =!= "", 
-          CrittografiaArcaica`Private`graficaFrequenze[
-          CrittografiaArcaica`Private`risultatoCifra$$], 
-          Style[
-          "(Il grafico appare dopo aver cifrato un testo)", 11, Italic, 
-           Gray]], StandardForm],
-        ImageSizeCache->{480., {202.172119140625, 207.827880859375}}]}
-     },
-     DefaultBaseStyle->"Column",
-     GridBoxAlignment->{"Columns" -> {{Left}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-     GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{1}}}],
-    "Column"],
-   Background->GrayLevel[0.97],
-   ImageSize->560],
-  DynamicModuleValues:>{}]], "Output",
- CellChangeTimes->{3.985855825533556*^9},
- CellLabel->"Out[75]=",ExpressionUUID->"abac49a4-3d48-40b5-85c0-0bbd608e28f8"]
+ RowBox[{"bottoneLaboratorioCesare", "[", "]"}]], "Input",
+ CellOpen->False,
+ CellChangeTimes->{3.9858777202942877`*^9},
+ CellLabel->
+  "In[399]:=",ExpressionUUID->"8943317c-063d-4c18-ab01-b10dad7c0367"],
+
+Cell[BoxData[
+ ButtonBox[
+  StyleBox["\<\"\[RightTriangle]  Apri il Laboratorio Libero \[LongDash] \
+Cifrario di Cesare\"\>",
+   StripOnInput->False,
+   LineColor->GrayLevel[1],
+   FrontFaceColor->GrayLevel[1],
+   BackFaceColor->GrayLevel[1],
+   GraphicsColor->GrayLevel[1],
+   FontSize->15,
+   FontWeight->Bold,
+   FontColor->GrayLevel[1]],
+  Appearance->Automatic,
+  Background->RGBColor[0.2, 0.4, 0.7],
+  ButtonFunction:>CreateDocument[{
+     ExpressionCell[
+      CrittografiaArcaica`laboratorioCesare[], "Output"]}],
+  Evaluator->Automatic,
+  ImageSize->{460, 50},
+  Method->"Preemptive"]], "Output",
+ CellChangeTimes->{{3.9858778205971518`*^9, 3.9858778383059053`*^9}, 
+   3.985877869429102*^9},
+ CellLabel->
+  "Out[399]=",ExpressionUUID->"26508c23-ea1b-4c93-9f05-fb83bba8b510"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
@@ -37117,282 +36915,40 @@ aiuto progressivo).
   3.985876487275544*^9},ExpressionUUID->"b1783285-fb87-4222-967a-\
 93a52ae84806"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
- DynamicModuleBox[{CrittografiaArcaica`Private`seed$$ = 42, 
-  CrittografiaArcaica`Private`messaggioCifrato$$ = "OTKBTGST", 
-  CrittografiaArcaica`Private`shiftSegreto$$ = 19, 
-  CrittografiaArcaica`Private`messaggioChiaro$$ = "VARIANZA", 
-  CrittografiaArcaica`Private`rispostaUtente$$ = "", 
-  CrittografiaArcaica`Private`tentativi$$ = 1, 
-  CrittografiaArcaica`Private`feedbackMsg$$ = 
-  "\[Cross] Non corretto \[LongDash] Tentativo 1/3.  Suggerimento: la lettera \
-piu' frequente in italiano e' la E.", 
-  CrittografiaArcaica`Private`soluzioneVisibile$$ = False, 
-  CrittografiaArcaica`Private`suggerimentoStep$$ = 3, 
-  CrittografiaArcaica`Private`esercizioGenerato$$ = True}, 
-  PanelBox[
-   TagBox[GridBox[{
-      {
-       StyleBox["\<\"Esercizi \[LongDash] Cifrario di Cesare\"\>",
-        StripOnInput->False,
-        LineColor->RGBColor[0.2, 0.4, 0.7],
-        FrontFaceColor->RGBColor[0.2, 0.4, 0.7],
-        BackFaceColor->RGBColor[0.2, 0.4, 0.7],
-        GraphicsColor->RGBColor[0.2, 0.4, 0.7],
-        FontSize->18,
-        FontWeight->Bold,
-        FontColor->RGBColor[0.2, 0.4, 0.7]]},
-      {
-       StyleBox["\<\"Ti viene dato un testo cifrato: trova il testo originale \
-in chiaro!\"\>",
-        StripOnInput->False,
-        LineColor->GrayLevel[0.5],
-        FrontFaceColor->GrayLevel[0.5],
-        BackFaceColor->GrayLevel[0.5],
-        GraphicsColor->GrayLevel[0.5],
-        FontSize->12,
-        FontSlant->Italic,
-        FontColor->GrayLevel[0.5]]},
-      {
-       TemplateBox[{8},
-        "Spacer1"]},
-      {
-       TemplateBox[{
-         StyleBox["\"Seed: \"", 13, Bold, StripOnInput -> False], 
-         InputFieldBox[
-          Dynamic[CrittografiaArcaica`Private`seed$$], Number, 
-          FieldSize -> {8, 1}, FieldHint -> "es. 42"], 
-         TemplateBox[{8}, "Spacer1"], 
-         ButtonBox[
-          StyleBox["\"Genera Esercizio\"", 13, Bold, 
-           GrayLevel[1], StripOnInput -> False], ButtonFunction :> 
-          Module[{CrittografiaArcaica`Private`ris$}, 
-            CrittografiaArcaica`Private`ris$ = 
-             CrittografiaArcaica`Private`generaEsercizioConSeedCesare[
-              CrittografiaArcaica`Private`seed$$]; 
-            CrittografiaArcaica`Private`messaggioCifrato$$ = 
-             Part[CrittografiaArcaica`Private`ris$, 1]; 
-            CrittografiaArcaica`Private`shiftSegreto$$ = 
-             Part[CrittografiaArcaica`Private`ris$, 2]; 
-            CrittografiaArcaica`Private`messaggioChiaro$$ = 
-             Part[CrittografiaArcaica`Private`ris$, 3]; 
-            CrittografiaArcaica`Private`rispostaUtente$$ = ""; 
-            CrittografiaArcaica`Private`tentativi$$ = 0; 
-            CrittografiaArcaica`Private`feedbackMsg$$ = ""; 
-            CrittografiaArcaica`Private`soluzioneVisibile$$ = False; 
-            CrittografiaArcaica`Private`suggerimentoStep$$ = 0; 
-            CrittografiaArcaica`Private`esercizioGenerato$$ = True; Null], 
-          Background -> RGBColor[0.15, 0.5, 0.8], ImageSize -> {160, 35}, 
-          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
-          "Preemptive"]},
-        "RowDefault"]},
-      {
-       TemplateBox[{8},
-        "Spacer1"]},
-      {
-       DynamicBox[ToBoxes[
-         If[CrittografiaArcaica`Private`esercizioGenerato$$, 
-          Framed[
-           Column[{
-             Style["Testo cifrato da decifrare:", 12, Bold, 
-              RGBColor[0.7, 0.3, 0.1]], 
-             Style[
-             CrittografiaArcaica`Private`messaggioCifrato$$, 15, Bold, 
-              Black]}], Background -> RGBColor[1., 0.95, 0.88], 
-           RoundingRadius -> 5, FrameStyle -> RGBColor[0.7, 0.3, 0.1], 
-           FrameMargins -> 8], 
-          Style["(Genera un esercizio per iniziare)", 11, Italic, Gray]], 
-         StandardForm],
-        ImageSizeCache->{175.875, {20.110595703125, 25.766357421875}}]},
-      {
-       TemplateBox[{6},
-        "Spacer1"]},
-      {
-       DynamicBox[ToBoxes[
-         If[CrittografiaArcaica`Private`esercizioGenerato$$, 
-          Column[{
-            Style[
-            "Inserisci il testo decifrato (solo lettere, senza spazi):", 12, 
-             Bold], 
-            InputField[
-             Dynamic[CrittografiaArcaica`Private`rispostaUtente$$], String, 
-             FieldSize -> {30, 2}, FieldHint -> 
-             "Scrivi qui la tua risposta..."]}], ""], StandardForm],
-        ImageSizeCache->{317.2958984375, {27.315673828125, 32.971435546875}}]},
-      {
-       TemplateBox[{6},
-        "Spacer1"]},
-      {
-       TemplateBox[{
-         ButtonBox[
-          StyleBox["\"Verifica Risultato\"", 13, Bold, 
-           GrayLevel[1], StripOnInput -> False], ButtonFunction :> 
-          If[CrittografiaArcaica`Private`esercizioGenerato$$, 
-            Increment[CrittografiaArcaica`Private`tentativi$$]; If[ToUpperCase[
-                StringReplace[
-                 StringTrim[CrittografiaArcaica`Private`rispostaUtente$$], 
-                 " " -> ""]] === 
-              StringReplace[
-               CrittografiaArcaica`Private`messaggioChiaro$$, " " -> ""], 
-              CrittografiaArcaica`Private`feedbackMsg$$ = (
-                "\[Checkmark] Corretto! Hai impiegato " <> 
-                ToString[CrittografiaArcaica`Private`tentativi$$]) <> 
-               If[CrittografiaArcaica`Private`tentativi$$ == 1, " tentativo.",
-                  " tentativi."], 
-              If[
-              CrittografiaArcaica`Private`tentativi$$ >= 3, 
-               CrittografiaArcaica`Private`feedbackMsg$$ = 
-                "\[Cross] Risposta errata. Tentativi esauriti."; 
-               CrittografiaArcaica`Private`soluzioneVisibile$$ = True, 
-               CrittografiaArcaica`Private`suggerimentoStep$$ = 
-                CrittografiaArcaica`Private`tentativi$$; 
-               CrittografiaArcaica`Private`feedbackMsg$$ = ((
-                   "\[Cross] Non corretto \[LongDash] Tentativo " <> 
-                   ToString[CrittografiaArcaica`Private`tentativi$$]) <> 
-                  "/3.  ") <> 
-                 Which[CrittografiaArcaica`Private`tentativi$$ == 1, 
-                   "Suggerimento: la lettera piu' frequente in italiano e' la \
-E.", CrittografiaArcaica`Private`tentativi$$ == 
-                   2, ((("Suggerimento: lo shift e' nell'intervallo [" <> 
-                    ToString[
-                    Max[1, CrittografiaArcaica`Private`shiftSegreto$$ - 4]]) <> 
-                    ", ") <> ToString[
-                    Min[25, CrittografiaArcaica`Private`shiftSegreto$$ + 4]]) <> 
-                   "].", True, ""]]]], Background -> RGBColor[0.2, 0.6, 0.3], 
-          ImageSize -> {170, 35}, Appearance -> Automatic, Evaluator -> 
-          Automatic, Method -> "Preemptive"], 
-         TemplateBox[{8}, "Spacer1"], 
-         ButtonBox[
-          StyleBox["\"Pulisci Campi\"", 13, Bold, 
-           GrayLevel[1], StripOnInput -> False], 
-          ButtonFunction :> (CrittografiaArcaica`Private`seed$$ = 42; 
-           CrittografiaArcaica`Private`messaggioCifrato$$ = ""; 
-           CrittografiaArcaica`Private`shiftSegreto$$ = 0; 
-           CrittografiaArcaica`Private`messaggioChiaro$$ = ""; 
-           CrittografiaArcaica`Private`rispostaUtente$$ = ""; 
-           CrittografiaArcaica`Private`tentativi$$ = 0; 
-           CrittografiaArcaica`Private`feedbackMsg$$ = ""; 
-           CrittografiaArcaica`Private`soluzioneVisibile$$ = False; 
-           CrittografiaArcaica`Private`suggerimentoStep$$ = 0; 
-           CrittografiaArcaica`Private`esercizioGenerato$$ = False; Null), 
-          Background -> RGBColor[0.5, 0.5, 0.5], ImageSize -> {140, 35}, 
-          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
-          "Preemptive"]},
-        "RowDefault"]},
-      {
-       TemplateBox[{4},
-        "Spacer1"]},
-      {
-       TemplateBox[{
-         ButtonBox[
-          StyleBox["\"Suggerimento\"", 13, Bold, 
-           GrayLevel[1], StripOnInput -> False], ButtonFunction :> If[
-            And[
-            CrittografiaArcaica`Private`esercizioGenerato$$, 
-             CrittografiaArcaica`Private`suggerimentoStep$$ < 3], 
-            Increment[CrittografiaArcaica`Private`suggerimentoStep$$]], 
-          Background -> RGBColor[0.8, 0.6, 0.1], ImageSize -> {140, 35}, 
-          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
-          "Preemptive"], 
-         TemplateBox[{8}, "Spacer1"], 
-         ButtonBox[
-          StyleBox["\"Mostra Soluzione\"", 13, Bold, 
-           GrayLevel[1], StripOnInput -> False], ButtonFunction :> 
-          If[CrittografiaArcaica`Private`esercizioGenerato$$, 
-            CrittografiaArcaica`Private`soluzioneVisibile$$ = True], 
-          Background -> RGBColor[0.7, 0.2, 0.2], ImageSize -> {160, 35}, 
-          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
-          "Preemptive"]},
-        "RowDefault"]},
-      {
-       TemplateBox[{8},
-        "Spacer1"]},
-      {
-       DynamicBox[ToBoxes[
-         If[CrittografiaArcaica`Private`feedbackMsg$$ =!= "", 
-          Framed[
-           Style[CrittografiaArcaica`Private`feedbackMsg$$, 12, 
-            If[
-             StringStartsQ[
-             CrittografiaArcaica`Private`feedbackMsg$$, "\[Checkmark]"], 
-             RGBColor[0.1, 0.5, 0.1], 
-             RGBColor[0.5, 0.1, 0.1]]], Background -> If[
-             StringStartsQ[
-             CrittografiaArcaica`Private`feedbackMsg$$, "\[Checkmark]"], 
-             RGBColor[0.9, 1., 0.9], 
-             RGBColor[1., 0.92, 0.92]], RoundingRadius -> 5, FrameMargins -> 
-           8], ""], StandardForm],
-        ImageSizeCache->{518.7197265625, {13.238525390625, 18.894287109375}}]},
-      {
-       DynamicBox[ToBoxes[
-         Which[
-          Or[
-           Not[CrittografiaArcaica`Private`esercizioGenerato$$], 
-           CrittografiaArcaica`Private`suggerimentoStep$$ == 0], "", 
-          CrittografiaArcaica`Private`suggerimentoStep$$ == 1, 
-          Framed[
-           Style[
-           "\[LightBulb] Suggerimento 1: la lettera piu' frequente in \
-italiano e' la E. Conta le lettere nel testo cifrato: quella piu' frequente \
-probabilmente corrisponde alla E.", 12, Italic, 
-            RGBColor[0.5, 0.4, 0.]], Background -> RGBColor[1., 0.97, 0.85], 
-           RoundingRadius -> 5, FrameMargins -> 8], 
-          CrittografiaArcaica`Private`suggerimentoStep$$ == 2, 
-          Framed[
-           
-           Style[(((
-               "\[LightBulb] Suggerimento 2: lo shift e' nell'intervallo [" <> 
-               ToString[
-                 Max[1, CrittografiaArcaica`Private`shiftSegreto$$ - 4]]) <> 
-              ", ") <> ToString[
-               Min[25, CrittografiaArcaica`Private`shiftSegreto$$ + 4]]) <> 
-            "].", 12, Italic, 
-            RGBColor[0.5, 0.4, 0.]], Background -> RGBColor[1., 0.97, 0.85], 
-           RoundingRadius -> 5, FrameMargins -> 8], 
-          CrittografiaArcaica`Private`suggerimentoStep$$ >= 3, 
-          Framed[
-           
-           Style[("\[LightBulb] Suggerimento 3: lo shift esatto e' " <> 
-             ToString[CrittografiaArcaica`Private`shiftSegreto$$]) <> 
-            ". Usa il Laboratorio per verificare.", 12, Italic, 
-            RGBColor[0.5, 0.4, 0.]], Background -> RGBColor[1., 0.97, 0.85], 
-           RoundingRadius -> 5, FrameMargins -> 8]], StandardForm],
-        ImageSizeCache->{
-         427.38897722705076`, {13.238525390625, 18.894287109375}}]},
-      {
-       DynamicBox[ToBoxes[
-         If[
-          And[
-          CrittografiaArcaica`Private`soluzioneVisibile$$, 
-           CrittografiaArcaica`Private`esercizioGenerato$$], 
-          Framed[
-           Column[{
-             Style["Soluzione:", 13, Bold, 
-              RGBColor[0.6, 0.1, 0.1]], 
-             Row[{
-               Style["Shift: ", 12, Bold], 
-               Style[
-                ToString[CrittografiaArcaica`Private`shiftSegreto$$], 13, 
-                Bold]}], 
-             Row[{
-               Style["Testo in chiaro: ", 12, Bold], 
-               Style[
-               CrittografiaArcaica`Private`messaggioChiaro$$, 13, Bold]}]}], 
-           Background -> RGBColor[1., 0.93, 0.93], RoundingRadius -> 5, 
-           FrameStyle -> RGBColor[0.6, 0.1, 0.1], FrameMargins -> 10], ""], 
-         StandardForm],
-        ImageSizeCache->{0., {0., 5.263671875}}]}
-     },
-     DefaultBaseStyle->"Column",
-     GridBoxAlignment->{"Columns" -> {{Left}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-     GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{1}}}],
-    "Column"],
-   Background->GrayLevel[0.97],
-   ImageSize->560],
-  DynamicModuleValues:>{}]], "Output",
- CellChangeTimes->{3.985855865348803*^9},
- CellLabel->"Out[76]=",ExpressionUUID->"33de8836-c72b-4bfc-aa99-ae7ae5686e54"]
+ RowBox[{"bottoneEserciziCesare", "[", "]"}]], "Input",
+ CellOpen->False,
+ CellChangeTimes->{3.985877741975984*^9},
+ CellLabel->
+  "In[400]:=",ExpressionUUID->"64e4f835-77af-439b-bea8-01ef09f30798"],
+
+Cell[BoxData[
+ ButtonBox[
+  StyleBox["\<\"\[RightTriangle]  Apri gli Esercizi \[LongDash] Cifrario di \
+Cesare\"\>",
+   StripOnInput->False,
+   LineColor->GrayLevel[1],
+   FrontFaceColor->GrayLevel[1],
+   BackFaceColor->GrayLevel[1],
+   GraphicsColor->GrayLevel[1],
+   FontSize->15,
+   FontWeight->Bold,
+   FontColor->GrayLevel[1]],
+  Appearance->Automatic,
+  Background->RGBColor[0.15, 0.55, 0.25],
+  ButtonFunction:>CreateDocument[{
+     ExpressionCell[
+      CrittografiaArcaica`esercizioUniversaleCesare[], "Output"]}],
+  Evaluator->Automatic,
+  ImageSize->{460, 50},
+  Method->"Preemptive"]], "Output",
+ CellChangeTimes->{{3.9858778205995007`*^9, 3.985877838307952*^9}, 
+   3.985877869431362*^9},
+ CellLabel->
+  "Out[400]=",ExpressionUUID->"30998c3f-cdc9-4725-84fe-13bce0ddaa6e"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -37481,298 +37037,40 @@ Decifra. Il bottone Pulisci Campi ripristina lo stato iniziale.\
   3.9858765542584677`*^9},ExpressionUUID->"d8726d0f-759a-43b5-bdec-\
 25207f343437"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
- DynamicModuleBox[{CrittografiaArcaica`Private`testoInput$$ = "", 
-  CrittografiaArcaica`Private`chiaveInput$$ = "", 
-  CrittografiaArcaica`Private`risultatoCifra$$ = "", 
-  CrittografiaArcaica`Private`risultatoDecifra$$ = "", 
-  CrittografiaArcaica`Private`tabellaVis$$ = {}, 
-  CrittografiaArcaica`Private`avvisoTesto$$ = "", 
-  CrittografiaArcaica`Private`avvisoChiave$$ = ""}, 
-  PanelBox[
-   TagBox[GridBox[{
-      {
-       StyleBox["\<\"Laboratorio Libero \[LongDash] Cifrario di Vigenere\"\>",
-        
-        StripOnInput->False,
-        LineColor->RGBColor[0.5, 0.2, 0.7],
-        FrontFaceColor->RGBColor[0.5, 0.2, 0.7],
-        BackFaceColor->RGBColor[0.5, 0.2, 0.7],
-        GraphicsColor->RGBColor[0.5, 0.2, 0.7],
-        FontSize->18,
-        FontWeight->Bold,
-        FontColor->RGBColor[0.5, 0.2, 0.7]]},
-      {
-       StyleBox["\<\"Inserisci un testo e una parola chiave (solo lettere, \
-senza spazi).\"\>",
-        StripOnInput->False,
-        LineColor->GrayLevel[0.5],
-        FrontFaceColor->GrayLevel[0.5],
-        BackFaceColor->GrayLevel[0.5],
-        GraphicsColor->GrayLevel[0.5],
-        FontSize->12,
-        FontSlant->Italic,
-        FontColor->GrayLevel[0.5]]},
-      {
-       TemplateBox[{6},
-        "Spacer1"]},
-      {
-       FrameBox[
-        TagBox[GridBox[{
-           {
-            
-            StyleBox["\<\"\[FilledSquare] NOTA IMPORTANTE \[LongDash] Il \
-Cifrario di Cesare e' un caso speciale di Vigenere\"\>",
-             StripOnInput->False,
-             LineColor->RGBColor[0.35, 0.1, 0.6],
-             FrontFaceColor->RGBColor[0.35, 0.1, 0.6],
-             BackFaceColor->RGBColor[0.35, 0.1, 0.6],
-             GraphicsColor->RGBColor[0.35, 0.1, 0.6],
-             FontSize->12,
-             FontWeight->Bold,
-             FontColor->RGBColor[0.35, 0.1, 0.6]]},
-           {
-            
-            StyleBox["\<\"Se la chiave e' composta da una sola lettera (es. \
-'D'), il Cifrario di Vigenere si riduce esattamente al Cifrario di Cesare con \
-shift pari alla posizione di quella lettera nell'alfabeto (A=0, B=1, C=2, \
-D=3, ...). Prova: cifra qualcosa con chiave 'D' e confrontalo col Laboratorio \
-Cesare con shift 3!\"\>",
-             StripOnInput->False,
-             LineColor->RGBColor[0.3, 0.1, 0.5],
-             FrontFaceColor->RGBColor[0.3, 0.1, 0.5],
-             BackFaceColor->RGBColor[0.3, 0.1, 0.5],
-             GraphicsColor->RGBColor[0.3, 0.1, 0.5],
-             FontSize->11,
-             FontSlant->Italic,
-             FontColor->RGBColor[0.3, 0.1, 0.5]]}
-          },
-          DefaultBaseStyle->"Column",
-          GridBoxAlignment->{"Columns" -> {{Left}}},
-          
-          GridBoxItemSize->{
-           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-         "Column"],
-        Background->RGBColor[0.96, 0.9, 1.],
-        FrameMargins->10,
-        FrameStyle->RGBColor[0.6, 0.3, 0.9],
-        RoundingRadius->6,
-        StripOnInput->False]},
-      {
-       TemplateBox[{8},
-        "Spacer1"]},
-      {
-       TemplateBox[{
-         StyleBox["\"Testo:  \"", 13, Bold, StripOnInput -> False], 
-         InputFieldBox[
-          Dynamic[CrittografiaArcaica`Private`testoInput$$], String, 
-          FieldSize -> {25, 2}, FieldHint -> "Solo lettere (es. CIAO)"], 
-         TemplateBox[{8}, "Spacer1"], 
-         DynamicBox[
-          ToBoxes[
-           If[
-            And[CrittografiaArcaica`Private`testoInput$$ =!= "", 
-             Not[
-              CrittografiaArcaica`Private`soloLettere[
-              CrittografiaArcaica`Private`testoInput$$]]], 
-            Style["! Solo lettere", 11, Bold, 
-             RGBColor[0.8, 0.2, 0.]], ""], StandardForm]]},
-        "RowDefault"]},
-      {
-       TemplateBox[{4},
-        "Spacer1"]},
-      {
-       TemplateBox[{
-         StyleBox["\"Chiave: \"", 13, Bold, StripOnInput -> False], 
-         InputFieldBox[
-          Dynamic[CrittografiaArcaica`Private`chiaveInput$$], String, 
-          FieldSize -> {15, 1}, FieldHint -> "Solo lettere (es. SOLE)"], 
-         TemplateBox[{8}, "Spacer1"], 
-         DynamicBox[
-          ToBoxes[
-           If[
-            And[CrittografiaArcaica`Private`chiaveInput$$ =!= "", 
-             Not[
-              CrittografiaArcaica`Private`soloLettere[
-              CrittografiaArcaica`Private`chiaveInput$$]]], 
-            Style["! Solo lettere", 11, Bold, 
-             RGBColor[0.8, 0.2, 0.]], ""], StandardForm]]},
-        "RowDefault"]},
-      {
-       TemplateBox[{6},
-        "Spacer1"]},
-      {
-       TemplateBox[{
-         ButtonBox[
-          StyleBox["\"Cifra \[RightArrow]\"", 13, Bold, 
-           GrayLevel[1], StripOnInput -> False], ButtonFunction :> Which[
-            Or[CrittografiaArcaica`Private`testoInput$$ === "", 
-             Not[
-              CrittografiaArcaica`Private`soloLettere[
-              CrittografiaArcaica`Private`testoInput$$]]], 
-            CrittografiaArcaica`Private`avvisoTesto$$ = 
-            "Testo non valido: inserisci solo lettere senza spazi.", 
-            Or[CrittografiaArcaica`Private`chiaveInput$$ === "", 
-             Not[
-              CrittografiaArcaica`Private`soloLettere[
-              CrittografiaArcaica`Private`chiaveInput$$]]], 
-            CrittografiaArcaica`Private`avvisoChiave$$ = 
-            "Chiave non valida: inserisci solo lettere senza spazi.", True, 
-            CrittografiaArcaica`Private`avvisoTesto$$ = ""; 
-            CrittografiaArcaica`Private`avvisoChiave$$ = ""; 
-            CrittografiaArcaica`Private`risultatoCifra$$ = 
-             CrittografiaArcaica`Private`cifraVigenere[
-              CrittografiaArcaica`Private`testoInput$$, 
-               CrittografiaArcaica`Private`chiaveInput$$]; 
-            CrittografiaArcaica`Private`risultatoDecifra$$ = ""; 
-            CrittografiaArcaica`Private`tabellaVis$$ = 
-             CrittografiaArcaica`Private`tabellaShiftVigenere[
-              CrittografiaArcaica`Private`testoInput$$, 
-               CrittografiaArcaica`Private`chiaveInput$$]; Null], Background -> 
-          RGBColor[0.5, 0.2, 0.7], ImageSize -> {120, 35}, Appearance -> 
-          Automatic, Evaluator -> Automatic, Method -> "Preemptive"], 
-         TemplateBox[{10}, "Spacer1"], 
-         ButtonBox[
-          StyleBox["\"\[LeftArrow] Decifra\"", 13, Bold, 
-           GrayLevel[1], StripOnInput -> False], ButtonFunction :> Which[
-            Or[CrittografiaArcaica`Private`testoInput$$ === "", 
-             Not[
-              CrittografiaArcaica`Private`soloLettere[
-              CrittografiaArcaica`Private`testoInput$$]]], 
-            CrittografiaArcaica`Private`avvisoTesto$$ = 
-            "Testo non valido: inserisci solo lettere senza spazi.", 
-            Or[CrittografiaArcaica`Private`chiaveInput$$ === "", 
-             Not[
-              CrittografiaArcaica`Private`soloLettere[
-              CrittografiaArcaica`Private`chiaveInput$$]]], 
-            CrittografiaArcaica`Private`avvisoChiave$$ = 
-            "Chiave non valida: inserisci solo lettere senza spazi.", True, 
-            CrittografiaArcaica`Private`avvisoTesto$$ = ""; 
-            CrittografiaArcaica`Private`avvisoChiave$$ = ""; 
-            CrittografiaArcaica`Private`risultatoDecifra$$ = 
-             CrittografiaArcaica`Private`decifraVigenere[
-              CrittografiaArcaica`Private`testoInput$$, 
-               CrittografiaArcaica`Private`chiaveInput$$]; 
-            CrittografiaArcaica`Private`risultatoCifra$$ = ""; 
-            CrittografiaArcaica`Private`tabellaVis$$ = 
-             CrittografiaArcaica`Private`tabellaShiftVigenere[
-              CrittografiaArcaica`Private`testoInput$$, 
-               CrittografiaArcaica`Private`chiaveInput$$]; Null], Background -> 
-          RGBColor[0.2, 0.5, 0.7], ImageSize -> {120, 35}, Appearance -> 
-          Automatic, Evaluator -> Automatic, Method -> "Preemptive"], 
-         TemplateBox[{10}, "Spacer1"], 
-         ButtonBox[
-          StyleBox["\"Pulisci Campi\"", 13, Bold, 
-           GrayLevel[1], StripOnInput -> False], 
-          ButtonFunction :> (CrittografiaArcaica`Private`testoInput$$ = ""; 
-           CrittografiaArcaica`Private`chiaveInput$$ = ""; 
-           CrittografiaArcaica`Private`risultatoCifra$$ = ""; 
-           CrittografiaArcaica`Private`risultatoDecifra$$ = ""; 
-           CrittografiaArcaica`Private`tabellaVis$$ = {}; 
-           CrittografiaArcaica`Private`avvisoTesto$$ = ""; 
-           CrittografiaArcaica`Private`avvisoChiave$$ = ""; Null), Background -> 
-          RGBColor[0.5, 0.5, 0.5], ImageSize -> {130, 35}, Appearance -> 
-          Automatic, Evaluator -> Automatic, Method -> "Preemptive"]},
-        "RowDefault"]},
-      {
-       TemplateBox[{4},
-        "Spacer1"]},
-      {
-       DynamicBox[ToBoxes[
-         If[CrittografiaArcaica`Private`avvisoTesto$$ =!= "", 
-          Style[CrittografiaArcaica`Private`avvisoTesto$$, 12, Bold, 
-           RGBColor[0.75, 0.1, 0.]], ""], StandardForm],
-        ImageSizeCache->{0., {0., 5.263671875}}]},
-      {
-       DynamicBox[ToBoxes[
-         If[CrittografiaArcaica`Private`avvisoChiave$$ =!= "", 
-          Style[CrittografiaArcaica`Private`avvisoChiave$$, 12, Bold, 
-           RGBColor[0.75, 0.1, 0.]], ""], StandardForm],
-        ImageSizeCache->{0., {0., 5.263671875}}]},
-      {
-       TemplateBox[{4},
-        "Spacer1"]},
-      {
-       DynamicBox[ToBoxes[
-         If[CrittografiaArcaica`Private`risultatoCifra$$ =!= "", 
-          Framed[
-           Column[{
-             Style["Testo cifrato:", 12, Bold, 
-              RGBColor[0.5, 0.2, 0.7]], 
-             Style[CrittografiaArcaica`Private`risultatoCifra$$, 14, Bold]}], 
-           Background -> RGBColor[0.96, 0.92, 1.], RoundingRadius -> 5, 
-           FrameStyle -> RGBColor[0.5, 0.2, 0.7], FrameMargins -> 8], 
-          If[CrittografiaArcaica`Private`risultatoDecifra$$ =!= "", 
-           Framed[
-            Column[{
-              Style["Testo decifrato:", 12, Bold, 
-               RGBColor[0.2, 0.5, 0.7]], 
-              Style[
-              CrittografiaArcaica`Private`risultatoDecifra$$, 14, Bold]}], 
-            Background -> RGBColor[0.92, 0.97, 1.], RoundingRadius -> 5, 
-            FrameStyle -> RGBColor[0.2, 0.5, 0.7], FrameMargins -> 8], ""]], 
-         StandardForm],
-        ImageSizeCache->{0., {0., 5.263671875}}]},
-      {
-       TemplateBox[{10},
-        "Spacer1"]},
-      {
-       StyleBox["\<\"Tabella degli shift lettera per lettera:\"\>",
-        StripOnInput->False,
-        FontSize->13,
-        FontWeight->Bold]},
-      {
-       StyleBox["\<\"Chiaro \[RightArrow] + Shift(Chiave) \[RightArrow] \
-Cifrato\"\>",
-        StripOnInput->False,
-        LineColor->GrayLevel[0.5],
-        FrontFaceColor->GrayLevel[0.5],
-        BackFaceColor->GrayLevel[0.5],
-        GraphicsColor->GrayLevel[0.5],
-        FontSize->11,
-        FontSlant->Italic,
-        FontColor->GrayLevel[0.5]]},
-      {
-       DynamicBox[ToBoxes[
-         If[CrittografiaArcaica`Private`tabellaVis$$ =!= {}, 
-          
-          Module[{CrittografiaArcaica`Private`righe$}, 
-           CrittografiaArcaica`Private`righe$ = Map[{
-               Style[
-                Part[#, 1], 13, Bold, Black], 
-               Style[
-                Part[#, 2], 13, Bold, 
-                RGBColor[0.5, 0.2, 0.7]], 
-               Style["+" <> ToString[
-                  Part[#, 3]], 12, 
-                RGBColor[0.2, 0.6, 0.3]], 
-               Style[
-                Part[#, 4], 13, Bold, 
-                RGBColor[0.7, 0.3, 0.1]]}& , 
-              CrittografiaArcaica`Private`tabellaVis$$]; Grid[
-             Prepend[CrittografiaArcaica`Private`righe$, {
-               Style["Lettera chiaro", 11, Bold, Gray], 
-               Style["Lettera chiave", 11, Bold, Gray], 
-               Style["Shift", 11, Bold, Gray], 
-               Style["Lettera cifrata", 11, Bold, Gray]}], Frame -> All, 
-             Background -> {None, {
-                RGBColor[0.9, 0.85, 1.], {White}}}, FrameStyle -> LightGray, 
-             Spacings -> {1.5, 0.8}]], 
-          Style[
-          "(La tabella appare dopo la cifratura o decifratura)", 11, Italic, 
-           Gray]], StandardForm],
-        ImageSizeCache->{258.4326171875, {2.0390625, 8.1962890625}}]}
-     },
-     DefaultBaseStyle->"Column",
-     GridBoxAlignment->{"Columns" -> {{Left}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-     GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{1}}}],
-    "Column"],
-   Background->GrayLevel[0.97],
-   ImageSize->560],
-  DynamicModuleValues:>{}]], "Output",
- CellChangeTimes->{3.985855926880496*^9},
- CellLabel->"Out[77]=",ExpressionUUID->"be54f8ef-4190-49ba-9211-b5b0061e52ab"]
+ RowBox[{"bottoneLaboratorioVigenere", "[", "]"}]], "Input",
+ CellOpen->False,
+ CellChangeTimes->{3.985877764477462*^9},
+ CellLabel->
+  "In[401]:=",ExpressionUUID->"06bd6912-fb6a-4ae0-9eba-951b3bc1fbf1"],
+
+Cell[BoxData[
+ ButtonBox[
+  StyleBox["\<\"\[RightTriangle]  Apri il Laboratorio Libero \[LongDash] \
+Cifrario di Vigenere\"\>",
+   StripOnInput->False,
+   LineColor->GrayLevel[1],
+   FrontFaceColor->GrayLevel[1],
+   BackFaceColor->GrayLevel[1],
+   GraphicsColor->GrayLevel[1],
+   FontSize->15,
+   FontWeight->Bold,
+   FontColor->GrayLevel[1]],
+  Appearance->Automatic,
+  Background->RGBColor[0.45, 0.15, 0.65],
+  ButtonFunction:>CreateDocument[{
+     ExpressionCell[
+      CrittografiaArcaica`laboratorioVigenere[], "Output"]}],
+  Evaluator->Automatic,
+  ImageSize->{460, 50},
+  Method->"Preemptive"]], "Output",
+ CellChangeTimes->{{3.9858778206012573`*^9, 3.985877838309723*^9}, 
+   3.985877869433188*^9},
+ CellLabel->
+  "Out[401]=",ExpressionUUID->"ba1fab1e-a755-4a3f-ba61-cdf2968dfbd7"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
@@ -37811,303 +37109,40 @@ Cell["\<\
  CellChangeTimes->{
   3.98587662511616*^9},ExpressionUUID->"490a4142-bcd6-472f-9a73-c461ee3245d9"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
- DynamicModuleBox[{CrittografiaArcaica`Private`seed$$ = 42, 
-  CrittografiaArcaica`Private`messaggioCifrato$$ = "", 
-  CrittografiaArcaica`Private`chiaveSegreto$$ = "", 
-  CrittografiaArcaica`Private`messaggioChiaro$$ = "", 
-  CrittografiaArcaica`Private`rispostaUtente$$ = "", 
-  CrittografiaArcaica`Private`tentativi$$ = 0, 
-  CrittografiaArcaica`Private`feedbackMsg$$ = "", 
-  CrittografiaArcaica`Private`soluzioneVisibile$$ = False, 
-  CrittografiaArcaica`Private`suggerimentoStep$$ = 0, 
-  CrittografiaArcaica`Private`esercizioGenerato$$ = False}, 
-  PanelBox[
-   TagBox[GridBox[{
-      {
-       StyleBox["\<\"Esercizi \[LongDash] Cifrario di Vigenere\"\>",
-        StripOnInput->False,
-        LineColor->RGBColor[0.5, 0.2, 0.7],
-        FrontFaceColor->RGBColor[0.5, 0.2, 0.7],
-        BackFaceColor->RGBColor[0.5, 0.2, 0.7],
-        GraphicsColor->RGBColor[0.5, 0.2, 0.7],
-        FontSize->18,
-        FontWeight->Bold,
-        FontColor->RGBColor[0.5, 0.2, 0.7]]},
-      {
-       StyleBox["\<\"Ti vengono dati il testo cifrato e la chiave: trova il \
-testo in chiaro!\"\>",
-        StripOnInput->False,
-        LineColor->GrayLevel[0.5],
-        FrontFaceColor->GrayLevel[0.5],
-        BackFaceColor->GrayLevel[0.5],
-        GraphicsColor->GrayLevel[0.5],
-        FontSize->12,
-        FontSlant->Italic,
-        FontColor->GrayLevel[0.5]]},
-      {
-       TemplateBox[{8},
-        "Spacer1"]},
-      {
-       TemplateBox[{
-         StyleBox["\"Seed: \"", 13, Bold, StripOnInput -> False], 
-         InputFieldBox[
-          Dynamic[CrittografiaArcaica`Private`seed$$], Number, 
-          FieldSize -> {8, 1}, FieldHint -> "es. 42"], 
-         TemplateBox[{8}, "Spacer1"], 
-         ButtonBox[
-          StyleBox["\"Genera Esercizio\"", 13, Bold, 
-           GrayLevel[1], StripOnInput -> False], ButtonFunction :> 
-          Module[{CrittografiaArcaica`Private`ris$}, 
-            CrittografiaArcaica`Private`ris$ = 
-             CrittografiaArcaica`Private`generaEsercizioConSeedVigenere[
-              CrittografiaArcaica`Private`seed$$]; 
-            CrittografiaArcaica`Private`messaggioCifrato$$ = 
-             Part[CrittografiaArcaica`Private`ris$, 1]; 
-            CrittografiaArcaica`Private`chiaveSegreto$$ = 
-             Part[CrittografiaArcaica`Private`ris$, 2]; 
-            CrittografiaArcaica`Private`messaggioChiaro$$ = 
-             Part[CrittografiaArcaica`Private`ris$, 3]; 
-            CrittografiaArcaica`Private`rispostaUtente$$ = ""; 
-            CrittografiaArcaica`Private`tentativi$$ = 0; 
-            CrittografiaArcaica`Private`feedbackMsg$$ = ""; 
-            CrittografiaArcaica`Private`soluzioneVisibile$$ = False; 
-            CrittografiaArcaica`Private`suggerimentoStep$$ = 0; 
-            CrittografiaArcaica`Private`esercizioGenerato$$ = True; Null], 
-          Background -> RGBColor[0.4, 0.1, 0.7], ImageSize -> {160, 35}, 
-          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
-          "Preemptive"]},
-        "RowDefault"]},
-      {
-       TemplateBox[{8},
-        "Spacer1"]},
-      {
-       DynamicBox[ToBoxes[
-         If[CrittografiaArcaica`Private`esercizioGenerato$$, 
-          Column[{
-            Framed[
-             Column[{
-               Style["Testo cifrato:", 12, Bold, 
-                RGBColor[0.7, 0.3, 0.1]], 
-               Style[
-               CrittografiaArcaica`Private`messaggioCifrato$$, 15, Bold, 
-                Black]}], Background -> RGBColor[1., 0.95, 0.88], 
-             RoundingRadius -> 5, FrameStyle -> RGBColor[0.7, 0.3, 0.1], 
-             FrameMargins -> 8], 
-            Spacer[4], 
-            Framed[
-             Row[{
-               Style["Chiave: ", 12, Bold, 
-                RGBColor[0.5, 0.2, 0.7]], 
-               Style[CrittografiaArcaica`Private`chiaveSegreto$$, 14, Bold, 
-                RGBColor[0.5, 0.2, 0.7]]}], Background -> 
-             RGBColor[0.96, 0.92, 1.], RoundingRadius -> 5, FrameStyle -> 
-             RGBColor[0.5, 0.2, 0.7], FrameMargins -> 8]}], 
-          Style["(Genera un esercizio per iniziare)", 11, Italic, Gray]], 
-         StandardForm],
-        ImageSizeCache->{174.10107421875, {2.0390625, 8.1962890625}}]},
-      {
-       TemplateBox[{6},
-        "Spacer1"]},
-      {
-       DynamicBox[ToBoxes[
-         If[CrittografiaArcaica`Private`esercizioGenerato$$, 
-          Column[{
-            Style[
-            "Inserisci il testo decifrato (solo lettere, senza spazi):", 12, 
-             Bold], 
-            InputField[
-             Dynamic[CrittografiaArcaica`Private`rispostaUtente$$], String, 
-             FieldSize -> {30, 2}, FieldHint -> 
-             "Applica la chiave al contrario..."]}], ""], StandardForm],
-        ImageSizeCache->{0., {0., 5.263671875}}]},
-      {
-       TemplateBox[{6},
-        "Spacer1"]},
-      {
-       TemplateBox[{
-         ButtonBox[
-          StyleBox["\"Verifica Risultato\"", 13, Bold, 
-           GrayLevel[1], StripOnInput -> False], ButtonFunction :> 
-          If[CrittografiaArcaica`Private`esercizioGenerato$$, 
-            Increment[CrittografiaArcaica`Private`tentativi$$]; If[ToUpperCase[
-                StringReplace[
-                 StringTrim[CrittografiaArcaica`Private`rispostaUtente$$], 
-                 " " -> ""]] === 
-              StringReplace[
-               CrittografiaArcaica`Private`messaggioChiaro$$, " " -> ""], 
-              CrittografiaArcaica`Private`feedbackMsg$$ = (
-                "\[Checkmark] Corretto! Hai impiegato " <> 
-                ToString[CrittografiaArcaica`Private`tentativi$$]) <> 
-               If[CrittografiaArcaica`Private`tentativi$$ == 1, " tentativo.",
-                  " tentativi."], 
-              If[
-              CrittografiaArcaica`Private`tentativi$$ >= 3, 
-               CrittografiaArcaica`Private`feedbackMsg$$ = 
-                "\[Cross] Risposta errata. Tentativi esauriti."; 
-               CrittografiaArcaica`Private`soluzioneVisibile$$ = True, 
-               CrittografiaArcaica`Private`suggerimentoStep$$ = 
-                CrittografiaArcaica`Private`tentativi$$; 
-               CrittografiaArcaica`Private`feedbackMsg$$ = ((
-                   "\[Cross] Non corretto \[LongDash] Tentativo " <> 
-                   ToString[CrittografiaArcaica`Private`tentativi$$]) <> 
-                  "/3.  ") <> 
-                 Which[CrittografiaArcaica`Private`tentativi$$ == 
-                   1, (("Suggerimento: per decifrare, sottrai lo shift invece \
-di sommarlo. " <> "La prima lettera della chiave e' '") <> 
-                    StringTake[
-                    CrittografiaArcaica`Private`chiaveSegreto$$, 1]) <> "'.", 
-                   CrittografiaArcaica`Private`tentativi$$ == 
-                   2, ("Suggerimento: la chiave ha " <> ToString[
-                    StringLength[
-                    CrittografiaArcaica`Private`chiaveSegreto$$]]) <> 
-                   " lettere. Applicala al contrario, lettera per lettera.", 
-                   True, ""]]]], Background -> RGBColor[0.2, 0.6, 0.3], 
-          ImageSize -> {170, 35}, Appearance -> Automatic, Evaluator -> 
-          Automatic, Method -> "Preemptive"], 
-         TemplateBox[{8}, "Spacer1"], 
-         ButtonBox[
-          StyleBox["\"Pulisci Campi\"", 13, Bold, 
-           GrayLevel[1], StripOnInput -> False], 
-          ButtonFunction :> (CrittografiaArcaica`Private`seed$$ = 42; 
-           CrittografiaArcaica`Private`messaggioCifrato$$ = ""; 
-           CrittografiaArcaica`Private`chiaveSegreto$$ = ""; 
-           CrittografiaArcaica`Private`messaggioChiaro$$ = ""; 
-           CrittografiaArcaica`Private`rispostaUtente$$ = ""; 
-           CrittografiaArcaica`Private`tentativi$$ = 0; 
-           CrittografiaArcaica`Private`feedbackMsg$$ = ""; 
-           CrittografiaArcaica`Private`soluzioneVisibile$$ = False; 
-           CrittografiaArcaica`Private`suggerimentoStep$$ = 0; 
-           CrittografiaArcaica`Private`esercizioGenerato$$ = False; Null), 
-          Background -> RGBColor[0.5, 0.5, 0.5], ImageSize -> {140, 35}, 
-          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
-          "Preemptive"]},
-        "RowDefault"]},
-      {
-       TemplateBox[{4},
-        "Spacer1"]},
-      {
-       TemplateBox[{
-         ButtonBox[
-          StyleBox["\"Suggerimento\"", 13, Bold, 
-           GrayLevel[1], StripOnInput -> False], ButtonFunction :> If[
-            And[
-            CrittografiaArcaica`Private`esercizioGenerato$$, 
-             CrittografiaArcaica`Private`suggerimentoStep$$ < 3], 
-            Increment[CrittografiaArcaica`Private`suggerimentoStep$$]], 
-          Background -> RGBColor[0.8, 0.6, 0.1], ImageSize -> {140, 35}, 
-          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
-          "Preemptive"], 
-         TemplateBox[{8}, "Spacer1"], 
-         ButtonBox[
-          StyleBox["\"Mostra Soluzione\"", 13, Bold, 
-           GrayLevel[1], StripOnInput -> False], ButtonFunction :> 
-          If[
-           CrittografiaArcaica`Private`esercizioGenerato$$, 
-            CrittografiaArcaica`Private`soluzioneVisibile$$ = True], 
-          Background -> RGBColor[0.7, 0.2, 0.2], ImageSize -> {160, 35}, 
-          Appearance -> Automatic, Evaluator -> Automatic, Method -> 
-          "Preemptive"]},
-        "RowDefault"]},
-      {
-       TemplateBox[{8},
-        "Spacer1"]},
-      {
-       DynamicBox[ToBoxes[
-         If[CrittografiaArcaica`Private`feedbackMsg$$ =!= "", 
-          Framed[
-           Style[CrittografiaArcaica`Private`feedbackMsg$$, 12, 
-            If[
-             StringStartsQ[
-             CrittografiaArcaica`Private`feedbackMsg$$, "\[Checkmark]"], 
-             RGBColor[0.1, 0.5, 0.1], 
-             RGBColor[0.5, 0.1, 0.1]]], Background -> If[
-             StringStartsQ[
-             CrittografiaArcaica`Private`feedbackMsg$$, "\[Checkmark]"], 
-             RGBColor[0.9, 1., 0.9], 
-             RGBColor[1., 0.92, 0.92]], RoundingRadius -> 5, FrameMargins -> 
-           8], ""], StandardForm],
-        ImageSizeCache->{0., {0., 5.263671875}}]},
-      {
-       DynamicBox[ToBoxes[
-         Which[
-          Or[
-           Not[CrittografiaArcaica`Private`esercizioGenerato$$], 
-           CrittografiaArcaica`Private`suggerimentoStep$$ == 0], "", 
-          CrittografiaArcaica`Private`suggerimentoStep$$ == 1, 
-          Framed[
-           
-           Style[(((
-               "\[LightBulb] Suggerimento 1: per decifrare Vigenere, per ogni \
-lettera del testo cifrato si SOTTRAE (invece di sommare) lo shift della \
-lettera chiave corrispondente. La prima lettera della chiave e' '" <> 
-               StringTake[CrittografiaArcaica`Private`chiaveSegreto$$, 1]) <> 
-              "' (shift ") <> ToString[Part[
-                 Position[CrittografiaArcaica`Private`alfabeto, 
-                  ToUpperCase[
-                   StringTake[
-                   CrittografiaArcaica`Private`chiaveSegreto$$, 1]]], 1, 1] - 
-               1]) <> ").", 12, Italic, 
-            RGBColor[0.5, 0.4, 0.]], Background -> RGBColor[1., 0.97, 0.85], 
-           RoundingRadius -> 5, FrameMargins -> 8], 
-          CrittografiaArcaica`Private`suggerimentoStep$$ == 2, 
-          Framed[
-           
-           Style[((((("\[LightBulb] Suggerimento 2: la chiave '" <> 
-                 CrittografiaArcaica`Private`chiaveSegreto$$) <> "' ha ") <> 
-               ToString[
-                 StringLength[CrittografiaArcaica`Private`chiaveSegreto$$]]) <> 
-              " lettere. Decifra le prime ") <> ToString[
-               StringLength[CrittografiaArcaica`Private`chiaveSegreto$$]]) <> 
-            " lettere del testo, poi riparti dall'inizio della chiave.", 12, 
-            Italic, 
-            RGBColor[0.5, 0.4, 0.]], Background -> RGBColor[1., 0.97, 0.85], 
-           RoundingRadius -> 5, FrameMargins -> 8], 
-          CrittografiaArcaica`Private`suggerimentoStep$$ >= 3, 
-          Framed[
-           
-           Style[("\[LightBulb] Suggerimento 3: le prime 3 lettere del testo \
-in chiaro corretto sono '" <> 
-             StringTake[CrittografiaArcaica`Private`messaggioChiaro$$, 
-               Min[3, 
-                StringLength[
-                CrittografiaArcaica`Private`messaggioChiaro$$]]]) <> "'.", 12,
-             Italic, 
-            RGBColor[0.5, 0.4, 0.]], Background -> RGBColor[1., 0.97, 0.85], 
-           RoundingRadius -> 5, FrameMargins -> 8]], StandardForm],
-        ImageSizeCache->{0., {0., 5.263671875}}]},
-      {
-       DynamicBox[ToBoxes[
-         If[
-          And[
-          CrittografiaArcaica`Private`soluzioneVisibile$$, 
-           CrittografiaArcaica`Private`esercizioGenerato$$], 
-          Framed[
-           Column[{
-             Style["Soluzione:", 13, Bold, 
-              RGBColor[0.6, 0.1, 0.1]], 
-             Row[{
-               Style["Chiave: ", 12, Bold], 
-               Style[CrittografiaArcaica`Private`chiaveSegreto$$, 13, Bold]}], 
-             Row[{
-               Style["Testo in chiaro: ", 12, Bold], 
-               Style[
-               CrittografiaArcaica`Private`messaggioChiaro$$, 13, Bold]}]}], 
-           Background -> RGBColor[1., 0.93, 0.93], RoundingRadius -> 5, 
-           FrameStyle -> RGBColor[0.6, 0.1, 0.1], FrameMargins -> 10], ""], 
-         StandardForm],
-        ImageSizeCache->{0., {0., 5.263671875}}]}
-     },
-     DefaultBaseStyle->"Column",
-     GridBoxAlignment->{"Columns" -> {{Left}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-     GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{1}}}],
-    "Column"],
-   Background->GrayLevel[0.97],
-   ImageSize->560],
-  DynamicModuleValues:>{}]], "Output",
- CellChangeTimes->{3.985855958239479*^9},
- CellLabel->"Out[78]=",ExpressionUUID->"7b1a911d-9d83-4edf-9261-4b92c3aca78f"]
+ RowBox[{"bottoneEserciziVigenere", "[", "]"}]], "Input",
+ CellOpen->False,
+ CellChangeTimes->{3.985877787346788*^9},
+ CellLabel->
+  "In[402]:=",ExpressionUUID->"797da2a7-e612-40a2-8272-b88dd32e0d06"],
+
+Cell[BoxData[
+ ButtonBox[
+  StyleBox["\<\"\[RightTriangle]  Apri gli Esercizi \[LongDash] Cifrario di \
+Vigenere\"\>",
+   StripOnInput->False,
+   LineColor->GrayLevel[1],
+   FrontFaceColor->GrayLevel[1],
+   BackFaceColor->GrayLevel[1],
+   GraphicsColor->GrayLevel[1],
+   FontSize->15,
+   FontWeight->Bold,
+   FontColor->GrayLevel[1]],
+  Appearance->Automatic,
+  Background->RGBColor[0.55, 0.1, 0.4],
+  ButtonFunction:>CreateDocument[{
+     ExpressionCell[
+      CrittografiaArcaica`esercizioUniversaleVigenere[], "Output"]}],
+  Evaluator->Automatic,
+  ImageSize->{460, 50},
+  Method->"Preemptive"]], "Output",
+ CellChangeTimes->{{3.985877820605578*^9, 3.985877838311501*^9}, 
+   3.98587786943503*^9},
+ CellLabel->
+  "Out[402]=",ExpressionUUID->"1d762ca4-3dd9-4ae2-94ca-1dc435e9e8e4"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -38301,113 +37336,125 @@ Cell[836, 29, 250, 4, 52, "Subtitle",ExpressionUUID->"3e80f784-b6fc-4403-8f49-90
 Cell[1089, 35, 216, 4, 52, "Subtitle",ExpressionUUID->"5381e608-6ddd-49d3-bb22-182ca1172798"],
 Cell[1308, 41, 137, 3, 52, "Subtitle",ExpressionUUID->"885a1eb0-cebb-481e-a471-1ff74317e593"],
 Cell[1448, 46, 2231174, 36583, 331, "Text",ExpressionUUID->"1d9fe21e-4fa6-42e4-8c9d-f4c77e19bb88"],
-Cell[2232625, 36631, 316, 6, 19, "Input",ExpressionUUID->"afb41630-5f2e-472e-9e41-fdb6bdfdcacd",
+Cell[2232625, 36631, 335, 9, 19, "Input",ExpressionUUID->"e2e30282-1437-45e3-85e0-549d957199fa",
  CellOpen->False],
 Cell[CellGroupData[{
-Cell[2232966, 36641, 215, 4, 29, "Input",ExpressionUUID->"3f58e06f-b841-4c01-828d-91a068c86238"],
-Cell[2233184, 36647, 214, 4, 33, "Output",ExpressionUUID->"bbab9496-cc47-44e9-9c48-c461066382ed"]
+Cell[2232985, 36644, 173, 3, 67, "Chapter",ExpressionUUID->"2e243954-f31e-47ae-9100-5da78fc9728c"],
+Cell[2233161, 36649, 524, 17, 274, "Text",ExpressionUUID->"9c93279c-871e-419f-b1dd-cf6b7a06b118"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2233435, 36656, 173, 3, 67, "Chapter",ExpressionUUID->"2e243954-f31e-47ae-9100-5da78fc9728c"],
-Cell[2233611, 36661, 524, 17, 274, "Text",ExpressionUUID->"9c93279c-871e-419f-b1dd-cf6b7a06b118"]
+Cell[2233722, 36671, 173, 2, 67, "Chapter",ExpressionUUID->"c42bbdf8-5662-4788-9b7a-850f1e76e422"],
+Cell[CellGroupData[{
+Cell[2233920, 36677, 194, 3, 53, "Subsection",ExpressionUUID->"35d276cc-d7da-48e3-97dd-0568758c902e"],
+Cell[2234117, 36682, 982, 18, 164, "Text",ExpressionUUID->"6789c158-94d1-4c48-b10d-393a72954880"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2234172, 36683, 173, 2, 67, "Chapter",ExpressionUUID->"c42bbdf8-5662-4788-9b7a-850f1e76e422"],
-Cell[CellGroupData[{
-Cell[2234370, 36689, 194, 3, 53, "Subsection",ExpressionUUID->"35d276cc-d7da-48e3-97dd-0568758c902e"],
-Cell[2234567, 36694, 982, 18, 164, "Text",ExpressionUUID->"6789c158-94d1-4c48-b10d-393a72954880"]
+Cell[2235136, 36705, 191, 3, 53, "Subsection",ExpressionUUID->"adb723d3-e415-4fcb-b701-46cef796eee3"],
+Cell[2235330, 36710, 429, 8, 77, "Text",ExpressionUUID->"017d7421-182c-452d-861c-91ed795f182f"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2235586, 36717, 191, 3, 53, "Subsection",ExpressionUUID->"adb723d3-e415-4fcb-b701-46cef796eee3"],
-Cell[2235780, 36722, 429, 8, 77, "Text",ExpressionUUID->"017d7421-182c-452d-861c-91ed795f182f"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[2236246, 36735, 177, 3, 53, "Subsection",ExpressionUUID->"4ee8dad3-4f67-40b3-8f1b-ce85f5ca5ee7"],
-Cell[2236426, 36740, 578, 13, 164, "Text",ExpressionUUID->"70ee4604-d4d7-42f4-a42a-6c2d6ccb9bce"]
+Cell[2235796, 36723, 177, 3, 53, "Subsection",ExpressionUUID->"4ee8dad3-4f67-40b3-8f1b-ce85f5ca5ee7"],
+Cell[2235976, 36728, 578, 13, 164, "Text",ExpressionUUID->"70ee4604-d4d7-42f4-a42a-6c2d6ccb9bce"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2237053, 36759, 148, 3, 67, "Chapter",ExpressionUUID->"52bcb26b-a632-4c56-9647-60ec55835008"],
+Cell[2236603, 36747, 148, 3, 67, "Chapter",ExpressionUUID->"52bcb26b-a632-4c56-9647-60ec55835008"],
 Cell[CellGroupData[{
-Cell[2237226, 36766, 161, 3, 66, "Section",ExpressionUUID->"7e296286-913e-4c74-a4ec-d01e6b2c9b12"],
-Cell[2237390, 36771, 925, 21, 274, "Text",ExpressionUUID->"3f548100-1892-47a3-9dcc-766da6d9fa05"],
+Cell[2236776, 36754, 161, 3, 66, "Section",ExpressionUUID->"7e296286-913e-4c74-a4ec-d01e6b2c9b12"],
+Cell[2236940, 36759, 925, 21, 274, "Text",ExpressionUUID->"3f548100-1892-47a3-9dcc-766da6d9fa05"],
 Cell[CellGroupData[{
-Cell[2238340, 36796, 178, 3, 53, "Subsection",ExpressionUUID->"9b8af1c6-8797-4034-b2be-e5cc90941a4c"],
-Cell[2238521, 36801, 484, 9, 77, "Text",ExpressionUUID->"ef3c24c1-d701-455e-95d4-9c6981c40276"]
+Cell[2237890, 36784, 178, 3, 53, "Subsection",ExpressionUUID->"9b8af1c6-8797-4034-b2be-e5cc90941a4c"],
+Cell[2238071, 36789, 484, 9, 77, "Text",ExpressionUUID->"ef3c24c1-d701-455e-95d4-9c6981c40276"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2239054, 36816, 242, 4, 66, "Section",ExpressionUUID->"c53378a9-f2fa-4a92-8e35-40036c24db22"],
-Cell[2239299, 36822, 525, 11, 121, "Text",ExpressionUUID->"a0ac8c53-4a46-4c33-9075-77258b6dcab4"],
+Cell[2238604, 36804, 242, 4, 66, "Section",ExpressionUUID->"c53378a9-f2fa-4a92-8e35-40036c24db22"],
+Cell[2238849, 36810, 525, 11, 121, "Text",ExpressionUUID->"a0ac8c53-4a46-4c33-9075-77258b6dcab4"],
 Cell[CellGroupData[{
-Cell[2239849, 36837, 136, 3, 53, "Subsection",ExpressionUUID->"21fb62d7-70c8-4111-b288-e9fe202e067a"],
-Cell[2239988, 36842, 370, 7, 55, "Text",ExpressionUUID->"639a43dc-03a1-427d-8193-569105789b66"],
-Cell[2240361, 36851, 9170, 223, 1301, "Output",ExpressionUUID->"abac49a4-3d48-40b5-85c0-0bbd608e28f8"]
-}, Open  ]]
-}, Open  ]],
+Cell[2239399, 36825, 136, 3, 53, "Subsection",ExpressionUUID->"21fb62d7-70c8-4111-b288-e9fe202e067a"],
+Cell[2239538, 36830, 370, 7, 55, "Text",ExpressionUUID->"639a43dc-03a1-427d-8193-569105789b66"],
 Cell[CellGroupData[{
-Cell[2249580, 37080, 207, 4, 66, "Section",ExpressionUUID->"a71c5b5d-6b49-4363-b36b-6af6c6b58a91"],
-Cell[2249790, 37086, 281, 7, 33, "Text",ExpressionUUID->"ddf01663-2400-4181-91ef-dfca50db0ce8"],
-Cell[CellGroupData[{
-Cell[2250096, 37097, 164, 3, 53, "Subsection",ExpressionUUID->"b456aefb-5838-45bf-b248-6475957358d8"],
-Cell[2250263, 37102, 661, 15, 164, "Text",ExpressionUUID->"b1783285-fb87-4222-967a-93a52ae84806"],
-Cell[2250927, 37119, 12702, 275, 550, "Output",ExpressionUUID->"33de8836-c72b-4bfc-aa99-ae7ae5686e54"]
+Cell[2239933, 36841, 217, 5, 19, "Input",ExpressionUUID->"8943317c-063d-4c18-ab01-b10dad7c0367",
+ CellOpen->False],
+Cell[2240153, 36848, 784, 23, 67, "Output",ExpressionUUID->"26508c23-ea1b-4c93-9f05-fb83bba8b510"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2263690, 37401, 157, 3, 67, "Chapter",ExpressionUUID->"4b445021-15fd-440d-80c7-41595ad09b32"],
+Cell[2240998, 36878, 207, 4, 66, "Section",ExpressionUUID->"a71c5b5d-6b49-4363-b36b-6af6c6b58a91"],
+Cell[2241208, 36884, 281, 7, 33, "Text",ExpressionUUID->"ddf01663-2400-4181-91ef-dfca50db0ce8"],
 Cell[CellGroupData[{
-Cell[2263872, 37408, 140, 3, 66, "Section",ExpressionUUID->"90f5a3eb-b415-4f91-bc15-99a9c0bea665"],
-Cell[2264015, 37413, 1321, 31, 449, "Text",ExpressionUUID->"af53dffc-1d3a-48a0-8167-99eb48308d1e"]
-}, Open  ]],
+Cell[2241514, 36895, 164, 3, 53, "Subsection",ExpressionUUID->"b456aefb-5838-45bf-b248-6475957358d8"],
+Cell[2241681, 36900, 661, 15, 164, "Text",ExpressionUUID->"b1783285-fb87-4222-967a-93a52ae84806"],
 Cell[CellGroupData[{
-Cell[2265373, 37449, 228, 4, 66, "Section",ExpressionUUID->"736e2af7-3e98-4513-8412-29196b0916b7"],
-Cell[2265604, 37455, 518, 11, 99, "Text",ExpressionUUID->"aadea0dc-344a-4c11-aeec-04bef142e410"],
-Cell[CellGroupData[{
-Cell[2266147, 37470, 162, 3, 53, "Subsection",ExpressionUUID->"75e12716-b50c-4485-98e4-cf428b334520"],
-Cell[2266312, 37475, 266, 6, 55, "Text",ExpressionUUID->"d8726d0f-759a-43b5-bdec-25207f343437"],
-Cell[2266581, 37483, 12627, 291, 558, "Output",ExpressionUUID->"be54f8ef-4190-49ba-9211-b5b0061e52ab"]
+Cell[2242367, 36919, 212, 5, 19, "Input",ExpressionUUID->"64e4f835-77af-439b-bea8-01ef09f30798",
+ CellOpen->False],
+Cell[2242582, 36926, 784, 23, 67, "Output",ExpressionUUID->"30998c3f-cdc9-4725-84fe-13bce0ddaa6e"]
 }, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[2279257, 37780, 217, 4, 66, "Section",ExpressionUUID->"f8014d85-da00-4baa-976f-564719ea235f"],
-Cell[2279477, 37786, 316, 7, 55, "Text",ExpressionUUID->"166821d6-3e9e-43e6-baec-18f4f3901625"],
-Cell[CellGroupData[{
-Cell[2279818, 37797, 161, 3, 53, "Subsection",ExpressionUUID->"919a738b-719d-40e7-b318-3ed48484234a"],
-Cell[2279982, 37802, 488, 9, 121, "Text",ExpressionUUID->"490a4142-bcd6-472f-9a73-c461ee3245d9"],
-Cell[2280473, 37813, 13701, 296, 418, "Output",ExpressionUUID->"7b1a911d-9d83-4edf-9261-4b92c3aca78f"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2294235, 38116, 140, 3, 67, "Chapter",ExpressionUUID->"379bc25c-5a99-43ac-9f2a-834fa50fe58d"],
+Cell[2243439, 36957, 157, 3, 67, "Chapter",ExpressionUUID->"4b445021-15fd-440d-80c7-41595ad09b32"],
 Cell[CellGroupData[{
-Cell[2294400, 38123, 175, 3, 53, "Subsection",ExpressionUUID->"78856ce2-0d67-46e4-aab6-993ce7731673"],
-Cell[2294578, 38128, 691, 12, 99, "Text",ExpressionUUID->"36f7c92a-e435-40d1-9492-32860cd63050"]
+Cell[2243621, 36964, 140, 3, 66, "Section",ExpressionUUID->"90f5a3eb-b415-4f91-bc15-99a9c0bea665"],
+Cell[2243764, 36969, 1321, 31, 449, "Text",ExpressionUUID->"af53dffc-1d3a-48a0-8167-99eb48308d1e"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2295306, 38145, 189, 3, 53, "Subsection",ExpressionUUID->"a6d4d2e0-658a-4cb4-97ef-62c64ab7610f"],
-Cell[2295498, 38150, 471, 9, 77, "Text",ExpressionUUID->"78b3b9bd-26dd-4e1d-83cf-13272f9efc65"]
-}, Open  ]],
+Cell[2245122, 37005, 228, 4, 66, "Section",ExpressionUUID->"736e2af7-3e98-4513-8412-29196b0916b7"],
+Cell[2245353, 37011, 518, 11, 99, "Text",ExpressionUUID->"aadea0dc-344a-4c11-aeec-04bef142e410"],
 Cell[CellGroupData[{
-Cell[2296006, 38164, 173, 3, 53, "Subsection",ExpressionUUID->"cb9b4b5c-5d27-4c37-9ea6-119df3e6ef09"],
-Cell[2296182, 38169, 371, 8, 55, "Text",ExpressionUUID->"e2be855e-e2a2-4cd4-b465-dc6cbb8eb9c9"]
+Cell[2245896, 37026, 162, 3, 53, "Subsection",ExpressionUUID->"75e12716-b50c-4485-98e4-cf428b334520"],
+Cell[2246061, 37031, 266, 6, 55, "Text",ExpressionUUID->"d8726d0f-759a-43b5-bdec-25207f343437"],
+Cell[CellGroupData[{
+Cell[2246352, 37041, 217, 5, 19, "Input",ExpressionUUID->"06bd6912-fb6a-4ae0-9eba-951b3bc1fbf1",
+ CellOpen->False],
+Cell[2246572, 37048, 789, 23, 67, "Output",ExpressionUUID->"ba1fab1e-a755-4a3f-ba61-cdf2968dfbd7"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2296602, 38183, 149, 3, 67, "Chapter",ExpressionUUID->"73a737af-c948-43a3-a4b8-4f07de29e979"],
-Cell[2296754, 38188, 989, 22, 361, "Text",ExpressionUUID->"8e03bd90-f958-4372-a37e-c590785745e2"]
+Cell[2247422, 37078, 217, 4, 66, "Section",ExpressionUUID->"f8014d85-da00-4baa-976f-564719ea235f"],
+Cell[2247642, 37084, 316, 7, 55, "Text",ExpressionUUID->"166821d6-3e9e-43e6-baec-18f4f3901625"],
+Cell[CellGroupData[{
+Cell[2247983, 37095, 161, 3, 53, "Subsection",ExpressionUUID->"919a738b-719d-40e7-b318-3ed48484234a"],
+Cell[2248147, 37100, 488, 9, 121, "Text",ExpressionUUID->"490a4142-bcd6-472f-9a73-c461ee3245d9"],
+Cell[CellGroupData[{
+Cell[2248660, 37113, 214, 5, 19, "Input",ExpressionUUID->"797da2a7-e612-40a2-8272-b88dd32e0d06",
+ CellOpen->False],
+Cell[2248877, 37120, 783, 23, 67, "Output",ExpressionUUID->"1d762ca4-3dd9-4ae2-94ca-1dc435e9e8e4"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2297780, 38215, 149, 3, 67, "Chapter",ExpressionUUID->"dd60bf1d-2cdc-4bc7-a29d-9e3864348f00"],
+Cell[2249733, 37151, 140, 3, 67, "Chapter",ExpressionUUID->"379bc25c-5a99-43ac-9f2a-834fa50fe58d"],
 Cell[CellGroupData[{
-Cell[2297954, 38222, 168, 3, 53, "Subsection",ExpressionUUID->"c345eea7-d543-4679-af50-4feb3c2695cb"],
-Cell[2298125, 38227, 1328, 22, 339, "Text",ExpressionUUID->"5bf3debb-683b-4155-a648-7a4c84be6652"]
+Cell[2249898, 37158, 175, 3, 53, "Subsection",ExpressionUUID->"78856ce2-0d67-46e4-aab6-993ce7731673"],
+Cell[2250076, 37163, 691, 12, 99, "Text",ExpressionUUID->"36f7c92a-e435-40d1-9492-32860cd63050"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2299490, 38254, 161, 3, 53, "Subsection",ExpressionUUID->"511e5cbe-1be3-444a-b107-b439a7473193"],
-Cell[2299654, 38259, 818, 16, 164, "Text",ExpressionUUID->"18b88051-1c18-4cdb-ba5f-143ca8c0eeca"]
+Cell[2250804, 37180, 189, 3, 53, "Subsection",ExpressionUUID->"a6d4d2e0-658a-4cb4-97ef-62c64ab7610f"],
+Cell[2250996, 37185, 471, 9, 77, "Text",ExpressionUUID->"78b3b9bd-26dd-4e1d-83cf-13272f9efc65"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2251504, 37199, 173, 3, 53, "Subsection",ExpressionUUID->"cb9b4b5c-5d27-4c37-9ea6-119df3e6ef09"],
+Cell[2251680, 37204, 371, 8, 55, "Text",ExpressionUUID->"e2be855e-e2a2-4cd4-b465-dc6cbb8eb9c9"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2252100, 37218, 149, 3, 67, "Chapter",ExpressionUUID->"73a737af-c948-43a3-a4b8-4f07de29e979"],
+Cell[2252252, 37223, 989, 22, 361, "Text",ExpressionUUID->"8e03bd90-f958-4372-a37e-c590785745e2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2253278, 37250, 149, 3, 67, "Chapter",ExpressionUUID->"dd60bf1d-2cdc-4bc7-a29d-9e3864348f00"],
+Cell[CellGroupData[{
+Cell[2253452, 37257, 168, 3, 53, "Subsection",ExpressionUUID->"c345eea7-d543-4679-af50-4feb3c2695cb"],
+Cell[2253623, 37262, 1328, 22, 339, "Text",ExpressionUUID->"5bf3debb-683b-4155-a648-7a4c84be6652"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2254988, 37289, 161, 3, 53, "Subsection",ExpressionUUID->"511e5cbe-1be3-444a-b107-b439a7473193"],
+Cell[2255152, 37294, 818, 16, 164, "Text",ExpressionUUID->"18b88051-1c18-4cdb-ba5f-143ca8c0eeca"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
