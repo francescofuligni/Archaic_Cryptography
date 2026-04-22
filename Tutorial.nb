@@ -10,40 +10,203 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     51182,       1181]
-NotebookOptionsPosition[     49807,       1148]
-NotebookOutlinePosition[     50199,       1164]
-CellTagsIndexPosition[     50156,       1161]
+NotebookDataLength[     70124,       1677]
+NotebookOptionsPosition[     65304,       1579]
+NotebookOutlinePosition[     65696,       1595]
+CellTagsIndexPosition[     65653,       1592]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
+Cell["Laboratorio Interattivo di Crittografia Arcaica", "Title",
+ CellFrame->{{0, 0}, {0, 0}},
+ CellChangeTimes->{{3.985854616309812*^9, 
+  3.985854635893712*^9}},ExpressionUUID->"71b68250-c6c4-4d68-a840-\
+38b630657180"],
+
+Cell["Cifrario di Cesare e Cifrario di Vigen\[EGrave]re", "Subtitle",
+ CellChangeTimes->{{3.9858546349022408`*^9, 
+  3.985854664860429*^9}},ExpressionUUID->"3e80f784-b6fc-4403-8f49-\
+9095c35ec29d"],
+
+Cell["\<\
+Gruppo 2 - \[OpenCurlyDoubleQuote]I Cesaroni\[CloseCurlyDoubleQuote] \
+Matematica Computazionale 2025/2026
+[Foto e nomi dei componenti del gruppo]\
+\>", "Text",
+ CellChangeTimes->{{3.9858546585940647`*^9, 3.985854658756428*^9}, {
+  3.9858547177923717`*^9, 3.985854751159058*^9}, {3.985855580631283*^9, 
+  3.985855581850512*^9}},ExpressionUUID->"1d9fe21e-4fa6-42e4-8c9d-\
+f4c77e19bb88"],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[{
  RowBox[{"SetDirectory", "[", 
   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], "\n", 
  RowBox[{"<<", "CrittografiaArcaica.m"}]}], "Input",
- CellChangeTimes->{{3.985854199737002*^9, 3.985854199738825*^9}},
- CellLabel->"In[28]:=",ExpressionUUID->"eda0cdf0-cb3e-4ee4-ae4f-6967d33bc482"],
+ CellOpen->False,
+ CellChangeTimes->{3.985855607156415*^9, 3.985855661189492*^9},
+ CellLabel->"In[73]:=",ExpressionUUID->"afb41630-5f2e-472e-9e41-fdb6bdfdcacd"],
 
 Cell[BoxData["\<\"/Users/matteo.boscherini/Documents/GitHub/MC-Project\"\>"], \
 "Output",
- CellChangeTimes->{3.985854200422009*^9},
- CellLabel->"Out[28]=",ExpressionUUID->"8bc3c7cb-f887-4442-8621-0f9d0863e510"]
+ CellChangeTimes->{3.985855685307439*^9},
+ CellLabel->"Out[73]=",ExpressionUUID->"3f58e06f-b841-4c01-828d-91a068c86238"]
 }, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Indice", "Chapter",
+ CellChangeTimes->{{3.985855705223699*^9, 3.985855705226475*^9}, 
+   3.98585573880864*^9},ExpressionUUID->"2e243954-f31e-47ae-9100-\
+5da78fc9728c"],
+
+Cell["\<\
+I.    Introduzione alla Crittografia
+II.   Il Cifrario di Cesare
+      II.1  Come funziona
+      II.2  Laboratorio Libero
+      II.3  Esercizi
+III.  Il Cifrario di Vigen\[EGrave]re
+      III.1  Come funziona
+      III.2  Laboratorio Libero
+      III.3  Esercizi
+IV.   Approfondimenti
+V.    Bibliografia e Sitografia
+VI.   Commenti e Lavoro Futuro\
+\>", "Text",
+ CellChangeTimes->{
+  3.985855715073819*^9},ExpressionUUID->"9c93279c-871e-419f-b1dd-\
+cf6b7a06b118"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["I. Introduzione alla Crittografia", "Chapter",
+ CellChangeTimes->{{3.98585573442196*^9, 
+  3.9858557474266*^9}},ExpressionUUID->"c42bbdf8-5662-4788-9b7a-850f1e76e422"],
+
+Cell["\<\
+Cos\[CloseCurlyQuote]\[EGrave] la crittografia?
+
+La crittografia \[EGrave] la scienza che studia le tecniche per proteggere un \
+messaggio, rendendolo incomprensibile a chi non possiede la chiave per \
+decifrarlo. Il termine deriva dal greco \
+\[OpenCurlyDoubleQuote]krypt\[OAcute]s\[CloseCurlyDoubleQuote] (nascosto) e \
+\[OpenCurlyDoubleQuote]gr\[AAcute]phein\[CloseCurlyDoubleQuote] (scrivere).
+
+In questo laboratorio esplorerai due dei pi\[UGrave] celebri cifrari della \
+storia:
+  \[Bullet] il Cifrario di Cesare, basato su uno spostamento fisso delle \
+lettere dell\[CloseCurlyQuote]alfabeto;
+  \[Bullet] il Cifrario di Vigen\[EGrave]re, un\[CloseCurlyQuote]evoluzione \
+polialfabetica che usa una parola chiave variabile.
+
+A chi \[EGrave] rivolto questo laboratorio?
+
+A studenti universitari di Informatica o Matematica, e a chiunque sia curioso \
+di scoprire la storia e i meccanismi della crittografia. Non \[EGrave] \
+richiesta alcuna conoscenza pregressa di crittografia n\[EAcute] di \
+Mathematica: tutto \[EGrave] guidato passo dopo passo.
+
+Come usare questo laboratorio?
+
+Ogni sezione include:
+  \[Bullet] una spiegazione chiara del concetto;
+  \[Bullet] un Laboratorio Libero dove sperimentare liberamente;
+  \[Bullet] una sezione Esercizi con feedback interattivo.
+
+Per avviare le interfacce, esegui dal menu in alto: Evaluation > Evaluate \
+Notebook. Se appare il pulsante \[OpenCurlyDoubleQuote]Enable Dynamics?\
+\[CloseCurlyDoubleQuote] in alto a destra, accettalo. Non \[EGrave] \
+necessario modificare alcun codice.\
+\>", "Text",
+ CellChangeTimes->{
+  3.9858557549864407`*^9},ExpressionUUID->"6789c158-94d1-4c48-b10d-\
+393a72954880"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["II. Il Cifrario di Cesare", "Chapter",
+ CellChangeTimes->{
+  3.9858557657021027`*^9},ExpressionUUID->"52bcb26b-a632-4c56-9647-\
+60ec55835008"],
+
+Cell[CellGroupData[{
+
+Cell["II.1 Come funziona", "Section",
+ CellChangeTimes->{
+  3.985855772585977*^9},ExpressionUUID->"7e296286-913e-4c74-a4ec-\
+d01e6b2c9b12"],
+
+Cell["\<\
+Il Cifrario di Cesare prende il nome da Giulio Cesare, che lo usava per le \
+sue comunicazioni militari segrete [1]. Il meccanismo \[EGrave] semplice: \
+ogni lettera del messaggio viene sostituita con la lettera che si trova k \
+posizioni pi\[UGrave] avanti nell\[CloseCurlyQuote]alfabeto, dove k \[EGrave] \
+detto shift o chiave del cifrario.
+
+Esempio con shift = 3:
+
+  Alfabeto chiaro:   A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+  Alfabeto cifrato:  D E F G H I J K L M N O P Q R S T U V W X Y Z A B C
+
+Il messaggio \[OpenCurlyDoubleQuote]CIAO\[CloseCurlyDoubleQuote] diventa \
+\[OpenCurlyDoubleQuote]FLDR\[CloseCurlyDoubleQuote].
+
+Per decifrare, basta applicare uno shift negativo (ossia spostare le lettere \
+indietro di k posizioni).
+
+Punto di forza e debolezza:
+Il cifrario \[EGrave] molto semplice da capire e da usare, ma altrettanto \
+semplice da violare: esistono solo 25 shift possibili (da 1 a 25), quindi \
+\[EGrave] possibile provarli tutti con la tecnica detta forza bruta. \
+Analizzando le frequenze delle lettere del testo cifrato si pu\[OGrave] \
+risalire allo shift con ancora maggiore facilit\[AGrave] [2].\
+\>", "Text",
+ CellChangeTimes->{
+  3.9858557793445*^9},ExpressionUUID->"3f548100-1892-47a3-9dcc-766da6d9fa05"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["II.2 Laboratorio Libero \[LongDash] Cifrario di Cesare", "Section",
+ CellChangeTimes->{{3.985855788332508*^9, 
+  3.985855791947536*^9}},ExpressionUUID->"c53378a9-f2fa-4a92-8e35-\
+40036c24db22"],
+
+Cell["\<\
+Usa l\[CloseCurlyQuote]interfaccia qui sotto per:
+  \[Bullet] Cifrare un tuo messaggio scegliendo uno shift con il cursore;
+  \[Bullet] Decifrare un testo cifrato inserendo lo shift corretto;
+  \[Bullet] Osservare la Ruota di Cesare che si aggiorna in tempo reale;
+  \[Bullet] Analizzare il grafico delle frequenze delle lettere del testo \
+cifrato.
+
+Come si usa: scrivi il tuo messaggio nel campo \[OpenCurlyDoubleQuote]Testo\
+\[CloseCurlyDoubleQuote], sposta il cursore per scegliere lo shift, poi premi \
+Cifra o Decifra. Il bottone Pulisci Campi riporta tutto allo stato iniziale.\
+\>", "Text",
+ CellChangeTimes->{
+  3.985855797219708*^9},ExpressionUUID->"a0ac8c53-4a46-4c33-9075-\
+77258b6dcab4"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"laboratorioCesare", "[", "]"}]], "Input",
- CellChangeTimes->{{3.9858542034500713`*^9, 3.985854203452607*^9}},
- CellLabel->"In[30]:=",ExpressionUUID->"d081fa3d-5472-46e9-9432-9512a8b1086a"],
+ CellOpen->False,
+ CellChangeTimes->{3.985855820267329*^9},
+ CellLabel->"In[75]:=",ExpressionUUID->"85dec1a0-5e86-41e7-8864-db31f95dc0ae"],
 
 Cell[BoxData[
- DynamicModuleBox[{CrittografiaArcaica`Private`testoInput$$ = "CIAO", 
-  CrittografiaArcaica`Private`shiftLab$$ = 10, 
-  CrittografiaArcaica`Private`risultatoCifra$$ = "FLDR", 
+ DynamicModuleBox[{CrittografiaArcaica`Private`testoInput$$ = "", 
+  CrittografiaArcaica`Private`shiftLab$$ = 3, 
+  CrittografiaArcaica`Private`risultatoCifra$$ = "", 
   CrittografiaArcaica`Private`risultatoDecifra$$ = "", 
   CrittografiaArcaica`Private`avvisoTesto$$ = ""}, 
   PanelBox[
@@ -77,7 +240,7 @@ lo shift e cifra o decifra.\"\>",
          StyleBox["\"Testo: \"", 13, Bold, StripOnInput -> False], 
          InputFieldBox[
           Dynamic[CrittografiaArcaica`Private`testoInput$$], String, 
-          FieldHint -> "Solo lettere (es. CIAO)", FieldSize -> {30, 2}], 
+          FieldSize -> {30, 2}, FieldHint -> "Solo lettere (es. CIAO)"], 
          TemplateBox[{8}, "Spacer1"], 
          DynamicBox[
           ToBoxes[
@@ -103,8 +266,7 @@ lo shift e cifra o decifra.\"\>",
           ToBoxes[
            Style[
             ToString[CrittografiaArcaica`Private`shiftLab$$], 15, Bold, 
-            RGBColor[0.7, 0.2, 0.2]], StandardForm], 
-          ImageSizeCache -> {17.4755859375, {0.27099609375, 10.83984375}}]},
+            RGBColor[0.7, 0.2, 0.2]], StandardForm]]},
         "RowDefault"]},
       {
        TemplateBox[{6},
@@ -183,8 +345,7 @@ lo shift e cifra o decifra.\"\>",
            Background -> RGBColor[0.92, 1., 0.93], RoundingRadius -> 5, 
            FrameStyle -> RGBColor[0.2, 0.6, 0.3], FrameMargins -> 8], ""], 
          StandardForm],
-        ImageSizeCache->{
-         99.6533203125, {19.622802734375, 25.278564453125}}]},
+        ImageSizeCache->{0., {0., 5.263671875}}]},
       {
        DynamicBox[ToBoxes[
          If[CrittografiaArcaica`Private`risultatoDecifra$$ =!= "", 
@@ -223,7 +384,7 @@ corrispondente lettera cifrata.\"\>",
          CrittografiaArcaica`Private`ruotaInterattiva[
          CrittografiaArcaica`Private`shiftLab$$], StandardForm],
         ImageSizeCache->{
-         352.87451171875, {172.172119140625, 177.827880859375}}]},
+         353.40771484375, {172.172119140625, 177.827880859375}}]},
       {
        TemplateBox[{10},
         "Spacer1"]},
@@ -251,7 +412,7 @@ italiano standard (De Mauro).\"\>",
           Style[
           "(Il grafico appare dopo aver cifrato un testo)", 11, Italic, 
            Gray]], StandardForm],
-        ImageSizeCache->{480., {157.33499511252077`, 162.99075683127077`}}]}
+        ImageSizeCache->{232.86083984375, {2.21826171875, 8.1962890625}}]}
      },
      DefaultBaseStyle->"Column",
      GridBoxAlignment->{"Columns" -> {{Left}}},
@@ -261,16 +422,49 @@ italiano standard (De Mauro).\"\>",
    Background->GrayLevel[0.97],
    ImageSize->560],
   DynamicModuleValues:>{}]], "Output",
- CellChangeTimes->{3.985854204326483*^9},
- CellLabel->"Out[30]=",ExpressionUUID->"f37a55b3-de9f-4f1b-83e8-2aa9a65a017e"]
+ CellChangeTimes->{3.985855825533556*^9},
+ CellLabel->"Out[75]=",ExpressionUUID->"abac49a4-3d48-40b5-85c0-0bbd608e28f8"]
+}, Open  ]]
 }, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["II.3 Esercizi \[LongDash] Cifrario di Cesare", "Section",
+ CellChangeTimes->{
+  3.9858558438626003`*^9},ExpressionUUID->"a71c5b5d-6b49-4363-b36b-\
+6af6c6b58a91"],
+
+Cell["\<\
+In questa sezione trovi un esercizio interattivo per mettere alla prova ci\
+\[OGrave] che hai imparato.
+
+Come funziona:
+  1. Inserisci un numero nel campo Seed (puoi usare qualsiasi intero, ad \
+esempio 42).
+  2. Premi Genera Esercizio: apparir\[AGrave] un messaggio cifrato da \
+decifrare.
+  3. Scrivi il testo in chiaro nel campo di risposta.
+  4. Premi Verifica Risultato per sapere se hai indovinato (hai 3 tentativi a \
+disposizione).
+  5. Se sei in difficolt\[AGrave], premi Suggerimento (fino a 3 livelli di \
+aiuto progressivo).
+  6. Puoi sempre premere Mostra Soluzione per vedere la risposta completa.
+  7. Il bottone Pulisci Campi azzera tutto.
+
+Nota: lo stesso Seed genera sempre lo stesso esercizio \[LongDash] puoi \
+condividerlo con un amico per confrontarti!\
+\>", "Text",
+ CellChangeTimes->{
+  3.985855852333809*^9},ExpressionUUID->"ddf01663-2400-4181-91ef-\
+dfca50db0ce8"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"esercizioUniversaleCesare", "[", "]"}]], "Input",
- CellChangeTimes->{{3.985854207274763*^9, 3.9858542072764187`*^9}},
- CellLabel->"In[31]:=",ExpressionUUID->"7f17dc25-5dd1-412a-b6fc-4efd6c86571c"],
+ CellOpen->False,
+ CellChangeTimes->{3.985855863590767*^9},
+ CellLabel->"In[76]:=",ExpressionUUID->"51ad4b5a-bce4-42d3-bb42-b79ba0ada585"],
 
 Cell[BoxData[
  DynamicModuleBox[{CrittografiaArcaica`Private`seed$$ = 42, 
@@ -540,16 +734,89 @@ probabilmente corrisponde alla E.", 12, Italic,
    Background->GrayLevel[0.97],
    ImageSize->560],
   DynamicModuleValues:>{}]], "Output",
- CellChangeTimes->{3.9858542085167294`*^9},
- CellLabel->"Out[31]=",ExpressionUUID->"d1aaac53-2c89-40bf-b0cc-ed51983f3ef9"]
+ CellChangeTimes->{3.985855865348803*^9},
+ CellLabel->"Out[76]=",ExpressionUUID->"33de8836-c72b-4bfc-aa99-ae7ae5686e54"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["III. Il Cifrario di Vigen\[EGrave]re", "Chapter",
+ CellChangeTimes->{
+  3.985855878884688*^9},ExpressionUUID->"4b445021-15fd-440d-80c7-\
+41595ad09b32"],
+
+Cell[CellGroupData[{
+
+Cell["III.1 Come funziona", "Section",
+ CellChangeTimes->{
+  3.985855887277027*^9},ExpressionUUID->"90f5a3eb-b415-4f91-bc15-\
+99a9c0bea665"],
+
+Cell["\<\
+Il Cifrario di Vigen\[EGrave]re fu descritto dal diplomatico francese Blaise \
+de Vigen\[EGrave]re nel XVI secolo [3]. \[CapitalEGrave] considerato un\
+\[CloseCurlyQuote]evoluzione naturale del Cifrario di Cesare.
+
+L\[CloseCurlyQuote]idea chiave:
+Invece di usare uno shift costante per tutte le lettere, il Cifrario di Vigen\
+\[EGrave]re usa una parola chiave che viene ripetuta ciclicamente sul \
+messaggio. Ogni lettera della chiave determina uno shift diverso.
+
+Esempio con chiave = SOLE e testo = CIAO:
+
+  Testo:    C    I    A    O
+  Chiave:   S    O    L    E
+  Shift:   +18  +14  +11   +4
+  Cifrato:  U    W    L    S
+
+Lo shift \[EGrave] dato dalla posizione della lettera chiave nell\
+\[CloseCurlyQuote]alfabeto (A=0, B=1, ..., Z=25).
+
+Questo rende il cifrario polialfabetico: la stessa lettera del testo pu\
+\[OGrave] essere cifrata in modi diversi a seconda della posizione. Ci\
+\[OGrave] rende molto pi\[UGrave] difficile l\[CloseCurlyQuote]analisi delle \
+frequenze rispetto al Cifrario di Cesare [4].
+
+Decifratura:
+Per decifrare si applica lo shift inverso: si sottrae la posizione della \
+lettera chiave invece di sommarla.\
+\>", "Text",
+ CellChangeTimes->{
+  3.9858558937466917`*^9},ExpressionUUID->"af53dffc-1d3a-48a0-8167-\
+99eb48308d1e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["III.2 Laboratorio Libero \[LongDash] Cifrario di Vigen\[EGrave]re", \
+"Section",
+ CellChangeTimes->{
+  3.985855902652719*^9},ExpressionUUID->"736e2af7-3e98-4513-8412-\
+29196b0916b7"],
+
+Cell["\<\
+Usa l\[CloseCurlyQuote]interfaccia qui sotto per:
+  \[Bullet] Cifrare un messaggio inserendo una parola chiave;
+  \[Bullet] Decifrare un testo cifrato con la stessa chiave;
+  \[Bullet] Osservare la tabella degli shift lettera per lettera, che mostra \
+come la chiave trasforma ogni carattere.
+
+Come si usa: scrivi il messaggio e la parola chiave (solo lettere), poi premi \
+Cifra o Decifra. Il bottone Pulisci Campi ripristina lo stato iniziale.\
+\>", "Text",
+ CellChangeTimes->{
+  3.985855912283791*^9},ExpressionUUID->"aadea0dc-344a-4c11-aeec-\
+04bef142e410"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"laboratorioVigenere", "[", "]"}]], "Input",
- CellChangeTimes->{{3.9858542115126543`*^9, 3.985854211514573*^9}},
- CellLabel->"In[32]:=",ExpressionUUID->"fb25db46-a52c-4b12-85fb-f970220a3f16"],
+ CellOpen->False,
+ CellChangeTimes->{3.985855925019285*^9},
+ CellLabel->"In[77]:=",ExpressionUUID->"55d0f4a8-7021-4d71-a9f7-099c6fbc8ea1"],
 
 Cell[BoxData[
  DynamicModuleBox[{CrittografiaArcaica`Private`testoInput$$ = "", 
@@ -841,16 +1108,40 @@ Cifrato\"\>",
    Background->GrayLevel[0.97],
    ImageSize->560],
   DynamicModuleValues:>{}]], "Output",
- CellChangeTimes->{3.985854213632773*^9},
- CellLabel->"Out[32]=",ExpressionUUID->"ec2d49d1-cda8-45fb-9809-9dc94e3aa3ba"]
+ CellChangeTimes->{3.985855926880496*^9},
+ CellLabel->"Out[77]=",ExpressionUUID->"be54f8ef-4190-49ba-9211-b5b0061e52ab"]
+}, Open  ]]
 }, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["III.3 Esercizi \[LongDash] Cifrario di Vigen\[EGrave]re", "Section",
+ CellChangeTimes->{
+  3.98585594222692*^9},ExpressionUUID->"f8014d85-da00-4baa-976f-564719ea235f"],
+
+Cell["\<\
+Funziona esattamente come gli esercizi sul Cifrario di Cesare, ma questa \
+volta dovrai decifrare un messaggio cifrato con Vigen\[EGrave]re.
+
+Le funzionalit\[AGrave] disponibili sono:
+  \[Bullet] Genera Esercizio (con Seed riproducibile);
+  \[Bullet] Verifica Risultato (3 tentativi massimi);
+  \[Bullet] Suggerimento progressivo (3 livelli: tipo di cifrario \
+\[RightArrow] lunghezza chiave \[RightArrow] prima lettera);
+  \[Bullet] Mostra Soluzione (chiave e testo in chiaro);
+  \[Bullet] Pulisci Campi (ripristina l\[CloseCurlyQuote]interfaccia).\
+\>", "Text",
+ CellChangeTimes->{
+  3.985855949212084*^9},ExpressionUUID->"166821d6-3e9e-43e6-baec-\
+18f4f3901625"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"esercizioUniversaleVigenere", "[", "]"}]], "Input",
- CellChangeTimes->{{3.985854216435616*^9, 3.98585421643958*^9}},
- CellLabel->"In[33]:=",ExpressionUUID->"747e9310-3f2c-46a2-acdd-819b3d2c4c01"],
+ CellOpen->False,
+ CellChangeTimes->{3.985855956389786*^9},
+ CellLabel->"In[78]:=",ExpressionUUID->"177c5de9-4ab1-44cf-9077-917085a37459"],
 
 Cell[BoxData[
  DynamicModuleBox[{CrittografiaArcaica`Private`seed$$ = 42, 
@@ -1142,9 +1433,149 @@ chiaro corretto sono '" <>
    Background->GrayLevel[0.97],
    ImageSize->560],
   DynamicModuleValues:>{}]], "Output",
- CellChangeTimes->{3.985854217689295*^9},
- CellLabel->"Out[33]=",ExpressionUUID->"1192dcae-efb5-4dd7-bc4b-7ac9d492bcb3"]
+ CellChangeTimes->{3.985855958239479*^9},
+ CellLabel->"Out[78]=",ExpressionUUID->"7b1a911d-9d83-4edf-9261-4b92c3aca78f"]
 }, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["IV. Approfondimenti", "Chapter",
+ CellChangeTimes->{
+  3.985855974011498*^9},ExpressionUUID->"379bc25c-5a99-43ac-9f2a-\
+834fa50fe58d"],
+
+Cell["\<\
+Analisi delle frequenze
+
+Un metodo classico per violare il Cifrario di Cesare \[EGrave] l\
+\[CloseCurlyQuote]analisi delle frequenze: in italiano (come in molte \
+lingue), alcune lettere appaiono molto pi\[UGrave] spesso di altre. La \
+lettera pi\[UGrave] frequente \[EGrave] la E, seguita da A, I, O. Se nel \
+testo cifrato la lettera pi\[UGrave] frequente \[EGrave] H, \[EGrave] \
+probabile che H corrisponda a E, quindi lo shift \[EGrave] 3 (H \[Minus] E = \
+3). Il Laboratorio Libero mostra proprio questo grafico a barre interattivo.
+
+Il test di Kasiski per Vigen\[EGrave]re
+
+Per il Cifrario di Vigen\[EGrave]re, l\[CloseCurlyQuote]analisi delle \
+frequenze da sola non basta. Un metodo avanzato \[EGrave] il test di Kasiski \
+[4]: si cercano sequenze di lettere che si ripetono nel testo cifrato; la \
+distanza tra queste ripetizioni \[EGrave] spesso un multiplo della lunghezza \
+della chiave.
+
+Curiosit\[AGrave] storica
+
+Il Cifrario di Vigen\[EGrave]re era noto come \[OpenCurlyDoubleQuote]le \
+chiffre ind\[EAcute]chiffrable\[CloseCurlyDoubleQuote] (il cifrario \
+indecifrabile) per secoli, fino a quando il matematico Charles Babbage lo \
+ruppe nel XIX secolo [3].\
+\>", "Text",
+ CellChangeTimes->{
+  3.985855983171589*^9},ExpressionUUID->"36f7c92a-e435-40d1-9492-\
+32860cd63050"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["V. Bibliografia e Sitografia", "Chapter",
+ CellChangeTimes->{
+  3.985855993984943*^9},ExpressionUUID->"73a737af-c948-43a3-a4b8-\
+4f07de29e979"],
+
+Cell["\<\
+[1] Svetonio, Vita di Giulio Cesare, I secolo d.C. \[LongDash] fonte storica \
+sull\[CloseCurlyQuote]uso del cifrario da parte di Cesare.
+
+[2] S. Singh, The Code Book: The Science of Secrecy from Ancient Egypt to \
+Quantum Cryptography, Anchor Books, 2000, ISBN: 978-0385495325.
+
+[3] A. Kahn, The Codebreakers: The Comprehensive History of Secret \
+Communication, Scribner, 1996, ISBN: 978-0684831305.
+
+[4] E.W. Weisstein, \[OpenCurlyDoubleQuote]Vigen\[EGrave]re Cipher\
+\[CloseCurlyDoubleQuote]. Da MathWorld \[LongDash] A Wolfram Resource.
+    https://mathworld.wolfram.com/VigenereCipher.html
+
+[5] S. Wolfram, An Elementary Introduction to the Wolfram Language, \
+3\[Degree] ed., Wolfram Media, 2023, ISBN: 978-1944183073.
+
+[6] Documentazione Mathematica \[LongDash] Package Development:
+    https://reference.wolfram.com/language/guide/PackageDevelopment.html\
+\>", "Text",
+ CellChangeTimes->{
+  3.985856001750381*^9},ExpressionUUID->"8e03bd90-f958-4372-a37e-\
+c590785745e2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["VI. Commenti e Lavoro Futuro", "Chapter",
+ CellChangeTimes->{
+  3.985856008618412*^9},ExpressionUUID->"dd60bf1d-2cdc-4bc7-a29d-\
+9e3864348f00"],
+
+Cell["\<\
+Commenti sul progetto
+
+Il pacchetto CrittografiaArcaica.m \[EGrave] strutturato seguendo il template \
+fornito dalla docente: BeginPackage/EndPackage per il contesto del pacchetto, \
+Begin/End per la sezione Private, e Module/DynamicModule per la \
+localizzazione rigorosa di tutte le variabili. Non sono state usate variabili \
+globali nella sezione Private.
+
+Le funzioni sono tutte documentate con commenti esplicativi riga per riga \
+(funzionalit\[AGrave], variabili di input, variabili di lavoro, variabili di \
+output, logica dei passaggi).
+
+Il Tutorial.nb contiene il minimo codice possibile: quattro celle di codice \
+(SetDirectory, Get del pacchetto, e le chiamate ai quattro Main per le \
+interfacce). Le celle di codice sono chiuse e invisibili \
+all\[CloseCurlyQuote]utente.
+
+Tutte le interfacce sono state testate con input errati (chiavi vuote, testi \
+vuoti, seed non validi) e gestiscono gli errori mostrando messaggi \
+comprensibili all\[CloseCurlyQuote]utente senza far arrivare messaggi di \
+errore dal Kernel.
+
+Lavoro futuro
+
+  \[Bullet] Aggiungere una sezione dedicata alla violazione automatica del \
+Cifrario di Cesare tramite analisi delle frequenze, mostrando all\
+\[CloseCurlyQuote]utente il procedimento passo dopo passo.
+  \[Bullet] Implementare il test di Kasiski per stimare la lunghezza della \
+chiave del Cifrario di Vigen\[EGrave]re.
+  \[Bullet] Aggiungere ulteriori cifrari storici (Cifrario di Playfair, \
+ADFGVX, Enigma semplificato).
+  \[Bullet] Localizzare l\[CloseCurlyQuote]interfaccia in lingua inglese per \
+un pubblico internazionale.
+  \[Bullet] Aggiungere un sistema di punteggio che tenga traccia delle \
+performance dell\[CloseCurlyQuote]utente attraverso pi\[UGrave] sessioni di \
+esercizi.\
+\>", "Text",
+ CellChangeTimes->{
+  3.985856034515419*^9},ExpressionUUID->"5bf3debb-683b-4155-a648-\
+7a4c84be6652"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Commento sul Corso", "Chapter",
+ CellChangeTimes->{{3.9858560614033937`*^9, 
+  3.9858560726483*^9}},ExpressionUUID->"bb16471a-27f6-4d49-a5b5-2437571ef3a6"],
+
+Cell["Da fare credo.", "Text",
+ CellChangeTimes->{{3.985856077498259*^9, 
+  3.9858560792367487`*^9}},ExpressionUUID->"13c5f535-8127-4e34-801e-\
+09c4961347cb"]
+}, Open  ]]
+}, Open  ]],
+
+Cell["", "Title",
+ CellChangeTimes->{{3.985855726727221*^9, 
+  3.985855750011673*^9}},ExpressionUUID->"f9cc7467-0a00-45d8-b60e-\
+624120286e7c"]
 },
 WindowSize->{808, 708},
 WindowMargins->{{Automatic, 24}, {19, Automatic}},
@@ -1164,25 +1595,90 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[576, 22, 300, 5, 49, "Input",ExpressionUUID->"eda0cdf0-cb3e-4ee4-ae4f-6967d33bc482"],
-Cell[879, 29, 210, 3, 33, "Output",ExpressionUUID->"8bc3c7cb-f887-4442-8621-0f9d0863e510"]
+Cell[576, 22, 220, 4, 157, "Title",ExpressionUUID->"71b68250-c6c4-4d68-a840-38b630657180"],
+Cell[799, 28, 197, 3, 52, "Subtitle",ExpressionUUID->"3e80f784-b6fc-4403-8f49-9095c35ec29d"],
+Cell[999, 33, 395, 8, 55, "Text",ExpressionUUID->"1d9fe21e-4fa6-42e4-8c9d-f4c77e19bb88"],
+Cell[CellGroupData[{
+Cell[1419, 45, 316, 6, 19, "Input",ExpressionUUID->"afb41630-5f2e-472e-9e41-fdb6bdfdcacd",
+ CellOpen->False],
+Cell[1738, 53, 210, 3, 33, "Output",ExpressionUUID->"3f58e06f-b841-4c01-828d-91a068c86238"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1126, 37, 212, 3, 29, "Input",ExpressionUUID->"d081fa3d-5472-46e9-9432-9512a8b1086a"],
-Cell[1341, 42, 9126, 222, 1211, "Output",ExpressionUUID->"f37a55b3-de9f-4f1b-83e8-2aa9a65a017e"]
+Cell[1985, 61, 173, 3, 67, "Chapter",ExpressionUUID->"2e243954-f31e-47ae-9100-5da78fc9728c"],
+Cell[2161, 66, 472, 16, 274, "Text",ExpressionUUID->"9c93279c-871e-419f-b1dd-cf6b7a06b118"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10504, 269, 220, 3, 29, "Input",ExpressionUUID->"7f17dc25-5dd1-412a-b6fc-4efd6c86571c"],
-Cell[10727, 274, 12375, 269, 417, "Output",ExpressionUUID->"d1aaac53-2c89-40bf-b0cc-ed51983f3ef9"]
+Cell[2670, 87, 173, 2, 67, "Chapter",ExpressionUUID->"c42bbdf8-5662-4788-9b7a-850f1e76e422"],
+Cell[2846, 91, 1664, 37, 558, "Text",ExpressionUUID->"6789c158-94d1-4c48-b10d-393a72954880"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[23139, 548, 214, 3, 29, "Input",ExpressionUUID->"fb25db46-a52c-4b12-85fb-f970220a3f16"],
-Cell[23356, 553, 12627, 291, 558, "Output",ExpressionUUID->"ec2d49d1-cda8-45fb-9809-9dc94e3aa3ba"]
+Cell[4547, 133, 148, 3, 67, "Chapter",ExpressionUUID->"52bcb26b-a632-4c56-9647-60ec55835008"],
+Cell[CellGroupData[{
+Cell[4720, 140, 139, 3, 66, "Section",ExpressionUUID->"7e296286-913e-4c74-a4ec-d01e6b2c9b12"],
+Cell[4862, 145, 1259, 26, 383, "Text",ExpressionUUID->"3f548100-1892-47a3-9dcc-766da6d9fa05"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[36020, 849, 219, 3, 29, "Input",ExpressionUUID->"747e9310-3f2c-46a2-acdd-819b3d2c4c01"],
-Cell[36242, 854, 13549, 291, 418, "Output",ExpressionUUID->"1192dcae-efb5-4dd7-bc4b-7ac9d492bcb3"]
+Cell[6158, 176, 199, 3, 66, "Section",ExpressionUUID->"c53378a9-f2fa-4a92-8e35-40036c24db22"],
+Cell[6360, 181, 710, 14, 186, "Text",ExpressionUUID->"a0ac8c53-4a46-4c33-9075-77258b6dcab4"],
+Cell[CellGroupData[{
+Cell[7095, 199, 204, 4, 19, "Input",ExpressionUUID->"85dec1a0-5e86-41e7-8864-db31f95dc0ae",
+ CellOpen->False],
+Cell[7302, 205, 9001, 220, 866, "Output",ExpressionUUID->"abac49a4-3d48-40b5-85c0-0bbd608e28f8"]
 }, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16352, 431, 167, 3, 66, "Section",ExpressionUUID->"a71c5b5d-6b49-4363-b36b-6af6c6b58a91"],
+Cell[16522, 436, 900, 22, 274, "Text",ExpressionUUID->"ddf01663-2400-4181-91ef-dfca50db0ce8"],
+Cell[CellGroupData[{
+Cell[17447, 462, 212, 4, 19, "Input",ExpressionUUID->"51ad4b5a-bce4-42d3-bb42-b79ba0ada585",
+ CellOpen->False],
+Cell[17662, 468, 12373, 269, 417, "Output",ExpressionUUID->"33de8836-c72b-4bfc-aa99-ae7ae5686e54"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30096, 744, 157, 3, 67, "Chapter",ExpressionUUID->"4b445021-15fd-440d-80c7-41595ad09b32"],
+Cell[CellGroupData[{
+Cell[30278, 751, 140, 3, 66, "Section",ExpressionUUID->"90f5a3eb-b415-4f91-bc15-99a9c0bea665"],
+Cell[30421, 756, 1265, 31, 470, "Text",ExpressionUUID->"af53dffc-1d3a-48a0-8167-99eb48308d1e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31723, 792, 188, 4, 66, "Section",ExpressionUUID->"736e2af7-3e98-4513-8412-29196b0916b7"],
+Cell[31914, 798, 571, 12, 164, "Text",ExpressionUUID->"aadea0dc-344a-4c11-aeec-04bef142e410"],
+Cell[CellGroupData[{
+Cell[32510, 814, 206, 4, 19, "Input",ExpressionUUID->"55d0f4a8-7021-4d71-a9f7-099c6fbc8ea1",
+ CellOpen->False],
+Cell[32719, 820, 12627, 291, 558, "Output",ExpressionUUID->"be54f8ef-4190-49ba-9211-b5b0061e52ab"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[45395, 1117, 173, 2, 66, "Section",ExpressionUUID->"f8014d85-da00-4baa-976f-564719ea235f"],
+Cell[45571, 1121, 675, 14, 208, "Text",ExpressionUUID->"166821d6-3e9e-43e6-baec-18f4f3901625"],
+Cell[CellGroupData[{
+Cell[46271, 1139, 214, 4, 19, "Input",ExpressionUUID->"177c5de9-4ab1-44cf-9077-917085a37459",
+ CellOpen->False],
+Cell[46488, 1145, 13549, 291, 418, "Output",ExpressionUUID->"7b1a911d-9d83-4edf-9261-4b92c3aca78f"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[60098, 1443, 140, 3, 67, "Chapter",ExpressionUUID->"379bc25c-5a99-43ac-9f2a-834fa50fe58d"],
+Cell[60241, 1448, 1300, 28, 383, "Text",ExpressionUUID->"36f7c92a-e435-40d1-9492-32860cd63050"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[61578, 1481, 149, 3, 67, "Chapter",ExpressionUUID->"73a737af-c948-43a3-a4b8-4f07de29e979"],
+Cell[61730, 1486, 989, 22, 361, "Text",ExpressionUUID->"8e03bd90-f958-4372-a37e-c590785745e2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[62756, 1513, 149, 3, 67, "Chapter",ExpressionUUID->"dd60bf1d-2cdc-4bc7-a29d-9e3864348f00"],
+Cell[62908, 1518, 1863, 40, 558, "Text",ExpressionUUID->"5bf3debb-683b-4155-a648-7a4c84be6652"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[64808, 1563, 161, 2, 67, "Chapter",ExpressionUUID->"bb16471a-27f6-4d49-a5b5-2437571ef3a6"],
+Cell[64972, 1567, 158, 3, 33, "Text",ExpressionUUID->"13c5f535-8127-4e34-801e-09c4961347cb"]
+}, Open  ]]
+}, Open  ]],
+Cell[65157, 1574, 143, 3, 96, "Title",ExpressionUUID->"f9cc7467-0a00-45d8-b60e-624120286e7c"]
 }
 ]
 *)
