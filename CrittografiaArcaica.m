@@ -1,22 +1,14 @@
 (* ::Package:: *)
 
 (* ============================================================
-   CrittografiaArcaica.m
+   Package.m
    Laboratorio Interattivo di Crittografia Arcaica
    Cifrario di Cesare e Cifrario di Vigenere
 
    Matematica Computazionale 2025/2026
-
-   Changelog v3:
-   - FEAT: ruota interattiva con rotazione tramite mouse (Slider angolare)
-   - FEAT: generatore di frasi infinite corretto (seed indipendenti per ogni componente)
-   - FEAT: grafico frequenze corretto (ListLinePlot sovrapposto al BarChart)
-   - FIX:  Cesare e Vigenere accettano solo lettere in input (validazione testo)
-   - FIX:  esercizio Vigenere -> decifrare (riceve cifrato + chiave, trova il chiaro)
-   - FEAT: nota "Cesare e' sottocaso di Vigenere" anche nella sezione spiegazione
    ============================================================ *)
 
-BeginPackage["CrittografiaArcaica`"]
+BeginPackage["Package`"]
 
 (* ============================================================
    DICHIARAZIONI DI USO (usage)
@@ -80,45 +72,47 @@ soloLettere[s_String] :=
   ]
 
 (* ============================================================
-   GENERATORE DI FRASI INFINITO
+   GENERATORE DI PAROLE CASUALI CON SEED
    ============================================================ *)
 
 (*
-  generaFrase[seed]
-  Input:  seed -- intero, garantisce la riproducibilita'
-  Output: stringa maiuscola "SOGGETTO VERBO COMPLEMENTO"
-  Logica: tre liste da 10 elementi ciascuna -> 10^3 = 1000 frasi distinte.
-          Usiamo seed, seed+1, seed+2 come semi separati per ciascuna
-          RandomChoice, in modo che soggetto, verbo e complemento siano
-          davvero indipendenti tra loro (bug della versione precedente:
-          un solo SeedRandom condizionava tutte e tre le scelte).
+  generaParola[seed]
+  Input:  seed -- intero, garantisce la riproducibilita' (stesso seed = stessa parola)
+  Output: stringa maiuscola di sole lettere, senza spazi (es. "MATEMATICA")
+  Logica: dizionario di 100 parole italiane comuni legate alla crittografia,
+          alla matematica e al lessico quotidiano. RandomChoice con SeedRandom
+          garantisce riproducibilita' e un numero potenzialmente infinito di
+          esercizi (seed diversi -> parole diverse). Le parole contengono solo
+          lettere A-Z, quindi sono compatibili con il vincolo "solo lettere".
 *)
-generaFrase[seed_Integer] :=
+generaParola[seed_Integer] :=
   Module[
-    {soggetti, verbi, complementi, s, v, c},
-    soggetti = {
-      "IL MATEMATICO", "LA CRITTOGRAFA", "LO STUDENTE",
-      "IL CODICE", "LA CHIAVE", "IL MESSAGGIO",
-      "IL CIFRARIO", "LA FORMULA", "IL RICERCATORE", "LA SCIENZA"
+    {dizionario},
+    dizionario = {
+      "MATEMATICA", "CRITTOGRAFIA", "ALFABETO", "CIFRARIO", "SEGRETO",
+      "MESSAGGIO", "CHIAVE", "CODICE", "SCIENZA", "FORMULA",
+      "NUMERO", "LETTERA", "SIMBOLO", "SISTEMA", "METODO",
+      "TEOREMA", "ALGEBRA", "GEOMETRIA", "LOGICA", "CALCOLO",
+      "VETTORE", "MATRICE", "FUNZIONE", "INSIEME", "SOLUZIONE",
+      "PROBLEMA", "RISPOSTA", "DOMANDA", "RICERCA", "SCOPERTA",
+      "ANALISI", "SINTESI", "VERIFICA", "RISULTATO", "OPERAZIONE",
+      "SOMMA", "PRODOTTO", "DIVISIONE", "POTENZA", "RADICE",
+      "PRIMO", "INTERO", "REALE", "COMPLESSO", "RAZIONALE",
+      "SEQUENZA", "SERIE", "LIMITE", "DERIVATA", "INTEGRALE",
+      "PROBABILITA", "STATISTICA", "CAMPIONE", "MEDIA", "VARIANZA",
+      "ALGORITMO", "PROGRAMMA", "COMPUTER", "BINARIO", "DIGITALE",
+      "RETE", "PROTOCOLLO", "SICUREZZA", "FIRMA", "CERTIFICATO",
+      "CHIARO", "CIFRATO", "DECIFRARE", "CIFRARE", "TRASFORMARE",
+      "ROTAZIONE", "SOSTITUZIONE", "PERMUTAZIONE", "TRASPOSIZIONE", "BLOCCO",
+      "FREQUENZA", "DISTRIBUZIONE", "ISTOGRAMMA", "GRAFICO", "DIAGRAMMA",
+      "STORIA", "ROMANO", "CESARE", "VIGENERE", "ENIGMA",
+      "GUERRA", "MILITARE", "SPIONE", "AMBASCIATRICE", "MISSIONE",
+      "UNIVERSO", "PIANETA", "STELLA", "GALASSIA", "COSMO",
+      "NATURA", "ACQUA", "FUOCO", "TERRA", "VENTO",
+      "LIBRO", "PAGINA", "CAPITOLO", "PARAGRAFO", "PAROLA"
     };
-    verbi = {
-      "NASCONDE", "RIVELA", "PROTEGGE", "TRASFORMA", "ANALIZZA",
-      "SCOPRE", "STUDIA", "CIFRA", "DECIFRA", "CUSTODISCE"
-    };
-    complementi = {
-      "UN SEGRETO ANTICO", "IL MESSAGGIO CIFRATO", "LA VERITA NASCOSTA",
-      "UN CODICE MISTERIOSO", "LA SOLUZIONE GIUSTA", "UN TESORO PREZIOSO",
-      "IL TESTO IN CHIARO", "UNA FORMULA SEGRETA", "IL METODO CORRETTO",
-      "UN ALFABETO SEGRETO"
-    };
-    (* Semi separati per soggetto, verbo e complemento *)
     SeedRandom[seed];
-    s = RandomChoice[soggetti];
-    SeedRandom[seed + 1];
-    v = RandomChoice[verbi];
-    SeedRandom[seed + 2];
-    c = RandomChoice[complementi];
-    s <> " " <> v <> " " <> c
+    RandomChoice[dizionario]
   ]
 
 (* ============================================================
@@ -281,12 +275,14 @@ tabellaShiftVigenere[testo_String, chiave_String] :=
   Nota: lo shift usa seed+999 come seme separato dalla frase.
 *)
 generaEsercizioConSeedCesare[seed_Integer] :=
-  Module[{frase, shift, cifrato},
-    frase = generaFrase[seed];
+  Module[{parola, shift, cifrato},
+    (* Genera una parola singola senza spazi, riproducibile col seed *)
+    parola  = generaParola[seed];
+    (* Shift indipendente: usa seed+999 come seme separato *)
     SeedRandom[seed + 999];
     shift   = RandomInteger[{1, 25}];
-    cifrato = cifraCesare[frase, shift];
-    {cifrato, shift, frase}
+    cifrato = cifraCesare[parola, shift];
+    {cifrato, shift, parola}
   ]
 
 (*
@@ -298,38 +294,43 @@ generaEsercizioConSeedCesare[seed_Integer] :=
 *)
 generaEsercizioConSeedVigenere[seed_Integer] :=
   Module[
-    {chiavi, frase, chiave, cifrato},
+    {chiavi, parola, chiave, cifrato},
     chiavi = {"SOLE", "MARE", "LUNA", "VENTO", "FUOCO", "ACQUA",
               "CIELO", "TERRA", "LUCE", "OMBRA", "CHIAVE", "CODICE",
               "PIETRA", "FIUME", "STELLA", "NOTTE", "GIORNO"};
-    frase = generaFrase[seed];
+    (* Genera una parola singola senza spazi, riproducibile col seed *)
+    parola = generaParola[seed];
+    (* Chiave indipendente: usa seed+777 come seme separato *)
     SeedRandom[seed + 777];
     chiave  = RandomChoice[chiavi];
-    cifrato = cifraVigenere[frase, chiave];
+    cifrato = cifraVigenere[parola, chiave];
     (* Output: {cifrato, chiave, chiaro} -- l'utente riceve cifrato e chiave *)
-    {cifrato, chiave, frase}
+    {cifrato, chiave, parola}
   ]
 
 (* ============================================================
-   GRAFICO FREQUENZE CON RIFERIMENTO ITALIANO
+   GRAFICO FREQUENZE -- DUE PANNELLI SEPARATI
    ============================================================ *)
 
 (*
   graficaFrequenze[testo]
   Input:  testo -- stringa (tipicamente il testo cifrato da analizzare)
-  Output: grafico combinato:
-          - BarChart blu: frequenze relative (%) delle lettere nel testo
-          - ListLinePlot arancione sovrapposto: frequenze attese italiano
-  Didattica: la curva arancione mostra il "profilo" atteso dell'italiano.
-             Quando il testo e' decifrato, i picchi delle barre si allineano
-             alla curva di riferimento. Con Cesare, la curva e' spostata
-             di esattamente shift posizioni.
-  Nota: usiamo Show[] per sovrapporre BarChart e ListLinePlot,
-        che e' il modo corretto per combinare questi due tipi di grafico.
+  Output: Column con due BarChart separati, esattamente come da specifiche:
+          1. Grafico SUPERIORE: "Standard Italiano (%)"
+             Barre azzurre uniformi con le frequenze attese dell'italiano.
+          2. Grafico INFERIORE: "Frequenze Testo Cifrato (Assolute)"
+             Barre colorate (palette arcobaleno) con i conteggi assoluti
+             delle lettere nel testo analizzato.
+  Didattica: confrontando i due grafici, l'utente vede come lo shift
+             di Cesare "sposta" i picchi rispetto al profilo italiano.
+             Il picco della E nell'italiano corrisponde al picco
+             della lettera piu' frequente nel testo cifrato.
 *)
 graficaFrequenze[testo_String] :=
   Module[
-    {conteggi, totale, freqRel, barreGrafico, lineaRef, etichette},
+    {conteggi, totale, coloriArcobaleno,
+     graficoItaliano, graficoCifrato,
+     etichette, n},
     conteggi = frequenzeLettere[testo];
     totale   = Total[conteggi];
     If[totale == 0,
@@ -337,49 +338,43 @@ graficaFrequenze[testo_String] :=
         "(Nessuna lettera nel testo: impossibile calcolare le frequenze.)",
         11, Italic, Gray]]
     ];
-    (* Frequenze relative in percentuale *)
-    freqRel  = N[100 * conteggi / totale];
-    etichette = alfabeto;
-    (* BarChart delle frequenze del testo *)
-    barreGrafico = BarChart[
-      freqRel,
-      ChartLabels -> Placed[etichette, Below],
-      ChartStyle  -> RGBColor[0.25, 0.55, 0.85],
-      AxesLabel   -> {None, "Frequenza (%)"},
-      PlotRange   -> {0, Max[freqRel, freqItaliano] * 1.25},
-      ImageSize   -> 480,
-      LabelStyle  -> {FontSize -> 8},
-      PlotLabel   -> Style["Analisi delle frequenze", 13, Bold]
+    n = 26;
+    (* Palette arcobaleno per il grafico del testo cifrato (26 colori) *)
+    coloriArcobaleno = Table[Hue[k/26, 0.6, 0.85], {k, 0, 25}];
+    (* Etichette A-Z posizionate manualmente via Epilog.
+       In BarChart con n barre, la k-esima barra ha centro x = k (1-indicizzato).
+       Posizioniamo il testo a y = -0.3 (sotto l'asse) per ogni barra. *)
+    etichette = Table[
+      Text[Style[alfabeto[[k]], 8, Bold, GrayLevel[0.3]], {k, -0.45}],
+      {k, 1, n}
     ];
-    (* ListLinePlot del riferimento italiano sovrapposto *)
-    lineaRef = ListLinePlot[
+    (* --- Grafico 1: Standard Italiano --- *)
+    graficoItaliano = BarChart[
       freqItaliano,
-      PlotStyle    -> {Thick, RGBColor[0.9, 0.45, 0.1]},
-      PlotMarkers  -> {Automatic, 6},
-      PlotRange    -> {0, Max[freqRel, freqItaliano] * 1.25},
-      DisplayFunction -> Identity
+      ChartStyle  -> RGBColor[0.65, 0.80, 0.92],
+      AxesLabel   -> {None, None},
+      PlotRange   -> {{0, n + 0.5}, {-0.7, Max[freqItaliano] * 1.20}},
+      ImageSize   -> {480, 220},
+      PlotLabel   -> Style["Standard Italiano (%)", 12, Bold, GrayLevel[0.3]],
+      BarSpacing  -> 0.3,
+      Frame       -> False,
+      Axes        -> {False, True},
+      Epilog      -> etichette
     ];
-    (* Sovrappongo i due grafici con Show[] *)
-    Show[
-      barreGrafico, lineaRef,
-      Epilog -> {
-        (* Legenda manuale *)
-        Inset[
-          Framed[
-            Column[{
-              Row[{Graphics[{RGBColor[0.25,0.55,0.85], Rectangle[{0,0},{1,1}]},
-                   ImageSize->{14,10}], Spacer[4],
-                   Style["Testo analizzato (%)", 9]}],
-              Row[{Graphics[{Thick, RGBColor[0.9,0.45,0.1], Line[{{0,0.5},{1,0.5}}]},
-                   ImageSize->{14,10}], Spacer[4],
-                   Style["Italiano standard (%)", 9]}]
-            }],
-            Background -> White, FrameMargins -> 4
-          ],
-          Scaled[{0.98, 0.97}], {Right, Top}
-        ]
-      }
-    ]
+    (* --- Grafico 2: Frequenze Testo Cifrato (Assolute) --- *)
+    graficoCifrato = BarChart[
+      conteggi,
+      ChartStyle  -> coloriArcobaleno,
+      AxesLabel   -> {None, None},
+      PlotRange   -> {{0, n + 0.5}, {-0.15, Max[conteggi, 1] * 1.20}},
+      ImageSize   -> {480, 220},
+      PlotLabel   -> Style["Frequenze Testo Cifrato (Assolute)", 12, Bold, GrayLevel[0.3]],
+      BarSpacing  -> 0.3,
+      Frame       -> False,
+      Axes        -> {False, True},
+      Epilog      -> etichette
+    ];
+    Column[{graficoItaliano, graficoCifrato}, Spacings -> 1, Alignment -> Center]
   ]
 
 (* ============================================================
@@ -597,7 +592,7 @@ laboratorioCesare[] :=
         Spacer[10],
         (* Grafico frequenze *)
         Style["Analisi delle frequenze:", 13, Bold],
-        Style["Barre blu = frequenze nel testo; curva arancione = italiano standard (De Mauro).",
+        Style["Sopra: profilo standard dell'italiano. Sotto: frequenze assolute delle lettere nel testo cifrato.",
               11, Italic, Gray],
         Dynamic[If[risultatoCifra =!= "",
           graficaFrequenze[risultatoCifra],
