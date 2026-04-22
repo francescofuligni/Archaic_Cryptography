@@ -948,7 +948,6 @@ avviaLaboratorio[] :=
 (*
   bottoneLaboratorioCesare[]
   Output: Button blu che avvia laboratorioCesare[] al click.
-  Da inserire nella sezione II.2 del Tutorial.nb.
 *)
 bottoneLaboratorioCesare[] :=
   Button[
@@ -962,7 +961,6 @@ bottoneLaboratorioCesare[] :=
 (*
   bottoneEserciziCesare[]
   Output: Button verde che avvia esercizioUniversaleCesare[] al click.
-  Da inserire nella sezione II.3 del Tutorial.nb.
 *)
 bottoneEserciziCesare[] :=
   Button[
@@ -976,7 +974,6 @@ bottoneEserciziCesare[] :=
 (*
   bottoneLaboratorioVigenere[]
   Output: Button viola che avvia laboratorioVigenere[] al click.
-  Da inserire nella sezione III.2 del Tutorial.nb.
 *)
 bottoneLaboratorioVigenere[] :=
   Button[
@@ -990,7 +987,6 @@ bottoneLaboratorioVigenere[] :=
 (*
   bottoneEserciziVigenere[]
   Output: Button viola scuro che avvia esercizioUniversaleVigenere[] al click.
-  Da inserire nella sezione III.3 del Tutorial.nb.
 *)
 bottoneEserciziVigenere[] :=
   Button[
