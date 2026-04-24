@@ -74,44 +74,39 @@ soloLettere[s_String] :=
   ]
 
 (* ============================================================
-   GENERATORE DI PAROLE CON SEED
+   GENERATORE DI PAROLE CON SEED (AGGIORNATO)
    ============================================================ *)
+
+(* 
+1. Creiamo il dizionario usando la Memoization ( := definisce e salva ).
+In questo modo Mathematica carichera' e filtrera' la lista di decine 
+di migliaia di parole *solo la prima volta* che viene chiamata, 
+evitando fastidiosi lag dell'interfaccia a ogni generazione di esercizio.
+*)
+dizionarioItaliano := dizionarioItaliano = Module[{tutteLeParole},
+  (* Estrae tutte le parole italiane disponibili nel dizionario di sistema *)
+  tutteLeParole = DictionaryLookup[{"Italian", "*"}];
+  
+  (* Filtra le parole: 
+     - Solo caratteri A-Z (esclude lettere accentate come 'a','e', spazi o apostrofi)
+       poiche' la logica crittografica si basa su CharacterRange["A", "Z"].
+     - Lunghezza minima di 4 caratteri per avere parole con un senso compiuto. *)
+  tutteLeParole = Select[tutteLeParole, StringMatchQ[#, RegularExpression["[a-zA-Z]{4,}"]] &];
+  
+  (* Converte tutto in maiuscolo, pronto per la cifratura *)
+  ToUpperCase[tutteLeParole]
+];
 
 (*
   generaParola[seed]
   Input:  seed -- intero, garantisce riproducibilita'
-  Output: stringa maiuscola di sole lettere (es. "MATEMATICA")
-  Logica: dizionario di 100 parole italiane. Stesso seed = stessa parola.
-          Seed diversi = parole diverse -> esercizi potenzialmente infiniti.
+  Output: stringa maiuscola di sole lettere standard
+  Logica: Estrae casualmente da un dizionario reale di oltre 60.000 parole.
 *)
-generaParola[seed_Integer] :=
-  Module[{dizionario},
-    dizionario = {
-      "MATEMATICA", "CRITTOGRAFIA", "ALFABETO", "CIFRARIO", "SEGRETO",
-      "MESSAGGIO", "CHIAVE", "CODICE", "SCIENZA", "FORMULA",
-      "NUMERO", "LETTERA", "SIMBOLO", "SISTEMA", "METODO",
-      "TEOREMA", "ALGEBRA", "GEOMETRIA", "LOGICA", "CALCOLO",
-      "VETTORE", "MATRICE", "FUNZIONE", "INSIEME", "SOLUZIONE",
-      "PROBLEMA", "RISPOSTA", "DOMANDA", "RICERCA", "SCOPERTA",
-      "ANALISI", "SINTESI", "VERIFICA", "RISULTATO", "OPERAZIONE",
-      "SOMMA", "PRODOTTO", "DIVISIONE", "POTENZA", "RADICE",
-      "PRIMO", "INTERO", "REALE", "COMPLESSO", "RAZIONALE",
-      "SEQUENZA", "SERIE", "LIMITE", "DERIVATA", "INTEGRALE",
-      "PROBABILITA", "STATISTICA", "CAMPIONE", "MEDIA", "VARIANZA",
-      "ALGORITMO", "PROGRAMMA", "COMPUTER", "BINARIO", "DIGITALE",
-      "RETE", "PROTOCOLLO", "SICUREZZA", "FIRMA", "CERTIFICATO",
-      "CHIARO", "CIFRATO", "DECIFRARE", "CIFRARE", "TRASFORMARE",
-      "ROTAZIONE", "SOSTITUZIONE", "PERMUTAZIONE", "TRASPOSIZIONE", "BLOCCO",
-      "FREQUENZA", "DISTRIBUZIONE", "ISTOGRAMMA", "GRAFICO", "DIAGRAMMA",
-      "STORIA", "ROMANO", "CESARE", "VIGENERE", "ENIGMA",
-      "GUERRA", "MILITARE", "SPIONE", "AMBASCIATRICE", "MISSIONE",
-      "UNIVERSO", "PIANETA", "STELLA", "GALASSIA", "COSMO",
-      "NATURA", "ACQUA", "FUOCO", "TERRA", "VENTO",
-      "LIBRO", "PAGINA", "CAPITOLO", "PARAGRAFO", "PAROLA"
-    };
-    SeedRandom[seed];
-    RandomChoice[dizionario]
-  ]
+generaParola[seed_Integer] := Module[{},
+  SeedRandom[seed];
+  RandomChoice[dizionarioItaliano]
+]
 
 (* ============================================================
    CIFRATURA E DECIFRATURA -- CESARE
