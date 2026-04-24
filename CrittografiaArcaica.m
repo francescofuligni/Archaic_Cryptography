@@ -964,7 +964,11 @@ bottoneLaboratorioCesare[] :=
   Button[
     Style["\[RightTriangle]  Apri il Laboratorio Libero \[LongDash] Cifrario di Cesare",
           15, Bold, White],
-    CreateDocument[{ExpressionCell[laboratorioCesare[], "Output"]}],
+    CreateDocument[
+      {ExpressionCell[laboratorioCesare[], "Output",
+        Editable -> False, Deletable -> False, ShowCellBracket -> False]},
+      Editable -> False, Deletable -> False, ShowCellBracket -> False
+    ],
     Background -> RGBColor[0.2, 0.4, 0.7],
     ImageSize  -> {460, 50}
   ]
@@ -977,7 +981,11 @@ bottoneEserciziCesare[] :=
   Button[
     Style["\[RightTriangle]  Apri gli Esercizi \[LongDash] Cifrario di Cesare",
           15, Bold, White],
-    CreateDocument[{ExpressionCell[esercizioUniversaleCesare[], "Output"]}],
+    CreateDocument[
+      {ExpressionCell[esercizioUniversaleCesare[], "Output",
+        Editable -> False, Deletable -> False, ShowCellBracket -> False]},
+      Editable -> False, Deletable -> False, ShowCellBracket -> False
+    ],
     Background -> RGBColor[0.15, 0.55, 0.25],
     ImageSize  -> {460, 50}
   ]
@@ -990,7 +998,11 @@ bottoneLaboratorioVigenere[] :=
   Button[
     Style["\[RightTriangle]  Apri il Laboratorio Libero \[LongDash] Cifrario di Vigenere",
           15, Bold, White],
-    CreateDocument[{ExpressionCell[laboratorioVigenere[], "Output"]}],
+    CreateDocument[
+      {ExpressionCell[laboratorioVigenere[], "Output",
+        Editable -> False, Deletable -> False, ShowCellBracket -> False]},
+      Editable -> False, Deletable -> False, ShowCellBracket -> False
+    ],
     Background -> RGBColor[0.45, 0.15, 0.65],
     ImageSize  -> {460, 50}
   ]
@@ -1003,7 +1015,11 @@ bottoneEserciziVigenere[] :=
   Button[
     Style["\[RightTriangle]  Apri gli Esercizi \[LongDash] Cifrario di Vigenere",
           15, Bold, White],
-    CreateDocument[{ExpressionCell[esercizioUniversaleVigenere[], "Output"]}],
+    CreateDocument[
+      {ExpressionCell[esercizioUniversaleVigenere[], "Output",
+        Editable -> False, Deletable -> False, ShowCellBracket -> False]},
+      Editable -> False, Deletable -> False, ShowCellBracket -> False
+    ],
     Background -> RGBColor[0.55, 0.10, 0.40],
     ImageSize  -> {460, 50}
   ]
