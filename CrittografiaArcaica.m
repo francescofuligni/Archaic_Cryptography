@@ -528,7 +528,7 @@ esercizioUniversaleCesare[] :=
     {seed = 42, messaggioCifrato = "", shiftSegreto = 0,
      messaggioChiaro = "", rispostaUtente = "",
      tentativi = 0, feedbackMsg = "", soluzioneVisibile = False,
-     suggerimentoStep = 0, esercizioGenerato = False},
+     suggerimentoStep = 0, esercizioGenerato = False, shiftEsplorazione = 0},
     Panel[
       Column[{
         Style["Esercizi \[LongDash] Cifrario di Cesare",
@@ -589,7 +589,7 @@ esercizioUniversaleCesare[] :=
             seed = 42; messaggioCifrato = ""; shiftSegreto = 0;
             messaggioChiaro = ""; rispostaUtente = "";
             tentativi = 0; feedbackMsg = ""; soluzioneVisibile = False;
-            suggerimentoStep = 0; esercizioGenerato = False;,
+            suggerimentoStep = 0; esercizioGenerato = False; shiftEsplorazione = 0;,
             Background -> RGBColor[0.5, 0.5, 0.5], ImageSize -> {140, 35}],
           Spacer[8],
           Button[
@@ -630,6 +630,22 @@ esercizioUniversaleCesare[] :=
             Row[{Style["Testo in chiaro: ", 12, Bold], Style[messaggioChiaro, 13, Bold]}]}],
             Background -> RGBColor[1.0, 0.93, 0.93],
             RoundingRadius -> 5, FrameStyle -> RGBColor[0.6, 0.1, 0.1], FrameMargins -> 10],
+          ""]],
+        (* Ruota di Cesare interattiva per esplorare le rotazioni *)
+        Spacer[10],
+        Dynamic[If[esercizioGenerato,
+          Column[{
+            Style["Ruota di Cesare \[LongDash] esplora le rotazioni per trovare lo shift giusto:", 13, Bold],
+            Style["Usa lo slider per provare diversi shift e puntare le lettere.",
+                  11, Italic, Gray],
+            Row[{
+              Style["Shift di prova: ", 12, Bold],
+              Slider[Dynamic[shiftEsplorazione], {0, 25, 1}, ImageSize -> 200],
+              Spacer[8],
+              Dynamic[Style[ToString[shiftEsplorazione], 15, Bold, RGBColor[0.7, 0.2, 0.2]]]
+            }],
+            Dynamic[ruotaInterattiva[shiftEsplorazione]]
+          }, Alignment -> Center],
           ""]]
       }, Alignment -> Left, Spacings -> 1],
       Background -> GrayLevel[0.97], ImageSize -> 560]
