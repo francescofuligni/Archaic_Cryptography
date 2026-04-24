@@ -646,6 +646,25 @@ esercizioUniversaleCesare[] :=
             }],
             Dynamic[ruotaInterattiva[shiftEsplorazione]]
           }, Alignment -> Center],
+          ""]],
+        (* Grafico frequenze standard italiano come riferimento *)
+        Spacer[10],
+        Dynamic[If[esercizioGenerato,
+          Column[{
+            Style["Frequenze standard dell'alfabeto italiano (%)", 13, Bold],
+            Style["Usa questo grafico come riferimento per l'analisi delle frequenze.",
+                  11, Italic, Gray],
+            BarChart[
+              freqItaliano,
+              ChartLabels  -> CharacterRange["A", "Z"],
+              ChartStyle   -> RGBColor[0.65, 0.80, 0.92],
+              PlotRange    -> {0, Max[freqItaliano] * 1.20},
+              ImageSize    -> {500, 250},
+              PlotLabel    -> Style["Standard Italiano (%)", 12, Bold, GrayLevel[0.3]],
+              BarSpacing   -> 0.3,
+              Frame        -> False,
+              ImagePadding -> {{30, 10}, {35, 20}}]
+          }, Alignment -> Center],
           ""]]
       }, Alignment -> Left, Spacings -> 1],
       Background -> GrayLevel[0.97], ImageSize -> 560]
