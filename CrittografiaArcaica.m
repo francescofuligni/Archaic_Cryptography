@@ -378,24 +378,25 @@ graficaFrequenze[testo_String] :=
 ruotaCesare[shift_Integer, highlightK_Integer] :=
   Module[
     {n, rEst, rInt, rMid, angC, cEst, cInt,
-     settoriEst, lettEst, settoriInt, lettInt},
+     settoriEst, lettEst, settoriInt, lettInt,
+     angFreccia, puntaFreccia, codaFreccia},
     n    = 26;
     rEst = 1.0;
-    rInt = 0.68;
-    rMid = 0.36;
+    rInt = 0.62;
+    rMid = 0.31;
     angC[k_] := Pi/2 - 2 Pi k / n;
-    cEst = Table[Hue[k/n, 0.50, 0.88], {k, 0, n-1}];
+    (* Colori originali con luminosita' ridotta per garantire contrasto *)
+    cEst = Table[Hue[k/n, 0.55, 0.75], {k, 0, n-1}];
     cInt = Table[Hue[k/n, 0.85, 0.55], {k, 0, n-1}];
     settoriEst = Table[
       {cEst[[k+1]],
-       If[k == highlightK, Opacity[1.0], Opacity[0.65]],
+       If[k == highlightK, Opacity[1.0], Opacity[0.75]],
        Annulus[{0,0}, {rInt, rEst}, {angC[k] - Pi/n, angC[k] + Pi/n}]},
       {k, 0, n-1}];
     lettEst = Table[
       Text[
         Style[alfabeto[[k+1]],
-          If[k == highlightK, 16, 11], Bold,
-          If[k == highlightK, Black, GrayLevel[0.1]]],
+          If[k == highlightK, 15, 10], Bold, White],
         {(rInt + (rEst - rInt)/2) * Cos[angC[k]],
          (rInt + (rEst - rInt)/2) * Sin[angC[k]]}],
       {k, 0, n-1}];
@@ -405,20 +406,27 @@ ruotaCesare[shift_Integer, highlightK_Integer] :=
       {k, 0, n-1}];
     lettInt = Table[
       Text[
-        Style[alfabeto[[Mod[k + shift, n] + 1]], 10, Bold, White],
+        Style[alfabeto[[Mod[k + shift, n] + 1]], 11, Bold, White],
         {(rMid + (rInt - rMid)/2) * Cos[angC[k]],
          (rMid + (rInt - rMid)/2) * Sin[angC[k]]}],
       {k, 0, n-1}];
+    (* La freccia punta al settore evidenziato dallo slider.
+       Se nessun settore e' selezionato (highlightK = 0 di default),
+       punta in cima alla lettera A. *)
+    angFreccia  = angC[highlightK];
+    codaFreccia = 1.30 * {Cos[angFreccia], Sin[angFreccia]};
+    puntaFreccia = 1.03 * {Cos[angFreccia], Sin[angFreccia]};
     Graphics[
       Join[
         settoriEst, lettEst, settoriInt, lettInt,
-        {Text[Style["Chiaro",  10, Italic, GrayLevel[0.4]], {0,  1.17}]},
-        {Text[Style["Cifrato", 10, Italic, White],          {0,  0.0 }]},
-        {Thick, Red, Arrow[{{0, 1.33}, {0, 1.04}}]},
-        {Thick, GrayLevel[0.25], Circle[{0,0}, rInt]}],
+        {Text[Style["Cifrato", 10, Italic, White], {0, 0.0}]},
+        (* Freccia mobile che segue la lettera selezionata *)
+        {Thickness[0.008], RGBColor[0.7, 0.2, 0.2],
+         Arrow[{codaFreccia, puntaFreccia}]},
+        {Thickness[0.005], GrayLevel[0.5], Circle[{0,0}, rInt]}],
       ImageSize  -> 320,
-      Background -> GrayLevel[0.12],
-      PlotRange  -> {{-1.42, 1.42}, {-1.42, 1.42}}]
+      Background -> GrayLevel[0.97],
+      PlotRange  -> {{-1.38, 1.38}, {-1.38, 1.38}}]
   ]
 
 (*
@@ -634,8 +642,10 @@ esercizioUniversaleCesare[] :=
             If[StringStartsQ[feedbackMsg, "\[Checkmark]"],
                RGBColor[0.1, 0.5, 0.1], RGBColor[0.5, 0.1, 0.1]]],
             Background -> If[StringStartsQ[feedbackMsg, "\[Checkmark]"],
-              RGBColor[0.9, 1.0, 0.9], RGBColor[1.0, 0.92, 0.92]],
-            RoundingRadius -> 5, FrameMargins -> 8], ""]],
+              RGBColor[0.92, 1.0, 0.93], RGBColor[1.0, 0.93, 0.93]],
+            FrameStyle -> If[StringStartsQ[feedbackMsg, "\[Checkmark]"],
+              RGBColor[0.2, 0.6, 0.3], RGBColor[0.7, 0.2, 0.2]],
+            RoundingRadius -> 5, FrameMargins -> 10], ""]],
         (* Suggerimento automatico: appare progressivamente ad ogni errore *)
         Dynamic[Which[
           !esercizioGenerato || suggerimentoStep == 0, "",
@@ -643,24 +653,27 @@ esercizioUniversaleCesare[] :=
             Framed[Style[
               "\[LightBulb] Suggerimento: la lettera piu' frequente in italiano e' la E. " <>
               "La lettera piu' comune nel testo cifrato probabilmente corrisponde alla E.",
-              12, Italic, RGBColor[0.5, 0.4, 0.0]],
-              Background -> RGBColor[1.0, 0.97, 0.85],
-              RoundingRadius -> 5, FrameMargins -> 8],
+              12, Italic, RGBColor[0.45, 0.35, 0.0]],
+              Background -> RGBColor[1.0, 0.97, 0.87],
+              FrameStyle -> RGBColor[0.75, 0.6, 0.1],
+              RoundingRadius -> 5, FrameMargins -> 10],
           suggerimentoStep >= 2,
             Framed[Style[
               "\[LightBulb] Suggerimento: lo shift e' nell'intervallo [" <>
               ToString[Max[1, shiftSegreto - 4]] <> ", " <>
               ToString[Min[25, shiftSegreto + 4]] <> "].",
-              12, Italic, RGBColor[0.5, 0.4, 0.0]],
-              Background -> RGBColor[1.0, 0.97, 0.85],
-              RoundingRadius -> 5, FrameMargins -> 8]]],
+              12, Italic, RGBColor[0.45, 0.35, 0.0]],
+              Background -> RGBColor[1.0, 0.97, 0.87],
+              FrameStyle -> RGBColor[0.75, 0.6, 0.1],
+              RoundingRadius -> 5, FrameMargins -> 10]]],
         Dynamic[If[soluzioneVisibile && esercizioGenerato,
           Framed[Column[{
             Style["Soluzione:", 13, Bold, RGBColor[0.6, 0.1, 0.1]],
             Row[{Style["Shift: ", 12, Bold], Style[ToString[shiftSegreto], 13, Bold]}],
             Row[{Style["Testo in chiaro: ", 12, Bold], Style[messaggioChiaro, 13, Bold]}]}],
             Background -> RGBColor[1.0, 0.93, 0.93],
-            RoundingRadius -> 5, FrameStyle -> RGBColor[0.6, 0.1, 0.1], FrameMargins -> 10],
+            FrameStyle -> RGBColor[0.6, 0.1, 0.1],
+            RoundingRadius -> 5, FrameMargins -> 10],
           ""]],
         (* Ruota di Cesare interattiva per esplorare le rotazioni *)
         Spacer[10],
@@ -691,7 +704,6 @@ esercizioUniversaleCesare[] :=
               ChartStyle   -> RGBColor[0.65, 0.80, 0.92],
               PlotRange    -> {0, Max[freqItaliano] * 1.20},
               ImageSize    -> {500, 250},
-              PlotLabel    -> Style["Standard Italiano (%)", 12, Bold, GrayLevel[0.3]],
               BarSpacing   -> 0.3,
               Frame        -> False,
               ImagePadding -> {{30, 10}, {35, 20}}]
@@ -924,8 +936,10 @@ esercizioUniversaleVigenere[] :=
             If[StringStartsQ[feedbackMsg, "\[Checkmark]"],
                RGBColor[0.1, 0.5, 0.1], RGBColor[0.5, 0.1, 0.1]]],
             Background -> If[StringStartsQ[feedbackMsg, "\[Checkmark]"],
-              RGBColor[0.9, 1.0, 0.9], RGBColor[1.0, 0.92, 0.92]],
-            RoundingRadius -> 5, FrameMargins -> 8], ""]],
+              RGBColor[0.92, 1.0, 0.93], RGBColor[1.0, 0.93, 0.93]],
+            FrameStyle -> If[StringStartsQ[feedbackMsg, "\[Checkmark]"],
+              RGBColor[0.2, 0.6, 0.3], RGBColor[0.7, 0.2, 0.2]],
+            RoundingRadius -> 5, FrameMargins -> 10], ""]],
         (* Suggerimento automatico progressivo *)
         Dynamic[Which[
           !esercizioGenerato || suggerimentoStep == 0, "",
@@ -934,27 +948,29 @@ esercizioUniversaleVigenere[] :=
               "\[LightBulb] Suggerimento: per decifrare Vigenere si SOTTRAE lo shift " <>
               "invece di sommarlo. La prima lettera della chiave e' '" <>
               StringTake[chiaveSegreto, 1] <> "' (shift " <>
-              ToString[Position[alfabeto,
-                ToUpperCase[StringTake[chiaveSegreto,1]]][[1,1]] - 1] <> ").",
-              12, Italic, RGBColor[0.5, 0.4, 0.0]],
-              Background -> RGBColor[1.0, 0.97, 0.85],
-              RoundingRadius -> 5, FrameMargins -> 8],
+              ToString[indiceLettera[ToUpperCase[StringTake[chiaveSegreto,1]]]] <> ").",
+              12, Italic, RGBColor[0.45, 0.35, 0.0]],
+              Background -> RGBColor[1.0, 0.97, 0.87],
+              FrameStyle -> RGBColor[0.75, 0.6, 0.1],
+              RoundingRadius -> 5, FrameMargins -> 10],
           suggerimentoStep >= 2,
             Framed[Style[
               "\[LightBulb] Suggerimento: la chiave '" <> chiaveSegreto <>
               "' ha " <> ToString[StringLength[chiaveSegreto]] <>
               " lettere. Decifra le prime " <> ToString[StringLength[chiaveSegreto]] <>
               " lettere, poi riparti dall'inizio della chiave.",
-              12, Italic, RGBColor[0.5, 0.4, 0.0]],
-              Background -> RGBColor[1.0, 0.97, 0.85],
-              RoundingRadius -> 5, FrameMargins -> 8]]],
+              12, Italic, RGBColor[0.45, 0.35, 0.0]],
+              Background -> RGBColor[1.0, 0.97, 0.87],
+              FrameStyle -> RGBColor[0.75, 0.6, 0.1],
+              RoundingRadius -> 5, FrameMargins -> 10]]],
         Dynamic[If[soluzioneVisibile && esercizioGenerato,
           Framed[Column[{
             Style["Soluzione:", 13, Bold, RGBColor[0.6, 0.1, 0.1]],
             Row[{Style["Chiave: ", 12, Bold], Style[chiaveSegreto, 13, Bold]}],
             Row[{Style["Testo in chiaro: ", 12, Bold], Style[messaggioChiaro, 13, Bold]}]}],
             Background -> RGBColor[1.0, 0.93, 0.93],
-            RoundingRadius -> 5, FrameStyle -> RGBColor[0.6, 0.1, 0.1], FrameMargins -> 10],
+            FrameStyle -> RGBColor[0.6, 0.1, 0.1],
+            RoundingRadius -> 5, FrameMargins -> 10],
           ""]]
       }, Alignment -> Left, Spacings -> 1],
       Background -> GrayLevel[0.97], ImageSize -> 560]
