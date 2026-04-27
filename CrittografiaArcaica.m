@@ -60,6 +60,35 @@ freqItaliano = {11.74, 0.92, 4.50, 3.73, 11.79, 0.95, 1.64, 1.54,
                 0.00, 0.49};
 
 (* ============================================================
+   FUNZIONI HELPER PRIVATE -- RIUSO DEL CODICE
+   Queste funzioni incapsulano operazioni ripetute piu' volte
+   nel pacchetto, evitando duplicazione del codice.
+   ============================================================ *)
+
+(*
+  lettereIn[s]
+  Input:  s -- stringa qualsiasi
+  Output: lista dei caratteri maiuscoli A-Z contenuti in s,
+          nell'ordine in cui compaiono.
+  Uso:    estrarre solo le lettere da testo o chiave prima
+          di cifrare/decifrare. Usata in tutte le funzioni
+          crittografiche al posto di:
+          Select[Characters[ToUpperCase[s]], MemberQ[alfabeto, #] &]
+*)
+lettereIn[s_String] :=
+  Select[Characters[ToUpperCase[s]], MemberQ[alfabeto, #] &]
+
+(*
+  indiceLettera[c]
+  Input:  c -- carattere maiuscolo A-Z
+  Output: indice 0-indicizzato nell'alfabeto (A=0, B=1, ..., Z=25).
+  Uso:    calcolare lo shift nelle funzioni di cifratura/decifratura.
+          Usata al posto di: Position[alfabeto, c][[1,1]] - 1
+*)
+indiceLettera[c_String] :=
+  Position[alfabeto, c][[1, 1]] - 1
+
+(* ============================================================
    UTILITA' -- VALIDAZIONE INPUT
    ============================================================ *)
 
@@ -71,7 +100,7 @@ freqItaliano = {11.74, 0.92, 4.50, 3.73, 11.79, 0.95, 1.64, 1.54,
 *)
 soloLettere[s_String] :=
   Module[{chars},
-    chars = Select[Characters[ToUpperCase[s]], MemberQ[alfabeto, #] &];
+    chars = lettereIn[s];
     StringLength[s] > 0 && Length[chars] == StringLength[s]
   ]
 
@@ -127,7 +156,7 @@ cifraCesare[testo_String, shift_Integer] :=
     cifrati = Map[
       Function[c,
         If[MemberQ[alfabeto, c],
-          alfabeto[[Mod[Position[alfabeto, c][[1,1]] - 1 + shift, 26] + 1]],
+          alfabeto[[Mod[indiceLettera[c] + shift, 26] + 1]],
           c]],
       caratteri];
     StringJoin[cifrati]
@@ -149,7 +178,7 @@ decifraCesare[testo_String, shift_Integer] :=
 *)
 frequenzeLettere[testo_String] :=
   Module[{solo},
-    solo = Select[Characters[ToUpperCase[testo]], MemberQ[alfabeto, #] &];
+    solo = lettereIn[testo];
     Map[Function[l, Count[solo, l]], alfabeto]
   ]
 
@@ -170,7 +199,7 @@ cifraVigenere[testo_String, chiave_String] :=
   Module[
     {testUp, chiaveChars, chiaveLen, caratteri, risultato, kIndex, c, sh},
     testUp      = ToUpperCase[testo];
-    chiaveChars = Select[Characters[ToUpperCase[chiave]], MemberQ[alfabeto, #] &];
+    chiaveChars = lettereIn[chiave];
     If[chiaveChars === {},
       Return["ERRORE: la chiave deve contenere almeno una lettera."]];
     chiaveLen = Length[chiaveChars];
@@ -180,9 +209,9 @@ cifraVigenere[testo_String, chiave_String] :=
     Do[
       c = caratteri[[i]];
       If[MemberQ[alfabeto, c],
-        sh = Position[alfabeto, chiaveChars[[Mod[kIndex, chiaveLen] + 1]]][[1,1]] - 1;
+        sh = indiceLettera[chiaveChars[[Mod[kIndex, chiaveLen] + 1]]];
         AppendTo[risultato,
-          alfabeto[[Mod[Position[alfabeto, c][[1,1]] - 1 + sh, 26] + 1]]];
+          alfabeto[[Mod[indiceLettera[c] + sh, 26] + 1]]];
         kIndex++,
         AppendTo[risultato, c]],
       {i, 1, Length[caratteri]}];
@@ -199,7 +228,7 @@ decifraVigenere[testo_String, chiave_String] :=
   Module[
     {testUp, chiaveChars, chiaveLen, caratteri, risultato, kIndex, c, sh},
     testUp      = ToUpperCase[testo];
-    chiaveChars = Select[Characters[ToUpperCase[chiave]], MemberQ[alfabeto, #] &];
+    chiaveChars = lettereIn[chiave];
     If[chiaveChars === {},
       Return["ERRORE: la chiave deve contenere almeno una lettera."]];
     chiaveLen = Length[chiaveChars];
@@ -209,9 +238,9 @@ decifraVigenere[testo_String, chiave_String] :=
     Do[
       c = caratteri[[i]];
       If[MemberQ[alfabeto, c],
-        sh = Position[alfabeto, chiaveChars[[Mod[kIndex, chiaveLen] + 1]]][[1,1]] - 1;
+        sh = indiceLettera[chiaveChars[[Mod[kIndex, chiaveLen] + 1]]];
         AppendTo[risultato,
-          alfabeto[[Mod[Position[alfabeto, c][[1,1]] - 1 - sh, 26] + 1]]];
+          alfabeto[[Mod[indiceLettera[c] - sh, 26] + 1]]];
         kIndex++,
         AppendTo[risultato, c]],
       {i, 1, Length[caratteri]}];
@@ -232,17 +261,17 @@ tabellaShiftVigenere[testo_String, chiave_String, cifra_] :=
   Module[
     {testUp, chiaveChars, chiaveLen, soleLettere, risultato, kIndex, sh, lOut, segno},
     testUp      = ToUpperCase[testo];
-    chiaveChars = Select[Characters[ToUpperCase[chiave]], MemberQ[alfabeto, #] &];
+    chiaveChars = lettereIn[chiave];
     If[chiaveChars === {}, Return[{}]];
     chiaveLen   = Length[chiaveChars];
-    soleLettere = Select[Characters[testUp], MemberQ[alfabeto, #] &];
+    soleLettere = lettereIn[testo];
     risultato   = {};
     kIndex      = 0;
     (* segno: +1 per cifrare, -1 per decifrare *)
     segno = If[cifra, 1, -1];
     Do[
-      sh   = Position[alfabeto, chiaveChars[[Mod[kIndex, chiaveLen] + 1]]][[1,1]] - 1;
-      lOut = alfabeto[[Mod[Position[alfabeto, soleLettere[[i]]][[1,1]] - 1 + segno * sh, 26] + 1]];
+      sh   = indiceLettera[chiaveChars[[Mod[kIndex, chiaveLen] + 1]]];
+      lOut = alfabeto[[Mod[indiceLettera[soleLettere[[i]]] + segno * sh, 26] + 1]];
       AppendTo[risultato,
         {soleLettere[[i]], chiaveChars[[Mod[kIndex, chiaveLen] + 1]], sh, lOut}];
       kIndex++,
