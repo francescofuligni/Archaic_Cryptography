@@ -199,20 +199,26 @@ cifraVigenere[testo_String, chiave_String] :=
   Module[
     {testUp, chiaveChars, chiaveLen, caratteri, risultato, kIndex, c, sh},
     testUp      = ToUpperCase[testo];
+    (* Estraggo solo le lettere dalla chiave, scartando eventuali caratteri non validi *)
     chiaveChars = lettereIn[chiave];
     If[chiaveChars === {},
       Return["ERRORE: la chiave deve contenere almeno una lettera."]];
     chiaveLen = Length[chiaveChars];
     caratteri = Characters[testUp];
     risultato = {};
-    kIndex    = 0;
+    kIndex    = 0; (* indice nella chiave: avanza solo quando incontriamo una lettera *)
     Do[
       c = caratteri[[i]];
       If[MemberQ[alfabeto, c],
+        (* Calcolo lo shift come posizione 0-indicizzata della lettera chiave corrente:
+           A=0, B=1, ..., Z=25. Uso Mod per ciclare sulla chiave quando finisce. *)
         sh = indiceLettera[chiaveChars[[Mod[kIndex, chiaveLen] + 1]]];
+        (* Sposto la lettera in avanti di sh posizioni, con wrap-around modulo 26 *)
         AppendTo[risultato,
           alfabeto[[Mod[indiceLettera[c] + sh, 26] + 1]]];
         kIndex++,
+        (* Carattere non alfabetico (es. spazio): lo lascio invariato
+           e NON avanzo l'indice della chiave *)
         AppendTo[risultato, c]],
       {i, 1, Length[caratteri]}];
     StringJoin[risultato]
@@ -239,6 +245,8 @@ decifraVigenere[testo_String, chiave_String] :=
       c = caratteri[[i]];
       If[MemberQ[alfabeto, c],
         sh = indiceLettera[chiaveChars[[Mod[kIndex, chiaveLen] + 1]]];
+        (* Decifratura: sottraggo sh invece di sommarlo.
+           Mod[..., 26] gestisce il wrap-around anche per valori negativi. *)
         AppendTo[risultato,
           alfabeto[[Mod[indiceLettera[c] - sh, 26] + 1]]];
         kIndex++,
@@ -291,10 +299,14 @@ tabellaShiftVigenere[testo_String, chiave_String, cifra_] :=
 *)
 generaEsercizioConSeedCesare[seed_Integer] :=
   Module[{parola, shift, cifrato},
+    (* Genera la parola dal dizionario italiano usando il seed come indice riproducibile *)
     parola  = generaParola[seed];
+    (* Usa seed+999 per lo shift, cosi' parola e shift sono indipendenti tra loro:
+       due seed consecutivi non producono la stessa combinazione parola+shift *)
     SeedRandom[seed + 999];
-    shift   = RandomInteger[{1, 25}];
+    shift   = RandomInteger[{1, 25}]; (* shift tra 1 e 25: escludiamo 0 = nessuna cifratura *)
     cifrato = cifraCesare[parola, shift];
+    (* Restituisce {cifrato, shift, chiaro}: l'utente vede il cifrato, la soluzione e' il chiaro *)
     {cifrato, shift, parola}
   ]
 
@@ -307,13 +319,18 @@ generaEsercizioConSeedCesare[seed_Integer] :=
 generaEsercizioConSeedVigenere[seed_Integer] :=
   Module[
     {chiavi, parola, chiave, cifrato},
+    (* Lista di chiavi predefinite: parole italiane comuni, lunghe 4-6 lettere,
+       scelte per coprire shift diversi e dare esercizi vari *)
     chiavi = {"SOLE", "MARE", "LUNA", "VENTO", "FUOCO", "ACQUA",
               "CIELO", "TERRA", "LUCE", "OMBRA", "CHIAVE", "CODICE",
               "PIETRA", "FIUME", "STELLA", "NOTTE", "GIORNO"};
     parola = generaParola[seed];
+    (* Usa seed+777 per la chiave, indipendente da seed usato per la parola *)
     SeedRandom[seed + 777];
     chiave  = RandomChoice[chiavi];
     cifrato = cifraVigenere[parola, chiave];
+    (* Restituisce {cifrato, chiave, chiaro}: l'utente vede cifrato e chiave,
+       deve trovare il chiaro *)
     {cifrato, chiave, parola}
   ]
 
@@ -333,24 +350,29 @@ generaEsercizioConSeedVigenere[seed_Integer] :=
 graficaFrequenze[testo_String] :=
   Module[
     {conteggi, totale, coloriArcobaleno, graficoItaliano, graficoCifrato},
+    (* Conto le occorrenze di ciascuna lettera A-Z nel testo *)
     conteggi = frequenzeLettere[testo];
     totale   = Total[conteggi];
+    (* Se il testo non contiene lettere, restituisco un messaggio descrittivo *)
     If[totale == 0,
       Return[Style[
         "(Nessuna lettera nel testo: impossibile calcolare le frequenze.)",
         11, Italic, Gray]]];
+    (* 26 colori arcobaleno distinti, uno per ogni lettera del grafico cifrato *)
     coloriArcobaleno = Table[Hue[k/26, 0.6, 0.85], {k, 0, 25}];
+    (* Grafico di riferimento: distribuzione attesa nell'italiano standard *)
     graficoItaliano = BarChart[
       freqItaliano,
       ChartLabels -> CharacterRange["A", "Z"],
-      ChartStyle  -> RGBColor[0.65, 0.80, 0.92],
+      ChartStyle  -> RGBColor[0.65, 0.80, 0.92], (* azzurro uniforme *)
       PlotRange   -> {0, Max[freqItaliano] * 1.20},
       ImageSize   -> {500, 280},
       PlotLabel   -> Style["Standard Italiano (%)", 12, Bold, GrayLevel[0.3]],
       BarSpacing  -> 0.3,
       Frame       -> False,
-      ImagePadding -> {{30, 10}, {35, 20}}
+      ImagePadding -> {{30, 10}, {35, 20}} (* spazio extra sotto per le etichette A-Z *)
     ];
+    (* Grafico del testo analizzato: frequenze assolute delle lettere nel testo cifrato *)
     graficoCifrato = BarChart[
       conteggi,
       ChartLabels -> CharacterRange["A", "Z"],
@@ -362,6 +384,8 @@ graficaFrequenze[testo_String] :=
       Frame       -> False,
       ImagePadding -> {{30, 10}, {35, 20}}
     ];
+    (* I due grafici in colonna: prima il riferimento italiano, poi il testo cifrato.
+       Confrontandoli visivamente si puo' intuire lo shift usato. *)
     Column[{graficoItaliano, graficoCifrato}, Spacings -> 1, Alignment -> Center]
   ]
 
@@ -380,19 +404,26 @@ ruotaCesare[shift_Integer, highlightK_Integer] :=
     {n, rEst, rInt, rMid, angC, cEst, cInt,
      settoriEst, lettEst, settoriInt, lettInt,
      angFreccia, puntaFreccia, codaFreccia},
-    n    = 26;
-    rEst = 1.0;
-    rInt = 0.62;
-    rMid = 0.31;
+    n    = 26;  (* numero di lettere dell'alfabeto *)
+    rEst = 1.0; (* raggio esterno: bordo dell'anello chiaro *)
+    rInt = 0.62; (* raggio interno: confine tra anello chiaro e disco cifrato *)
+    rMid = 0.31; (* meta' del disco cifrato: posizione delle etichette interne *)
+    (* angC[k]: angolo del centro del settore k.
+       Parte da Pi/2 (= cima) e ruota in senso antiorario.
+       In questo modo A e' in cima, B subito a sinistra, ecc. *)
     angC[k_] := Pi/2 - 2 Pi k / n;
-    (* Colori originali con luminosita' ridotta per garantire contrasto *)
-    cEst = Table[Hue[k/n, 0.55, 0.75], {k, 0, n-1}];
-    cInt = Table[Hue[k/n, 0.85, 0.55], {k, 0, n-1}];
+    (* Palette Hue: 26 colori ben distinti che si ripetono sull'arcobaleno.
+       Saturazione e luminosita' calibrate per leggibilita' delle lettere bianche. *)
+    cEst = Table[Hue[k/n, 0.55, 0.75], {k, 0, n-1}]; (* anello esterno: piu' chiaro *)
+    cInt = Table[Hue[k/n, 0.85, 0.55], {k, 0, n-1}]; (* disco interno: piu' scuro e saturo *)
+    (* Anello esterno: 26 settori colorati con Annulus.
+       Il settore highlightK ha piena opacita', gli altri sono leggermente trasparenti. *)
     settoriEst = Table[
       {cEst[[k+1]],
        If[k == highlightK, Opacity[1.0], Opacity[0.75]],
        Annulus[{0,0}, {rInt, rEst}, {angC[k] - Pi/n, angC[k] + Pi/n}]},
       {k, 0, n-1}];
+    (* Etichette lettera chiaro: font piu' grande per il settore selezionato *)
     lettEst = Table[
       Text[
         Style[alfabeto[[k+1]],
@@ -400,27 +431,29 @@ ruotaCesare[shift_Integer, highlightK_Integer] :=
         {(rInt + (rEst - rInt)/2) * Cos[angC[k]],
          (rInt + (rEst - rInt)/2) * Sin[angC[k]]}],
       {k, 0, n-1}];
+    (* Disco interno: il settore k mostra la lettera cifrata corrispondente,
+       cioe' alfabeto[[k + shift]] con wrap-around modulo 26. *)
     settoriInt = Table[
       {cInt[[Mod[k + shift, n] + 1]], Opacity[0.90],
        Disk[{0,0}, rInt, {angC[k] - Pi/n, angC[k] + Pi/n}]},
       {k, 0, n-1}];
+    (* Etichette lettera cifrata: posizionate a meta' del disco interno *)
     lettInt = Table[
       Text[
         Style[alfabeto[[Mod[k + shift, n] + 1]], 11, Bold, White],
         {(rMid + (rInt - rMid)/2) * Cos[angC[k]],
          (rMid + (rInt - rMid)/2) * Sin[angC[k]]}],
       {k, 0, n-1}];
-    (* La freccia punta al settore evidenziato dallo slider.
-       Se nessun settore e' selezionato (highlightK = 0 di default),
-       punta in cima alla lettera A. *)
-    angFreccia  = angC[highlightK];
-    codaFreccia = 1.30 * {Cos[angFreccia], Sin[angFreccia]};
+    (* Freccia rossa mobile: punta sempre al settore highlightK.
+       angC[highlightK] e' l'angolo di quel settore; la freccia va da raggio 1.30
+       (coda, fuori dall'anello) a raggio 1.03 (punta, appena oltre il bordo). *)
+    angFreccia   = angC[highlightK];
+    codaFreccia  = 1.30 * {Cos[angFreccia], Sin[angFreccia]};
     puntaFreccia = 1.03 * {Cos[angFreccia], Sin[angFreccia]};
     Graphics[
       Join[
         settoriEst, lettEst, settoriInt, lettInt,
         {Text[Style["Cifrato", 10, Italic, White], {0, 0.0}]},
-        (* Freccia mobile che segue la lettera selezionata *)
         {Thickness[0.008], RGBColor[0.7, 0.2, 0.2],
          Arrow[{codaFreccia, puntaFreccia}]},
         {Thickness[0.005], GrayLevel[0.5], Circle[{0,0}, rInt]}],
@@ -469,6 +502,13 @@ ruotaInterattiva[shiftDyn_] :=
 *)
 laboratorioCesare[] :=
   DynamicModule[
+    (* Variabili locali dell'interfaccia. DynamicModule le isola dal contesto globale,
+       cosi' piu' istanze aperte contemporaneamente non interferiscono tra loro.
+       testoInput:       testo digitato dall'utente nel campo di input
+       shiftLab:         valore dello slider shift (0-25), inizializzato a 3
+       risultatoCifra:   risultato dell'ultima cifratura (stringa vuota = nessun risultato)
+       risultatoDecifra: risultato dell'ultima decifratura
+       avvisoTesto:      messaggio di errore se il testo non e' valido *)
     {testoInput = "", shiftLab = 3,
      risultatoCifra = "", risultatoDecifra = "", avvisoTesto = ""},
     Panel[
@@ -564,6 +604,17 @@ laboratorioCesare[] :=
 *)
 esercizioUniversaleCesare[] :=
   DynamicModule[
+    (* seed:               numero scelto dall'utente per generare l'esercizio (riproducibile)
+       messaggioCifrato:   testo cifrato mostrato all'utente come consegna
+       shiftSegreto:       shift usato per cifrare (la soluzione, nascosta all'utente)
+       messaggioChiaro:    testo in chiaro originale (la soluzione)
+       rispostaUtente:     testo inserito dall'utente nel campo di risposta
+       tentativi:          numero di tentativi gia' usati (max 3)
+       feedbackMsg:        messaggio di feedback dopo Verifica Risultato
+       soluzioneVisibile:  True quando la soluzione e' mostrata
+       suggerimentoStep:   livello di suggerimento attivo (0=nessuno, 1=primo, 2=secondo)
+       esercizioGenerato:  True dopo aver premuto Genera Esercizio
+       shiftEsplorazione:  shift separato per la ruota di esplorazione nell'esercizio *)
     {seed = 42, messaggioCifrato = "", shiftSegreto = 0,
      messaggioChiaro = "", rispostaUtente = "",
      tentativi = 0, feedbackMsg = "", soluzioneVisibile = False,
@@ -728,6 +779,13 @@ esercizioUniversaleCesare[] :=
 *)
 laboratorioVigenere[] :=
   DynamicModule[
+    (* testoInput:       testo digitato dall'utente
+       chiaveInput:      parola chiave digitata dall'utente (solo lettere)
+       risultatoCifra:   risultato dell'ultima cifratura
+       risultatoDecifra: risultato dell'ultima decifratura
+       tabellaVis:       dati per la tabella shift lettera per lettera
+       avvisoTesto:      messaggio errore se il testo non e' valido
+       avvisoChiave:     messaggio errore se la chiave non e' valida *)
     {testoInput = "", chiaveInput = "", risultatoCifra = "",
      risultatoDecifra = "", tabellaVis = {},
      avvisoTesto = "", avvisoChiave = ""},
@@ -851,6 +909,17 @@ laboratorioVigenere[] :=
 *)
 esercizioUniversaleVigenere[] :=
   DynamicModule[
+    (* seed:             numero scelto dall'utente per generare l'esercizio
+       messaggioCifrato: testo cifrato mostrato come consegna
+       chiaveSegreto:    chiave mostrata all'utente (nel Vigenere la chiave e' nota,
+                         l'utente deve trovare il testo chiaro)
+       messaggioChiaro:  testo in chiaro originale (la soluzione)
+       rispostaUtente:   testo inserito dall'utente
+       tentativi:        numero di tentativi usati (max 3)
+       feedbackMsg:      messaggio di feedback dopo Verifica Risultato
+       soluzioneVisibile: True quando la soluzione e' mostrata
+       suggerimentoStep: livello di suggerimento attivo (0=nessuno, 1=primo, 2=secondo)
+       esercizioGenerato: True dopo aver premuto Genera Esercizio *)
     {seed = 42, messaggioCifrato = "", chiaveSegreto = "",
      messaggioChiaro = "", rispostaUtente = "",
      tentativi = 0, feedbackMsg = "", soluzioneVisibile = False,
@@ -1004,10 +1073,17 @@ avviaLaboratorio[] :=
 
 (* ============================================================
    BOTTONI DI LANCIO -- uno per sezione del Tutorial.nb
-   Ogni funzione restituisce un Button che, quando premuto,
-   apre l'interfaccia corrispondente in una nuova cella di output.
-   Uso nel Tutorial.nb: mettere una cella Input (nascosta) per
-   ciascuna sezione con la chiamata al bottone corrispondente.
+   
+   Ogni funzione restituisce un Button[] che, quando premuto,
+   apre l'interfaccia corrispondente in una finestra separata
+   tramite CreateDocument[].
+   
+   La finestra ha dimensioni fisse (660x750) e una scrollbar
+   verticale tramite Pane[], cosi' il contenuto e' sempre
+   accessibile anche su schermi piccoli.
+   
+   Uso nel Tutorial.nb: inserire una cella Input (nascosta)
+   per ciascuna sezione con la chiamata al bottone corrispondente.
    ============================================================ *)
 
 (*
@@ -1095,7 +1171,10 @@ bottoneEserciziVigenere[] :=
   ]
 
 (* Precaricamento del dizionario al momento del caricamento del pacchetto.
-   In questo modo il primo esercizio generato non subisce lag. *)
+   Grazie alla memoization (definita con :=), dizionarioItaliano viene costruito
+   una sola volta: questa riga lo forza a costruirsi subito, al caricamento,
+   invece di aspettare il primo esercizio generato dall'utente.
+   In questo modo il primo click su "Genera Esercizio" non subisce lag. *)
 dizionarioItaliano;
 
 End[ ]
