@@ -1,5 +1,7 @@
 (* ::Package:: *)
 
+(* ::Package:: *)
+
 (* ============================================================
    CrittografiaArcaica.m
    Laboratorio Interattivo di Crittografia Arcaica
@@ -695,18 +697,6 @@ laboratorioVigenere[] :=
         Style["Inserisci un testo e una parola chiave (solo lettere, senza spazi).",
               12, Italic, Gray],
         Spacer[6],
-        Framed[
-          Column[{
-            Style["\[FilledSquare] NOTA IMPORTANTE \[LongDash] Il Cifrario di Cesare \
-e' un caso speciale di Vigenere", 12, Bold, RGBColor[0.35, 0.1, 0.60]],
-            Style["Se la chiave e' composta da una sola lettera (es. 'D'), \
-il Cifrario di Vigenere si riduce esattamente al Cifrario di Cesare con shift \
-pari alla posizione di quella lettera nell'alfabeto (A=0, B=1, C=2, D=3, ...). \
-Prova: cifra qualcosa con chiave 'D' e confrontalo col Laboratorio Cesare con shift 3!",
-                  11, Italic, RGBColor[0.3, 0.1, 0.5]]}],
-          Background -> RGBColor[0.96, 0.90, 1.0],
-          RoundingRadius -> 6, FrameStyle -> RGBColor[0.6, 0.3, 0.9], FrameMargins -> 10],
-        Spacer[8],
         Row[{
           Style["Testo:  ", 13, Bold],
           InputField[Dynamic[testoInput], String,
@@ -984,9 +974,13 @@ bottoneLaboratorioCesare[] :=
     Style["\[RightTriangle]  Apri il Laboratorio Libero \[LongDash] Cifrario di Cesare",
           15, Bold, White],
     CreateDocument[
-      {ExpressionCell[laboratorioCesare[], "Output",
+      {ExpressionCell[
+        Pane[laboratorioCesare[], {620, 700},
+          Scrollbars -> {False, True}, AppearanceElements -> {}],
+        "Output",
         Editable -> False, Deletable -> False, ShowCellBracket -> False]},
-      Editable -> False, Deletable -> False, ShowCellBracket -> False
+      Editable -> False, Deletable -> False, ShowCellBracket -> False,
+      WindowSize -> {660, 750}, WindowTitle -> "Laboratorio Cesare"
     ],
     Background -> RGBColor[0.2, 0.4, 0.7],
     ImageSize  -> {460, 50}
@@ -1001,9 +995,13 @@ bottoneEserciziCesare[] :=
     Style["\[RightTriangle]  Apri gli Esercizi \[LongDash] Cifrario di Cesare",
           15, Bold, White],
     CreateDocument[
-      {ExpressionCell[esercizioUniversaleCesare[], "Output",
+      {ExpressionCell[
+        Pane[esercizioUniversaleCesare[], {620, 700},
+          Scrollbars -> {False, True}, AppearanceElements -> {}],
+        "Output",
         Editable -> False, Deletable -> False, ShowCellBracket -> False]},
-      Editable -> False, Deletable -> False, ShowCellBracket -> False
+      Editable -> False, Deletable -> False, ShowCellBracket -> False,
+      WindowSize -> {660, 750}, WindowTitle -> "Esercizi Cesare"
     ],
     Background -> RGBColor[0.15, 0.55, 0.25],
     ImageSize  -> {460, 50}
@@ -1018,9 +1016,13 @@ bottoneLaboratorioVigenere[] :=
     Style["\[RightTriangle]  Apri il Laboratorio Libero \[LongDash] Cifrario di Vigenere",
           15, Bold, White],
     CreateDocument[
-      {ExpressionCell[laboratorioVigenere[], "Output",
+      {ExpressionCell[
+        Pane[laboratorioVigenere[], {620, 700},
+          Scrollbars -> {False, True}, AppearanceElements -> {}],
+        "Output",
         Editable -> False, Deletable -> False, ShowCellBracket -> False]},
-      Editable -> False, Deletable -> False, ShowCellBracket -> False
+      Editable -> False, Deletable -> False, ShowCellBracket -> False,
+      WindowSize -> {660, 750}, WindowTitle -> "Laboratorio Vigenere"
     ],
     Background -> RGBColor[0.45, 0.15, 0.65],
     ImageSize  -> {460, 50}
@@ -1035,13 +1037,21 @@ bottoneEserciziVigenere[] :=
     Style["\[RightTriangle]  Apri gli Esercizi \[LongDash] Cifrario di Vigenere",
           15, Bold, White],
     CreateDocument[
-      {ExpressionCell[esercizioUniversaleVigenere[], "Output",
+      {ExpressionCell[
+        Pane[esercizioUniversaleVigenere[], {620, 700},
+          Scrollbars -> {False, True}, AppearanceElements -> {}],
+        "Output",
         Editable -> False, Deletable -> False, ShowCellBracket -> False]},
-      Editable -> False, Deletable -> False, ShowCellBracket -> False
+      Editable -> False, Deletable -> False, ShowCellBracket -> False,
+      WindowSize -> {660, 750}, WindowTitle -> "Esercizi Vigenere"
     ],
     Background -> RGBColor[0.55, 0.10, 0.40],
     ImageSize  -> {460, 50}
   ]
+
+(* Precaricamento del dizionario al momento del caricamento del pacchetto.
+   In questo modo il primo esercizio generato non subisce lag. *)
+dizionarioItaliano;
 
 End[ ]
 
