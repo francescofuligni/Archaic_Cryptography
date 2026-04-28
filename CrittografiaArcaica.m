@@ -2,6 +2,8 @@
 
 (* ::Package:: *)
 
+(* ::Package:: *)
+
 BeginPackage["CrittografiaArcaica`"]
 
 avviaLaboratorio::usage =
@@ -21,29 +23,32 @@ esercizioUniversaleVigenere::usage =
 
 Begin["`Private`"]
 
-alfabeto = CharacterRange["A", "Z"];
+alfabeto = CharacterRange["A", "Z"]; (* lista delle 26 lettere maiuscole, usata come riferimento in tutto il pacchetto *)
 
+(* Frequenze percentuali delle lettere nell'italiano scritto - fonte: De Mauro.
+   Ordine: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z *)
 freqItaliano = {11.74, 0.92, 4.50, 3.73, 11.79, 0.95, 1.64, 1.54,
                 11.28, 0.00, 0.00, 6.51, 2.51, 6.88, 9.83, 3.05,
                 0.51, 6.37, 4.98, 5.62, 3.01, 2.10, 0.00, 0.00,
                 0.00, 0.49};
 
 lettereIn[s_String] :=
-  Select[Characters[ToUpperCase[s]], MemberQ[alfabeto, #] &]
+  Select[Characters[ToUpperCase[s]], MemberQ[alfabeto, #] &] (* estrae solo le lettere A-Z da una stringa, ignorando spazi e punteggiatura *)
 
 indiceLettera[c_String] :=
-  Position[alfabeto, c][[1, 1]] - 1
+  Position[alfabeto, c][[1, 1]] - 1 (* restituisce la posizione 0-indicizzata: A=0, B=1, ..., Z=25 *)
 
-soloLettere[s_String] :=
+soloLettere[s_String] :=  (* True se la stringa contiene solo lettere A-Z e non e' vuota *)
   Module[{chars},
     chars = lettereIn[s];
     StringLength[s] > 0 && Length[chars] == StringLength[s]
   ]
 
-dizionarioItaliano := dizionarioItaliano = Module[{tutteLeParole},
+dizionarioItaliano := dizionarioItaliano = Module[{tutteLeParole}, (* := con memoization: viene costruito una sola volta, poi riutilizzato *)
   (* Estrae tutte le parole italiane disponibili nel dizionario di sistema *)
   tutteLeParole = DictionaryLookup[{"Italian", "*"}];
   
+  (* Filtra: solo parole con lettere A-Z pure (no accenti), lunghezza minima 4 caratteri *)
     tutteLeParole = Select[tutteLeParole, StringMatchQ[#, RegularExpression["[a-zA-Z]{4,}"]] &];
   
   (* Converte tutto in maiuscolo, pronto per la cifratura *)
@@ -57,23 +62,23 @@ generaParola[seed_Integer] := Module[{},
 
 cifraCesare[testo_String, shift_Integer] :=
   Module[{caratteri, cifrati},
-    caratteri = Characters[ToUpperCase[testo]];
+    caratteri = Characters[ToUpperCase[testo]]; (* converto in maiuscolo e divido in lista di caratteri *)
     cifrati = Map[
       Function[c,
         If[MemberQ[alfabeto, c],
-          alfabeto[[Mod[indiceLettera[c] + shift, 26] + 1]],
-          c]],
+          alfabeto[[Mod[indiceLettera[c] + shift, 26] + 1]], (* sposto la lettera di shift posizioni con wrap-around *)
+          c]], (* caratteri non alfabetici (spazi, punteggiatura) rimangono invariati *)
       caratteri];
-    StringJoin[cifrati]
+    StringJoin[cifrati] (* riassemblo la lista di caratteri in una stringa *)
   ]
 
 decifraCesare[testo_String, shift_Integer] :=
-  cifraCesare[testo, Mod[-shift, 26]]
+  cifraCesare[testo, Mod[-shift, 26]] (* decifrare = cifrare con shift negativo, Mod gestisce il wrap-around *)
 
 frequenzeLettere[testo_String] :=
   Module[{solo},
-    solo = lettereIn[testo];
-    Map[Function[l, Count[solo, l]], alfabeto]
+    solo = lettereIn[testo]; (* estraggo solo le lettere, ignorando tutto il resto *)
+    Map[Function[l, Count[solo, l]], alfabeto] (* conto quante volte appare ogni lettera A-Z *)
   ]
 
 cifraVigenere[testo_String, chiave_String] :=
@@ -116,8 +121,8 @@ decifraVigenere[testo_String, chiave_String] :=
       c = caratteri[[i]];
       If[MemberQ[alfabeto, c],
         sh = indiceLettera[chiaveChars[[Mod[kIndex, chiaveLen] + 1]]];
-                AppendTo[risultato,
-          alfabeto[[Mod[indiceLettera[c] - sh, 26] + 1]]];
+        AppendTo[risultato,
+          alfabeto[[Mod[indiceLettera[c] - sh, 26] + 1]]]; (* sottraggo sh: operazione inversa rispetto alla cifratura *)
         kIndex++,
         AppendTo[risultato, c]],
       {i, 1, Length[caratteri]}];
@@ -142,7 +147,7 @@ tabellaShiftVigenere[testo_String, chiave_String, cifra_] :=
       AppendTo[risultato,
         {soleLettere[[i]], chiaveChars[[Mod[kIndex, chiaveLen] + 1]], sh, lOut}];
       kIndex++,
-      {i, 1, Min[Length[soleLettere], 24]}];
+      {i, 1, Min[Length[soleLettere], 24]}]; (* limitata a 24 righe per non appesantire la visualizzazione *)
     risultato
   ]
 
@@ -220,7 +225,7 @@ ruotaCesare[shift_Integer, highlightK_Integer] :=
     rEst = 1.0; (* raggio esterno: bordo dell'anello chiaro *)
     rInt = 0.62; (* raggio interno: confine tra anello chiaro e disco cifrato *)
     rMid = 0.31; (* meta' del disco cifrato: posizione delle etichette interne *)
-        angC[k_] := Pi/2 - 2 Pi k / n;
+        angC[k_] := Pi/2 - 2 Pi k / n; (* angolo del settore k: parte da Pi/2 (cima) e ruota in senso antiorario *)
         cEst = Table[Hue[k/n, 0.55, 0.75], {k, 0, n-1}]; (* anello esterno: piu' chiaro *)
     cInt = Table[Hue[k/n, 0.85, 0.55], {k, 0, n-1}]; (* disco interno: piu' scuro e saturo *)
         settoriEst = Table[
@@ -247,7 +252,7 @@ ruotaCesare[shift_Integer, highlightK_Integer] :=
         {(rMid + (rInt - rMid)/2) * Cos[angC[k]],
          (rMid + (rInt - rMid)/2) * Sin[angC[k]]}],
       {k, 0, n-1}];
-        angFreccia   = angC[highlightK];
+        angFreccia   = angC[highlightK]; (* la freccia punta sempre al settore selezionato dallo slider *)
     codaFreccia  = 1.30 * {Cos[angFreccia], Sin[angFreccia]};
     puntaFreccia = 1.03 * {Cos[angFreccia], Sin[angFreccia]};
     Graphics[
@@ -264,27 +269,34 @@ ruotaCesare[shift_Integer, highlightK_Integer] :=
 
 ruotaInterattiva[shiftDyn_] :=
   DynamicModule[
-    {settoreCorrente = 0},
+    {settoreCorrente = 0}, (* indice 0-25 della lettera puntata dallo slider *)
     Column[{
       Row[{
         Style["Punta la lettera: ", 11, Italic, Gray],
-        Slider[Dynamic[settoreCorrente], {0, 25, 1}, ImageSize -> 220],
+        Slider[Dynamic[settoreCorrente], {0, 25, 1}, ImageSize -> 220], (* slider per selezionare la lettera dell'anello esterno *)
         Spacer[6],
         Dynamic[Style[
           alfabeto[[settoreCorrente + 1]] <> " \[RightArrow] " <>
-          alfabeto[[Mod[settoreCorrente + shiftDyn, 26] + 1]],
+          alfabeto[[Mod[settoreCorrente + shiftDyn, 26] + 1]], (* mostra la coppia: lettera chiaro -> lettera cifrata *)
           14, Bold, RGBColor[0.2, 0.4, 0.7]]]
       }],
-      Dynamic[ruotaCesare[shiftDyn, settoreCorrente]]
+      Dynamic[ruotaCesare[shiftDyn, settoreCorrente]] (* ridisegna la ruota ad ogni movimento dello slider *)
     }, Alignment -> Center]
   ]
 
 esercizioUniversaleCesare[] :=
   DynamicModule[
-        {seed = 42, messaggioCifrato = "", shiftSegreto = 0,
-     messaggioChiaro = "", rispostaUtente = "",
-     tentativi = 0, feedbackMsg = "", soluzioneVisibile = False,
-     suggerimentoStep = 0, esercizioGenerato = False, shiftEsplorazione = 0},
+        {seed = 42,              (* seed iniziale di default *)
+         messaggioCifrato = "",  (* testo cifrato mostrato come consegna *)
+         shiftSegreto = 0,       (* shift usato per cifrare, nascosto all'utente *)
+         messaggioChiaro = "",   (* testo in chiaro originale, e' la soluzione *)
+         rispostaUtente = "",    (* risposta inserita dall'utente *)
+         tentativi = 0,          (* numero di tentativi gia' usati *)
+         feedbackMsg = "",       (* messaggio mostrato dopo Verifica Risultato *)
+         soluzioneVisibile = False, (* True quando si mostra la soluzione *)
+         suggerimentoStep = 0,   (* livello del suggerimento attivo: 0=nessuno, 1=primo, 2=secondo *)
+         esercizioGenerato = False, (* True dopo aver premuto Genera Esercizio *)
+         shiftEsplorazione = 0}, (* shift separato per la ruota di esplorazione *)
     Panel[
       Column[{
         Style["Esercizi \[LongDash] Cifrario di Cesare",
@@ -299,7 +311,7 @@ esercizioUniversaleCesare[] :=
           Button[
             Style["Genera Esercizio", 13, Bold, White],
             Module[{ris},
-              ris = generaEsercizioConSeedCesare[seed];
+              ris = generaEsercizioConSeedCesare[seed]; (* genera {cifrato, shift, chiaro} *)
               messaggioCifrato = ris[[1]]; shiftSegreto = ris[[2]];
               messaggioChiaro = ris[[3]]; rispostaUtente = "";
               tentativi = 0; feedbackMsg = ""; soluzioneVisibile = False;
@@ -332,10 +344,10 @@ esercizioUniversaleCesare[] :=
                 feedbackMsg = "\[Checkmark] Corretto! Hai impiegato " <>
                   ToString[tentativi] <>
                   If[tentativi == 1, " tentativo.", " tentativi."],
-                If[tentativi >= 3,
+                If[tentativi >= 3, (* al terzo errore mostra automaticamente la soluzione *)
                   feedbackMsg = "\[Cross] Risposta errata. Tentativi esauriti.";
                   soluzioneVisibile = True,
-                  suggerimentoStep = tentativi;
+                  suggerimentoStep = tentativi; (* avanza il livello di suggerimento ad ogni errore *)
                   feedbackMsg = "\[Cross] Non corretto \[LongDash] Tentativo " <>
                     ToString[tentativi] <> "/3."]]];,
             Background -> RGBColor[0.2, 0.6, 0.3], ImageSize -> {170, 35}],
@@ -432,10 +444,16 @@ esercizioUniversaleCesare[] :=
 
 esercizioUniversaleVigenere[] :=
   DynamicModule[
-        {seed = 42, messaggioCifrato = "", chiaveSegreto = "",
-     messaggioChiaro = "", rispostaUtente = "",
-     tentativi = 0, feedbackMsg = "", soluzioneVisibile = False,
-     suggerimentoStep = 0, esercizioGenerato = False},
+        {seed = 42,              (* seed iniziale di default *)
+         messaggioCifrato = "",  (* testo cifrato mostrato come consegna *)
+         chiaveSegreto = "",     (* chiave mostrata all'utente: nel Vigenere la chiave e' nota *)
+         messaggioChiaro = "",   (* testo in chiaro originale, e' la soluzione *)
+         rispostaUtente = "",    (* risposta inserita dall'utente *)
+         tentativi = 0,          (* numero di tentativi gia' usati *)
+         feedbackMsg = "",       (* messaggio mostrato dopo Verifica Risultato *)
+         soluzioneVisibile = False, (* True quando si mostra la soluzione *)
+         suggerimentoStep = 0,   (* livello del suggerimento attivo: 0=nessuno, 1=primo, 2=secondo *)
+         esercizioGenerato = False}, (* True dopo aver premuto Genera Esercizio *)
     Panel[
       Column[{
         Style["Esercizi \[LongDash] Cifrario di Vigenere",
@@ -450,7 +468,7 @@ esercizioUniversaleVigenere[] :=
           Button[
             Style["Genera Esercizio", 13, Bold, White],
             Module[{ris},
-              ris = generaEsercizioConSeedVigenere[seed];
+              ris = generaEsercizioConSeedVigenere[seed]; (* genera {cifrato, chiave, chiaro} *)
               messaggioCifrato = ris[[1]]; chiaveSegreto = ris[[2]];
               messaggioChiaro = ris[[3]]; rispostaUtente = "";
               tentativi = 0; feedbackMsg = ""; soluzioneVisibile = False;
@@ -558,7 +576,7 @@ esercizioUniversaleVigenere[] :=
   ]
 
 avviaLaboratorio[] :=
-  TabView[
+  TabView[ (* crea un pannello a schede con le due sezioni esercizi *)
     {
       "Esercizi Cesare"      -> esercizioUniversaleCesare[],
       "Esercizi Vigenere"    -> esercizioUniversaleVigenere[]
@@ -573,7 +591,7 @@ bottoneEserciziCesare[] :=
     CreateDocument[
       {ExpressionCell[
         Deploy[Pane[CrittografiaArcaica`esercizioUniversaleCesare[], {620, 700},
-          Scrollbars -> {False, True}, AppearanceElements -> {}]],
+          Scrollbars -> {False, True}, AppearanceElements -> {}]], (* Deploy blocca la modifica, Pane aggiunge la scrollbar *)
         "Output",
         Deployed -> True, Editable -> False, Deletable -> False, Selectable -> False, Copyable -> False, ShowCellBracket -> False]},
       Deployed -> True, Editable -> False, Deletable -> False, Saveable -> False, ShowCellBracket -> False,
@@ -600,7 +618,7 @@ bottoneEserciziVigenere[] :=
     ImageSize  -> {460, 50}
   ]
 
-dizionarioItaliano;
+dizionarioItaliano; (* forza il precaricamento del dizionario al caricamento del pacchetto, evitando lag al primo esercizio *)
 
 End[ ]
 
