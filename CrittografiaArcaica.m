@@ -2,154 +2,59 @@
 
 (* ::Package:: *)
 
-(* ============================================================
-   CrittografiaArcaica.m
-   Laboratorio Interattivo di Crittografia Arcaica
-   Cifrario di Cesare e Cifrario di Vigenere
-
-   Matematica Computazionale 2025/2026
-   ============================================================ *)
-
 BeginPackage["CrittografiaArcaica`"]
-
-(* ============================================================
-   DICHIARAZIONI DI USO (usage)
-   ============================================================ *)
 
 avviaLaboratorio::usage =
   "avviaLaboratorio[] avvia l'interfaccia principale con TabView."
 
-bottoneLaboratorioCesare::usage =
-  "bottoneLaboratorioCesare[] restituisce un bottone che apre il Laboratorio Libero del Cifrario di Cesare. Da usare nella sezione II.2 del Tutorial.nb."
-
 bottoneEserciziCesare::usage =
   "bottoneEserciziCesare[] restituisce un bottone che apre gli Esercizi del Cifrario di Cesare. Da usare nella sezione II.3 del Tutorial.nb."
-
-bottoneLaboratorioVigenere::usage =
-  "bottoneLaboratorioVigenere[] restituisce un bottone che apre il Laboratorio Libero del Cifrario di Vigenere. Da usare nella sezione III.2 del Tutorial.nb."
 
 bottoneEserciziVigenere::usage =
   "bottoneEserciziVigenere[] restituisce un bottone che apre gli Esercizi del Cifrario di Vigenere. Da usare nella sezione III.3 del Tutorial.nb."
 
-laboratorioCesare::usage =
-  "laboratorioCesare[] apre il Laboratorio Libero del Cifrario di Cesare."
-
 esercizioUniversaleCesare::usage =
   "esercizioUniversaleCesare[] apre gli Esercizi del Cifrario di Cesare."
-
-laboratorioVigenere::usage =
-  "laboratorioVigenere[] apre il Laboratorio Libero del Cifrario di Vigenere."
 
 esercizioUniversaleVigenere::usage =
   "esercizioUniversaleVigenere[] apre gli Esercizi del Cifrario di Vigenere."
 
 Begin["`Private`"]
 
-(* ============================================================
-   COSTANTI
-   ============================================================ *)
-
 alfabeto = CharacterRange["A", "Z"];
 
-(* Frequenze percentuali nell'italiano scritto.
-   Fonte: De Mauro, Dizionario di frequenza dell'italiano.
-   Ordine: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z *)
 freqItaliano = {11.74, 0.92, 4.50, 3.73, 11.79, 0.95, 1.64, 1.54,
                 11.28, 0.00, 0.00, 6.51, 2.51, 6.88, 9.83, 3.05,
                 0.51, 6.37, 4.98, 5.62, 3.01, 2.10, 0.00, 0.00,
                 0.00, 0.49};
 
-(* ============================================================
-   FUNZIONI HELPER PRIVATE -- RIUSO DEL CODICE
-   Queste funzioni incapsulano operazioni ripetute piu' volte
-   nel pacchetto, evitando duplicazione del codice.
-   ============================================================ *)
-
-(*
-  lettereIn[s]
-  Input:  s -- stringa qualsiasi
-  Output: lista dei caratteri maiuscoli A-Z contenuti in s,
-          nell'ordine in cui compaiono.
-  Uso:    estrarre solo le lettere da testo o chiave prima
-          di cifrare/decifrare. Usata in tutte le funzioni
-          crittografiche al posto di:
-          Select[Characters[ToUpperCase[s]], MemberQ[alfabeto, #] &]
-*)
 lettereIn[s_String] :=
   Select[Characters[ToUpperCase[s]], MemberQ[alfabeto, #] &]
 
-(*
-  indiceLettera[c]
-  Input:  c -- carattere maiuscolo A-Z
-  Output: indice 0-indicizzato nell'alfabeto (A=0, B=1, ..., Z=25).
-  Uso:    calcolare lo shift nelle funzioni di cifratura/decifratura.
-          Usata al posto di: Position[alfabeto, c][[1,1]] - 1
-*)
 indiceLettera[c_String] :=
   Position[alfabeto, c][[1, 1]] - 1
 
-(* ============================================================
-   UTILITA' -- VALIDAZIONE INPUT
-   ============================================================ *)
-
-(*
-  soloLettere[s]
-  Input:  s -- stringa qualsiasi
-  Output: True se s non e' vuota e contiene SOLO lettere A-Z.
-  Uso:    validare testo e chiave prima di cifrare/decifrare.
-*)
 soloLettere[s_String] :=
   Module[{chars},
     chars = lettereIn[s];
     StringLength[s] > 0 && Length[chars] == StringLength[s]
   ]
 
-(* ============================================================
-   GENERATORE DI PAROLE CON SEED (AGGIORNATO)
-   ============================================================ *)
-
-(* 
-1. Creiamo il dizionario usando la Memoization ( := definisce e salva ).
-In questo modo Mathematica carichera' e filtrera' la lista di decine 
-di migliaia di parole *solo la prima volta* che viene chiamata, 
-evitando fastidiosi lag dell'interfaccia a ogni generazione di esercizio.
-*)
 dizionarioItaliano := dizionarioItaliano = Module[{tutteLeParole},
   (* Estrae tutte le parole italiane disponibili nel dizionario di sistema *)
   tutteLeParole = DictionaryLookup[{"Italian", "*"}];
   
-  (* Filtra le parole: 
-     - Solo caratteri A-Z (esclude lettere accentate come 'a','e', spazi o apostrofi)
-       poiche' la logica crittografica si basa su CharacterRange["A", "Z"].
-     - Lunghezza minima di 4 caratteri per avere parole con un senso compiuto. *)
-  tutteLeParole = Select[tutteLeParole, StringMatchQ[#, RegularExpression["[a-zA-Z]{4,}"]] &];
+    tutteLeParole = Select[tutteLeParole, StringMatchQ[#, RegularExpression["[a-zA-Z]{4,}"]] &];
   
   (* Converte tutto in maiuscolo, pronto per la cifratura *)
   ToUpperCase[tutteLeParole]
 ];
 
-(*
-  generaParola[seed]
-  Input:  seed -- intero, garantisce riproducibilita'
-  Output: stringa maiuscola di sole lettere standard
-  Logica: Estrae casualmente da un dizionario reale di oltre 60.000 parole.
-*)
 generaParola[seed_Integer] := Module[{},
   SeedRandom[seed];
   RandomChoice[dizionarioItaliano]
 ]
 
-(* ============================================================
-   CIFRATURA E DECIFRATURA -- CESARE
-   ============================================================ *)
-
-(*
-  cifraCesare[testo, shift]
-  Input:  testo -- stringa di sole lettere
-          shift -- intero 0-25
-  Output: stringa cifrata (ogni lettera spostata di shift posizioni
-          in avanti nell'alfabeto, modulo 26).
-*)
 cifraCesare[testo_String, shift_Integer] :=
   Module[{caratteri, cifrati},
     caratteri = Characters[ToUpperCase[testo]];
@@ -162,39 +67,15 @@ cifraCesare[testo_String, shift_Integer] :=
     StringJoin[cifrati]
   ]
 
-(*
-  decifraCesare[testo, shift]
-  Input:  testo -- stringa cifrata con Cesare
-          shift -- lo shift usato per cifrare (0-25)
-  Output: testo in chiaro (shift negativo modulo 26).
-*)
 decifraCesare[testo_String, shift_Integer] :=
   cifraCesare[testo, Mod[-shift, 26]]
 
-(*
-  frequenzeLettere[testo]
-  Input:  testo -- stringa qualsiasi
-  Output: lista di 26 interi (conteggio A, B, ..., Z).
-*)
 frequenzeLettere[testo_String] :=
   Module[{solo},
     solo = lettereIn[testo];
     Map[Function[l, Count[solo, l]], alfabeto]
   ]
 
-(* ============================================================
-   CIFRATURA E DECIFRATURA -- VIGENERE
-   ============================================================ *)
-
-(*
-  cifraVigenere[testo, chiave]
-  Input:  testo  -- stringa di sole lettere
-          chiave -- stringa di sole lettere (lunghezza >= 1)
-  Output: stringa cifrata. La chiave si ripete ciclicamente.
-          Per ogni lettera del testo lo shift e' la posizione
-          0-indicizzata della lettera chiave (A=0, B=1, ..., Z=25).
-          L'indice della chiave avanza solo sulle lettere del testo.
-*)
 cifraVigenere[testo_String, chiave_String] :=
   Module[
     {testUp, chiaveChars, chiaveLen, caratteri, risultato, kIndex, c, sh},
@@ -210,26 +91,16 @@ cifraVigenere[testo_String, chiave_String] :=
     Do[
       c = caratteri[[i]];
       If[MemberQ[alfabeto, c],
-        (* Calcolo lo shift come posizione 0-indicizzata della lettera chiave corrente:
-           A=0, B=1, ..., Z=25. Uso Mod per ciclare sulla chiave quando finisce. *)
-        sh = indiceLettera[chiaveChars[[Mod[kIndex, chiaveLen] + 1]]];
+                sh = indiceLettera[chiaveChars[[Mod[kIndex, chiaveLen] + 1]]];
         (* Sposto la lettera in avanti di sh posizioni, con wrap-around modulo 26 *)
         AppendTo[risultato,
           alfabeto[[Mod[indiceLettera[c] + sh, 26] + 1]]];
         kIndex++,
-        (* Carattere non alfabetico (es. spazio): lo lascio invariato
-           e NON avanzo l'indice della chiave *)
-        AppendTo[risultato, c]],
+                AppendTo[risultato, c]],
       {i, 1, Length[caratteri]}];
     StringJoin[risultato]
   ]
 
-(*
-  decifraVigenere[testo, chiave]
-  Input:  testo  -- stringa cifrata con Vigenere
-          chiave -- stringa chiave (sole lettere, stessa usata per cifrare)
-  Output: testo in chiaro (shift negativo modulo 26 per ogni lettera).
-*)
 decifraVigenere[testo_String, chiave_String] :=
   Module[
     {testUp, chiaveChars, chiaveLen, caratteri, risultato, kIndex, c, sh},
@@ -245,9 +116,7 @@ decifraVigenere[testo_String, chiave_String] :=
       c = caratteri[[i]];
       If[MemberQ[alfabeto, c],
         sh = indiceLettera[chiaveChars[[Mod[kIndex, chiaveLen] + 1]]];
-        (* Decifratura: sottraggo sh invece di sommarlo.
-           Mod[..., 26] gestisce il wrap-around anche per valori negativi. *)
-        AppendTo[risultato,
+                AppendTo[risultato,
           alfabeto[[Mod[indiceLettera[c] - sh, 26] + 1]]];
         kIndex++,
         AppendTo[risultato, c]],
@@ -255,16 +124,6 @@ decifraVigenere[testo_String, chiave_String] :=
     StringJoin[risultato]
   ]
 
-(*
-  tabellaShiftVigenere[testo, chiave, cifra]
-  Input:  testo  -- stringa di sole lettere
-          chiave -- stringa chiave (sole lettere)
-          cifra  -- True se si sta cifrando, False se si sta decifrando
-  Output: lista di quadruple {lettera_input, lettera_chiave, shift, lettera_output}
-          limitata alle prime 24 lettere per leggibilita'.
-  Nota:   se cifra=True, la lettera_output e' quella cifrata (+shift).
-          se cifra=False, la lettera_output e' quella decifrata (-shift).
-*)
 tabellaShiftVigenere[testo_String, chiave_String, cifra_] :=
   Module[
     {testUp, chiaveChars, chiaveLen, soleLettere, risultato, kIndex, sh, lOut, segno},
@@ -287,41 +146,21 @@ tabellaShiftVigenere[testo_String, chiave_String, cifra_] :=
     risultato
   ]
 
-(* ============================================================
-   GENERATORI DI ESERCIZI CON SEED
-   ============================================================ *)
-
-(*
-  generaEsercizioConSeedCesare[seed]
-  Input:  seed -- intero
-  Output: {testo_cifrato, shift_segreto, testo_chiaro}
-  Struttura: l'utente riceve il testo CIFRATO e deve trovare il CHIARO.
-*)
 generaEsercizioConSeedCesare[seed_Integer] :=
   Module[{parola, shift, cifrato},
     (* Genera la parola dal dizionario italiano usando il seed come indice riproducibile *)
     parola  = generaParola[seed];
-    (* Usa seed+999 per lo shift, cosi' parola e shift sono indipendenti tra loro:
-       due seed consecutivi non producono la stessa combinazione parola+shift *)
-    SeedRandom[seed + 999];
+        SeedRandom[seed + 999];
     shift   = RandomInteger[{1, 25}]; (* shift tra 1 e 25: escludiamo 0 = nessuna cifratura *)
     cifrato = cifraCesare[parola, shift];
     (* Restituisce {cifrato, shift, chiaro}: l'utente vede il cifrato, la soluzione e' il chiaro *)
     {cifrato, shift, parola}
   ]
 
-(*
-  generaEsercizioConSeedVigenere[seed]
-  Input:  seed -- intero
-  Output: {testo_cifrato, chiave_segreta, testo_chiaro}
-  Struttura: l'utente riceve il testo CIFRATO e la CHIAVE, trova il CHIARO.
-*)
 generaEsercizioConSeedVigenere[seed_Integer] :=
   Module[
     {chiavi, parola, chiave, cifrato},
-    (* Lista di chiavi predefinite: parole italiane comuni, lunghe 4-6 lettere,
-       scelte per coprire shift diversi e dare esercizi vari *)
-    chiavi = {"SOLE", "MARE", "LUNA", "VENTO", "FUOCO", "ACQUA",
+        chiavi = {"SOLE", "MARE", "LUNA", "VENTO", "FUOCO", "ACQUA",
               "CIELO", "TERRA", "LUCE", "OMBRA", "CHIAVE", "CODICE",
               "PIETRA", "FIUME", "STELLA", "NOTTE", "GIORNO"};
     parola = generaParola[seed];
@@ -329,24 +168,9 @@ generaEsercizioConSeedVigenere[seed_Integer] :=
     SeedRandom[seed + 777];
     chiave  = RandomChoice[chiavi];
     cifrato = cifraVigenere[parola, chiave];
-    (* Restituisce {cifrato, chiave, chiaro}: l'utente vede cifrato e chiave,
-       deve trovare il chiaro *)
-    {cifrato, chiave, parola}
+        {cifrato, chiave, parola}
   ]
 
-(* ============================================================
-   GRAFICO FREQUENZE -- DUE PANNELLI SEPARATI
-   ============================================================ *)
-
-(*
-  graficaFrequenze[testo]
-  Input:  testo -- stringa da analizzare (tipicamente il testo cifrato)
-  Output: Column con due BarChart separati:
-          1. Standard Italiano (%): barre azzurre con etichette A-Z
-          2. Frequenze Testo Cifrato (Assolute): barre colorate con etichette A-Z
-  Nota: ChartLabels -> CharacterRange["A","Z"] e' il metodo che funziona
-        in Mathematica per mostrare le etichette sotto ogni barra.
-*)
 graficaFrequenze[testo_String] :=
   Module[
     {conteggi, totale, coloriArcobaleno, graficoItaliano, graficoCifrato},
@@ -384,21 +208,9 @@ graficaFrequenze[testo_String] :=
       Frame       -> False,
       ImagePadding -> {{30, 10}, {35, 20}}
     ];
-    (* I due grafici in colonna: prima il riferimento italiano, poi il testo cifrato.
-       Confrontandoli visivamente si puo' intuire lo shift usato. *)
-    Column[{graficoItaliano, graficoCifrato}, Spacings -> 1, Alignment -> Center]
+        Column[{graficoItaliano, graficoCifrato}, Spacings -> 1, Alignment -> Center]
   ]
 
-(* ============================================================
-   RUOTA DI CESARE
-   ============================================================ *)
-
-(*
-  ruotaCesare[shift, highlightK]
-  Input:  shift      -- intero 0-25
-          highlightK -- indice 0-based del settore evidenziato (-1 = nessuno)
-  Output: Graphics con anello esterno (testo chiaro) e disco interno (testo cifrato).
-*)
 ruotaCesare[shift_Integer, highlightK_Integer] :=
   Module[
     {n, rEst, rInt, rMid, angC, cEst, cInt,
@@ -408,17 +220,10 @@ ruotaCesare[shift_Integer, highlightK_Integer] :=
     rEst = 1.0; (* raggio esterno: bordo dell'anello chiaro *)
     rInt = 0.62; (* raggio interno: confine tra anello chiaro e disco cifrato *)
     rMid = 0.31; (* meta' del disco cifrato: posizione delle etichette interne *)
-    (* angC[k]: angolo del centro del settore k.
-       Parte da Pi/2 (= cima) e ruota in senso antiorario.
-       In questo modo A e' in cima, B subito a sinistra, ecc. *)
-    angC[k_] := Pi/2 - 2 Pi k / n;
-    (* Palette Hue: 26 colori ben distinti che si ripetono sull'arcobaleno.
-       Saturazione e luminosita' calibrate per leggibilita' delle lettere bianche. *)
-    cEst = Table[Hue[k/n, 0.55, 0.75], {k, 0, n-1}]; (* anello esterno: piu' chiaro *)
+        angC[k_] := Pi/2 - 2 Pi k / n;
+        cEst = Table[Hue[k/n, 0.55, 0.75], {k, 0, n-1}]; (* anello esterno: piu' chiaro *)
     cInt = Table[Hue[k/n, 0.85, 0.55], {k, 0, n-1}]; (* disco interno: piu' scuro e saturo *)
-    (* Anello esterno: 26 settori colorati con Annulus.
-       Il settore highlightK ha piena opacita', gli altri sono leggermente trasparenti. *)
-    settoriEst = Table[
+        settoriEst = Table[
       {cEst[[k+1]],
        If[k == highlightK, Opacity[1.0], Opacity[0.75]],
        Annulus[{0,0}, {rInt, rEst}, {angC[k] - Pi/n, angC[k] + Pi/n}]},
@@ -431,9 +236,7 @@ ruotaCesare[shift_Integer, highlightK_Integer] :=
         {(rInt + (rEst - rInt)/2) * Cos[angC[k]],
          (rInt + (rEst - rInt)/2) * Sin[angC[k]]}],
       {k, 0, n-1}];
-    (* Disco interno: il settore k mostra la lettera cifrata corrispondente,
-       cioe' alfabeto[[k + shift]] con wrap-around modulo 26. *)
-    settoriInt = Table[
+        settoriInt = Table[
       {cInt[[Mod[k + shift, n] + 1]], Opacity[0.90],
        Disk[{0,0}, rInt, {angC[k] - Pi/n, angC[k] + Pi/n}]},
       {k, 0, n-1}];
@@ -444,10 +247,7 @@ ruotaCesare[shift_Integer, highlightK_Integer] :=
         {(rMid + (rInt - rMid)/2) * Cos[angC[k]],
          (rMid + (rInt - rMid)/2) * Sin[angC[k]]}],
       {k, 0, n-1}];
-    (* Freccia rossa mobile: punta sempre al settore highlightK.
-       angC[highlightK] e' l'angolo di quel settore; la freccia va da raggio 1.30
-       (coda, fuori dall'anello) a raggio 1.03 (punta, appena oltre il bordo). *)
-    angFreccia   = angC[highlightK];
+        angFreccia   = angC[highlightK];
     codaFreccia  = 1.30 * {Cos[angFreccia], Sin[angFreccia]};
     puntaFreccia = 1.03 * {Cos[angFreccia], Sin[angFreccia]};
     Graphics[
@@ -462,13 +262,6 @@ ruotaCesare[shift_Integer, highlightK_Integer] :=
       PlotRange  -> {{-1.38, 1.38}, {-1.38, 1.38}}]
   ]
 
-(*
-  ruotaInterattiva[shiftDyn]
-  Input:  shiftDyn -- variabile Dynamic con lo shift corrente
-  Output: DynamicModule con Slider di selezione lettera e ruota grafica.
-          Lo Slider seleziona il settore dell'anello esterno da evidenziare
-          e mostra in tempo reale la coppia lettera_chiara -> lettera_cifrata.
-*)
 ruotaInterattiva[shiftDyn_] :=
   DynamicModule[
     {settoreCorrente = 0},
@@ -486,136 +279,9 @@ ruotaInterattiva[shiftDyn_] :=
     }, Alignment -> Center]
   ]
 
-(* ============================================================
-   LABORATORIO LIBERO -- CESARE
-   ============================================================ *)
-
-(*
-  laboratorioCesare[]
-  Input:  nessuno
-  Output: DynamicModule con:
-          - campo testo con validazione (solo lettere, senza spazi)
-          - slider shift 0-25
-          - bottoni Cifra / Decifra / Pulisci Campi
-          - ruota interattiva
-          - grafico frequenze a due pannelli
-*)
-laboratorioCesare[] :=
-  DynamicModule[
-    (* Variabili locali dell'interfaccia. DynamicModule le isola dal contesto globale,
-       cosi' piu' istanze aperte contemporaneamente non interferiscono tra loro.
-       testoInput:       testo digitato dall'utente nel campo di input
-       shiftLab:         valore dello slider shift (0-25), inizializzato a 3
-       risultatoCifra:   risultato dell'ultima cifratura (stringa vuota = nessun risultato)
-       risultatoDecifra: risultato dell'ultima decifratura
-       avvisoTesto:      messaggio di errore se il testo non e' valido *)
-    {testoInput = "", shiftLab = 3,
-     risultatoCifra = "", risultatoDecifra = "", avvisoTesto = ""},
-    Panel[
-      Column[{
-        Style["Laboratorio Libero \[LongDash] Cifrario di Cesare",
-              18, Bold, RGBColor[0.2, 0.4, 0.7]],
-        Style["Inserisci un testo (solo lettere, senza spazi), scegli lo shift e cifra o decifra.",
-              12, Italic, Gray],
-        Spacer[8],
-        Row[{
-          Style["Testo: ", 13, Bold],
-          InputField[Dynamic[testoInput], String,
-            FieldSize -> {30, 2}, FieldHint -> "Solo lettere (es. CIAO)"],
-          Spacer[8],
-          Dynamic[If[testoInput =!= "" && !soloLettere[testoInput],
-            Style["! Solo lettere, senza spazi", 11, Bold, RGBColor[0.8, 0.2, 0.0]], ""]]
-        }],
-        Spacer[4],
-        Row[{
-          Style["Shift (k): ", 13, Bold],
-          Slider[Dynamic[shiftLab], {0, 25, 1}, ImageSize -> 200],
-          Spacer[8],
-          Dynamic[Style[ToString[shiftLab], 15, Bold, RGBColor[0.7, 0.2, 0.2]]]
-        }],
-        Spacer[6],
-        Row[{
-          Button[
-            Style["Cifra \[RightArrow]", 13, Bold, White],
-            If[testoInput === "" || !soloLettere[testoInput],
-              avvisoTesto = "Inserisci un testo valido (solo lettere, senza spazi).",
-              avvisoTesto = ""; risultatoCifra = cifraCesare[testoInput, shiftLab];
-              risultatoDecifra = ""];,
-            Background -> RGBColor[0.2, 0.6, 0.3], ImageSize -> {120, 35}],
-          Spacer[10],
-          Button[
-            Style["\[LeftArrow] Decifra", 13, Bold, White],
-            If[testoInput === "" || !soloLettere[testoInput],
-              avvisoTesto = "Inserisci un testo valido (solo lettere, senza spazi).",
-              avvisoTesto = ""; risultatoDecifra = decifraCesare[testoInput, shiftLab];
-              risultatoCifra = ""];,
-            Background -> RGBColor[0.5, 0.2, 0.7], ImageSize -> {120, 35}],
-          Spacer[10],
-          Button[
-            Style["Pulisci Campi", 13, Bold, White],
-            testoInput = ""; shiftLab = 3;
-            risultatoCifra = ""; risultatoDecifra = ""; avvisoTesto = "";,
-            Background -> RGBColor[0.5, 0.5, 0.5], ImageSize -> {130, 35}]
-        }],
-        Spacer[4],
-        Dynamic[If[avvisoTesto =!= "",
-          Style[avvisoTesto, 12, Bold, RGBColor[0.75, 0.1, 0.0]], ""]],
-        Spacer[4],
-        Dynamic[If[risultatoCifra =!= "",
-          Framed[Column[{Style["Testo cifrato:", 12, Bold, RGBColor[0.2, 0.6, 0.3]],
-            Style[risultatoCifra, 14, Bold]}],
-            Background -> RGBColor[0.92, 1.0, 0.93],
-            RoundingRadius -> 5, FrameStyle -> RGBColor[0.2, 0.6, 0.3], FrameMargins -> 8], ""]],
-        Dynamic[If[risultatoDecifra =!= "",
-          Framed[Column[{Style["Testo decifrato:", 12, Bold, RGBColor[0.5, 0.2, 0.7]],
-            Style[risultatoDecifra, 14, Bold]}],
-            Background -> RGBColor[0.97, 0.93, 1.0],
-            RoundingRadius -> 5, FrameStyle -> RGBColor[0.5, 0.2, 0.7], FrameMargins -> 8], ""]],
-        Spacer[10],
-        Style["Ruota di Cesare \[LongDash] usa lo slider per puntare una lettera:", 13, Bold],
-        Style["La lettera a destra della freccia mostra la corrispondente lettera cifrata.",
-              11, Italic, Gray],
-        Dynamic[ruotaInterattiva[shiftLab]],
-        Spacer[10],
-        Style["Analisi delle frequenze:", 13, Bold],
-        Style["Sopra: profilo standard dell'italiano. Sotto: frequenze del testo cifrato.",
-              11, Italic, Gray],
-        Dynamic[If[risultatoCifra =!= "",
-          graficaFrequenze[risultatoCifra],
-          Style["(Il grafico appare dopo aver cifrato un testo)", 11, Italic, Gray]]]
-      }, Alignment -> Left, Spacings -> 1],
-      Background -> GrayLevel[0.97], ImageSize -> 560]
-  ]
-
-(* ============================================================
-   ESERCIZI -- CESARE
-   Struttura: l'utente riceve il testo CIFRATO, trova il CHIARO.
-   Suggerimento automatico al 1\[Degree] e 2\[Degree] errore (nessun bottone).
-   ============================================================ *)
-
-(*
-  esercizioUniversaleCesare[]
-  Input:  nessuno
-  Output: DynamicModule con le funzionalita' obbligatorie:
-          - Genera Esercizio (Seed)
-          - Verifica Risultato (suggerimento automatico all'errore)
-          - Mostra Soluzione
-          - Pulisci Campi
-*)
 esercizioUniversaleCesare[] :=
   DynamicModule[
-    (* seed:               numero scelto dall'utente per generare l'esercizio (riproducibile)
-       messaggioCifrato:   testo cifrato mostrato all'utente come consegna
-       shiftSegreto:       shift usato per cifrare (la soluzione, nascosta all'utente)
-       messaggioChiaro:    testo in chiaro originale (la soluzione)
-       rispostaUtente:     testo inserito dall'utente nel campo di risposta
-       tentativi:          numero di tentativi gia' usati (max 3)
-       feedbackMsg:        messaggio di feedback dopo Verifica Risultato
-       soluzioneVisibile:  True quando la soluzione e' mostrata
-       suggerimentoStep:   livello di suggerimento attivo (0=nessuno, 1=primo, 2=secondo)
-       esercizioGenerato:  True dopo aver premuto Genera Esercizio
-       shiftEsplorazione:  shift separato per la ruota di esplorazione nell'esercizio *)
-    {seed = 42, messaggioCifrato = "", shiftSegreto = 0,
+        {seed = 42, messaggioCifrato = "", shiftSegreto = 0,
      messaggioChiaro = "", rispostaUtente = "",
      tentativi = 0, feedbackMsg = "", soluzioneVisibile = False,
      suggerimentoStep = 0, esercizioGenerato = False, shiftEsplorazione = 0},
@@ -764,163 +430,9 @@ esercizioUniversaleCesare[] :=
       Background -> GrayLevel[0.97], ImageSize -> 560]
   ]
 
-(* ============================================================
-   LABORATORIO LIBERO -- VIGENERE
-   ============================================================ *)
-
-(*
-  laboratorioVigenere[]
-  Input:  nessuno
-  Output: DynamicModule con:
-          - testo e chiave con validazione (solo lettere, senza spazi)
-          - bottoni Cifra / Decifra / Pulisci Campi
-          - tabella shift a 4 colonne
-          - nota didattica: Cesare e' sottocaso di Vigenere
-*)
-laboratorioVigenere[] :=
-  DynamicModule[
-    (* testoInput:       testo digitato dall'utente
-       chiaveInput:      parola chiave digitata dall'utente (solo lettere)
-       risultatoCifra:   risultato dell'ultima cifratura
-       risultatoDecifra: risultato dell'ultima decifratura
-       tabellaVis:       dati per la tabella shift lettera per lettera
-       avvisoTesto:      messaggio errore se il testo non e' valido
-       avvisoChiave:     messaggio errore se la chiave non e' valida *)
-    {testoInput = "", chiaveInput = "", risultatoCifra = "",
-     risultatoDecifra = "", tabellaVis = {},
-     avvisoTesto = "", avvisoChiave = ""},
-    Panel[
-      Column[{
-        Style["Laboratorio Libero \[LongDash] Cifrario di Vigenere",
-              18, Bold, RGBColor[0.5, 0.2, 0.7]],
-        Style["Inserisci un testo e una parola chiave (solo lettere, senza spazi).",
-              12, Italic, Gray],
-        Spacer[6],
-        Row[{
-          Style["Testo:  ", 13, Bold],
-          InputField[Dynamic[testoInput], String,
-            FieldSize -> {25, 2}, FieldHint -> "Solo lettere (es. CIAO)"],
-          Spacer[8],
-          Dynamic[If[testoInput =!= "" && !soloLettere[testoInput],
-            Style["! Solo lettere", 11, Bold, RGBColor[0.8, 0.2, 0.0]], ""]]
-        }],
-        Spacer[4],
-        Row[{
-          Style["Chiave: ", 13, Bold],
-          InputField[Dynamic[chiaveInput], String,
-            FieldSize -> {15, 1}, FieldHint -> "Solo lettere (es. SOLE)"],
-          Spacer[8],
-          Dynamic[If[chiaveInput =!= "" && !soloLettere[chiaveInput],
-            Style["! Solo lettere", 11, Bold, RGBColor[0.8, 0.2, 0.0]], ""]]
-        }],
-        Spacer[6],
-        Row[{
-          Button[
-            Style["Cifra \[RightArrow]", 13, Bold, White],
-            Which[
-              testoInput === "" || !soloLettere[testoInput],
-                avvisoTesto = "Testo non valido: inserisci solo lettere senza spazi.",
-              chiaveInput === "" || !soloLettere[chiaveInput],
-                avvisoChiave = "Chiave non valida: inserisci solo lettere senza spazi.",
-              True,
-                avvisoTesto = ""; avvisoChiave = "";
-                risultatoCifra = cifraVigenere[testoInput, chiaveInput];
-                risultatoDecifra = "";
-                tabellaVis = tabellaShiftVigenere[testoInput, chiaveInput, True]];,
-            Background -> RGBColor[0.5, 0.2, 0.7], ImageSize -> {120, 35}],
-          Spacer[10],
-          Button[
-            Style["\[LeftArrow] Decifra", 13, Bold, White],
-            Which[
-              testoInput === "" || !soloLettere[testoInput],
-                avvisoTesto = "Testo non valido: inserisci solo lettere senza spazi.",
-              chiaveInput === "" || !soloLettere[chiaveInput],
-                avvisoChiave = "Chiave non valida: inserisci solo lettere senza spazi.",
-              True,
-                avvisoTesto = ""; avvisoChiave = "";
-                risultatoDecifra = decifraVigenere[testoInput, chiaveInput];
-                risultatoCifra = "";
-                tabellaVis = tabellaShiftVigenere[testoInput, chiaveInput, False]];,
-            Background -> RGBColor[0.2, 0.5, 0.7], ImageSize -> {120, 35}],
-          Spacer[10],
-          Button[
-            Style["Pulisci Campi", 13, Bold, White],
-            testoInput = ""; chiaveInput = "";
-            risultatoCifra = ""; risultatoDecifra = "";
-            tabellaVis = {}; avvisoTesto = ""; avvisoChiave = "";,
-            Background -> RGBColor[0.5, 0.5, 0.5], ImageSize -> {130, 35}]
-        }],
-        Spacer[4],
-        Dynamic[If[avvisoTesto =!= "",
-          Style[avvisoTesto, 12, Bold, RGBColor[0.75, 0.1, 0.0]], ""]],
-        Dynamic[If[avvisoChiave =!= "",
-          Style[avvisoChiave, 12, Bold, RGBColor[0.75, 0.1, 0.0]], ""]],
-        Spacer[4],
-        Dynamic[If[risultatoCifra =!= "",
-          Framed[Column[{Style["Testo cifrato:", 12, Bold, RGBColor[0.5, 0.2, 0.7]],
-            Style[risultatoCifra, 14, Bold]}],
-            Background -> RGBColor[0.96, 0.92, 1.0],
-            RoundingRadius -> 5, FrameStyle -> RGBColor[0.5, 0.2, 0.7], FrameMargins -> 8],
-          If[risultatoDecifra =!= "",
-            Framed[Column[{Style["Testo decifrato:", 12, Bold, RGBColor[0.2, 0.5, 0.7]],
-              Style[risultatoDecifra, 14, Bold]}],
-              Background -> RGBColor[0.92, 0.97, 1.0],
-              RoundingRadius -> 5, FrameStyle -> RGBColor[0.2, 0.5, 0.7], FrameMargins -> 8],
-            ""]]],
-        Spacer[10],
-        Style["Tabella degli shift lettera per lettera:", 13, Bold],
-        Style["Chiaro \[RightArrow] + Shift(Chiave) \[RightArrow] Cifrato",
-              11, Italic, Gray],
-        Dynamic[If[tabellaVis =!= {},
-          Module[{righe},
-            righe = Map[
-              {Style[#[[1]], 13, Bold, Black],
-               Style[#[[2]], 13, Bold, RGBColor[0.5, 0.2, 0.7]],
-               Style["+" <> ToString[#[[3]]], 12, RGBColor[0.2, 0.6, 0.3]],
-               Style[#[[4]], 13, Bold, RGBColor[0.7, 0.3, 0.1]]} &,
-              tabellaVis];
-            Grid[Prepend[righe,
-              {Style["Lettera chiaro",  11, Bold, Gray],
-               Style["Lettera chiave",  11, Bold, Gray],
-               Style["Shift",           11, Bold, Gray],
-               Style["Lettera cifrata", 11, Bold, Gray]}],
-              Frame -> All,
-              Background -> {None, {RGBColor[0.9, 0.85, 1.0], {White}}},
-              FrameStyle -> LightGray, Spacings -> {1.5, 0.8}]],
-          Style["(La tabella appare dopo la cifratura o decifratura)", 11, Italic, Gray]]]
-      }, Alignment -> Left, Spacings -> 1],
-      Background -> GrayLevel[0.97], ImageSize -> 560]
-  ]
-
-(* ============================================================
-   ESERCIZI -- VIGENERE
-   Struttura: l'utente riceve CIFRATO + CHIAVE, trova il CHIARO.
-   Suggerimento automatico al 1\[Degree] e 2\[Degree] errore (nessun bottone).
-   ============================================================ *)
-
-(*
-  esercizioUniversaleVigenere[]
-  Input:  nessuno
-  Output: DynamicModule con le funzionalita' obbligatorie:
-          - Genera Esercizio (Seed)
-          - Verifica Risultato (suggerimento automatico all'errore)
-          - Mostra Soluzione
-          - Pulisci Campi
-*)
 esercizioUniversaleVigenere[] :=
   DynamicModule[
-    (* seed:             numero scelto dall'utente per generare l'esercizio
-       messaggioCifrato: testo cifrato mostrato come consegna
-       chiaveSegreto:    chiave mostrata all'utente (nel Vigenere la chiave e' nota,
-                         l'utente deve trovare il testo chiaro)
-       messaggioChiaro:  testo in chiaro originale (la soluzione)
-       rispostaUtente:   testo inserito dall'utente
-       tentativi:        numero di tentativi usati (max 3)
-       feedbackMsg:      messaggio di feedback dopo Verifica Risultato
-       soluzioneVisibile: True quando la soluzione e' mostrata
-       suggerimentoStep: livello di suggerimento attivo (0=nessuno, 1=primo, 2=secondo)
-       esercizioGenerato: True dopo aver premuto Genera Esercizio *)
-    {seed = 42, messaggioCifrato = "", chiaveSegreto = "",
+        {seed = 42, messaggioCifrato = "", chiaveSegreto = "",
      messaggioChiaro = "", rispostaUtente = "",
      tentativi = 0, feedbackMsg = "", soluzioneVisibile = False,
      suggerimentoStep = 0, esercizioGenerato = False},
@@ -1045,136 +557,49 @@ esercizioUniversaleVigenere[] :=
       Background -> GrayLevel[0.97], ImageSize -> 560]
   ]
 
-(* ============================================================
-   INTERFACCIA PRINCIPALE -- TabView con tutte le sezioni
-   ============================================================ *)
-
-(*
-  avviaLaboratorio[]
-  Input:  nessuno
-  Output: TabView con 4 schede:
-          1. Laboratorio Cesare
-          2. Esercizi Cesare
-          3. Laboratorio Vigenere
-          4. Esercizi Vigenere
-  Uso nel Tutorial.nb (unica cella di codice visibile):
-          avviaLaboratorio[]
-*)
 avviaLaboratorio[] :=
   TabView[
     {
-      "Laboratorio Cesare"   -> laboratorioCesare[],
       "Esercizi Cesare"      -> esercizioUniversaleCesare[],
-      "Laboratorio Vigenere" -> laboratorioVigenere[],
       "Esercizi Vigenere"    -> esercizioUniversaleVigenere[]
     },
     ImageSize -> Full
   ]
 
-(* ============================================================
-   BOTTONI DI LANCIO -- uno per sezione del Tutorial.nb
-   
-   Ogni funzione restituisce un Button[] che, quando premuto,
-   apre l'interfaccia corrispondente in una finestra separata
-   tramite CreateDocument[].
-   
-   La finestra ha dimensioni fisse (660x750) e una scrollbar
-   verticale tramite Pane[], cosi' il contenuto e' sempre
-   accessibile anche su schermi piccoli.
-   
-   Uso nel Tutorial.nb: inserire una cella Input (nascosta)
-   per ciascuna sezione con la chiamata al bottone corrispondente.
-   ============================================================ *)
-
-(*
-  bottoneLaboratorioCesare[]
-  Output: Button blu che avvia laboratorioCesare[] al click.
-*)
-bottoneLaboratorioCesare[] :=
-  Button[
-    Style["\[RightTriangle]  Apri il Laboratorio Libero \[LongDash] Cifrario di Cesare",
-          15, Bold, White],
-    CreateDocument[
-      {ExpressionCell[
-        Pane[laboratorioCesare[], {620, 700},
-          Scrollbars -> {False, True}, AppearanceElements -> {}],
-        "Output",
-        Editable -> False, Deletable -> False, ShowCellBracket -> False]},
-      Editable -> False, Deletable -> False, ShowCellBracket -> False,
-      WindowSize -> {660, 750}, WindowTitle -> "Laboratorio Cesare"
-    ],
-    Background -> RGBColor[0.2, 0.4, 0.7],
-    ImageSize  -> {460, 50}
-  ]
-
-(*
-  bottoneEserciziCesare[]
-  Output: Button verde che avvia esercizioUniversaleCesare[] al click.
-*)
 bottoneEserciziCesare[] :=
   Button[
     Style["\[RightTriangle]  Apri gli Esercizi \[LongDash] Cifrario di Cesare",
           15, Bold, White],
     CreateDocument[
       {ExpressionCell[
-        Pane[esercizioUniversaleCesare[], {620, 700},
-          Scrollbars -> {False, True}, AppearanceElements -> {}],
+        Deploy[Pane[CrittografiaArcaica`esercizioUniversaleCesare[], {620, 700},
+          Scrollbars -> {False, True}, AppearanceElements -> {}]],
         "Output",
-        Editable -> False, Deletable -> False, ShowCellBracket -> False]},
-      Editable -> False, Deletable -> False, ShowCellBracket -> False,
+        Deployed -> True, Editable -> False, Deletable -> False, Selectable -> False, Copyable -> False, ShowCellBracket -> False]},
+      Deployed -> True, Editable -> False, Deletable -> False, Saveable -> False, ShowCellBracket -> False,
       WindowSize -> {660, 750}, WindowTitle -> "Esercizi Cesare"
     ],
     Background -> RGBColor[0.15, 0.55, 0.25],
     ImageSize  -> {460, 50}
   ]
 
-(*
-  bottoneLaboratorioVigenere[]
-  Output: Button viola che avvia laboratorioVigenere[] al click.
-*)
-bottoneLaboratorioVigenere[] :=
-  Button[
-    Style["\[RightTriangle]  Apri il Laboratorio Libero \[LongDash] Cifrario di Vigenere",
-          15, Bold, White],
-    CreateDocument[
-      {ExpressionCell[
-        Pane[laboratorioVigenere[], {620, 700},
-          Scrollbars -> {False, True}, AppearanceElements -> {}],
-        "Output",
-        Editable -> False, Deletable -> False, ShowCellBracket -> False]},
-      Editable -> False, Deletable -> False, ShowCellBracket -> False,
-      WindowSize -> {660, 750}, WindowTitle -> "Laboratorio Vigenere"
-    ],
-    Background -> RGBColor[0.45, 0.15, 0.65],
-    ImageSize  -> {460, 50}
-  ]
-
-(*
-  bottoneEserciziVigenere[]
-  Output: Button viola scuro che avvia esercizioUniversaleVigenere[] al click.
-*)
 bottoneEserciziVigenere[] :=
   Button[
     Style["\[RightTriangle]  Apri gli Esercizi \[LongDash] Cifrario di Vigenere",
           15, Bold, White],
     CreateDocument[
       {ExpressionCell[
-        Pane[esercizioUniversaleVigenere[], {620, 700},
-          Scrollbars -> {False, True}, AppearanceElements -> {}],
+        Deploy[Pane[CrittografiaArcaica`esercizioUniversaleVigenere[], {620, 700},
+          Scrollbars -> {False, True}, AppearanceElements -> {}]],
         "Output",
-        Editable -> False, Deletable -> False, ShowCellBracket -> False]},
-      Editable -> False, Deletable -> False, ShowCellBracket -> False,
+        Deployed -> True, Editable -> False, Deletable -> False, Selectable -> False, Copyable -> False, ShowCellBracket -> False]},
+      Deployed -> True, Editable -> False, Deletable -> False, Saveable -> False, ShowCellBracket -> False,
       WindowSize -> {660, 750}, WindowTitle -> "Esercizi Vigenere"
     ],
     Background -> RGBColor[0.55, 0.10, 0.40],
     ImageSize  -> {460, 50}
   ]
 
-(* Precaricamento del dizionario al momento del caricamento del pacchetto.
-   Grazie alla memoization (definita con :=), dizionarioItaliano viene costruito
-   una sola volta: questa riga lo forza a costruirsi subito, al caricamento,
-   invece di aspettare il primo esercizio generato dall'utente.
-   In questo modo il primo click su "Genera Esercizio" non subisce lag. *)
 dizionarioItaliano;
 
 End[ ]
