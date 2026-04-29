@@ -310,12 +310,14 @@ esercizioUniversaleCesare[] :=
           Spacer[8],
           Button[
             Style["Genera Esercizio", 13, Bold, White],
-            Module[{ris},
-              ris = generaEsercizioConSeedCesare[seed]; (* genera {cifrato, shift, chiaro} *)
-              messaggioCifrato = ris[[1]]; shiftSegreto = ris[[2]];
-              messaggioChiaro = ris[[3]]; rispostaUtente = "";
-              tentativi = 0; feedbackMsg = ""; soluzioneVisibile = False;
-              suggerimentoStep = 0; esercizioGenerato = True];,
+            If[!IntegerQ[seed],
+              feedbackMsg = "\[WarningSign] Errore: il seed deve essere un numero intero."; esercizioGenerato = False,
+              Module[{ris},
+                ris = generaEsercizioConSeedCesare[seed]; (* genera {cifrato, shift, chiaro} *)
+                messaggioCifrato = ris[[1]]; shiftSegreto = ris[[2]];
+                messaggioChiaro = ris[[3]]; rispostaUtente = "";
+                tentativi = 0; feedbackMsg = ""; soluzioneVisibile = False;
+                suggerimentoStep = 0; esercizioGenerato = True]];,
             Background -> RGBColor[0.15, 0.5, 0.8], ImageSize -> {160, 35}]
         }],
         Spacer[8],
@@ -467,12 +469,14 @@ esercizioUniversaleVigenere[] :=
           Spacer[8],
           Button[
             Style["Genera Esercizio", 13, Bold, White],
-            Module[{ris},
-              ris = generaEsercizioConSeedVigenere[seed]; (* genera {cifrato, chiave, chiaro} *)
-              messaggioCifrato = ris[[1]]; chiaveSegreto = ris[[2]];
-              messaggioChiaro = ris[[3]]; rispostaUtente = "";
-              tentativi = 0; feedbackMsg = ""; soluzioneVisibile = False;
-              suggerimentoStep = 0; esercizioGenerato = True];,
+            If[!IntegerQ[seed],
+              feedbackMsg = "\[WarningSign] Errore: il seed deve essere un numero intero."; esercizioGenerato = False,
+              Module[{ris},
+                ris = generaEsercizioConSeedVigenere[seed]; (* genera {cifrato, chiave, chiaro} *)
+                messaggioCifrato = ris[[1]]; chiaveSegreto = ris[[2]];
+                messaggioChiaro = ris[[3]]; rispostaUtente = "";
+                tentativi = 0; feedbackMsg = ""; soluzioneVisibile = False;
+                suggerimentoStep = 0; esercizioGenerato = True]];,
             Background -> RGBColor[0.4, 0.1, 0.7], ImageSize -> {160, 35}]
         }],
         Spacer[8],
