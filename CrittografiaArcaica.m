@@ -1,5 +1,7 @@
 (* ::Package:: *)
 
+(* ::Package:: *)
+
 (* :Title:             CrittografiaArcaica                                   *)
 (* :Context:           CrittografiaArcaica`                                  *)
 (* :Authors:           Matteo Boscherini, Alessandro Campedelli,             *)
@@ -184,9 +186,20 @@ generaEsercizioConSeedVigenere[seed_Integer] :=
   Module[
     {chiavi, parola, chiave, cifrato},
     (* Pool di chiavi tematiche italiane, scelte per lunghezza e riconoscibilita' *)
-        chiavi = {"SOLE", "MARE", "LUNA", "VENTO", "FUOCO", "ACQUA",
-              "CIELO", "TERRA", "LUCE", "OMBRA", "CHIAVE", "CODICE",
-              "PIETRA", "FIUME", "STELLA", "NOTTE", "GIORNO"};
+        chiavi = {
+          "SOLE", "MARE", "LUNA", "LUCE", "ARIA", "LAGO",
+          "MANO", "CANE", "ROSA", "PANE", "VINO", "SALE",
+          "ANNO", "RIVA", "ERBA", "ORSO", "RANA", "PACE",
+          "MELA", "PERA", "NASO", "DITO", "NEVE", "SERA",
+          "ALBA", "GELO", "ONDE", "RAMO", "TOPO", "VELA",
+          "RETE", "SETA", "MODO", "MOTO", "NOTA", "ONDA",
+          "PALO", "POLO", "RAME", "RENA", "RISO", "ROTA",
+          "FUOCO", "ACQUA", "TERRA", "VENTO", "PORTA",
+          "PONTE", "CAMPO", "BOSCO", "MONTE", "PIANO",
+          "FIORE", "FONTE", "LINEA", "LIBRO", "PRATO",
+          "TRENO", "VETRO", "VOLTA", "ZUCCA", "BURRO",
+          "CORSA", "DONNA", "FIUME", "GEMMA", "ISOLA"
+        };
     parola = generaParola[seed];
     (* Usa seed+777 per la chiave, indipendente da seed usato per la parola *)
     SeedRandom[seed + 777]; (* offset +777 per rendere la scelta della chiave indipendente dalla parola *)
