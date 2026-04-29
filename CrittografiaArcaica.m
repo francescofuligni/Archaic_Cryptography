@@ -1,27 +1,41 @@
 (* ::Package:: *)
 
-(* ::Package:: *)
+(* :Title:             CrittografiaArcaica                                   *)
+(* :Context:           CrittografiaArcaica`                                  *)
+(* :Authors:           Matteo Boscherini, Alessandro Campedelli,             *)
+(*                     Francesco Maria Fuligni, Mattia Furini,               *)
+(*                     Mohamed Samir Haffoudhi                               *)
+(* :Summary:           Laboratorio interattivo di crittografia arcaica.      *)
+(*                     Implementa il Cifrario di Cesare e il Cifrario di     *)
+(*                     Vigenere con interfacce didattiche e esercizi.        *)
+(* :Copyright:         Gruppo I Cesaroni 2026                                *)
+(* :Package Version:   1.0                                                   *)
+(* :Mathematica Version: 14                                                  *)
+(* :History:           Ultima modifica il 3/5/2026                           *)
+(* :Keywords:          crittografia, Cesare, Vigenere, cifrario              *)
+(* :Sources:           De Mauro - Dizionario di frequenza dell'italiano      *)
+(* :Limitations:       solo lettere A-Z, nessun carattere accentato          *)
+(* :Discussion:        Progetto del corso di Matematica Computazionale       *)
+(* :Requirements:      Mathematica 14, connessione per DictionaryLookup      *)
 
-(* ::Package:: *)
-
-BeginPackage["CrittografiaArcaica`"]
+BeginPackage["CrittografiaArcaica`"];
 
 avviaLaboratorio::usage =
-  "avviaLaboratorio[] avvia l'interfaccia principale con TabView."
+  "avviaLaboratorio[] avvia l'interfaccia principale con TabView.";
 
 bottoneEserciziCesare::usage =
-  "bottoneEserciziCesare[] restituisce un bottone che apre gli Esercizi del Cifrario di Cesare. Da usare nella sezione II.3 del Tutorial.nb."
+  "bottoneEserciziCesare[] restituisce un bottone che apre gli Esercizi del Cifrario di Cesare. Da usare nella sezione II.3 del Tutorial.nb.";
 
 bottoneEserciziVigenere::usage =
-  "bottoneEserciziVigenere[] restituisce un bottone che apre gli Esercizi del Cifrario di Vigenere. Da usare nella sezione III.3 del Tutorial.nb."
+  "bottoneEserciziVigenere[] restituisce un bottone che apre gli Esercizi del Cifrario di Vigenere. Da usare nella sezione III.3 del Tutorial.nb.";
 
 esercizioUniversaleCesare::usage =
-  "esercizioUniversaleCesare[] apre gli Esercizi del Cifrario di Cesare."
+  "esercizioUniversaleCesare[] apre gli Esercizi del Cifrario di Cesare.";
 
 esercizioUniversaleVigenere::usage =
-  "esercizioUniversaleVigenere[] apre gli Esercizi del Cifrario di Vigenere."
+  "esercizioUniversaleVigenere[] apre gli Esercizi del Cifrario di Vigenere.";
 
-Begin["`Private`"]
+Begin["`Private`"];
 
 alfabeto = CharacterRange["A", "Z"]; (* le 26 lettere maiuscole dell'alfabeto latino *)
 
@@ -656,6 +670,6 @@ bottoneEserciziVigenere[] :=
 
 dizionarioItaliano; (* forza il precaricamento del dizionario al caricamento del pacchetto, evitando lag al primo esercizio *)
 
-End[ ]
+End[ ];
 
-EndPackage[ ]
+EndPackage[ ];
