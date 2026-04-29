@@ -1,5 +1,9 @@
 (* ::Package:: *)
 
+(* ::Package:: *)
+
+(* ::Package:: *)
+
 BeginPackage["CrittografiaArcaica`"]
 
 avviaLaboratorio::usage =
@@ -344,7 +348,7 @@ esercizioUniversaleCesare[] :=
         Spacer[6],
         Row[{
           Button[
-            Style["Verifica Risultato", 13, Bold, White],
+            Style["Verifica Risultato", 12, Bold, White],
             If[esercizioGenerato,
               tentativi++;
               If[ToUpperCase[StringReplace[StringTrim[rispostaUtente], " " -> ""]] ===
@@ -352,26 +356,29 @@ esercizioUniversaleCesare[] :=
                 feedbackMsg = "\[Checkmark] Corretto! Hai impiegato " <>
                   ToString[tentativi] <>
                   If[tentativi == 1, " tentativo.", " tentativi."],
-                If[tentativi >= 3, (* al terzo errore mostra automaticamente la soluzione *)
-                  feedbackMsg = "\[Cross] Risposta errata. Tentativi esauriti.";
-                  soluzioneVisibile = True,
-                  suggerimentoStep = tentativi; (* avanza il livello di suggerimento ad ogni errore *)
-                  feedbackMsg = "\[Cross] Non corretto \[LongDash] Tentativo " <>
-                    ToString[tentativi] <> "/3."]]];,
-            Background -> RGBColor[0.2, 0.6, 0.3], ImageSize -> {170, 35}],
-          Spacer[8],
+                feedbackMsg = "\[Cross] Non corretto \[LongDash] Tentativo " <>
+                  ToString[tentativi] <> "."]];,
+            Background -> RGBColor[0.2, 0.6, 0.3], ImageSize -> {150, 30}],
+          Spacer[6],
           Button[
-            Style["Pulisci Campi", 13, Bold, White],
+            Style["Suggerimento", 12, Bold, White],
+            If[esercizioGenerato && suggerimentoStep < 3, suggerimentoStep++],
+            Background -> RGBColor[0.85, 0.65, 0.05],
+            Enabled -> Dynamic[esercizioGenerato && suggerimentoStep < 3],
+            ImageSize -> {120, 30}],
+          Spacer[6],
+          Button[
+            Style["Pulisci Campi", 12, Bold, White],
             seed = 42; messaggioCifrato = ""; shiftSegreto = 0;
             messaggioChiaro = ""; rispostaUtente = "";
             tentativi = 0; feedbackMsg = ""; soluzioneVisibile = False;
             suggerimentoStep = 0; esercizioGenerato = False; shiftEsplorazione = 0;,
-            Background -> RGBColor[0.5, 0.5, 0.5], ImageSize -> {140, 35}],
-          Spacer[8],
+            Background -> RGBColor[0.5, 0.5, 0.5], ImageSize -> {110, 30}],
+          Spacer[6],
           Button[
-            Style["Mostra Soluzione", 13, Bold, White],
+            Style["Mostra Soluzione", 12, Bold, White],
             If[esercizioGenerato, soluzioneVisibile = True];,
-            Background -> RGBColor[0.7, 0.2, 0.2], ImageSize -> {160, 35}]
+            Background -> RGBColor[0.7, 0.2, 0.2], ImageSize -> {130, 30}]
         }],
         Spacer[8],
         Dynamic[If[feedbackMsg =!= "",
@@ -383,22 +390,30 @@ esercizioUniversaleCesare[] :=
             FrameStyle -> If[StringStartsQ[feedbackMsg, "\[Checkmark]"],
               RGBColor[0.2, 0.6, 0.3], RGBColor[0.7, 0.2, 0.2]],
             RoundingRadius -> 5, FrameMargins -> 10], ""]],
-        (* Suggerimento progressivo: livello 1 dopo il primo errore, livello 2 dopo il secondo *)
+        (* Suggerimento progressivo a 3 livelli, attivato manualmente dal bottone *)
         Dynamic[Which[
           !esercizioGenerato || suggerimentoStep == 0, "",
           suggerimentoStep == 1,
             Framed[Style[
-              "\[LightBulb] Suggerimento: la lettera piu' frequente in italiano e' la E. " <>
+              "\[LightBulb] Suggerimento 1: la lettera piu' frequente in italiano e' la E. " <>
               "La lettera piu' comune nel testo cifrato probabilmente corrisponde alla E.",
               12, Italic, RGBColor[0.45, 0.35, 0.0]],
               Background -> RGBColor[1.0, 0.97, 0.87],
               FrameStyle -> RGBColor[0.75, 0.6, 0.1],
               RoundingRadius -> 5, FrameMargins -> 10],
-          suggerimentoStep >= 2,
+          suggerimentoStep == 2,
             Framed[Style[
-              "\[LightBulb] Suggerimento: lo shift e' nell'intervallo [" <>
+              "\[LightBulb] Suggerimento 2: lo shift e' nell'intervallo [" <>
               ToString[Max[1, shiftSegreto - 4]] <> ", " <>
               ToString[Min[25, shiftSegreto + 4]] <> "].",
+              12, Italic, RGBColor[0.45, 0.35, 0.0]],
+              Background -> RGBColor[1.0, 0.97, 0.87],
+              FrameStyle -> RGBColor[0.75, 0.6, 0.1],
+              RoundingRadius -> 5, FrameMargins -> 10],
+          suggerimentoStep >= 3,
+            Framed[Style[
+              "\[LightBulb] Suggerimento 3: lo shift esatto e' " <>
+              ToString[shiftSegreto] <> ". Usa la ruota per verificare.",
               12, Italic, RGBColor[0.45, 0.35, 0.0]],
               Background -> RGBColor[1.0, 0.97, 0.87],
               FrameStyle -> RGBColor[0.75, 0.6, 0.1],
@@ -510,7 +525,7 @@ esercizioUniversaleVigenere[] :=
         Spacer[6],
         Row[{
           Button[
-            Style["Verifica Risultato", 13, Bold, White],
+            Style["Verifica Risultato", 12, Bold, White],
             If[esercizioGenerato,
               tentativi++;
               If[ToUpperCase[StringReplace[StringTrim[rispostaUtente], " " -> ""]] ===
@@ -518,26 +533,29 @@ esercizioUniversaleVigenere[] :=
                 feedbackMsg = "\[Checkmark] Corretto! Hai impiegato " <>
                   ToString[tentativi] <>
                   If[tentativi == 1, " tentativo.", " tentativi."],
-                If[tentativi >= 3,
-                  feedbackMsg = "\[Cross] Risposta errata. Tentativi esauriti.";
-                  soluzioneVisibile = True,
-                  suggerimentoStep = tentativi;
-                  feedbackMsg = "\[Cross] Non corretto \[LongDash] Tentativo " <>
-                    ToString[tentativi] <> "/3."]]];,
-            Background -> RGBColor[0.2, 0.6, 0.3], ImageSize -> {170, 35}],
-          Spacer[8],
+                feedbackMsg = "\[Cross] Non corretto \[LongDash] Tentativo " <>
+                  ToString[tentativi] <> "."]];,
+            Background -> RGBColor[0.2, 0.6, 0.3], ImageSize -> {150, 30}],
+          Spacer[6],
           Button[
-            Style["Pulisci Campi", 13, Bold, White],
+            Style["Suggerimento", 12, Bold, White],
+            If[esercizioGenerato && suggerimentoStep < 3, suggerimentoStep++],
+            Background -> RGBColor[0.85, 0.65, 0.05],
+            Enabled -> Dynamic[esercizioGenerato && suggerimentoStep < 3],
+            ImageSize -> {120, 30}],
+          Spacer[6],
+          Button[
+            Style["Pulisci Campi", 12, Bold, White],
             seed = 42; messaggioCifrato = ""; chiaveSegreto = "";
             messaggioChiaro = ""; rispostaUtente = "";
             tentativi = 0; feedbackMsg = ""; soluzioneVisibile = False;
             suggerimentoStep = 0; esercizioGenerato = False;,
-            Background -> RGBColor[0.5, 0.5, 0.5], ImageSize -> {140, 35}],
-          Spacer[8],
+            Background -> RGBColor[0.5, 0.5, 0.5], ImageSize -> {110, 30}],
+          Spacer[6],
           Button[
-            Style["Mostra Soluzione", 13, Bold, White],
+            Style["Mostra Soluzione", 12, Bold, White],
             If[esercizioGenerato, soluzioneVisibile = True];,
-            Background -> RGBColor[0.7, 0.2, 0.2], ImageSize -> {160, 35}]
+            Background -> RGBColor[0.7, 0.2, 0.2], ImageSize -> {130, 30}]
         }],
         Spacer[8],
         Dynamic[If[feedbackMsg =!= "",
@@ -549,12 +567,12 @@ esercizioUniversaleVigenere[] :=
             FrameStyle -> If[StringStartsQ[feedbackMsg, "\[Checkmark]"],
               RGBColor[0.2, 0.6, 0.3], RGBColor[0.7, 0.2, 0.2]],
             RoundingRadius -> 5, FrameMargins -> 10], ""]],
-        (* Suggerimento progressivo: livello 1 dopo il primo errore, livello 2 dopo il secondo *)
+        (* Suggerimento progressivo a 3 livelli, attivato manualmente dal bottone *)
         Dynamic[Which[
           !esercizioGenerato || suggerimentoStep == 0, "",
           suggerimentoStep == 1,
             Framed[Style[
-              "\[LightBulb] Suggerimento: per decifrare Vigenere si SOTTRAE lo shift " <>
+              "\[LightBulb] Suggerimento 1: per decifrare Vigenere si SOTTRAE lo shift " <>
               "invece di sommarlo. La prima lettera della chiave e' '" <>
               StringTake[chiaveSegreto, 1] <> "' (shift " <>
               ToString[indiceLettera[ToUpperCase[StringTake[chiaveSegreto,1]]]] <> ").",
@@ -562,12 +580,20 @@ esercizioUniversaleVigenere[] :=
               Background -> RGBColor[1.0, 0.97, 0.87],
               FrameStyle -> RGBColor[0.75, 0.6, 0.1],
               RoundingRadius -> 5, FrameMargins -> 10],
-          suggerimentoStep >= 2,
+          suggerimentoStep == 2,
             Framed[Style[
-              "\[LightBulb] Suggerimento: la chiave '" <> chiaveSegreto <>
+              "\[LightBulb] Suggerimento 2: la chiave '" <> chiaveSegreto <>
               "' ha " <> ToString[StringLength[chiaveSegreto]] <>
               " lettere. Decifra le prime " <> ToString[StringLength[chiaveSegreto]] <>
               " lettere, poi riparti dall'inizio della chiave.",
+              12, Italic, RGBColor[0.45, 0.35, 0.0]],
+              Background -> RGBColor[1.0, 0.97, 0.87],
+              FrameStyle -> RGBColor[0.75, 0.6, 0.1],
+              RoundingRadius -> 5, FrameMargins -> 10],
+          suggerimentoStep >= 3,
+            Framed[Style[
+              "\[LightBulb] Suggerimento 3: le prime 3 lettere del testo in chiaro sono '" <>
+              StringTake[messaggioChiaro, Min[3, StringLength[messaggioChiaro]]] <> "'.",
               12, Italic, RGBColor[0.45, 0.35, 0.0]],
               Background -> RGBColor[1.0, 0.97, 0.87],
               FrameStyle -> RGBColor[0.75, 0.6, 0.1],
