@@ -2,6 +2,8 @@
 
 (* ::Package:: *)
 
+(* ::Package:: *)
+
 (* :Title:             CrittografiaArcaica                                   *)
 (* :Context:           CrittografiaArcaica`                                  *)
 (* :Authors:           Matteo Boscherini, Alessandro Campedelli,             *)
@@ -77,16 +79,17 @@ generaParola[seed_Integer] := Module[{},
   RandomChoice[dizionarioItaliano]
 ]
 
+(* Funzione ausiliaria: cifra un singolo carattere con il Cifrario di Cesare.
+   Se il carattere e' una lettera lo sposta di shift posizioni, altrimenti lo lascia invariato. *)
+cifraCarattereCesare[c_String, shift_Integer] :=
+  If[MemberQ[alfabeto, c],
+    alfabeto[[Mod[indiceLettera[c] + shift, 26] + 1]],
+    c]
+
 cifraCesare[testo_String, shift_Integer] :=
-  Module[{caratteri, cifrati},
+  Module[{caratteri},
     caratteri = Characters[ToUpperCase[testo]]; (* converte in maiuscolo e separa in lista di caratteri *)
-    cifrati = Map[
-      Function[c,
-        If[MemberQ[alfabeto, c],
-          alfabeto[[Mod[indiceLettera[c] + shift, 26] + 1]], (* applica lo shift con wrap-around modulo 26 *)
-          c]], (* i caratteri non alfabetici restano invariati *)
-      caratteri];
-    StringJoin[cifrati] (* riassembla i caratteri nella stringa risultante *)
+    StringJoin[Map[cifraCarattereCesare[#, shift] &, caratteri]] (* applica la cifratura a ogni carattere *)
   ]
 
 decifraCesare[testo_String, shift_Integer] :=
@@ -98,11 +101,20 @@ frequenzeLettere[testo_String] :=
     Map[Function[l, Count[solo, l]], alfabeto] (* conta le occorrenze di ciascuna lettera A-Z *)
   ]
 
+(* Funzione ausiliaria: applica un singolo passo di cifratura Vigenere a un carattere.
+   Restituisce {carattereRisultante, nuovoIndiceChiave}.
+   Se c non e' una lettera, lo restituisce invariato senza avanzare l'indice della chiave. *)
+applicaPassoCifraVigenere[c_String, kIndex_Integer, chiaveChars_List, chiaveLen_Integer] :=
+  If[MemberQ[alfabeto, c],
+    {alfabeto[[Mod[indiceLettera[c] + indiceLettera[chiaveChars[[Mod[kIndex, chiaveLen] + 1]]], 26] + 1]], kIndex + 1},
+    {c, kIndex}
+  ]
+
 (* Cifrario di Vigenere: applica uno shift variabile lettera per lettera,
    ciclando sulla chiave. I caratteri non alfabetici vengono preservati. *)
 cifraVigenere[testo_String, chiave_String] :=
   Module[
-    {testUp, chiaveChars, chiaveLen, caratteri, risultato, kIndex, c, sh},
+    {testUp, chiaveChars, chiaveLen, caratteri, risultato, kIndex, passo},
     testUp      = ToUpperCase[testo];
     chiaveChars = lettereIn[chiave];
     If[chiaveChars === {},
@@ -112,21 +124,25 @@ cifraVigenere[testo_String, chiave_String] :=
     risultato = {};
     kIndex    = 0; (* indice nella chiave: avanza solo quando incontriamo una lettera *)
     Do[
-      c = caratteri[[i]];
-      If[MemberQ[alfabeto, c],
-                sh = indiceLettera[chiaveChars[[Mod[kIndex, chiaveLen] + 1]]];
-        AppendTo[risultato,
-          alfabeto[[Mod[indiceLettera[c] + sh, 26] + 1]]];
-        kIndex++,
-                AppendTo[risultato, c]],
+      passo = applicaPassoCifraVigenere[caratteri[[i]], kIndex, chiaveChars, chiaveLen];
+      AppendTo[risultato, passo[[1]]];
+      kIndex = passo[[2]],
       {i, 1, Length[caratteri]}];
     StringJoin[risultato]
+  ]
+
+(* Funzione ausiliaria: applica un singolo passo di decifratura Vigenere a un carattere.
+   Identica ad applicaPassoCifraVigenere ma sottrae lo shift invece di sommarlo. *)
+applicaPassoDecifraVigenere[c_String, kIndex_Integer, chiaveChars_List, chiaveLen_Integer] :=
+  If[MemberQ[alfabeto, c],
+    {alfabeto[[Mod[indiceLettera[c] - indiceLettera[chiaveChars[[Mod[kIndex, chiaveLen] + 1]]], 26] + 1]], kIndex + 1},
+    {c, kIndex}
   ]
 
 (* Decifratura Vigenere: identica alla cifratura ma sottrae lo shift invece di sommarlo *)
 decifraVigenere[testo_String, chiave_String] :=
   Module[
-    {testUp, chiaveChars, chiaveLen, caratteri, risultato, kIndex, c, sh},
+    {testUp, chiaveChars, chiaveLen, caratteri, risultato, kIndex, passo},
     testUp      = ToUpperCase[testo];
     chiaveChars = lettereIn[chiave];
     If[chiaveChars === {},
@@ -136,13 +152,9 @@ decifraVigenere[testo_String, chiave_String] :=
     risultato = {};
     kIndex    = 0;
     Do[
-      c = caratteri[[i]];
-      If[MemberQ[alfabeto, c],
-        sh = indiceLettera[chiaveChars[[Mod[kIndex, chiaveLen] + 1]]];
-        AppendTo[risultato,
-          alfabeto[[Mod[indiceLettera[c] - sh, 26] + 1]]]; (* sottraggo sh: operazione inversa rispetto alla cifratura *)
-        kIndex++,
-        AppendTo[risultato, c]],
+      passo = applicaPassoDecifraVigenere[caratteri[[i]], kIndex, chiaveChars, chiaveLen];
+      AppendTo[risultato, passo[[1]]];
+      kIndex = passo[[2]],
       {i, 1, Length[caratteri]}];
     StringJoin[risultato]
   ]
