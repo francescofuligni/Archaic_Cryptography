@@ -24,6 +24,14 @@
 
 BeginPackage["CrittografiaArcaica`"];
 
+Unprotect[
+  avviaLaboratorio,
+  bottoneEserciziCesare,
+  bottoneEserciziVigenere,
+  esercizioUniversaleCesare,
+  esercizioUniversaleVigenere
+];
+
 avviaLaboratorio::usage =
   "avviaLaboratorio[] avvia l'interfaccia principale con TabView.";
 
@@ -706,5 +714,13 @@ bottoneEserciziVigenere[] :=
 dizionarioItaliano; (* forza il precaricamento del dizionario al caricamento del pacchetto, evitando lag al primo esercizio *)
 
 End[ ];
+
+Protect[
+  avviaLaboratorio,
+  bottoneEserciziCesare,
+  bottoneEserciziVigenere,
+  esercizioUniversaleCesare,
+  esercizioUniversaleVigenere
+];
 
 EndPackage[ ];
