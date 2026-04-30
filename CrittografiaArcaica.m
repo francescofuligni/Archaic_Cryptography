@@ -1,26 +1,18 @@
 (* ::Package:: *)
 
-(* ::Package:: *)
-
-(* ::Package:: *)
-
-(* :Title:             CrittografiaArcaica                                   *)
-(* :Context:           CrittografiaArcaica`                                  *)
-(* :Authors:           Matteo Boscherini, Alessandro Campedelli,             *)
-(*                     Francesco Maria Fuligni, Mattia Furini,               *)
-(*                     Mohamed Samir Haffoudhi                               *)
-(* :Summary:           Laboratorio interattivo di crittografia arcaica.      *)
-(*                     Implementa il Cifrario di Cesare e il Cifrario di     *)
-(*                     Vigenere con interfacce didattiche e esercizi.        *)
-(* :Copyright:         Gruppo I Cesaroni 2026                                *)
-(* :Package Version:   1.0                                                   *)
-(* :Mathematica Version: 14                                                  *)
-(* :History:           Ultima modifica il 3/5/2026                           *)
-(* :Keywords:          crittografia, Cesare, Vigenere, cifrario              *)
-(* :Sources:           De Mauro - Dizionario di frequenza dell'italiano      *)
-(* :Limitations:       solo lettere A-Z, nessun carattere accentato          *)
-(* :Discussion:        Progetto del corso di Matematica Computazionale       *)
-(* :Requirements:      Mathematica 14, connessione per DictionaryLookup      *)
+(* :Title: CrittografiaArcaica *)
+(* :Context: CrittografiaArcaica` *)
+(* :Authors: Matteo Boscherini, Alessandro Campedelli, Francesco Maria Fuligni, Mattia Furini, Mohamed Samir Haffoudhi *)
+(* :Summary: Laboratorio interattivo di crittografia arcaica. Implementa il Cifrario di Cesare e il Cifrario di Vigenere con interfacce didattiche e esercizi. *)
+(* :Copyright: Gruppo I Cesaroni 2026 *)
+(* :Package Version: 1.0 *)
+(* :Mathematica Version: 14 *)
+(* :History: Ultima modifica il 3/5/2026 *)
+(* :Keywords: crittografia, Cesare, Vigenere, cifrario *)
+(* :Sources: De Mauro - Dizionario di frequenza dell'italiano *)
+(* :Limitations: solo lettere A-Z, nessun carattere accentato *)
+(* :Discussion: Progetto del corso di Matematica Computazionale *)
+(* :Requirements: Mathematica 14, connessione per DictionaryLookup *)
 
 BeginPackage["CrittografiaArcaica`"];
 
@@ -380,7 +372,7 @@ esercizioUniversaleCesare[] :=
                 tentativi = 0; feedbackMsg = ""; soluzioneVisibile = False;
                 suggerimentoStep = 0; esercizioGenerato = True]];,
             Background -> RGBColor[0.15, 0.5, 0.8], ImageSize -> {160, 35}]
-        }],
+}],
         Spacer[8],
         Dynamic[If[esercizioGenerato,
           Framed[Column[{
@@ -398,37 +390,36 @@ esercizioUniversaleCesare[] :=
           ""]],
         Spacer[6],
         Row[{
-          Button[
-            Style["Verifica Risultato", 12, Bold, White],
-            If[esercizioGenerato, tentativi++];
-            Which[
-              !esercizioGenerato, Null,
-              ToUpperCase[StringReplace[StringTrim[rispostaUtente], " " -> ""]] === StringReplace[messaggioChiaro, " " -> ""],
-                feedbackMsg = "\[Checkmark] Corretto! Hai impiegato " <> ToString[tentativi] <> If[tentativi == 1, " tentativo.", " tentativi."],
-              True,
-                feedbackMsg = "\[Cross] Non corretto \[LongDash] Tentativo " <> ToString[tentativi] <> "."
-            ];,
-            Background -> RGBColor[0.2, 0.6, 0.3], ImageSize -> {150, 30}],
-          Spacer[6],
-          Button[
-            Style["Suggerimento", 12, Bold, White],
-            If[esercizioGenerato && suggerimentoStep < 3, suggerimentoStep++],
-            Background -> RGBColor[0.85, 0.65, 0.05],
-            Enabled -> Dynamic[esercizioGenerato && suggerimentoStep < 3],
-            ImageSize -> {120, 30}],
-          Spacer[6],
-          Button[
-            Style["Pulisci Campi", 12, Bold, White],
-            seed = 42; messaggioCifrato = ""; shiftSegreto = 0;
-            messaggioChiaro = ""; rispostaUtente = "";
-            tentativi = 0; feedbackMsg = ""; soluzioneVisibile = False;
-            suggerimentoStep = 0; esercizioGenerato = False; shiftEsplorazione = 0;,
-            Background -> RGBColor[0.5, 0.5, 0.5], ImageSize -> {110, 30}],
-          Spacer[6],
-          Button[
-            Style["Mostra Soluzione", 12, Bold, White],
-            If[esercizioGenerato, soluzioneVisibile = True];,
-            Background -> RGBColor[0.7, 0.2, 0.2], ImageSize -> {130, 30}]
+  Button
+      [Style["Verifica Risultato", 12, Bold, White],
+       If[esercizioGenerato, tentativi++];
+       Which[!esercizioGenerato, Null,
+             ToUpperCase[StringReplace[StringTrim[rispostaUtente], " "->""]] ===
+             StringReplace[messaggioChiaro, " "->""],
+             feedbackMsg = "\[Checkmark] Corretto! Hai impiegato " <>
+                           ToString[tentativi] <>
+                               If[tentativi == 1, " tentativo.", " tentativi."],
+             True,
+             feedbackMsg = "\[Cross] Non corretto \[LongDash] Tentativo " <>
+                           ToString[tentativi] <> "."];
+       , Background->RGBColor[0.2, 0.6, 0.3], ImageSize->{150, 30}],
+      Spacer[6],
+      Button[Dynamic[Style["Suggerimento", 12, Bold, White, FontVariations -> {"StrikeThrough" -> !(esercizioGenerato && suggerimentoStep < 3)}]],
+             If[esercizioGenerato && suggerimentoStep < 3, suggerimentoStep++],
+             Background->Dynamic[If[esercizioGenerato && suggerimentoStep < 3, RGBColor[0.85, 0.65, 0.05], RGBColor[0.6, 0.6, 0.6]]],
+             Enabled->Dynamic[esercizioGenerato && suggerimentoStep < 3],
+             ImageSize->{120, 30}],
+      Spacer[6],
+      Button[Style["Pulisci Campi", 12, Bold, White], seed = 42;
+             messaggioCifrato = ""; shiftSegreto = 0; messaggioChiaro = "";
+             rispostaUtente = ""; tentativi = 0; feedbackMsg = "";
+             soluzioneVisibile = False; suggerimentoStep = 0;
+             esercizioGenerato = False; shiftEsplorazione = 0;
+             , Background->RGBColor[0.5, 0.5, 0.5], ImageSize->{110, 30}],
+      Spacer[6],
+      Button[Style["Mostra Soluzione", 12, Bold, White],
+             If[esercizioGenerato, soluzioneVisibile = True];
+             , Background->RGBColor[0.7, 0.2, 0.2], ImageSize->{130, 30}]
         }],
         Spacer[8],
         Dynamic[Which[
@@ -515,7 +506,7 @@ esercizioUniversaleCesare[] :=
               ImagePadding -> {{30, 10}, {35, 20}}]
           }, Alignment -> Center],
           ""]]
-      }, Alignment -> Left, Spacings -> 1],
+}, Alignment -> Left, Spacings -> 1],
       ImageSize -> 560]
   ]
 
@@ -553,7 +544,7 @@ esercizioUniversaleVigenere[] :=
                 tentativi = 0; feedbackMsg = ""; soluzioneVisibile = False;
                 suggerimentoStep = 0; esercizioGenerato = True]];,
             Background -> RGBColor[0.4, 0.1, 0.7], ImageSize -> {160, 35}]
-        }],
+}],
         Spacer[8],
         Dynamic[If[esercizioGenerato,
           Column[{
@@ -578,37 +569,36 @@ esercizioUniversaleVigenere[] :=
           ""]],
         Spacer[6],
         Row[{
-          Button[
-            Style["Verifica Risultato", 12, Bold, White],
-            If[esercizioGenerato, tentativi++];
-            Which[
-              !esercizioGenerato, Null,
-              ToUpperCase[StringReplace[StringTrim[rispostaUtente], " " -> ""]] === StringReplace[messaggioChiaro, " " -> ""],
-                feedbackMsg = "\[Checkmark] Corretto! Hai impiegato " <> ToString[tentativi] <> If[tentativi == 1, " tentativo.", " tentativi."],
-              True,
-                feedbackMsg = "\[Cross] Non corretto \[LongDash] Tentativo " <> ToString[tentativi] <> "."
-            ];,
-            Background -> RGBColor[0.2, 0.6, 0.3], ImageSize -> {150, 30}],
-          Spacer[6],
-          Button[
-            Style["Suggerimento", 12, Bold, White],
-            If[esercizioGenerato && suggerimentoStep < 3, suggerimentoStep++],
-            Background -> RGBColor[0.85, 0.65, 0.05],
-            Enabled -> Dynamic[esercizioGenerato && suggerimentoStep < 3],
-            ImageSize -> {120, 30}],
-          Spacer[6],
-          Button[
-            Style["Pulisci Campi", 12, Bold, White],
-            seed = 42; messaggioCifrato = ""; chiaveSegreto = "";
-            messaggioChiaro = ""; rispostaUtente = "";
-            tentativi = 0; feedbackMsg = ""; soluzioneVisibile = False;
-            suggerimentoStep = 0; esercizioGenerato = False;,
-            Background -> RGBColor[0.5, 0.5, 0.5], ImageSize -> {110, 30}],
-          Spacer[6],
-          Button[
-            Style["Mostra Soluzione", 12, Bold, White],
-            If[esercizioGenerato, soluzioneVisibile = True];,
-            Background -> RGBColor[0.7, 0.2, 0.2], ImageSize -> {130, 30}]
+  Button
+      [Style["Verifica Risultato", 12, Bold, White],
+       If[esercizioGenerato, tentativi++];
+       Which[!esercizioGenerato, Null,
+             ToUpperCase[StringReplace[StringTrim[rispostaUtente], " "->""]] ===
+             StringReplace[messaggioChiaro, " "->""],
+             feedbackMsg = "\[Checkmark] Corretto! Hai impiegato " <>
+                           ToString[tentativi] <>
+                               If[tentativi == 1, " tentativo.", " tentativi."],
+             True,
+             feedbackMsg = "\[Cross] Non corretto \[LongDash] Tentativo " <>
+                           ToString[tentativi] <> "."];
+       , Background->RGBColor[0.2, 0.6, 0.3], ImageSize->{150, 30}],
+      Spacer[6],
+      Button[Dynamic[Style["Suggerimento", 12, Bold, White, FontVariations -> {"StrikeThrough" -> !(esercizioGenerato && suggerimentoStep < 3)}]],
+             If[esercizioGenerato && suggerimentoStep < 3, suggerimentoStep++],
+             Background->Dynamic[If[esercizioGenerato && suggerimentoStep < 3, RGBColor[0.85, 0.65, 0.05], RGBColor[0.6, 0.6, 0.6]]],
+             Enabled->Dynamic[esercizioGenerato && suggerimentoStep < 3],
+             ImageSize->{120, 30}],
+      Spacer[6],
+      Button[Style["Pulisci Campi", 12, Bold, White], seed = 42;
+             messaggioCifrato = ""; chiaveSegreto = ""; messaggioChiaro = "";
+             rispostaUtente = ""; tentativi = 0; feedbackMsg = "";
+             soluzioneVisibile = False; suggerimentoStep = 0;
+             esercizioGenerato = False;
+             , Background->RGBColor[0.5, 0.5, 0.5], ImageSize->{110, 30}],
+      Spacer[6],
+      Button[Style["Mostra Soluzione", 12, Bold, White],
+             If[esercizioGenerato, soluzioneVisibile = True];
+             , Background->RGBColor[0.7, 0.2, 0.2], ImageSize->{130, 30}]
         }],
         Spacer[8],
         Dynamic[Which[
@@ -664,7 +654,7 @@ esercizioUniversaleVigenere[] :=
             FrameStyle -> RGBColor[0.6, 0.1, 0.1],
             RoundingRadius -> 5, FrameMargins -> 10],
           ""]]
-      }, Alignment -> Left, Spacings -> 1],
+}, Alignment -> Left, Spacings -> 1],
       ImageSize -> 560]
   ]
 
@@ -711,16 +701,13 @@ bottoneEserciziVigenere[] :=
     ImageSize  -> {460, 50}
   ]
 
-dizionarioItaliano; (* forza il precaricamento del dizionario al caricamento del pacchetto, evitando lag al primo esercizio *)
+dizionarioItaliano;
+(*forza il precaricamento del dizionario al caricamento del pacchetto,
+ evitando lag al primo esercizio *)
 
-End[ ];
+    End[];
 
-Protect[
-  avviaLaboratorio,
-  bottoneEserciziCesare,
-  bottoneEserciziVigenere,
-  esercizioUniversaleCesare,
-  esercizioUniversaleVigenere
-];
+Protect[avviaLaboratorio, bottoneEserciziCesare, bottoneEserciziVigenere,
+        esercizioUniversaleCesare, esercizioUniversaleVigenere];
 
-EndPackage[ ];
+EndPackage[];
