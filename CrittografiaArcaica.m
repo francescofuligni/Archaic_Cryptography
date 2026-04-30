@@ -317,7 +317,6 @@ ruotaCesare[shift_Integer, highlightK_Integer] :=
          Arrow[{codaFreccia, puntaFreccia}]},
         {Thickness[0.005], GrayLevel[0.5], Circle[{0,0}, rInt]}],
       ImageSize  -> 320,
-      Background -> GrayLevel[0.97],
       PlotRange  -> {{-1.38, 1.38}, {-1.38, 1.38}}]
   ]
 
@@ -378,8 +377,8 @@ esercizioUniversaleCesare[] :=
         Dynamic[If[esercizioGenerato,
           Framed[Column[{
             Style["Testo cifrato da decifrare:", 12, Bold, RGBColor[0.7, 0.3, 0.1]],
-            Style[messaggioCifrato, 15, Bold, Black]}],
-            Background -> RGBColor[1.0, 0.95, 0.88],
+            Style[messaggioCifrato, 15, Bold]}],
+            Background -> RGBColor[0.7, 0.3, 0.1, 0.1],
             RoundingRadius -> 5, FrameStyle -> RGBColor[0.7, 0.3, 0.1], FrameMargins -> 8],
           Style["(Genera un esercizio per iniziare)", 11, Italic, Gray]]],
         Spacer[6],
@@ -427,13 +426,13 @@ esercizioUniversaleCesare[] :=
         Dynamic[Which[
           feedbackMsg === "", "",
           StringStartsQ[feedbackMsg, "\[Checkmark]"],
-            Framed[Style[feedbackMsg, 12, RGBColor[0.1, 0.5, 0.1]],
-              Background -> RGBColor[0.92, 1.0, 0.93],
+            Framed[Style[feedbackMsg, 12, RGBColor[0.2, 0.6, 0.3]],
+              Background -> RGBColor[0.2, 0.6, 0.3, 0.1],
               FrameStyle -> RGBColor[0.2, 0.6, 0.3],
               RoundingRadius -> 5, FrameMargins -> 10],
           True,
-            Framed[Style[feedbackMsg, 12, RGBColor[0.5, 0.1, 0.1]],
-              Background -> RGBColor[1.0, 0.93, 0.93],
+            Framed[Style[feedbackMsg, 12, RGBColor[0.7, 0.2, 0.2]],
+              Background -> RGBColor[0.7, 0.2, 0.2, 0.1],
               FrameStyle -> RGBColor[0.7, 0.2, 0.2],
               RoundingRadius -> 5, FrameMargins -> 10]
         ]],
@@ -444,8 +443,8 @@ esercizioUniversaleCesare[] :=
             Framed[Style[
               "\[LightBulb] Suggerimento 1: la lettera piu' frequente in italiano e' la E. " <>
               "La lettera piu' comune nel testo cifrato probabilmente corrisponde alla E.",
-              12, Italic, RGBColor[0.45, 0.35, 0.0]],
-              Background -> RGBColor[1.0, 0.97, 0.87],
+              12, Italic, RGBColor[0.65, 0.5, 0.1]],
+              Background -> RGBColor[0.7, 0.6, 0.1, 0.1],
               FrameStyle -> RGBColor[0.75, 0.6, 0.1],
               RoundingRadius -> 5, FrameMargins -> 10],
           suggerimentoStep == 2,
@@ -453,16 +452,16 @@ esercizioUniversaleCesare[] :=
               "\[LightBulb] Suggerimento 2: lo shift e' nell'intervallo [" <>
               ToString[Max[1, shiftSegreto - 4]] <> ", " <>
               ToString[Min[25, shiftSegreto + 4]] <> "].",
-              12, Italic, RGBColor[0.45, 0.35, 0.0]],
-              Background -> RGBColor[1.0, 0.97, 0.87],
+              12, Italic, RGBColor[0.65, 0.5, 0.1]],
+              Background -> RGBColor[0.7, 0.6, 0.1, 0.1],
               FrameStyle -> RGBColor[0.75, 0.6, 0.1],
               RoundingRadius -> 5, FrameMargins -> 10],
           suggerimentoStep >= 3,
             Framed[Style[
               "\[LightBulb] Suggerimento 3: lo shift esatto e' " <>
               ToString[shiftSegreto] <> ". Usa la ruota per verificare.",
-              12, Italic, RGBColor[0.45, 0.35, 0.0]],
-              Background -> RGBColor[1.0, 0.97, 0.87],
+              12, Italic, RGBColor[0.65, 0.5, 0.1]],
+              Background -> RGBColor[0.7, 0.6, 0.1, 0.1],
               FrameStyle -> RGBColor[0.75, 0.6, 0.1],
               RoundingRadius -> 5, FrameMargins -> 10]]],
         Dynamic[If[soluzioneVisibile && esercizioGenerato,
@@ -470,7 +469,7 @@ esercizioUniversaleCesare[] :=
             Style["Soluzione:", 13, Bold, RGBColor[0.6, 0.1, 0.1]],
             Row[{Style["Shift: ", 12, Bold], Style[ToString[shiftSegreto], 13, Bold]}],
             Row[{Style["Testo in chiaro: ", 12, Bold], Style[messaggioChiaro, 13, Bold]}]}],
-            Background -> RGBColor[1.0, 0.93, 0.93],
+            Background -> RGBColor[0.7, 0.2, 0.2, 0.1],
             FrameStyle -> RGBColor[0.6, 0.1, 0.1],
             RoundingRadius -> 5, FrameMargins -> 10],
           ""]],
@@ -509,7 +508,7 @@ esercizioUniversaleCesare[] :=
           }, Alignment -> Center],
           ""]]
       }, Alignment -> Left, Spacings -> 1],
-      Background -> GrayLevel[0.97], ImageSize -> 560]
+      ImageSize -> 560]
   ]
 
 esercizioUniversaleVigenere[] :=
@@ -552,14 +551,14 @@ esercizioUniversaleVigenere[] :=
           Column[{
             Framed[Column[{
               Style["Testo cifrato:", 12, Bold, RGBColor[0.7, 0.3, 0.1]],
-              Style[messaggioCifrato, 15, Bold, Black]}],
-              Background -> RGBColor[1.0, 0.95, 0.88],
+              Style[messaggioCifrato, 15, Bold]}],
+              Background -> RGBColor[0.7, 0.3, 0.1, 0.1],
               RoundingRadius -> 5, FrameStyle -> RGBColor[0.7, 0.3, 0.1], FrameMargins -> 8],
             Spacer[4],
             Framed[Row[{
               Style["Chiave: ", 12, Bold, RGBColor[0.5, 0.2, 0.7]],
               Style[chiaveSegreto, 14, Bold, RGBColor[0.5, 0.2, 0.7]]}],
-              Background -> RGBColor[0.96, 0.92, 1.0],
+              Background -> RGBColor[0.5, 0.2, 0.7, 0.1],
               RoundingRadius -> 5, FrameStyle -> RGBColor[0.5, 0.2, 0.7], FrameMargins -> 8]}],
           Style["(Genera un esercizio per iniziare)", 11, Italic, Gray]]],
         Spacer[6],
@@ -607,13 +606,13 @@ esercizioUniversaleVigenere[] :=
         Dynamic[Which[
           feedbackMsg === "", "",
           StringStartsQ[feedbackMsg, "\[Checkmark]"],
-            Framed[Style[feedbackMsg, 12, RGBColor[0.1, 0.5, 0.1]],
-              Background -> RGBColor[0.92, 1.0, 0.93],
+            Framed[Style[feedbackMsg, 12, RGBColor[0.2, 0.6, 0.3]],
+              Background -> RGBColor[0.2, 0.6, 0.3, 0.1],
               FrameStyle -> RGBColor[0.2, 0.6, 0.3],
               RoundingRadius -> 5, FrameMargins -> 10],
           True,
-            Framed[Style[feedbackMsg, 12, RGBColor[0.5, 0.1, 0.1]],
-              Background -> RGBColor[1.0, 0.93, 0.93],
+            Framed[Style[feedbackMsg, 12, RGBColor[0.7, 0.2, 0.2]],
+              Background -> RGBColor[0.7, 0.2, 0.2, 0.1],
               FrameStyle -> RGBColor[0.7, 0.2, 0.2],
               RoundingRadius -> 5, FrameMargins -> 10]
         ]],
@@ -626,8 +625,8 @@ esercizioUniversaleVigenere[] :=
               "invece di sommarlo. La prima lettera della chiave e' '" <>
               StringTake[chiaveSegreto, 1] <> "' (shift " <>
               ToString[indiceLettera[ToUpperCase[StringTake[chiaveSegreto,1]]]] <> ").",
-              12, Italic, RGBColor[0.45, 0.35, 0.0]],
-              Background -> RGBColor[1.0, 0.97, 0.87],
+              12, Italic, RGBColor[0.65, 0.5, 0.1]],
+              Background -> RGBColor[0.7, 0.6, 0.1, 0.1],
               FrameStyle -> RGBColor[0.75, 0.6, 0.1],
               RoundingRadius -> 5, FrameMargins -> 10],
           suggerimentoStep == 2,
@@ -636,16 +635,16 @@ esercizioUniversaleVigenere[] :=
               "' ha " <> ToString[StringLength[chiaveSegreto]] <>
               " lettere. Decifra le prime " <> ToString[StringLength[chiaveSegreto]] <>
               " lettere, poi riparti dall'inizio della chiave.",
-              12, Italic, RGBColor[0.45, 0.35, 0.0]],
-              Background -> RGBColor[1.0, 0.97, 0.87],
+              12, Italic, RGBColor[0.65, 0.5, 0.1]],
+              Background -> RGBColor[0.7, 0.6, 0.1, 0.1],
               FrameStyle -> RGBColor[0.75, 0.6, 0.1],
               RoundingRadius -> 5, FrameMargins -> 10],
           suggerimentoStep >= 3,
             Framed[Style[
               "\[LightBulb] Suggerimento 3: le prime 3 lettere del testo in chiaro sono '" <>
               StringTake[messaggioChiaro, Min[3, StringLength[messaggioChiaro]]] <> "'.",
-              12, Italic, RGBColor[0.45, 0.35, 0.0]],
-              Background -> RGBColor[1.0, 0.97, 0.87],
+              12, Italic, RGBColor[0.65, 0.5, 0.1]],
+              Background -> RGBColor[0.7, 0.6, 0.1, 0.1],
               FrameStyle -> RGBColor[0.75, 0.6, 0.1],
               RoundingRadius -> 5, FrameMargins -> 10]]],
         Dynamic[If[soluzioneVisibile && esercizioGenerato,
@@ -653,12 +652,12 @@ esercizioUniversaleVigenere[] :=
             Style["Soluzione:", 13, Bold, RGBColor[0.6, 0.1, 0.1]],
             Row[{Style["Chiave: ", 12, Bold], Style[chiaveSegreto, 13, Bold]}],
             Row[{Style["Testo in chiaro: ", 12, Bold], Style[messaggioChiaro, 13, Bold]}]}],
-            Background -> RGBColor[1.0, 0.93, 0.93],
+            Background -> RGBColor[0.7, 0.2, 0.2, 0.1],
             FrameStyle -> RGBColor[0.6, 0.1, 0.1],
             RoundingRadius -> 5, FrameMargins -> 10],
           ""]]
       }, Alignment -> Left, Spacings -> 1],
-      Background -> GrayLevel[0.97], ImageSize -> 560]
+      ImageSize -> 560]
   ]
 
 avviaLaboratorio[] :=
