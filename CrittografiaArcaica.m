@@ -123,11 +123,14 @@ cifraVigenere[testo_String, chiave_String] :=
     caratteri = Characters[testUp];
     risultato = {};
     kIndex    = 0; (* indice nella chiave: avanza solo quando incontriamo una lettera *)
-    Do[
-      passo = applicaPassoCifraVigenere[caratteri[[i]], kIndex, chiaveChars, chiaveLen];
-      AppendTo[risultato, passo[[1]]];
-      kIndex = passo[[2]],
-      {i, 1, Length[caratteri]}];
+    risultato = Map[
+      Function[c,
+        passo = applicaPassoCifraVigenere[c, kIndex, chiaveChars, chiaveLen];
+        kIndex = passo[[2]];
+        passo[[1]]
+      ],
+      caratteri
+    ];
     StringJoin[risultato]
   ]
 
@@ -151,11 +154,14 @@ decifraVigenere[testo_String, chiave_String] :=
     caratteri = Characters[testUp];
     risultato = {};
     kIndex    = 0;
-    Do[
-      passo = applicaPassoDecifraVigenere[caratteri[[i]], kIndex, chiaveChars, chiaveLen];
-      AppendTo[risultato, passo[[1]]];
-      kIndex = passo[[2]],
-      {i, 1, Length[caratteri]}];
+    risultato = Map[
+      Function[c,
+        passo = applicaPassoDecifraVigenere[c, kIndex, chiaveChars, chiaveLen];
+        kIndex = passo[[2]];
+        passo[[1]]
+      ],
+      caratteri
+    ];
     StringJoin[risultato]
   ]
 
@@ -169,17 +175,16 @@ tabellaShiftVigenere[testo_String, chiave_String, cifra_] :=
     If[chiaveChars === {}, Return[{}]];
     chiaveLen   = Length[chiaveChars];
     soleLettere = lettereIn[testo];
-    risultato   = {};
-    kIndex      = 0;
     (* segno: +1 per cifrare, -1 per decifrare *)
     segno = If[cifra, 1, -1];
-    Do[
-      sh   = indiceLettera[chiaveChars[[Mod[kIndex, chiaveLen] + 1]]];
-      lOut = alfabeto[[Mod[indiceLettera[soleLettere[[i]]] + segno * sh, 26] + 1]];
-      AppendTo[risultato,
-        {soleLettere[[i]], chiaveChars[[Mod[kIndex, chiaveLen] + 1]], sh, lOut}];
-      kIndex++,
-      {i, 1, Min[Length[soleLettere], 24]}]; (* limitata a 24 righe per non appesantire la visualizzazione *)
+    risultato = Table[
+      Module[{sh, lOut},
+        sh   = indiceLettera[chiaveChars[[Mod[i - 1, chiaveLen] + 1]]];
+        lOut = alfabeto[[Mod[indiceLettera[soleLettere[[i]]] + segno * sh, 26] + 1]];
+        {soleLettere[[i]], chiaveChars[[Mod[i - 1, chiaveLen] + 1]], sh, lOut}
+      ],
+      {i, 1, Min[Length[soleLettere], 24]}
+    ]; (* limitata a 24 righe per non appesantire la visualizzazione *)
     risultato
   ]
 
@@ -388,15 +393,14 @@ esercizioUniversaleCesare[] :=
         Row[{
           Button[
             Style["Verifica Risultato", 12, Bold, White],
-            If[esercizioGenerato,
-              tentativi++;
-              If[ToUpperCase[StringReplace[StringTrim[rispostaUtente], " " -> ""]] ===
-                 StringReplace[messaggioChiaro, " " -> ""],
-                feedbackMsg = "\[Checkmark] Corretto! Hai impiegato " <>
-                  ToString[tentativi] <>
-                  If[tentativi == 1, " tentativo.", " tentativi."],
-                feedbackMsg = "\[Cross] Non corretto \[LongDash] Tentativo " <>
-                  ToString[tentativi] <> "."]];,
+            If[esercizioGenerato, tentativi++];
+            Which[
+              !esercizioGenerato, Null,
+              ToUpperCase[StringReplace[StringTrim[rispostaUtente], " " -> ""]] === StringReplace[messaggioChiaro, " " -> ""],
+                feedbackMsg = "\[Checkmark] Corretto! Hai impiegato " <> ToString[tentativi] <> If[tentativi == 1, " tentativo.", " tentativi."],
+              True,
+                feedbackMsg = "\[Cross] Non corretto \[LongDash] Tentativo " <> ToString[tentativi] <> "."
+            ];,
             Background -> RGBColor[0.2, 0.6, 0.3], ImageSize -> {150, 30}],
           Spacer[6],
           Button[
@@ -420,15 +424,19 @@ esercizioUniversaleCesare[] :=
             Background -> RGBColor[0.7, 0.2, 0.2], ImageSize -> {130, 30}]
         }],
         Spacer[8],
-        Dynamic[If[feedbackMsg =!= "",
-          Framed[Style[feedbackMsg, 12,
-            If[StringStartsQ[feedbackMsg, "\[Checkmark]"],
-               RGBColor[0.1, 0.5, 0.1], RGBColor[0.5, 0.1, 0.1]]],
-            Background -> If[StringStartsQ[feedbackMsg, "\[Checkmark]"],
-              RGBColor[0.92, 1.0, 0.93], RGBColor[1.0, 0.93, 0.93]],
-            FrameStyle -> If[StringStartsQ[feedbackMsg, "\[Checkmark]"],
-              RGBColor[0.2, 0.6, 0.3], RGBColor[0.7, 0.2, 0.2]],
-            RoundingRadius -> 5, FrameMargins -> 10], ""]],
+        Dynamic[Which[
+          feedbackMsg === "", "",
+          StringStartsQ[feedbackMsg, "\[Checkmark]"],
+            Framed[Style[feedbackMsg, 12, RGBColor[0.1, 0.5, 0.1]],
+              Background -> RGBColor[0.92, 1.0, 0.93],
+              FrameStyle -> RGBColor[0.2, 0.6, 0.3],
+              RoundingRadius -> 5, FrameMargins -> 10],
+          True,
+            Framed[Style[feedbackMsg, 12, RGBColor[0.5, 0.1, 0.1]],
+              Background -> RGBColor[1.0, 0.93, 0.93],
+              FrameStyle -> RGBColor[0.7, 0.2, 0.2],
+              RoundingRadius -> 5, FrameMargins -> 10]
+        ]],
         (* Suggerimento progressivo a 3 livelli, attivato manualmente dal bottone *)
         Dynamic[Which[
           !esercizioGenerato || suggerimentoStep == 0, "",
@@ -565,15 +573,14 @@ esercizioUniversaleVigenere[] :=
         Row[{
           Button[
             Style["Verifica Risultato", 12, Bold, White],
-            If[esercizioGenerato,
-              tentativi++;
-              If[ToUpperCase[StringReplace[StringTrim[rispostaUtente], " " -> ""]] ===
-                 StringReplace[messaggioChiaro, " " -> ""],
-                feedbackMsg = "\[Checkmark] Corretto! Hai impiegato " <>
-                  ToString[tentativi] <>
-                  If[tentativi == 1, " tentativo.", " tentativi."],
-                feedbackMsg = "\[Cross] Non corretto \[LongDash] Tentativo " <>
-                  ToString[tentativi] <> "."]];,
+            If[esercizioGenerato, tentativi++];
+            Which[
+              !esercizioGenerato, Null,
+              ToUpperCase[StringReplace[StringTrim[rispostaUtente], " " -> ""]] === StringReplace[messaggioChiaro, " " -> ""],
+                feedbackMsg = "\[Checkmark] Corretto! Hai impiegato " <> ToString[tentativi] <> If[tentativi == 1, " tentativo.", " tentativi."],
+              True,
+                feedbackMsg = "\[Cross] Non corretto \[LongDash] Tentativo " <> ToString[tentativi] <> "."
+            ];,
             Background -> RGBColor[0.2, 0.6, 0.3], ImageSize -> {150, 30}],
           Spacer[6],
           Button[
@@ -597,15 +604,19 @@ esercizioUniversaleVigenere[] :=
             Background -> RGBColor[0.7, 0.2, 0.2], ImageSize -> {130, 30}]
         }],
         Spacer[8],
-        Dynamic[If[feedbackMsg =!= "",
-          Framed[Style[feedbackMsg, 12,
-            If[StringStartsQ[feedbackMsg, "\[Checkmark]"],
-               RGBColor[0.1, 0.5, 0.1], RGBColor[0.5, 0.1, 0.1]]],
-            Background -> If[StringStartsQ[feedbackMsg, "\[Checkmark]"],
-              RGBColor[0.92, 1.0, 0.93], RGBColor[1.0, 0.93, 0.93]],
-            FrameStyle -> If[StringStartsQ[feedbackMsg, "\[Checkmark]"],
-              RGBColor[0.2, 0.6, 0.3], RGBColor[0.7, 0.2, 0.2]],
-            RoundingRadius -> 5, FrameMargins -> 10], ""]],
+        Dynamic[Which[
+          feedbackMsg === "", "",
+          StringStartsQ[feedbackMsg, "\[Checkmark]"],
+            Framed[Style[feedbackMsg, 12, RGBColor[0.1, 0.5, 0.1]],
+              Background -> RGBColor[0.92, 1.0, 0.93],
+              FrameStyle -> RGBColor[0.2, 0.6, 0.3],
+              RoundingRadius -> 5, FrameMargins -> 10],
+          True,
+            Framed[Style[feedbackMsg, 12, RGBColor[0.5, 0.1, 0.1]],
+              Background -> RGBColor[1.0, 0.93, 0.93],
+              FrameStyle -> RGBColor[0.7, 0.2, 0.2],
+              RoundingRadius -> 5, FrameMargins -> 10]
+        ]],
         (* Suggerimento progressivo a 3 livelli, attivato manualmente dal bottone *)
         Dynamic[Which[
           !esercizioGenerato || suggerimentoStep == 0, "",
