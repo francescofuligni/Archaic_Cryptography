@@ -415,7 +415,7 @@ esercizioUniversaleCesare[] :=
              rispostaUtente = ""; tentativi = 0; feedbackMsg = "";
              soluzioneVisibile = False; suggerimentoStep = 0;
              esercizioGenerato = False; shiftEsplorazione = 0;
-             , Background->RGBColor[0.5, 0.5, 0.5], ImageSize->{110, 30}],
+             , Background->RGBColor[0.2, 0.4, 0.7], ImageSize->{110, 30}],
       Spacer[6],
       Button[Style["Mostra Soluzione", 12, Bold, White],
              If[esercizioGenerato, soluzioneVisibile = True];
@@ -594,7 +594,7 @@ esercizioUniversaleVigenere[] :=
              rispostaUtente = ""; tentativi = 0; feedbackMsg = "";
              soluzioneVisibile = False; suggerimentoStep = 0;
              esercizioGenerato = False;
-             , Background->RGBColor[0.5, 0.5, 0.5], ImageSize->{110, 30}],
+             , Background->RGBColor[0.2, 0.4, 0.7], ImageSize->{110, 30}],
       Spacer[6],
       Button[Style["Mostra Soluzione", 12, Bold, White],
              If[esercizioGenerato, soluzioneVisibile = True];
