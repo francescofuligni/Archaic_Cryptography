@@ -1,5 +1,7 @@
 (* ::Package:: *)
 
+(* ::Package:: *)
+
 (* :Title: CrittografiaArcaica *)
 (* :Context: CrittografiaArcaica` *)
 (* :Authors: Matteo Boscherini, Alessandro Campedelli, Francesco Maria Fuligni, Mattia Furini, Mohamed Samir Haffoudhi *)
@@ -17,15 +19,11 @@
 BeginPackage["CrittografiaArcaica`"];
 
 Unprotect[
-  avviaLaboratorio,
   bottoneEserciziCesare,
   bottoneEserciziVigenere,
   esercizioUniversaleCesare,
   esercizioUniversaleVigenere
 ];
-
-avviaLaboratorio::usage =
-  "avviaLaboratorio[] avvia l'interfaccia principale con TabView.";
 
 bottoneEserciziCesare::usage =
   "bottoneEserciziCesare[] restituisce un bottone che apre gli Esercizi del Cifrario di Cesare. Da usare nella sezione II.3 del Tutorial.nb.";
@@ -74,10 +72,10 @@ dizionarioItaliano := dizionarioItaliano = Module[{tutteLeParole}, (* := con mem
 ];
 
 (* Estrae una parola casuale dal dizionario italiano in modo riproducibile dato un seed *)
-generaParola[seed_Integer] := Module[{},
+generaParola[seed_Integer] := (
   SeedRandom[seed];
   RandomChoice[dizionarioItaliano]
-]
+)
 
 (* Funzione ausiliaria: cifra un singolo carattere con il Cifrario di Cesare.
    Se il carattere e' una lettera lo sposta di shift posizioni, altrimenti lo lascia invariato. *)
@@ -169,7 +167,7 @@ decifraVigenere[testo_String, chiave_String] :=
    Ogni riga mostra: {lettera originale, lettera chiave, shift applicato, lettera risultante} *)
 tabellaShiftVigenere[testo_String, chiave_String, cifra_] :=
   Module[
-    {testUp, chiaveChars, chiaveLen, soleLettere, risultato, kIndex, sh, lOut, segno},
+    {testUp, chiaveChars, chiaveLen, soleLettere, risultato, segno},
     testUp      = ToUpperCase[testo];
     chiaveChars = lettereIn[chiave];
     If[chiaveChars === {}, Return[{}]];
@@ -707,7 +705,7 @@ dizionarioItaliano;
 
     End[];
 
-Protect[avviaLaboratorio, bottoneEserciziCesare, bottoneEserciziVigenere,
+Protect[bottoneEserciziCesare, bottoneEserciziVigenere,
         esercizioUniversaleCesare, esercizioUniversaleVigenere];
 
 EndPackage[];
