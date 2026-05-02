@@ -352,7 +352,7 @@ esercizioUniversaleCesare[] :=
          shiftEsplorazione = 0}, (* shift separato per la ruota di esplorazione *)
     Panel[
       Column[{
-        Style["Esercizi \[LongDash] Cifrario di Cesare",
+        Style["Esercizio - Cifrario di Cesare",
               18, Bold, RGBColor[0.2, 0.4, 0.7]],
         Style["Ti viene dato un testo cifrato: trova il testo originale in chiaro!",
               12, Italic, Gray],
@@ -524,7 +524,7 @@ esercizioUniversaleVigenere[] :=
          esercizioGenerato = False}, (* True dopo aver premuto Genera Esercizio *)
     Panel[
       Column[{
-        Style["Esercizi \[LongDash] Cifrario di Vigenere",
+        Style["Esercizio - Cifrario di Vigenere",
               18, Bold, RGBColor[0.5, 0.2, 0.7]],
         Style["Ti vengono dati il testo cifrato e la chiave: trova il testo in chiaro!",
               12, Italic, Gray],
@@ -669,7 +669,7 @@ avviaLaboratorio[] :=
 
 bottoneEserciziCesare[] :=
   Button[
-    Style["\[RightTriangle]  Apri gli Esercizi \[LongDash] Cifrario di Cesare",
+    Style["\[RightTriangle] Esercizio - Cifrario di Cesare",
           15, Bold, White],
     CreateDocument[
       {ExpressionCell[
@@ -686,7 +686,7 @@ bottoneEserciziCesare[] :=
 
 bottoneEserciziVigenere[] :=
   Button[
-    Style["\[RightTriangle]  Apri gli Esercizi \[LongDash] Cifrario di Vigenere",
+    Style["\[RightTriangle] Esercizio - Cifrario di Vigenere",
           15, Bold, White],
     CreateDocument[
       {ExpressionCell[
