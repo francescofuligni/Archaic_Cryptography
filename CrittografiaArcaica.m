@@ -2,6 +2,8 @@
 
 (* ::Package:: *)
 
+(* ::Package:: *)
+
 (* :Title: CrittografiaArcaica *)
 (* :Context: CrittografiaArcaica` *)
 (* :Authors: Matteo Boscherini, Alessandro Campedelli, Francesco Maria Fuligni, Mattia Furini, Mohamed Samir Haffoudhi *)
@@ -337,7 +339,7 @@ ruotaInterattiva[shiftDyn_] :=
 
 esercizioUniversaleCesare[] :=
   DynamicModule[
-        {seed = 42,              (* seed iniziale di default *)
+        {seed = "",              (* seed vuoto: l'utente deve inserirlo *)
          messaggioCifrato = "",  (* testo cifrato mostrato come consegna *)
          shiftSegreto = 0,       (* shift usato per cifrare, nascosto all'utente *)
          messaggioChiaro = "",   (* testo in chiaro originale, e' la soluzione *)
@@ -345,6 +347,7 @@ esercizioUniversaleCesare[] :=
          tentativi = 0,          (* numero di tentativi gia' usati *)
          feedbackMsg = "",       (* messaggio mostrato dopo Verifica Risultato *)
          soluzioneVisibile = False, (* True quando si mostra la soluzione *)
+         corretto = False,       (* True quando l'utente ha risposto correttamente *)
          suggerimentoStep = 0,   (* livello del suggerimento attivo: 0=nessuno, 1=primo, 2=secondo *)
          esercizioGenerato = False, (* True dopo aver premuto Genera Esercizio *)
          shiftEsplorazione = 0}, (* shift separato per la ruota di esplorazione *)
@@ -357,18 +360,20 @@ esercizioUniversaleCesare[] :=
         Spacer[8],
         Row[{
           Style["Seed: ", 13, Bold],
-          InputField[Dynamic[seed], Number, FieldSize -> {8,1}, FieldHint -> "es. 42"],
+          InputField[Dynamic[seed], String, FieldSize -> {8,1}, FieldHint -> "es. 42"],
           Spacer[8],
           Button[
             Style["Genera Esercizio", 13, Bold, White],
-            If[!IntegerQ[seed],
-              feedbackMsg = "\[WarningSign] Errore: il seed deve essere un numero intero."; esercizioGenerato = False,
-              Module[{ris},
-                ris = generaEsercizioConSeedCesare[seed]; (* genera {cifrato, shift, chiaro} *)
-                messaggioCifrato = ris[[1]]; shiftSegreto = ris[[2]];
-                messaggioChiaro = ris[[3]]; rispostaUtente = "";
-                tentativi = 0; feedbackMsg = ""; soluzioneVisibile = False;
-                suggerimentoStep = 0; esercizioGenerato = True]];,
+            Module[{seedInt},
+              seedInt = Quiet[ToExpression[seed]];
+              If[!IntegerQ[seedInt],
+                feedbackMsg = "\[WarningSign] Errore: il seed deve essere un numero intero."; esercizioGenerato = False,
+                Module[{ris},
+                  ris = generaEsercizioConSeedCesare[seedInt];
+                  messaggioCifrato = ris[[1]]; shiftSegreto = ris[[2]];
+                  messaggioChiaro = ris[[3]]; rispostaUtente = "";
+                  tentativi = 0; feedbackMsg = ""; soluzioneVisibile = False;
+                  suggerimentoStep = 0; corretto = False; esercizioGenerato = True]]];,
             Background -> RGBColor[0.15, 0.5, 0.8], ImageSize -> {160, 35}]
 }],
         Spacer[8],
@@ -378,7 +383,7 @@ esercizioUniversaleCesare[] :=
             Style[messaggioCifrato, 15, Bold]}],
             Background -> RGBColor[0.7, 0.3, 0.1, 0.1],
             RoundingRadius -> 5, FrameStyle -> RGBColor[0.7, 0.3, 0.1], FrameMargins -> 8],
-          Style["(Genera un esercizio per iniziare)", 11, Italic, Gray]]],
+          Style["Inserisci un seed numerico e premi \"Genera Esercizio\" per iniziare.", 11, Italic, Gray]]],
         Spacer[6],
         Dynamic[If[esercizioGenerato,
           Column[{
@@ -387,38 +392,45 @@ esercizioUniversaleCesare[] :=
               FieldSize -> {30, 2}, FieldHint -> "Scrivi qui la tua risposta..."]}],
           ""]],
         Spacer[6],
+        Dynamic[If[esercizioGenerato,
         Row[{
   Button
       [Style["Verifica Risultato", 12, Bold, White],
        If[esercizioGenerato, tentativi++];
        Which[!esercizioGenerato, Null,
-             ToUpperCase[StringReplace[StringTrim[rispostaUtente], " "->""]] ===
+             ToUpperCase[StringReplace[StringTrim[rispostaUtente], " "->""]]==
              StringReplace[messaggioChiaro, " "->""],
+             corretto = True;
              feedbackMsg = "\[Checkmark] Corretto! Hai impiegato " <>
                            ToString[tentativi] <>
                                If[tentativi == 1, " tentativo.", " tentativi."],
              True,
              feedbackMsg = "\[Cross] Non corretto \[LongDash] Tentativo " <>
                            ToString[tentativi] <> "."];
-       , Background->RGBColor[0.2, 0.6, 0.3], ImageSize->{150, 30}],
+       , Background->Dynamic[If[!corretto && !soluzioneVisibile, RGBColor[0.2, 0.6, 0.3], RGBColor[0.6,0.6,0.6]]],
+       Enabled->Dynamic[!corretto && !soluzioneVisibile],
+       ImageSize->{150, 30}],
       Spacer[6],
-      Button[Dynamic[Style["Suggerimento", 12, Bold, White, FontVariations -> {"StrikeThrough" -> !(esercizioGenerato && suggerimentoStep < 3)}]],
-             If[esercizioGenerato && suggerimentoStep < 3, suggerimentoStep++],
-             Background->Dynamic[If[esercizioGenerato && suggerimentoStep < 3, RGBColor[0.85, 0.65, 0.05], RGBColor[0.6, 0.6, 0.6]]],
-             Enabled->Dynamic[esercizioGenerato && suggerimentoStep < 3],
+      Button[Style["Suggerimento", 12, Bold, White],
+             If[suggerimentoStep < 3, suggerimentoStep++],
+             Background->Dynamic[If[!corretto && !soluzioneVisibile && suggerimentoStep < 3, RGBColor[0.85, 0.65, 0.05], RGBColor[0.6, 0.6, 0.6]]],
+             Enabled->Dynamic[!corretto && !soluzioneVisibile && suggerimentoStep < 3],
              ImageSize->{120, 30}],
       Spacer[6],
-      Button[Style["Pulisci Campi", 12, Bold, White], seed = 42;
+      Button[Style["Pulisci Campi", 12, Bold, White], seed = "";
              messaggioCifrato = ""; shiftSegreto = 0; messaggioChiaro = "";
              rispostaUtente = ""; tentativi = 0; feedbackMsg = "";
-             soluzioneVisibile = False; suggerimentoStep = 0;
+             soluzioneVisibile = False; corretto = False; suggerimentoStep = 0;
              esercizioGenerato = False; shiftEsplorazione = 0;
              , Background->RGBColor[0.2, 0.4, 0.7], ImageSize->{110, 30}],
       Spacer[6],
       Button[Style["Mostra Soluzione", 12, Bold, White],
-             If[esercizioGenerato, soluzioneVisibile = True];
-             , Background->RGBColor[0.7, 0.2, 0.2], ImageSize->{130, 30}]
+             soluzioneVisibile = True;
+             , Background->Dynamic[If[!corretto && !soluzioneVisibile, RGBColor[0.7, 0.2, 0.2], RGBColor[0.6,0.6,0.6]]],
+             Enabled->Dynamic[!corretto && !soluzioneVisibile],
+             ImageSize->{130, 30}]
         }],
+        ""]],
         Spacer[8],
         Dynamic[Which[
           feedbackMsg === "", "",
@@ -510,7 +522,7 @@ esercizioUniversaleCesare[] :=
 
 esercizioUniversaleVigenere[] :=
   DynamicModule[
-        {seed = 42,              (* seed iniziale di default *)
+        {seed = "",              (* seed vuoto: l'utente deve inserirlo *)
          messaggioCifrato = "",  (* testo cifrato mostrato come consegna *)
          chiaveSegreto = "",     (* chiave mostrata all'utente: nel Vigenere la chiave e' nota *)
          messaggioChiaro = "",   (* testo in chiaro originale, e' la soluzione *)
@@ -518,6 +530,7 @@ esercizioUniversaleVigenere[] :=
          tentativi = 0,          (* numero di tentativi gia' usati *)
          feedbackMsg = "",       (* messaggio mostrato dopo Verifica Risultato *)
          soluzioneVisibile = False, (* True quando si mostra la soluzione *)
+         corretto = False,       (* True quando l'utente ha risposto correttamente *)
          suggerimentoStep = 0,   (* livello del suggerimento attivo: 0=nessuno, 1=primo, 2=secondo *)
          esercizioGenerato = False}, (* True dopo aver premuto Genera Esercizio *)
     Panel[
@@ -529,18 +542,20 @@ esercizioUniversaleVigenere[] :=
         Spacer[8],
         Row[{
           Style["Seed: ", 13, Bold],
-          InputField[Dynamic[seed], Number, FieldSize -> {8,1}, FieldHint -> "es. 42"],
+          InputField[Dynamic[seed], String, FieldSize -> {8,1}, FieldHint -> "es. 42"],
           Spacer[8],
           Button[
             Style["Genera Esercizio", 13, Bold, White],
-            If[!IntegerQ[seed],
-              feedbackMsg = "\[WarningSign] Errore: il seed deve essere un numero intero."; esercizioGenerato = False,
-              Module[{ris},
-                ris = generaEsercizioConSeedVigenere[seed]; (* genera {cifrato, chiave, chiaro} *)
-                messaggioCifrato = ris[[1]]; chiaveSegreto = ris[[2]];
-                messaggioChiaro = ris[[3]]; rispostaUtente = "";
-                tentativi = 0; feedbackMsg = ""; soluzioneVisibile = False;
-                suggerimentoStep = 0; esercizioGenerato = True]];,
+            Module[{seedInt},
+              seedInt = Quiet[ToExpression[seed]];
+              If[!IntegerQ[seedInt],
+                feedbackMsg = "\[WarningSign] Errore: il seed deve essere un numero intero."; esercizioGenerato = False,
+                Module[{ris},
+                  ris = generaEsercizioConSeedVigenere[seedInt];
+                  messaggioCifrato = ris[[1]]; chiaveSegreto = ris[[2]];
+                  messaggioChiaro = ris[[3]]; rispostaUtente = "";
+                  tentativi = 0; feedbackMsg = ""; soluzioneVisibile = False;
+                  suggerimentoStep = 0; corretto = False; esercizioGenerato = True]]];,
             Background -> RGBColor[0.4, 0.1, 0.7], ImageSize -> {160, 35}]
 }],
         Spacer[8],
@@ -557,7 +572,7 @@ esercizioUniversaleVigenere[] :=
               Style[chiaveSegreto, 14, Bold, RGBColor[0.5, 0.2, 0.7]]}],
               Background -> RGBColor[0.5, 0.2, 0.7, 0.1],
               RoundingRadius -> 5, FrameStyle -> RGBColor[0.5, 0.2, 0.7], FrameMargins -> 8]}],
-          Style["(Genera un esercizio per iniziare)", 11, Italic, Gray]]],
+          Style["Inserisci un seed numerico e premi \"Genera Esercizio\" per iniziare.", 11, Italic, Gray]]],
         Spacer[6],
         Dynamic[If[esercizioGenerato,
           Column[{
@@ -566,38 +581,45 @@ esercizioUniversaleVigenere[] :=
               FieldSize -> {30, 2}, FieldHint -> "Applica la chiave al contrario..."]}],
           ""]],
         Spacer[6],
+        Dynamic[If[esercizioGenerato,
         Row[{
   Button
       [Style["Verifica Risultato", 12, Bold, White],
        If[esercizioGenerato, tentativi++];
        Which[!esercizioGenerato, Null,
-             ToUpperCase[StringReplace[StringTrim[rispostaUtente], " "->""]] ===
+             ToUpperCase[StringReplace[StringTrim[rispostaUtente], " "->""]]==
              StringReplace[messaggioChiaro, " "->""],
+             corretto = True;
              feedbackMsg = "\[Checkmark] Corretto! Hai impiegato " <>
                            ToString[tentativi] <>
                                If[tentativi == 1, " tentativo.", " tentativi."],
              True,
              feedbackMsg = "\[Cross] Non corretto \[LongDash] Tentativo " <>
                            ToString[tentativi] <> "."];
-       , Background->RGBColor[0.2, 0.6, 0.3], ImageSize->{150, 30}],
+       , Background->Dynamic[If[!corretto && !soluzioneVisibile, RGBColor[0.2, 0.6, 0.3], RGBColor[0.6,0.6,0.6]]],
+       Enabled->Dynamic[!corretto && !soluzioneVisibile],
+       ImageSize->{150, 30}],
       Spacer[6],
-      Button[Dynamic[Style["Suggerimento", 12, Bold, White, FontVariations -> {"StrikeThrough" -> !(esercizioGenerato && suggerimentoStep < 3)}]],
-             If[esercizioGenerato && suggerimentoStep < 3, suggerimentoStep++],
-             Background->Dynamic[If[esercizioGenerato && suggerimentoStep < 3, RGBColor[0.85, 0.65, 0.05], RGBColor[0.6, 0.6, 0.6]]],
-             Enabled->Dynamic[esercizioGenerato && suggerimentoStep < 3],
+      Button[Style["Suggerimento", 12, Bold, White],
+             If[suggerimentoStep < 3, suggerimentoStep++],
+             Background->Dynamic[If[!corretto && !soluzioneVisibile && suggerimentoStep < 3, RGBColor[0.85, 0.65, 0.05], RGBColor[0.6, 0.6, 0.6]]],
+             Enabled->Dynamic[!corretto && !soluzioneVisibile && suggerimentoStep < 3],
              ImageSize->{120, 30}],
       Spacer[6],
-      Button[Style["Pulisci Campi", 12, Bold, White], seed = 42;
+      Button[Style["Pulisci Campi", 12, Bold, White], seed = "";
              messaggioCifrato = ""; chiaveSegreto = ""; messaggioChiaro = "";
              rispostaUtente = ""; tentativi = 0; feedbackMsg = "";
-             soluzioneVisibile = False; suggerimentoStep = 0;
+             soluzioneVisibile = False; corretto = False; suggerimentoStep = 0;
              esercizioGenerato = False;
              , Background->RGBColor[0.2, 0.4, 0.7], ImageSize->{110, 30}],
       Spacer[6],
       Button[Style["Mostra Soluzione", 12, Bold, White],
-             If[esercizioGenerato, soluzioneVisibile = True];
-             , Background->RGBColor[0.7, 0.2, 0.2], ImageSize->{130, 30}]
+             soluzioneVisibile = True;
+             , Background->Dynamic[If[!corretto && !soluzioneVisibile, RGBColor[0.7, 0.2, 0.2], RGBColor[0.6,0.6,0.6]]],
+             Enabled->Dynamic[!corretto && !soluzioneVisibile],
+             ImageSize->{130, 30}]
         }],
+        ""]],
         Spacer[8],
         Dynamic[Which[
           feedbackMsg === "", "",
