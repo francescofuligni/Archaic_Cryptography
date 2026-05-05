@@ -1,9 +1,5 @@
 (* ::Package:: *)
 
-(* ::Package:: *)
-
-(* ::Package:: *)
-
 (* :Title: CrittografiaArcaica *)
 (* :Context: CrittografiaArcaica` *)
 (* :Authors: Matteo Boscherini, Alessandro Campedelli, Francesco Maria Fuligni, Mattia Furini, Mohamed Samir Haffoudhi *)
@@ -400,7 +396,7 @@ esercizioUniversaleCesare[] :=
        Which[!esercizioGenerato, Null,
              ToUpperCase[StringReplace[StringTrim[rispostaUtente], " "->""]]==
              StringReplace[messaggioChiaro, " "->""],
-             corretto = True;
+             corretto = True; suggerimentoStep = 0;
              feedbackMsg = "\[Checkmark] Corretto! Hai impiegato " <>
                            ToString[tentativi] <>
                                If[tentativi == 1, " tentativo.", " tentativi."],
@@ -425,7 +421,7 @@ esercizioUniversaleCesare[] :=
              , Background->RGBColor[0.2, 0.4, 0.7], ImageSize->{110, 30}],
       Spacer[6],
       Button[Style["Mostra Soluzione", 12, Bold, White],
-             soluzioneVisibile = True;
+             soluzioneVisibile = True; feedbackMsg = ""; suggerimentoStep = 0;
              , Background->Dynamic[If[!corretto && !soluzioneVisibile, RGBColor[0.7, 0.2, 0.2], RGBColor[0.6,0.6,0.6]]],
              Enabled->Dynamic[!corretto && !soluzioneVisibile],
              ImageSize->{130, 30}]
@@ -589,7 +585,7 @@ esercizioUniversaleVigenere[] :=
        Which[!esercizioGenerato, Null,
              ToUpperCase[StringReplace[StringTrim[rispostaUtente], " "->""]]==
              StringReplace[messaggioChiaro, " "->""],
-             corretto = True;
+             corretto = True; suggerimentoStep = 0;
              feedbackMsg = "\[Checkmark] Corretto! Hai impiegato " <>
                            ToString[tentativi] <>
                                If[tentativi == 1, " tentativo.", " tentativi."],
@@ -614,7 +610,7 @@ esercizioUniversaleVigenere[] :=
              , Background->RGBColor[0.2, 0.4, 0.7], ImageSize->{110, 30}],
       Spacer[6],
       Button[Style["Mostra Soluzione", 12, Bold, White],
-             soluzioneVisibile = True;
+             soluzioneVisibile = True; feedbackMsg = ""; suggerimentoStep = 0;
              , Background->Dynamic[If[!corretto && !soluzioneVisibile, RGBColor[0.7, 0.2, 0.2], RGBColor[0.6,0.6,0.6]]],
              Enabled->Dynamic[!corretto && !soluzioneVisibile],
              ImageSize->{130, 30}]
