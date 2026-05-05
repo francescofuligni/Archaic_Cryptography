@@ -1,5 +1,7 @@
 (* ::Package:: *)
 
+(* ::Package:: *)
+
 (* :Title: CrittografiaArcaica *)
 (* :Context: CrittografiaArcaica` *)
 (* :Authors: Matteo Boscherini, Alessandro Campedelli, Francesco Maria Fuligni, Mattia Furini, Mohamed Samir Haffoudhi *)
@@ -356,14 +358,14 @@ esercizioUniversaleCesare[] :=
         Spacer[8],
         Row[{
           Style["Seed: ", 13, Bold],
-          InputField[Dynamic[seed], String, FieldSize -> {8,1}, FieldHint -> "es. 42"],
+          InputField[Dynamic[seed], Number, FieldSize -> {8,1}, FieldHint -> "es. 42"],
           Spacer[8],
           Button[
             Style["Genera Esercizio", 13, Bold, White],
             Module[{seedInt},
-              seedInt = Quiet[ToExpression[seed]];
-              If[!IntegerQ[seedInt],
-                feedbackMsg = "\[WarningSign] Errore: il seed deve essere un numero intero."; esercizioGenerato = False,
+              seedInt = seed;
+              If[seed === "" || !IntegerQ[seedInt],
+                feedbackMsg = "\[WarningSign] Errore: inserisci un numero intero (es. 42)."; esercizioGenerato = False,
                 Module[{ris},
                   ris = generaEsercizioConSeedCesare[seedInt];
                   messaggioCifrato = ris[[1]]; shiftSegreto = ris[[2]];
@@ -383,7 +385,7 @@ esercizioUniversaleCesare[] :=
         Spacer[6],
         Dynamic[If[esercizioGenerato,
           Column[{
-            Style["Inserisci il testo decifrato (solo lettere, senza spazi):", 12, Bold],
+            Style["Inserisci il testo decifrato:", 12, Bold],
             InputField[Dynamic[rispostaUtente], String,
               FieldSize -> {30, 2}, FieldHint -> "Scrivi qui la tua risposta..."]}],
           ""]],
@@ -538,14 +540,14 @@ esercizioUniversaleVigenere[] :=
         Spacer[8],
         Row[{
           Style["Seed: ", 13, Bold],
-          InputField[Dynamic[seed], String, FieldSize -> {8,1}, FieldHint -> "es. 42"],
+          InputField[Dynamic[seed], Number, FieldSize -> {8,1}, FieldHint -> "es. 42"],
           Spacer[8],
           Button[
             Style["Genera Esercizio", 13, Bold, White],
             Module[{seedInt},
-              seedInt = Quiet[ToExpression[seed]];
-              If[!IntegerQ[seedInt],
-                feedbackMsg = "\[WarningSign] Errore: il seed deve essere un numero intero."; esercizioGenerato = False,
+              seedInt = seed;
+              If[seed === "" || !IntegerQ[seedInt],
+                feedbackMsg = "\[WarningSign] Errore: inserisci un numero intero (es. 42)."; esercizioGenerato = False,
                 Module[{ris},
                   ris = generaEsercizioConSeedVigenere[seedInt];
                   messaggioCifrato = ris[[1]]; chiaveSegreto = ris[[2]];
@@ -572,7 +574,7 @@ esercizioUniversaleVigenere[] :=
         Spacer[6],
         Dynamic[If[esercizioGenerato,
           Column[{
-            Style["Inserisci il testo decifrato (solo lettere, senza spazi):", 12, Bold],
+            Style["Inserisci il testo decifrato:", 12, Bold],
             InputField[Dynamic[rispostaUtente], String,
               FieldSize -> {30, 2}, FieldHint -> "Applica la chiave al contrario..."]}],
           ""]],
