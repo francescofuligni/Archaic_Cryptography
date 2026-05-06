@@ -362,16 +362,13 @@ esercizioUniversaleCesare[] :=
           Spacer[8],
           Button[
             Style["Genera Esercizio", 13, Bold, White],
-            Module[{seedInt},
-              seedInt = seed;
-              If[seed === "" || !IntegerQ[seedInt],
-                feedbackMsg = "\[WarningSign] Errore: inserisci un numero intero (es. 42)."; esercizioGenerato = False,
-                Module[{ris},
-                  ris = generaEsercizioConSeedCesare[seedInt];
-                  messaggioCifrato = ris[[1]]; shiftSegreto = ris[[2]];
-                  messaggioChiaro = ris[[3]]; rispostaUtente = "";
-                  tentativi = 0; feedbackMsg = ""; soluzioneVisibile = False;
-                  suggerimentoStep = 0; corretto = False; esercizioGenerato = True]]];,
+            If[seed === "" || !IntegerQ[seed],
+              feedbackMsg = "\[WarningSign] Errore: inserisci un numero intero (es. 42)."; esercizioGenerato = False,
+              {messaggioCifrato, shiftSegreto, messaggioChiaro} = generaEsercizioConSeedCesare[seed];
+              rispostaUtente = ""; tentativi = 0; feedbackMsg = "";
+              soluzioneVisibile = False; suggerimentoStep = 0; corretto = False;
+              esercizioGenerato = True
+            ];,
             Background -> RGBColor[0.15, 0.5, 0.8], ImageSize -> {160, 35}]
 }],
         Spacer[8],
@@ -544,16 +541,13 @@ esercizioUniversaleVigenere[] :=
           Spacer[8],
           Button[
             Style["Genera Esercizio", 13, Bold, White],
-            Module[{seedInt},
-              seedInt = seed;
-              If[seed === "" || !IntegerQ[seedInt],
-                feedbackMsg = "\[WarningSign] Errore: inserisci un numero intero (es. 42)."; esercizioGenerato = False,
-                Module[{ris},
-                  ris = generaEsercizioConSeedVigenere[seedInt];
-                  messaggioCifrato = ris[[1]]; chiaveSegreto = ris[[2]];
-                  messaggioChiaro = ris[[3]]; rispostaUtente = "";
-                  tentativi = 0; feedbackMsg = ""; soluzioneVisibile = False;
-                  suggerimentoStep = 0; corretto = False; esercizioGenerato = True]]];,
+            If[seed === "" || !IntegerQ[seed],
+              feedbackMsg = "\[WarningSign] Errore: inserisci un numero intero (es. 42)."; esercizioGenerato = False,
+              {messaggioCifrato, chiaveSegreto, messaggioChiaro} = generaEsercizioConSeedVigenere[seed];
+              rispostaUtente = ""; tentativi = 0; feedbackMsg = "";
+              soluzioneVisibile = False; suggerimentoStep = 0; corretto = False;
+              esercizioGenerato = True
+            ];,
             Background -> RGBColor[0.4, 0.1, 0.7], ImageSize -> {160, 35}]
 }],
         Spacer[8],
