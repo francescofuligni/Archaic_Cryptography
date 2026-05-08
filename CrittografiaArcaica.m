@@ -1,7 +1,6 @@
 (* ::Package:: *)
 
 (* ::Package:: *)
-
 (* :Title: CrittografiaArcaica *)
 (* :Context: CrittografiaArcaica` *)
 (* :Authors: Matteo Boscherini, Alessandro Campedelli, Francesco Maria Fuligni, Mattia Furini, Mohamed Samir Haffoudhi *)
@@ -11,10 +10,11 @@
 (* :Mathematica Version: 14 *)
 (* :History: Ultima modifica il 30/04/2026 *)
 (* :Keywords: crittografia, Cesare, Vigenere, cifrario *)
-(* :Sources: De Mauro - Dizionario di frequenza dell'italiano *)
+(* :Sources: Dizionario di frequenza dell'italiano *)
 (* :Limitations: solo lettere A-Z, nessun carattere accentato *)
 (* :Discussion: Progetto del corso di Matematica Computazionale *)
 (* :Requirements: Mathematica 14, connessione per DictionaryLookup *)
+
 
 BeginPackage["CrittografiaArcaica`"];
 
@@ -41,7 +41,7 @@ Begin["`Private`"];
 
 alfabeto = CharacterRange["A", "Z"]; (* le 26 lettere maiuscole dell'alfabeto latino *)
 
-(* Frequenze percentuali delle lettere nell'italiano scritto - fonte: De Mauro.
+(* Frequenze percentuali delle lettere nell'italiano scritto
    Ordine: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z *)
 freqItaliano = {11.74, 0.92, 4.50, 3.73, 11.79, 0.95, 1.64, 1.54,
                 11.28, 0.00, 0.00, 6.51, 2.51, 6.88, 9.83, 3.05,
