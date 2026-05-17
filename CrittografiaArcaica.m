@@ -325,22 +325,21 @@ ruotaCesare[shift_Integer, highlightK_Integer] :=
       PlotRange  -> {{-1.38, 1.38}, {-1.38, 1.38}}]
   ]
 
-ruotaInterattiva[shiftDyn_] :=
-  DynamicModule[
-    {settoreCorrente = 0}, (* indice 0-25 della lettera puntata dallo slider *)
-    Column[{
-      Row[{
-        Style["Punta la lettera: ", 11, Italic, Gray],
-        Slider[Dynamic[settoreCorrente], {0, 25, 1}, ImageSize -> 220],
-        Spacer[6],
-        Dynamic[Style[
-          alfabeto[[settoreCorrente + 1]] <> " \[RightArrow] " <>
-          alfabeto[[Mod[settoreCorrente + shiftDyn, 26] + 1]],
-          14, Bold, RGBColor[0.2, 0.4, 0.7]]]
-      }],
-      Dynamic[ruotaCesare[shiftDyn, settoreCorrente]] (* ridisegna la ruota ad ogni movimento dello slider *)
-    }, Alignment -> Center]
-  ]
+SetAttributes[ruotaInterattiva, HoldAll];
+
+ruotaInterattiva[shiftDyn_, settoreCorrente_] :=
+  Column[{
+    Row[{
+      Style["Punta la lettera: ", 11, Italic, Gray],
+      Slider[Dynamic[settoreCorrente], {0, 25, 1}, ImageSize -> 220],
+      Spacer[6],
+      Dynamic[Style[
+        alfabeto[[settoreCorrente + 1]] <> " \[RightArrow] " <>
+        alfabeto[[Mod[settoreCorrente + shiftDyn, 26] + 1]],
+        14, Bold, RGBColor[0.2, 0.4, 0.7]]]
+    }],
+    Dynamic[ruotaCesare[shiftDyn, settoreCorrente]] (* ridisegna la ruota ad ogni movimento dello slider *)
+  }, Alignment -> Center]
 
 esercizioUniversaleCesare[] :=
   DynamicModule[
@@ -355,7 +354,8 @@ esercizioUniversaleCesare[] :=
          corretto = False,       (* True quando l'utente ha risposto correttamente *)
          suggerimentoStep = 0,   (* livello del suggerimento attivo: 0=nessuno, 1=primo, 2=secondo *)
          esercizioGenerato = False, (* True dopo aver premuto Genera Esercizio *)
-         shiftEsplorazione = 0}, (* shift separato per la ruota di esplorazione *)
+         shiftEsplorazione = 0,  (* shift separato per la ruota di esplorazione *)
+         settoreCorrente = 0},   (* indice 0-25 della lettera puntata nella ruota *)
     Panel[
       Column[{
         Style["Esercizio - Cifrario di Cesare",
@@ -423,7 +423,7 @@ esercizioUniversaleCesare[] :=
              messaggioCifrato = ""; shiftSegreto = 0; messaggioChiaro = "";
              rispostaUtente = ""; tentativi = 0; feedbackMsg = "";
              soluzioneVisibile = False; corretto = False; suggerimentoStep = 0;
-             esercizioGenerato = False; shiftEsplorazione = 0;
+             esercizioGenerato = False; shiftEsplorazione = 0; settoreCorrente = 0;
              , Background->RGBColor[0.2, 0.4, 0.7], ImageSize->{110, 30}],
       Spacer[6],
       Button[Style["Mostra Soluzione", 12, Bold, White],
@@ -497,7 +497,7 @@ esercizioUniversaleCesare[] :=
               Spacer[8],
               Dynamic[Style[ToString[shiftEsplorazione], 15, Bold, RGBColor[0.7, 0.2, 0.2]]]
             }],
-            Dynamic[ruotaInterattiva[shiftEsplorazione]]
+            ruotaInterattiva[shiftEsplorazione, settoreCorrente]
           }, Alignment -> Center],
           ""]],
         (* Grafico frequenze standard italiano come riferimento *)
