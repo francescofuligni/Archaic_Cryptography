@@ -176,10 +176,17 @@ tabellaShiftVigenere[testo_String, chiave_String, cifra_] :=
     (* segno: +1 per cifrare, -1 per decifrare *)
     segno = If[cifra, 1, -1];
     risultato = Table[
-      Module[{sh, lOut},
-        sh   = indiceLettera[chiaveChars[[Mod[i - 1, chiaveLen] + 1]]];
-        lOut = alfabeto[[Mod[indiceLettera[soleLettere[[i]]] + segno * sh, 26] + 1]];
-        {soleLettere[[i]], chiaveChars[[Mod[i - 1, chiaveLen] + 1]], sh, lOut}
+      With[
+        {
+          letteraChiave = chiaveChars[[Mod[i - 1, chiaveLen] + 1]],
+          sh = indiceLettera[chiaveChars[[Mod[i - 1, chiaveLen] + 1]]]
+        },
+        {
+          soleLettere[[i]],
+          letteraChiave,
+          sh,
+          alfabeto[[Mod[indiceLettera[soleLettere[[i]]] + segno * sh, 26] + 1]]
+        }
       ],
       {i, 1, Min[Length[soleLettere], 24]}
     ]; (* limitata a 24 righe per non appesantire la visualizzazione *)
