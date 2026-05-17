@@ -26,16 +26,16 @@ Unprotect[
 ];
 
 bottoneEserciziCesare::usage =
-  "bottoneEserciziCesare[] restituisce un bottone che apre gli Esercizi del Cifrario di Cesare. Da usare nella sezione II.3 del Tutorial.nb.";
+  "bottoneEserciziCesare[] restituisce un bottone che apre gli Esercizi del Cifrario di Cesare. Da usare nella sezione II.3 del tutorial.";
 
 bottoneEserciziVigenere::usage =
-  "bottoneEserciziVigenere[] restituisce un bottone che apre gli Esercizi del Cifrario di Vigenere. Da usare nella sezione III.3 del Tutorial.nb.";
+  "bottoneEserciziVigenere[] restituisce un bottone che apre gli Esercizi del Cifrario di Vigenere. Da usare nella sezione III.3 del tutorial.";
 
-esercizioUniversaleCesare::usage =
-  "esercizioUniversaleCesare[] apre gli Esercizi del Cifrario di Cesare.";
-
-esercizioUniversaleVigenere::usage =
-  "esercizioUniversaleVigenere[] apre gli Esercizi del Cifrario di Vigenere.";
+(* ::Text::Background->RGBColor[1, 1, 0.75]:: *)
+(* MODIFICA 17/05/2026 - Feedback G. Spaletta:
+   le funzioni esercizioUniversaleCesare ed esercizioUniversaleVigenere
+   restano disponibili per i bottoni gia' presenti nel Tutorial, ma non sono
+   piu' documentate tramite usage per l'utente finale. *)
 
 Begin["`Private`"];
 
