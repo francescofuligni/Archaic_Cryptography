@@ -32,10 +32,6 @@ bottoneEserciziVigenere::usage =
   "bottoneEserciziVigenere[] restituisce un bottone che apre gli Esercizi del Cifrario di Vigenere. Da usare nella sezione III.3 del tutorial.";
 
 (* ::Text::Background->RGBColor[1, 1, 0.75]:: *)
-(* MODIFICA 17/05/2026 - Feedback G. Spaletta:
-   le funzioni esercizioUniversaleCesare ed esercizioUniversaleVigenere
-   restano disponibili per i bottoni gia' presenti nel Tutorial, ma non sono
-   piu' documentate tramite usage per l'utente finale. *)
 
 Begin["`Private`"];
 
