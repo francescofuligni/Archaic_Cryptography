@@ -1,21 +1,21 @@
-# Crittografia Arcaica
+# Archaic Cryptography
 
-Laboratorio interattivo di crittografia classica realizzato in Wolfram Language per il corso di Matematica Computazionale, A.A. 2025/2026.
+Interactive classical cryptography laboratory built with Wolfram Language for the Computational Mathematics course, academic year 2025/2026.
 
-Il progetto guida l'utente nello studio del Cifrario di Cesare e del Cifrario di Vigenere attraverso spiegazioni teoriche, esempi visuali ed esercizi interattivi con feedback immediato.
+The project guides users through Caesar cipher and Vigenere cipher concepts with theoretical explanations, visual examples, and interactive exercises with immediate feedback.
 
-## Contenuti
+## Contents
 
-- Tutorial guidato in notebook Mathematica.
-- Introduzione ai concetti base della crittografia classica.
-- Cifratura e decifratura con il Cifrario di Cesare.
-- Analisi delle frequenze per comprendere la debolezza del Cifrario di Cesare.
-- Ruota di Cesare interattiva per esplorare gli shift.
-- Cifratura e decifratura con il Cifrario di Vigenere.
-- Esercizi generati tramite seed, quindi riproducibili.
-- Suggerimenti progressivi, verifica della risposta e visualizzazione della soluzione.
+- Guided Mathematica notebook tutorial.
+- Introduction to basic classical cryptography concepts.
+- Encryption and decryption with the Caesar cipher.
+- Frequency analysis to understand the weakness of the Caesar cipher.
+- Interactive Caesar wheel for exploring shifts.
+- Encryption and decryption with the Vigenere cipher.
+- Seed-based exercises, making each exercise reproducible.
+- Progressive hints, answer checking, and solution reveal.
 
-## Struttura della repository
+## Repository Structure
 
 ```text
 .
@@ -26,107 +26,107 @@ Il progetto guida l'utente nello studio del Cifrario di Cesare e del Cifrario di
 
 ### `Laboratorio_Crittografia_Arcaica.nb`
 
-Notebook principale del laboratorio. Contiene il percorso didattico completo:
+Main laboratory notebook. It contains the complete learning path:
 
-1. introduzione alla crittografia;
-2. Cifrario di Cesare;
-3. Cifrario di Vigenere;
-4. approfondimenti;
-5. bibliografia;
-6. commenti e lavoro futuro.
+1. introduction to cryptography;
+2. Caesar cipher;
+3. Vigenere cipher;
+4. further reading;
+5. bibliography;
+6. comments and future work.
 
 ### `CrittografiaArcaica.m`
 
-Package Wolfram Language che implementa la logica del laboratorio:
+Wolfram Language package implementing the laboratory logic:
 
-- cifratura e decifratura dei messaggi;
-- generazione degli esercizi;
-- calcolo e visualizzazione delle frequenze;
-- ruota di Cesare;
-- interfacce dinamiche per gli esercizi;
-- bottoni per aprire gli esercizi in finestre separate.
+- message encryption and decryption;
+- exercise generation;
+- frequency calculation and visualization;
+- Caesar wheel;
+- dynamic exercise interfaces;
+- buttons for opening exercises in separate windows.
 
-Le funzioni pensate per l'uso diretto nel notebook sono:
+The functions intended for direct use inside the notebook are:
 
 ```wolfram
 bottoneEserciziCesare[]
 bottoneEserciziVigenere[]
 ```
 
-## Requisiti
+## Requirements
 
-- Wolfram Mathematica 14 o superiore.
-- I file `Laboratorio_Crittografia_Arcaica.nb` e `CrittografiaArcaica.m` devono trovarsi nella stessa cartella.
-- Disponibilita' del dizionario italiano usato da `DictionaryLookup`.
+- Wolfram Mathematica 14 or later.
+- `Laboratorio_Crittografia_Arcaica.nb` and `CrittografiaArcaica.m` must be in the same folder.
+- Availability of the Italian dictionary used by `DictionaryLookup`.
 
-## Come avviare il laboratorio
+## How to Run
 
-1. Clonare la repository:
+1. Clone the repository:
 
    ```bash
    git clone https://github.com/francescofuligni/MC-Project.git
    cd MC-Project
    ```
 
-2. Aprire `Laboratorio_Crittografia_Arcaica.nb` con Wolfram Mathematica.
+2. Open `Laboratorio_Crittografia_Arcaica.nb` with Wolfram Mathematica.
 
-3. Premere il bottone **Avvia il Laboratorio** nel notebook.
+3. Click the **Avvia il Laboratorio** button inside the notebook.
 
-   In alternativa, valutare l'intero notebook manualmente da Mathematica.
+   Alternatively, evaluate the entire notebook manually from Mathematica.
 
-Il notebook carica il package con:
+The notebook loads the package with:
 
 ```wolfram
 << CrittografiaArcaica.m
 ```
 
-## Uso degli esercizi
+## Exercise Workflow
 
-Gli esercizi richiedono un seed numerico. A parita' di seed viene generato lo stesso esercizio, rendendo il risultato riproducibile.
+Exercises require a numeric seed. The same seed always generates the same exercise, making the result reproducible.
 
-### Cifrario di Cesare
+### Caesar Cipher
 
-L'utente riceve un testo cifrato e deve ricostruire il testo originale. L'interfaccia mette a disposizione:
+The user receives an encrypted text and must reconstruct the original plaintext. The interface provides:
 
-- verifica della risposta;
-- conteggio dei tentativi;
-- tre suggerimenti progressivi;
-- soluzione esplicita;
-- ruota di Cesare interattiva;
-- grafico delle frequenze della lingua italiana.
+- answer checking;
+- attempt counter;
+- three progressive hints;
+- explicit solution reveal;
+- interactive Caesar wheel;
+- Italian letter-frequency chart.
 
-### Cifrario di Vigenere
+### Vigenere Cipher
 
-L'utente riceve un testo cifrato e la chiave usata per cifrarlo. Deve quindi applicare la decifratura sottraendo gli shift determinati dalle lettere della chiave.
+The user receives an encrypted text and the key used to encrypt it. To decrypt the text, the user subtracts the shifts determined by the letters of the key.
 
-Anche questo esercizio include verifica, suggerimenti progressivi e soluzione.
+This exercise also includes answer checking, progressive hints, and solution reveal.
 
-## Scelte implementative
+## Implementation Notes
 
-- Il testo viene normalizzato in maiuscolo.
-- L'alfabeto gestito e' quello latino `A-Z`.
-- Le parole degli esercizi vengono ricavate dal dizionario italiano di Mathematica e filtrate per mantenere solo parole alfabetiche di almeno quattro caratteri.
-- Le chiavi di Vigenere sono scelte da una lista fissa di parole italiane semplici, cosi' da mantenere l'esercizio leggibile.
-- Le interfacce sono costruite con `DynamicModule`, `Button`, `CreateDocument`, `Deploy`, `Pane`, `TabView` e primitive grafiche Wolfram.
+- Text is normalized to uppercase.
+- The supported alphabet is the Latin `A-Z` alphabet.
+- Exercise words are taken from Mathematica's Italian dictionary and filtered to keep only alphabetic words with at least four characters.
+- Vigenere keys are selected from a fixed list of simple Italian words, keeping the exercise readable.
+- Interfaces are built with `DynamicModule`, `Button`, `CreateDocument`, `Deploy`, `Pane`, `TabView`, and Wolfram graphics primitives.
 
-## Limitazioni
+## Limitations
 
-- Sono supportate solo lettere non accentate `A-Z`.
-- Accenti, lettere estese e alfabeti diversi non sono gestiti come caratteri cifrabili.
-- I caratteri non alfabetici vengono preservati nella cifratura, ma non contribuiscono all'avanzamento della chiave di Vigenere.
-- Il progetto ha finalita' didattiche e non implementa cifrari sicuri per uso reale.
+- Only unaccented `A-Z` letters are supported.
+- Accents, extended letters, and other alphabets are not handled as encryptable characters.
+- Non-alphabetic characters are preserved during encryption, but they do not advance the Vigenere key.
+- The project is educational and does not implement cryptographic methods suitable for real-world security.
 
-## Lavoro futuro
+## Future Work
 
-Possibili estensioni indicate nel notebook:
+Possible extensions listed in the notebook:
 
-- aggiungere una sezione sugli attacchi brute force;
-- approfondire l'evoluzione storica dei cifrari a sostituzione;
-- introdurre un sistema di punteggio persistente basato su tentativi e suggerimenti usati.
+- add a section about brute-force attacks;
+- expand the historical evolution of substitution ciphers;
+- introduce a persistent scoring system based on attempts and hints used.
 
-## Autori
+## Authors
 
-Gruppo "I Cesaroni":
+Group "I Cesaroni":
 
 - Matteo Boscherini
 - Alessandro Campedelli
@@ -134,11 +134,11 @@ Gruppo "I Cesaroni":
 - Mattia Furini
 - Mohamed Samir Haffoudhi
 
-## Bibliografia
+## Bibliography
 
-Il notebook include riferimenti a:
+The notebook includes references to:
 
-- materiale del corso di crittografia;
-- *The Code Book* di Simon Singh;
-- introduzione al Wolfram Language;
-- documentazione Wolfram per lo sviluppo di package.
+- course material about cryptography;
+- *The Code Book* by Simon Singh;
+- an introduction to Wolfram Language;
+- Wolfram documentation for package development.
